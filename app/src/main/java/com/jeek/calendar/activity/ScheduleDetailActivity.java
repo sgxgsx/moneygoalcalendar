@@ -28,7 +28,7 @@ import java.util.Map;
 /**
  * Created by Jimmy on 2016/10/15 0015.
  */
-public class ScheduleDetailActivity extends BaseActivity implements View.OnClickListener, OnTaskFinishedListener<Map<Integer, EventSet>>, SelectDateDialog.OnSelectDateListener, InputLocationDialog.OnLocationBackListener, SelectEventSetDialog.OnSelectEventSetListener {
+public class ScheduleDetailActivity extends BaseActivity implements View.OnClickListener, /*OnTaskFinishedListener<Map<Integer, EventSet>>, */ SelectDateDialog.OnSelectDateListener, InputLocationDialog.OnLocationBackListener, SelectEventSetDialog.OnSelectEventSetListener {
 
     public static int UPDATE_SCHEDULE_CANCEL = 1;
     public static int UPDATE_SCHEDULE_FINISH = 2;
@@ -43,7 +43,7 @@ public class ScheduleDetailActivity extends BaseActivity implements View.OnClick
     private SelectDateDialog mSelectDateDialog;
     private InputLocationDialog mInputLocationDialog;
 
-    private Map<Integer, EventSet> mEventSetsMap;
+    //private Map<Integer, EventSet> mEventSetsMap;
     private Schedule mSchedule;
     private int mPosition = -1;
 
@@ -54,14 +54,14 @@ public class ScheduleDetailActivity extends BaseActivity implements View.OnClick
         tvTitle.setText(getString(R.string.schedule_event_detail_setting));
         searchViewById(R.id.tvCancel).setOnClickListener(this);
         searchViewById(R.id.tvFinish).setOnClickListener(this);
-        searchViewById(R.id.llScheduleEventSet).setOnClickListener(this);
+        //searchViewById(R.id.llScheduleEventSet).setOnClickListener(this);
         searchViewById(R.id.llScheduleTime).setOnClickListener(this);
         searchViewById(R.id.llScheduleLocation).setOnClickListener(this);
         vScheduleColor = searchViewById(R.id.vScheduleColor);
-        ivScheduleEventSetIcon = searchViewById(R.id.ivScheduleEventSetIcon);
+        //ivScheduleEventSetIcon = searchViewById(R.id.ivScheduleEventSetIcon);
         etScheduleTitle = searchViewById(R.id.etScheduleTitle);
         etScheduleDesc = searchViewById(R.id.etScheduleDesc);
-        tvScheduleEventSet = searchViewById(R.id.tvScheduleEventSet);
+        //tvScheduleEventSet = searchViewById(R.id.tvScheduleEventSet);
         tvScheduleTime = searchViewById(R.id.tvScheduleTime);
         tvScheduleLocation = searchViewById(R.id.tvScheduleLocation);
     }
@@ -69,10 +69,10 @@ public class ScheduleDetailActivity extends BaseActivity implements View.OnClick
     @Override
     protected void initData() {
         super.initData();
-        mEventSetsMap = new HashMap<>();
+        //mEventSetsMap = new HashMap<>();
         mSchedule = (Schedule) getIntent().getSerializableExtra(SCHEDULE_OBJ);
         mPosition = getIntent().getIntExtra(CALENDAR_POSITION, -1);
-        new LoadEventSetMapTask(this, this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        //new LoadEventSetMapTask(this, this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
     @Override
@@ -91,9 +91,11 @@ public class ScheduleDetailActivity extends BaseActivity implements View.OnClick
             case R.id.tvFinish:
                 confirm();
                 break;
+            /*
             case R.id.llScheduleEventSet:
                 showSelectEventSetDialog();
                 break;
+            */
             case R.id.llScheduleTime:
                 showSelectDateDialog();
                 break;
@@ -142,13 +144,15 @@ public class ScheduleDetailActivity extends BaseActivity implements View.OnClick
 
     private void setScheduleData() {
         vScheduleColor.setBackgroundResource(JeekUtils.getEventSetColor(mSchedule.getColor()));
-        ivScheduleEventSetIcon.setImageResource(mSchedule.getEventSetId() == 0 ? R.mipmap.ic_detail_category : R.mipmap.ic_detail_icon);
+//        ivScheduleEventSetIcon.setImageResource(mSchedule.getEventSetId() == 0 ? R.mipmap.ic_detail_category : R.mipmap.ic_detail_icon);
         etScheduleTitle.setText(mSchedule.getTitle());
         etScheduleDesc.setText(mSchedule.getDesc());
+        /*
         EventSet current = mEventSetsMap.get(mSchedule.getEventSetId());
         if (current != null) {
             tvScheduleEventSet.setText(current.getName());
         }
+        */
         resetDateTimeUi();
         if (TextUtils.isEmpty(mSchedule.getLocation())) {
             tvScheduleLocation.setText(R.string.click_here_select_location);
@@ -170,7 +174,7 @@ public class ScheduleDetailActivity extends BaseActivity implements View.OnClick
             }
         }
     }
-
+/*
     @Override
     public void onTaskFinished(Map<Integer, EventSet> data) {
         mEventSetsMap = data;
@@ -182,7 +186,7 @@ public class ScheduleDetailActivity extends BaseActivity implements View.OnClick
             tvScheduleEventSet.setText(current.getName());
         }
     }
-
+*/
     @Override
     public void onSelectDate(int year, int month, int day, long time, int position) {
         mSchedule.setYear(year);

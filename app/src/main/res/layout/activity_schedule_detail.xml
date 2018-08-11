@@ -57,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/line_height"
             android:background="@color/color_schedule_line"/>
-
+        <!--
         <LinearLayout
             android:id="@+id/llScheduleEventSet"
             android:layout_width="match_parent"
@@ -98,7 +98,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/line_height"
             android:background="@color/color_schedule_line"/>
-
+        -->
         <LinearLayout
             android:id="@+id/llScheduleTime"
             android:layout_width="match_parent"

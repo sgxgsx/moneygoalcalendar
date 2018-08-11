@@ -55,12 +55,14 @@ public class EventSetAdapter extends RecyclerView.Adapter<EventSetAdapter.EventS
                 showDeleteEventSetDialog(eventSet, position);
             }
         });
+        /*
         holder.sdvEventSet.setOnContentClickListener(new SlideDeleteView.OnContentClickListener() {
             @Override
             public void onContentClick() {
                 gotoEventSetFragment(eventSet);
             }
         });
+        */
     }
 
     private void showDeleteEventSetDialog(final EventSet eventSet, final int position) {
@@ -83,13 +85,13 @@ public class EventSetAdapter extends RecyclerView.Adapter<EventSetAdapter.EventS
             }
         }).show();
     }
-
+    /*
     private void gotoEventSetFragment(EventSet eventSet) {
         if (mContext instanceof MainActivity) {
             ((MainActivity) mContext).gotoEventSetFragment(eventSet);
         }
     }
-
+    */
     protected class EventSetViewHolder extends RecyclerView.ViewHolder {
 
         private SlideDeleteView sdvEventSet;

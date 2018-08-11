@@ -92,16 +92,16 @@
         "source": "/home/strawberry/Downloads/moneygoalcalendar/app/src/main/res/drawable/btn_show_finish_pre.xml"
     },
     {
-        "merged": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_googleg_standard_color_18.png.flat",
-        "source": "/home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/f5d4910d0bb9764982101d7a4b6140eb/res/drawable-xhdpi-v4/googleg_standard_color_18.png"
+        "merged": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/res/merged/debug/drawable_notification_tile_bg.xml.flat",
+        "source": "/home/strawberry/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/6b6673754a392fbcc7a61b5a740f8d12/res/drawable/notification_tile_bg.xml"
     },
     {
         "merged": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
         "source": "/home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/f5d4910d0bb9764982101d7a4b6140eb/res/drawable-xxhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
     },
     {
-        "merged": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/res/merged/debug/drawable_notification_tile_bg.xml.flat",
-        "source": "/home/strawberry/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/6b6673754a392fbcc7a61b5a740f8d12/res/drawable/notification_tile_bg.xml"
+        "merged": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_googleg_standard_color_18.png.flat",
+        "source": "/home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/f5d4910d0bb9764982101d7a4b6140eb/res/drawable-xhdpi-v4/googleg_standard_color_18.png"
     },
     {
         "merged": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
@@ -148,12 +148,12 @@
         "source": "/home/strawberry/Downloads/moneygoalcalendar/app/src/main/res/drawable-xhdpi/bg_menu_border_with_arrow.9.png"
     },
     {
-        "merged": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
-        "source": "/home/strawberry/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8284c8782e5308ba05af000eabc377db/res/drawable-mdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
-    },
-    {
         "merged": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/res/merged/debug/layout_dialog_input_location.xml.flat",
         "source": "/home/strawberry/Downloads/moneygoalcalendar/app/src/main/res/layout/dialog_input_location.xml"
+    },
+    {
+        "merged": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
+        "source": "/home/strawberry/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8284c8782e5308ba05af000eabc377db/res/drawable-mdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
         "merged": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
@@ -180,12 +180,12 @@
         "source": "/home/strawberry/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8284c8782e5308ba05af000eabc377db/res/drawable-ldrtl-hdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
-        "merged": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_textfield_activated_mtrl_alpha.9.png.flat",
-        "source": "/home/strawberry/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8284c8782e5308ba05af000eabc377db/res/drawable-xxhdpi-v4/abc_textfield_activated_mtrl_alpha.9.png"
-    },
-    {
         "merged": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_menu_schedule.png.flat",
         "source": "/home/strawberry/Downloads/moneygoalcalendar/app/src/main/res/mipmap-xhdpi/ic_menu_schedule.png"
+    },
+    {
+        "merged": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_textfield_activated_mtrl_alpha.9.png.flat",
+        "source": "/home/strawberry/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8284c8782e5308ba05af000eabc377db/res/drawable-xxhdpi-v4/abc_textfield_activated_mtrl_alpha.9.png"
     },
     {
         "merged": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/res/merged/debug/color-v23_abc_tint_btn_checkable.xml.flat",
@@ -2326,10 +2326,6 @@
     {
         "merged": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
         "source": "/home/strawberry/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8284c8782e5308ba05af000eabc377db/res/drawable-xxxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
-    },
-    {
-        "merged": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/res/merged/debug/layout_activity_main2.xml.flat",
-        "source": "/home/strawberry/Downloads/moneygoalcalendar/app/src/main/res/layout/activity_main2.xml"
     },
     {
         "merged": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/res/merged/debug/drawable_bg_select_date_dialog_edit_text_focus.xml.flat",

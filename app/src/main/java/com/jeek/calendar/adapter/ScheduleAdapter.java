@@ -59,34 +59,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         mSchedules = new ArrayList<>();
         mFinishSchedules = new ArrayList<>();
     }
-    private void testMethod(){
 
-        String[] projection = new String[] { CalendarContract.Events.CALENDAR_ID, CalendarContract.Events.TITLE, CalendarContract.Events.DESCRIPTION, CalendarContract.Events.DTSTART, CalendarContract.Events.DTEND, CalendarContract.Events.ALL_DAY, CalendarContract.Events.EVENT_LOCATION };
-
-// 0 = January, 1 = February, ...
-
-        Calendar startTime = Calendar.getInstance();
-        startTime.set(2014,00,01,00,00);
-
-        Calendar endTime= Calendar.getInstance();
-        endTime.set(2015,00,01,00,00);
-
-// the range is all data from 2014
-
-        String selection = "(( " + CalendarContract.Events.DTSTART + " >= " + startTime.getTimeInMillis() + " ) AND ( " + CalendarContract.Events.DTSTART + " <= " + endTime.getTimeInMillis() + " ))";
-
-        Cursor cursor = mContext.getContentResolver().query( CalendarContract.Events.CONTENT_URI, projection, selection, null, null );
-
-// output the events
-        if (cursor.moveToFirst()){
-            do{
-                Schedule schedule = new Schedule();
-            }while(cursor.moveToNext());
-        }
-        Toast.makeText( mContext, "Title: " + cursor.getString(1) + " Start-Time: " + (new Date(cursor.getLong(3))).toString(), Toast.LENGTH_LONG ).show();
-        cursor.close();
-
-    }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == SCHEDULE_TYPE) {

@@ -145,6 +145,7 @@
                     </LinearLayout>
 
                 </LinearLayout>
+                <!--
                 <LinearLayout
                     android:id="@+id/llMenuNoCategory"
                     android:layout_width="match_parent"
@@ -198,7 +199,7 @@
                     android:paddingTop="@dimen/space_16dp"
                     android:text="@string/menu_add_event_set"
                     android:textColor="@color/menu_item_text_color"/>
-
+                -->
                 <TextView
                     android:id="@+id/tvMenuSignOut"
                     android:layout_width="match_parent"

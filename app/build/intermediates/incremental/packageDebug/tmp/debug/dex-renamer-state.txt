@@ -1,4 +1,4 @@
-#Sun Aug 12 00:37:07 EEST 2018
+#Sun Aug 12 01:38:12 EEST 2018
 base.0=/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex

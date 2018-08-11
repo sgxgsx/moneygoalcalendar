@@ -50,7 +50,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener, OnTaskFinishedListener<List<EventSet>> {
+public class MainActivity extends BaseActivity implements View.OnClickListener/*, OnTaskFinishedListener<List<EventSet>>*/ {
 
     public static int ADD_EVENT_SET_CODE = 1;
     public static String ADD_EVENT_SET_ACTION = "action.add.event.set";
@@ -58,14 +58,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private DrawerLayout dlMain;
     private LinearLayout llTitleDate;
     private TextView tvTitleMonth, tvTitleDay, tvTitle;
-    private RecyclerView rvMenuEventSetList;
+    //private RecyclerView rvMenuEventSetList;
 
-    private EventSetAdapter mEventSetAdapter;
-    private List<EventSet> mEventSets;
+    //private EventSetAdapter mEventSetAdapter;
+    //private List<EventSet> mEventSets;
 
-    private BaseFragment mScheduleFragment, mEventSetFragment;
-    private EventSet mCurrentEventSet;
-    private AddEventSetBroadcastReceiver mAddEventSetBroadcastReceiver;
+    private BaseFragment mScheduleFragment;
+    //private BaseFragment mEventSetFragment;
+    //private EventSet mCurrentEventSet;
+    //private AddEventSetBroadcastReceiver mAddEventSetBroadcastReceiver;
 
     private long[] mNotes = new long[2];
     private String[] mMonthText;
@@ -111,23 +112,23 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         tvTitleMonth = searchViewById(R.id.tvTitleMonth);
         tvTitleDay = searchViewById(R.id.tvTitleDay);
         tvTitle = searchViewById(R.id.tvTitle);
-        rvMenuEventSetList = searchViewById(R.id.rvMenuEventSetList);
+        //rvMenuEventSetList = searchViewById(R.id.rvMenuEventSetList);
         mUserNameTextView = searchViewById(R.id.tvMenuTitleAccount);
         searchViewById(R.id.ivMainMenu).setOnClickListener(this);
         searchViewById(R.id.llMenuSchedule).setOnClickListener(this);
-        searchViewById(R.id.llMenuNoCategory).setOnClickListener(this);
+        //searchViewById(R.id.llMenuNoCategory).setOnClickListener(this);
         searchViewById(R.id.llMenuGoMoney).setOnClickListener(this);
-        searchViewById(R.id.tvMenuAddEventSet).setOnClickListener(this);
+        //searchViewById(R.id.tvMenuAddEventSet).setOnClickListener(this);
         searchViewById(R.id.tvMenuSignOut).setOnClickListener(this);
         searchViewById(R.id.tvMenuDeleteAccount).setOnClickListener(this);
         searchViewById(R.id.floatingActionButton).setOnClickListener(this);
         initUi();
-        initEventSetList();
+        //initEventSetList();
         gotoScheduleFragment();
-        initBroadcastReceiver();
+        //initBroadcastReceiver();
 
     }
-
+/*
     private void initBroadcastReceiver() {
         if (mAddEventSetBroadcastReceiver == null) {
             mAddEventSetBroadcastReceiver = new AddEventSetBroadcastReceiver();
@@ -136,7 +137,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             registerReceiver(mAddEventSetBroadcastReceiver, filter);
         }
     }
-
+*/
+/*
     private void initEventSetList() {
         mEventSets = new ArrayList<>();
         LinearLayoutManager manager = new LinearLayoutManager(this);
@@ -148,7 +150,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         mEventSetAdapter = new EventSetAdapter(this, mEventSets);
         rvMenuEventSetList.setAdapter(mEventSetAdapter);
     }
-
+*/
     private void initUi() {
         dlMain.setScrimColor(Color.TRANSPARENT);
         mMonthText = getResources().getStringArray(R.array.calendar_month);
@@ -167,7 +169,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     protected void initData() {
         super.initData();
         resetMainTitleDate(mCurrentSelectYear, mCurrentSelectMonth, mCurrentSelectDay);
+        /*
         new LoadEventSetTask(this, this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        */
     }
 
     public void resetMainTitleDate(int year, int month, int day) {
@@ -212,6 +216,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             case R.id.llMenuSchedule:
                 gotoScheduleFragment();
                 break;
+            /*
             case R.id.llMenuNoCategory:
                 mCurrentEventSet = new EventSet();
                 mCurrentEventSet.setName(getString(R.string.menu_no_category));
@@ -220,6 +225,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             case R.id.tvMenuAddEventSet:
                 gotoAddEventSetActivity();
                 break;
+            */
             case R.id.llMenuGoMoney:
                 gotoMoney();
                 break;
@@ -289,15 +295,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             mScheduleFragment = ScheduleFragment.getInstance();
             ft.add(R.id.flMainContainer, mScheduleFragment);
         }
+        /*
         if (mEventSetFragment != null)
             ft.hide(mEventSetFragment);
+        */
         ft.show(mScheduleFragment);
         ft.commit();
         llTitleDate.setVisibility(View.VISIBLE);
         tvTitle.setVisibility(View.GONE);
         dlMain.closeDrawer(Gravity.START);
     }
-
+/*
     public void gotoEventSetFragment(EventSet eventSet) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.setTransition(FragmentTransaction.TRANSIT_NONE);
@@ -318,7 +326,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private void gotoAddEventSetActivity() {
         startActivityForResult(new Intent(this, AddEventSetActivity.class), ADD_EVENT_SET_CODE);
     }
-
+*/
+/*
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -330,7 +339,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             }
         }
     }
-
+*/
     @Override
     public void onBackPressed() {
         if (dlMain.isDrawerOpen(Gravity.START)) {
@@ -347,18 +356,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     }
     @Override
     protected void onDestroy() {
+        /*
         if (mAddEventSetBroadcastReceiver != null) {
             unregisterReceiver(mAddEventSetBroadcastReceiver);
             mAddEventSetBroadcastReceiver = null;
         }
+        */
         super.onDestroy();
     }
-
+/*
     @Override
     public void onTaskFinished(List<EventSet> data) {
         mEventSetAdapter.changeAllData(data);
     }
-
+*/
+/*
     private class AddEventSetBroadcastReceiver extends BroadcastReceiver {
 
         @Override
@@ -370,5 +382,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             }
         }
     }
+*/
 
 }
