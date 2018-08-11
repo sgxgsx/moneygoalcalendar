@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/strawberry/Downloads/PROJECT/new/Calendar-master/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
+            "outputFile": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
                     "source": "/home/strawberry/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/3dce6cdc3eb24e4597f1d3dc17b06967/res/values-v24/values-v24.xml",

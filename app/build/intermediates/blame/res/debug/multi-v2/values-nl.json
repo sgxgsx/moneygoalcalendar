@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/strawberry/Downloads/PROJECT/new/Calendar-master/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-nl/values-nl.xml",
+            "outputFile": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-nl/values-nl.xml",
             "map": [
                 {
                     "source": "/home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/res/values-nl/values-nl.xml",

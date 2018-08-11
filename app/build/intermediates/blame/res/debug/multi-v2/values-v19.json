@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/strawberry/Downloads/PROJECT/new/Calendar-master/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v19/values-v19.xml",
+            "outputFile": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v19/values-v19.xml",
             "map": [
                 {
-                    "source": "/home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/res/values-v19/styles.xml",
+                    "source": "/home/strawberry/Downloads/moneygoalcalendar/app/src/main/res/values-v19/styles.xml",
                     "from": {
                         "startLines": "3,7",
                         "startColumns": "4,4",
