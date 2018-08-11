@@ -1,0 +1,686 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:2:1-32:12
+INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:2:1-32:12
+INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:2:1-32:12
+INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:2:1-32:12
+MERGED from [:calendar] /home/strawberry/Downloads/PROJECT/new/Calendar-master/calendar/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-15:12
+MERGED from [:common] /home/strawberry/Downloads/PROJECT/new/Calendar-master/common/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-16:12
+MERGED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:2:1-114:12
+MERGED from [com.android.support:design:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/4f4f16ab80630cb21fc523ed45cfdb4d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/f782161a3e531aac74b15f0f03fa4c19/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customtabs:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/customtabs-27.1.1.aar/1058a504eae66edde2ff81093e07e35a/AndroidManifest.xml:17:1-22:12
+MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] /home/strawberry/.gradle/caches/transforms-1/files-1.1/library-1.4.2.aar/57cafcc6e364231aff2fa852f50c5f39/AndroidManifest.xml:6:1-16:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8284c8782e5308ba05af000eabc377db/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/71dbf633edf67df4d58d27117baf137d/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:extensions:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/extensions-1.1.1.aar/4af6908c91cea2c0db0d8a5cb79d3e5c/AndroidManifest.xml:17:1-30:12
+MERGED from [com.google.firebase:firebase-core:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.1.aar/2a9adc42d3624b53e5702a710b6c3cd1/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/e2735a31ed2ae7804726e6fb0c3a17dd/AndroidManifest.xml:17:1-34:12
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:17:1-55:12
+MERGED from [com.google.firebase:firebase-auth:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/9b5462d12a1ee5a42f2488b924dda468/AndroidManifest.xml:17:1-38:12
+MERGED from [com.google.android.gms:play-services-auth:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-auth-15.0.1.aar/b99deec617ef8f0d5810cb854ac1b362/AndroidManifest.xml:17:1-39:12
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/a7bebdf1b3321c0c84f1dbfe830c23c2/AndroidManifest.xml:17:1-40:12
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:17:1-65:12
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-stats-15.0.1.aar/05e6dadaf1093c1747f488558f76e78c/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-interop-16.0.0.aar/2b6a9ad83cf61bb8eac8818f37d6b243/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.firebase:firebase-common:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.0.aar/a448f0da7bcc09e986903d0d93d816ad/AndroidManifest.xml:2:1-16:12
+MERGED from [com.google.firebase:firebase-measurement-connector:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-16.0.0.aar/ff2d2a455b61b3c6c3e5b93794e30abd/AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-flags:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-flags-15.0.1.aar/e1333ae68ea4f713afdfa01cf15eb049/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-15.0.1.aar/83c0e0e49620336e0cb32f15a47f6ecc/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-auth-base:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-15.0.1.aar/dbffeb7951e912934fc2dafcd144e7ec/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.0.aar/bfe1699e8aade3069611d551c17d9d26/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/f5d4910d0bb9764982101d7a4b6140eb/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/dc490f87e36f364b699b14728c6dac40/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-15.0.1.aar/d464a8f9aee15394d05c42b84eff4262/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/9b1cf450a82f6de58662c28319bd5e44/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/bfded05b8c2754e6f60bba514d9d2222/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/6e9696d15be0d4bf21c121e46545221a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/ec9950c7d9f22c5abc0434dc48da07e5/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/aff372e17eb0b78ac4d971b38557d1ab/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/transition-27.1.1.aar/7c8cdebe3e0625291a28f85ce4185a8f/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/be9072755922c0caccc7ceaa7bd067f1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/3dce6cdc3eb24e4597f1d3dc17b06967/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/6b6673754a392fbcc7a61b5a740f8d12/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.1.1.aar/6a3f8ad779f6e4006ba28c2cded95c0b/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/7fcfdb405c41217ef968bd6fbc5ed26e/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/0aaf4e795afddc5e75340d590aba685e/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/2e27e6b9466ed6e4259486dbdd404ad0/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/f0f43b78f3c38d6997f6b8aa47f3681d/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/ec225c468942123b2613bcf92f4a94c9/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /home/strawberry/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.2.aar/d1e4789b8e716c3bb458179f1acd3a31/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.0.0.aar/07d16a814d6c82f0e95f7234a00554ed/AndroidManifest.xml:17:1-24:12
+INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:2:1-32:12
+INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:2:1-32:12
+INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:2:1-32:12
+	package
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:3:5-32
+		INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml
+		INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:2:1-32:12
+		INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:2:1-32:12
+		INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:5:5-67
+MERGED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:13:5-67
+MERGED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:13:5-67
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/e2735a31ed2ae7804726e6fb0c3a17dd/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/e2735a31ed2ae7804726e6fb0c3a17dd/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/a7bebdf1b3321c0c84f1dbfe830c23c2/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/a7bebdf1b3321c0c84f1dbfe830c23c2/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:23:5-67
+	android:name
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.WRITE_CALENDAR
+ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:6:5-73
+	android:name
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:6:22-70
+uses-permission#android.permission.READ_CALENDAR
+ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:7:5-72
+	android:name
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:7:22-69
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:8:5-80
+	android:name
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:8:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:9:22-78
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:10:5-79
+MERGED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:12:5-79
+MERGED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:12:5-79
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/e2735a31ed2ae7804726e6fb0c3a17dd/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/e2735a31ed2ae7804726e6fb0c3a17dd/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/a7bebdf1b3321c0c84f1dbfe830c23c2/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/a7bebdf1b3321c0c84f1dbfe830c23c2/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:10:22-76
+application
+ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:12:5-30:19
+MERGED from [:calendar] /home/strawberry/Downloads/PROJECT/new/Calendar-master/calendar/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-13:38
+MERGED from [:calendar] /home/strawberry/Downloads/PROJECT/new/Calendar-master/calendar/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-13:38
+MERGED from [:common] /home/strawberry/Downloads/PROJECT/new/Calendar-master/common/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-14:19
+MERGED from [:common] /home/strawberry/Downloads/PROJECT/new/Calendar-master/common/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-14:19
+MERGED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:15:5-112:19
+MERGED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:15:5-112:19
+MERGED from [android.arch.lifecycle:extensions:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/extensions-1.1.1.aar/4af6908c91cea2c0db0d8a5cb79d3e5c/AndroidManifest.xml:22:5-28:19
+MERGED from [android.arch.lifecycle:extensions:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/extensions-1.1.1.aar/4af6908c91cea2c0db0d8a5cb79d3e5c/AndroidManifest.xml:22:5-28:19
+MERGED from [com.google.firebase:firebase-core:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.1.aar/2a9adc42d3624b53e5702a710b6c3cd1/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-core:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.1.aar/2a9adc42d3624b53e5702a710b6c3cd1/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/e2735a31ed2ae7804726e6fb0c3a17dd/AndroidManifest.xml:26:5-32:19
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/e2735a31ed2ae7804726e6fb0c3a17dd/AndroidManifest.xml:26:5-32:19
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:28:5-53:19
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:28:5-53:19
+MERGED from [com.google.firebase:firebase-auth:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/9b5462d12a1ee5a42f2488b924dda468/AndroidManifest.xml:22:5-36:19
+MERGED from [com.google.firebase:firebase-auth:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/9b5462d12a1ee5a42f2488b924dda468/AndroidManifest.xml:22:5-36:19
+MERGED from [com.google.android.gms:play-services-auth:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-auth-15.0.1.aar/b99deec617ef8f0d5810cb854ac1b362/AndroidManifest.xml:22:5-37:19
+MERGED from [com.google.android.gms:play-services-auth:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-auth-15.0.1.aar/b99deec617ef8f0d5810cb854ac1b362/AndroidManifest.xml:22:5-37:19
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/a7bebdf1b3321c0c84f1dbfe830c23c2/AndroidManifest.xml:28:5-38:19
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/a7bebdf1b3321c0c84f1dbfe830c23c2/AndroidManifest.xml:28:5-38:19
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:34:5-63:19
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:34:5-63:19
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-stats-15.0.1.aar/05e6dadaf1093c1747f488558f76e78c/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-stats-15.0.1.aar/05e6dadaf1093c1747f488558f76e78c/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-interop-16.0.0.aar/2b6a9ad83cf61bb8eac8818f37d6b243/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-interop-16.0.0.aar/2b6a9ad83cf61bb8eac8818f37d6b243/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-common:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.0.aar/a448f0da7bcc09e986903d0d93d816ad/AndroidManifest.xml:8:5-14:19
+MERGED from [com.google.firebase:firebase-common:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.0.aar/a448f0da7bcc09e986903d0d93d816ad/AndroidManifest.xml:8:5-14:19
+MERGED from [com.google.firebase:firebase-measurement-connector:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-16.0.0.aar/ff2d2a455b61b3c6c3e5b93794e30abd/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-measurement-connector:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-16.0.0.aar/ff2d2a455b61b3c6c3e5b93794e30abd/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.0.aar/bfe1699e8aade3069611d551c17d9d26/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.0.aar/bfe1699e8aade3069611d551c17d9d26/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/f5d4910d0bb9764982101d7a4b6140eb/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/f5d4910d0bb9764982101d7a4b6140eb/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/dc490f87e36f364b699b14728c6dac40/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/dc490f87e36f364b699b14728c6dac40/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-15.0.1.aar/d464a8f9aee15394d05c42b84eff4262/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-15.0.1.aar/d464a8f9aee15394d05c42b84eff4262/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/9b1cf450a82f6de58662c28319bd5e44/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/9b1cf450a82f6de58662c28319bd5e44/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /home/strawberry/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.2.aar/d1e4789b8e716c3bb458179f1acd3a31/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /home/strawberry/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.2.aar/d1e4789b8e716c3bb458179f1acd3a31/AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.0.0.aar/07d16a814d6c82f0e95f7234a00554ed/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.0.0.aar/07d16a814d6c82f0e95f7234a00554ed/AndroidManifest.xml:22:5-20
+	android:supportsRtl
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:16:9-35
+	android:label
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:15:9-41
+	android:icon
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:14:9-43
+	android:allowBackup
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:13:9-35
+	android:theme
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:17:9-40
+activity#com.jeek.calendar.activity.AuthActivity
+ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:18:9-24:20
+	android:name
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:18:19-56
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:19:13-23:29
+action#android.intent.action.MAIN
+ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:20:17-69
+	android:name
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:20:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:22:17-77
+	android:name
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:22:27-74
+activity#com.jeek.calendar.activity.MainActivity
+ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:25:9-59
+	android:name
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:25:19-56
+activity#com.jeek.calendar.activity.ScheduleDetailActivity
+ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:26:9-69
+	android:name
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:26:19-66
+activity#com.jeek.calendar.activity.AddEventSetActivity
+ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:27:9-66
+	android:name
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:27:19-63
+activity#com.jeek.calendar.activity.MoneyActivity
+ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:28:9-60
+	android:name
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:28:19-57
+activity#com.jeek.calendar.activity.AddEventActivity
+ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:29:9-63
+	android:name
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml:29:19-60
+uses-sdk
+INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml
+INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml
+MERGED from [:calendar] /home/strawberry/Downloads/PROJECT/new/Calendar-master/calendar/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:calendar] /home/strawberry/Downloads/PROJECT/new/Calendar-master/calendar/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:common] /home/strawberry/Downloads/PROJECT/new/Calendar-master/common/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:common] /home/strawberry/Downloads/PROJECT/new/Calendar-master/common/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:8:5-10:41
+MERGED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:design:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/4f4f16ab80630cb21fc523ed45cfdb4d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/4f4f16ab80630cb21fc523ed45cfdb4d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/f782161a3e531aac74b15f0f03fa4c19/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/f782161a3e531aac74b15f0f03fa4c19/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/customtabs-27.1.1.aar/1058a504eae66edde2ff81093e07e35a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/customtabs-27.1.1.aar/1058a504eae66edde2ff81093e07e35a/AndroidManifest.xml:20:5-44
+MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] /home/strawberry/.gradle/caches/transforms-1/files-1.1/library-1.4.2.aar/57cafcc6e364231aff2fa852f50c5f39/AndroidManifest.xml:12:5-14:41
+MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] /home/strawberry/.gradle/caches/transforms-1/files-1.1/library-1.4.2.aar/57cafcc6e364231aff2fa852f50c5f39/AndroidManifest.xml:12:5-14:41
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8284c8782e5308ba05af000eabc377db/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8284c8782e5308ba05af000eabc377db/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/71dbf633edf67df4d58d27117baf137d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/71dbf633edf67df4d58d27117baf137d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:extensions:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/extensions-1.1.1.aar/4af6908c91cea2c0db0d8a5cb79d3e5c/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:extensions:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/extensions-1.1.1.aar/4af6908c91cea2c0db0d8a5cb79d3e5c/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-core:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.1.aar/2a9adc42d3624b53e5702a710b6c3cd1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-core:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.1.aar/2a9adc42d3624b53e5702a710b6c3cd1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/e2735a31ed2ae7804726e6fb0c3a17dd/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/e2735a31ed2ae7804726e6fb0c3a17dd/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-auth:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/9b5462d12a1ee5a42f2488b924dda468/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-auth:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/9b5462d12a1ee5a42f2488b924dda468/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-auth-15.0.1.aar/b99deec617ef8f0d5810cb854ac1b362/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-auth-15.0.1.aar/b99deec617ef8f0d5810cb854ac1b362/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/a7bebdf1b3321c0c84f1dbfe830c23c2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/a7bebdf1b3321c0c84f1dbfe830c23c2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-stats-15.0.1.aar/05e6dadaf1093c1747f488558f76e78c/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-stats-15.0.1.aar/05e6dadaf1093c1747f488558f76e78c/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-interop-16.0.0.aar/2b6a9ad83cf61bb8eac8818f37d6b243/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-interop-16.0.0.aar/2b6a9ad83cf61bb8eac8818f37d6b243/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.0.aar/a448f0da7bcc09e986903d0d93d816ad/AndroidManifest.xml:5:5-6:37
+MERGED from [com.google.firebase:firebase-common:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.0.aar/a448f0da7bcc09e986903d0d93d816ad/AndroidManifest.xml:5:5-6:37
+MERGED from [com.google.firebase:firebase-measurement-connector:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-16.0.0.aar/ff2d2a455b61b3c6c3e5b93794e30abd/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-16.0.0.aar/ff2d2a455b61b3c6c3e5b93794e30abd/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-flags:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-flags-15.0.1.aar/e1333ae68ea4f713afdfa01cf15eb049/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-flags:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-flags-15.0.1.aar/e1333ae68ea4f713afdfa01cf15eb049/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-15.0.1.aar/83c0e0e49620336e0cb32f15a47f6ecc/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-15.0.1.aar/83c0e0e49620336e0cb32f15a47f6ecc/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-15.0.1.aar/dbffeb7951e912934fc2dafcd144e7ec/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-15.0.1.aar/dbffeb7951e912934fc2dafcd144e7ec/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.0.aar/bfe1699e8aade3069611d551c17d9d26/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.0.aar/bfe1699e8aade3069611d551c17d9d26/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/f5d4910d0bb9764982101d7a4b6140eb/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/f5d4910d0bb9764982101d7a4b6140eb/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/dc490f87e36f364b699b14728c6dac40/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/dc490f87e36f364b699b14728c6dac40/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-15.0.1.aar/d464a8f9aee15394d05c42b84eff4262/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-15.0.1.aar/d464a8f9aee15394d05c42b84eff4262/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/9b1cf450a82f6de58662c28319bd5e44/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/9b1cf450a82f6de58662c28319bd5e44/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/bfded05b8c2754e6f60bba514d9d2222/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/bfded05b8c2754e6f60bba514d9d2222/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/6e9696d15be0d4bf21c121e46545221a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/6e9696d15be0d4bf21c121e46545221a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/ec9950c7d9f22c5abc0434dc48da07e5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/ec9950c7d9f22c5abc0434dc48da07e5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/aff372e17eb0b78ac4d971b38557d1ab/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/aff372e17eb0b78ac4d971b38557d1ab/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/transition-27.1.1.aar/7c8cdebe3e0625291a28f85ce4185a8f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/transition-27.1.1.aar/7c8cdebe3e0625291a28f85ce4185a8f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/be9072755922c0caccc7ceaa7bd067f1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/be9072755922c0caccc7ceaa7bd067f1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/3dce6cdc3eb24e4597f1d3dc17b06967/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/3dce6cdc3eb24e4597f1d3dc17b06967/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/6b6673754a392fbcc7a61b5a740f8d12/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/6b6673754a392fbcc7a61b5a740f8d12/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.1.1.aar/6a3f8ad779f6e4006ba28c2cded95c0b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.1.1.aar/6a3f8ad779f6e4006ba28c2cded95c0b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/7fcfdb405c41217ef968bd6fbc5ed26e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/7fcfdb405c41217ef968bd6fbc5ed26e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/0aaf4e795afddc5e75340d590aba685e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/0aaf4e795afddc5e75340d590aba685e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/2e27e6b9466ed6e4259486dbdd404ad0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/2e27e6b9466ed6e4259486dbdd404ad0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/f0f43b78f3c38d6997f6b8aa47f3681d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/f0f43b78f3c38d6997f6b8aa47f3681d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/ec225c468942123b2613bcf92f4a94c9/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/ec225c468942123b2613bcf92f4a94c9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /home/strawberry/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.2.aar/d1e4789b8e716c3bb458179f1acd3a31/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /home/strawberry/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.2.aar/d1e4789b8e716c3bb458179f1acd3a31/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.0.0.aar/07d16a814d6c82f0e95f7234a00554ed/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.0.0.aar/07d16a814d6c82f0e95f7234a00554ed/AndroidManifest.xml:20:5-44
+INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml
+INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml
+		INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml
+		ADDED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml
+		INJECTED from /home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/AndroidManifest.xml
+meta-data#com.google.android.gms.version
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:16:9-18:69
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/9b1cf450a82f6de58662c28319bd5e44/AndroidManifest.xml:23:9-25:69
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/9b1cf450a82f6de58662c28319bd5e44/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:18:13-66
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:17:13-58
+meta-data#com.facebook.sdk.ApplicationId
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:19:9-21:63
+	android:value
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:21:13-60
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:20:13-58
+activity#com.firebase.ui.auth.KickoffActivity
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:23:9-27:61
+	android:label
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:26:13-29
+	android:exported
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:27:13-58
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:24:13-64
+activity#com.firebase.ui.auth.ui.idp.SingleSignInActivity
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:28:9-32:61
+	android:label
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:31:13-29
+	android:exported
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:30:13-37
+	android:theme
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:32:13-58
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:29:13-76
+activity#com.firebase.ui.auth.ui.credentials.CredentialSaveActivity
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:33:9-37:61
+	android:label
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:36:13-29
+	android:exported
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:35:13-37
+	android:theme
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:37:13-58
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:34:13-86
+activity#com.firebase.ui.auth.ui.provider.GitHubLoginActivity
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:38:9-58:20
+	android:label
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:41:13-29
+	android:launchMode
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:42:13-43
+	android:configChanges
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:40:13-96
+	android:theme
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:43:13-58
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:39:13-80
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:@string/firebase_web_host+data:path:/__/auth/handler+data:scheme:https
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:44:13-57:29
+	tools:ignore
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:46:17-47
+	android:autoVerify
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:45:17-42
+action#android.intent.action.VIEW
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:47:17-69
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:47:25-66
+category#android.intent.category.DEFAULT
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:49:17-76
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:49:27-73
+category#android.intent.category.BROWSABLE
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:50:17-78
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:50:27-75
+data
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:52:17-56:64
+	android:path
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:54:21-52
+	android:host
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:53:21-61
+	android:scheme
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:55:21-43
+	tools:ignore
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:56:21-61
+activity#com.firebase.ui.auth.ui.email.RecoverPasswordActivity
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:59:9-63:58
+	android:label
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:62:13-72
+	android:windowSoftInputMode
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:63:13-55
+	android:exported
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:61:13-37
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:60:13-81
+activity#com.firebase.ui.auth.ui.email.EmailActivity
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:64:9-68:58
+	android:label
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:67:13-56
+	android:windowSoftInputMode
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:68:13-55
+	android:exported
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:66:13-37
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:65:13-71
+activity#com.firebase.ui.auth.ui.phone.PhoneActivity
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:69:9-73:77
+	android:label
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:72:13-66
+	android:windowSoftInputMode
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:73:13-74
+	android:exported
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:71:13-37
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:70:13-71
+activity#com.firebase.ui.auth.ui.idp.WelcomeBackIdpPrompt
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:74:9-78:58
+	android:label
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:77:13-70
+	android:windowSoftInputMode
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:78:13-55
+	android:exported
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:76:13-37
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:75:13-76
+activity#com.firebase.ui.auth.ui.email.WelcomeBackPasswordPrompt
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:79:9-83:58
+	android:label
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:82:13-75
+	android:windowSoftInputMode
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:83:13-55
+	android:exported
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:81:13-37
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:80:13-83
+activity#com.firebase.ui.auth.ui.idp.AuthMethodPickerActivity
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:84:9-87:65
+	android:label
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:87:13-62
+	android:exported
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:86:13-37
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:85:13-80
+activity#com.facebook.FacebookActivity
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:88:9-92:48
+	android:label
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:91:13-45
+	tools:ignore
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:92:13-45
+	android:configChanges
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:90:13-96
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:89:13-57
+activity#com.facebook.CustomTabActivity
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:93:9-105:20
+	android:exported
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:95:13-36
+	tools:ignore
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:96:13-45
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:94:13-58
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:@string/facebook_login_protocol_scheme
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:97:13-104:29
+provider#com.firebase.ui.auth.data.client.AuthUiInitProvider
+ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:107:9-111:38
+	android:authorities
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:109:13-70
+	android:exported
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:110:13-37
+	android:initOrder
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:111:13-35
+	android:name
+		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/6c4dadee740f27b9aa1198a9ad0ed7e8/AndroidManifest.xml:108:13-79
+provider#android.arch.lifecycle.ProcessLifecycleOwnerInitializer
+ADDED from [android.arch.lifecycle:extensions:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/extensions-1.1.1.aar/4af6908c91cea2c0db0d8a5cb79d3e5c/AndroidManifest.xml:23:9-27:43
+	android:authorities
+		ADDED from [android.arch.lifecycle:extensions:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/extensions-1.1.1.aar/4af6908c91cea2c0db0d8a5cb79d3e5c/AndroidManifest.xml:25:13-68
+	android:multiprocess
+		ADDED from [android.arch.lifecycle:extensions:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/extensions-1.1.1.aar/4af6908c91cea2c0db0d8a5cb79d3e5c/AndroidManifest.xml:27:13-40
+	android:exported
+		ADDED from [android.arch.lifecycle:extensions:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/extensions-1.1.1.aar/4af6908c91cea2c0db0d8a5cb79d3e5c/AndroidManifest.xml:26:13-37
+	android:name
+		ADDED from [android.arch.lifecycle:extensions:1.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/extensions-1.1.1.aar/4af6908c91cea2c0db0d8a5cb79d3e5c/AndroidManifest.xml:24:13-83
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/e2735a31ed2ae7804726e6fb0c3a17dd/AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/a7bebdf1b3321c0c84f1dbfe830c23c2/AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/a7bebdf1b3321c0c84f1dbfe830c23c2/AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:24:5-68
+	android:name
+		ADDED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/e2735a31ed2ae7804726e6fb0c3a17dd/AndroidManifest.xml:24:22-65
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/e2735a31ed2ae7804726e6fb0c3a17dd/AndroidManifest.xml:27:9-31:19
+MERGED from [com.google.firebase:firebase-auth:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/9b5462d12a1ee5a42f2488b924dda468/AndroidManifest.xml:31:9-35:19
+MERGED from [com.google.firebase:firebase-auth:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/9b5462d12a1ee5a42f2488b924dda468/AndroidManifest.xml:31:9-35:19
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:35:9-39:19
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:35:9-39:19
+	android:name
+		ADDED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/e2735a31ed2ae7804726e6fb0c3a17dd/AndroidManifest.xml:27:18-89
+meta-data#com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar
+ADDED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/e2735a31ed2ae7804726e6fb0c3a17dd/AndroidManifest.xml:28:13-30:85
+	android:value
+		ADDED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/e2735a31ed2ae7804726e6fb0c3a17dd/AndroidManifest.xml:30:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/e2735a31ed2ae7804726e6fb0c3a17dd/AndroidManifest.xml:29:17-139
+uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
+ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:26:5-110
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/a7bebdf1b3321c0c84f1dbfe830c23c2/AndroidManifest.xml:26:5-110
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/a7bebdf1b3321c0c84f1dbfe830c23c2/AndroidManifest.xml:26:5-110
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:26:22-107
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:29:9-33:20
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:31:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:30:13-85
+receiver#com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver
+ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:34:9-42:20
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/a7bebdf1b3321c0c84f1dbfe830c23c2/AndroidManifest.xml:29:9-37:20
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/a7bebdf1b3321c0c84f1dbfe830c23c2/AndroidManifest.xml:29:9-37:20
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:36:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:37:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:38:13-69
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:35:13-100
+intent-filter#action:name:com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:39:13-41:29
+action#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:40:17-79
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:40:25-76
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:44:9-47:40
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:46:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:47:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:45:13-84
+service#com.google.android.gms.measurement.AppMeasurementJobService
+ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:48:9-52:72
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:50:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:51:13-37
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:52:13-69
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/8e2789bf7c79ee90feadb689155626c4/AndroidManifest.xml:49:13-87
+activity#com.google.firebase.auth.internal.FederatedSignInActivity
+ADDED from [com.google.firebase:firebase-auth:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/9b5462d12a1ee5a42f2488b924dda468/AndroidManifest.xml:23:9-29:75
+	android:excludeFromRecents
+		ADDED from [com.google.firebase:firebase-auth:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/9b5462d12a1ee5a42f2488b924dda468/AndroidManifest.xml:25:13-46
+	android:launchMode
+		ADDED from [com.google.firebase:firebase-auth:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/9b5462d12a1ee5a42f2488b924dda468/AndroidManifest.xml:27:13-48
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/9b5462d12a1ee5a42f2488b924dda468/AndroidManifest.xml:26:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-auth:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/9b5462d12a1ee5a42f2488b924dda468/AndroidManifest.xml:28:13-102
+	android:theme
+		ADDED from [com.google.firebase:firebase-auth:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/9b5462d12a1ee5a42f2488b924dda468/AndroidManifest.xml:29:13-72
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/9b5462d12a1ee5a42f2488b924dda468/AndroidManifest.xml:24:13-85
+meta-data#com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar
+ADDED from [com.google.firebase:firebase-auth:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/9b5462d12a1ee5a42f2488b924dda468/AndroidManifest.xml:32:13-34:85
+	android:value
+		ADDED from [com.google.firebase:firebase-auth:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/9b5462d12a1ee5a42f2488b924dda468/AndroidManifest.xml:34:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:16.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/9b5462d12a1ee5a42f2488b924dda468/AndroidManifest.xml:33:17-109
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-auth-15.0.1.aar/b99deec617ef8f0d5810cb854ac1b362/AndroidManifest.xml:23:9-27:75
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-auth-15.0.1.aar/b99deec617ef8f0d5810cb854ac1b362/AndroidManifest.xml:25:13-46
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-auth-15.0.1.aar/b99deec617ef8f0d5810cb854ac1b362/AndroidManifest.xml:26:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-auth-15.0.1.aar/b99deec617ef8f0d5810cb854ac1b362/AndroidManifest.xml:27:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-auth-15.0.1.aar/b99deec617ef8f0d5810cb854ac1b362/AndroidManifest.xml:24:13-93
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-auth-15.0.1.aar/b99deec617ef8f0d5810cb854ac1b362/AndroidManifest.xml:33:9-36:110
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-auth-15.0.1.aar/b99deec617ef8f0d5810cb854ac1b362/AndroidManifest.xml:35:13-36
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-auth-15.0.1.aar/b99deec617ef8f0d5810cb854ac1b362/AndroidManifest.xml:36:13-107
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-auth-15.0.1.aar/b99deec617ef8f0d5810cb854ac1b362/AndroidManifest.xml:34:13-89
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:26:5-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:26:22-79
+permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:28:5-30:47
+	android:protectionLevel
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:30:9-44
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:29:9-63
+permission#com.smartapps.moneygoalcalendar.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:28:5-30:47
+	android:protectionLevel
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:30:9-44
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:29:9-63
+uses-permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:32:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:32:22-76
+uses-permission#com.smartapps.moneygoalcalendar.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:32:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:32:22-76
+meta-data#com.google.firebase.components:com.google.firebase.iid.Registrar
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:36:13-38:85
+	android:value
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:38:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:37:17-96
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:41:9-50:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:43:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:44:13-73
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:42:13-78
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE+category:name:${applicationId}
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:45:13-49:29
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE+category:name:com.smartapps.moneygoalcalendar
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:45:13-49:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:46:17-81
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:46:25-78
+category#${applicationId}
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:48:17-61
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:48:27-58
+category#com.smartapps.moneygoalcalendar
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:48:17-61
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:48:27-58
+service#com.google.firebase.iid.FirebaseInstanceIdService
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:56:9-62:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:58:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:57:13-77
+intent-filter#action:name:com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:59:13-61:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:59:28-51
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:60:17-80
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/66acc6abda109ab9a3b3fea9b2202225/AndroidManifest.xml:60:25-77
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.0.aar/a448f0da7bcc09e986903d0d93d816ad/AndroidManifest.xml:9:9-13:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.0.aar/a448f0da7bcc09e986903d0d93d816ad/AndroidManifest.xml:11:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.0.aar/a448f0da7bcc09e986903d0d93d816ad/AndroidManifest.xml:12:13-37
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.0.aar/a448f0da7bcc09e986903d0d93d816ad/AndroidManifest.xml:13:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:16.0.0] /home/strawberry/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.0.aar/a448f0da7bcc09e986903d0d93d816ad/AndroidManifest.xml:10:13-77
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/f5d4910d0bb9764982101d7a4b6140eb/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/f5d4910d0bb9764982101d7a4b6140eb/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/f5d4910d0bb9764982101d7a4b6140eb/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/strawberry/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/f5d4910d0bb9764982101d7a4b6140eb/AndroidManifest.xml:24:13-79

@@ -1,0 +1,28 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/strawberry/Downloads/PROJECT/new/Calendar-master/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v19/values-v19.xml",
+            "map": [
+                {
+                    "source": "/home/strawberry/Downloads/PROJECT/new/Calendar-master/app/src/main/res/values-v19/styles.xml",
+                    "from": {
+                        "startLines": "3,7",
+                        "startColumns": "4,4",
+                        "startOffsets": "56,185",
+                        "endLines": "5,12",
+                        "endColumns": "12,12",
+                        "endOffsets": "179,515"
+                    },
+                    "to": {
+                        "startLines": "2,5",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,183",
+                        "endLines": "4,10",
+                        "endColumns": "12,12",
+                        "endOffsets": "178,513"
+                    }
+                }
+            ]
+        }
+    ]
+}
