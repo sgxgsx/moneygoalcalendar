@@ -70,13 +70,13 @@ public class ScheduleFragment extends BaseFragment implements OnCalendarClickLis
     @Override
     protected void bindView() {
         slSchedule = searchViewById(R.id.slSchedule);
-        etInputContent = searchViewById(R.id.etInputContent);
+        //etInputContent = searchViewById(R.id.etInputContent);
         rLNoTask = searchViewById(R.id.rlNoTask);
-        slSchedule.setOnCalendarClickListener(this);
+        /*slSchedule.setOnCalendarClickListener(this);
         searchViewById(R.id.ibMainClock).setOnClickListener(this);
         searchViewById(R.id.ibMainOk).setOnClickListener(this);
-        initScheduleList();
-        initBottomInputBar();
+        */initScheduleList();
+        //initBottomInputBar();
     }
 
     @Override
@@ -151,12 +151,12 @@ public class ScheduleFragment extends BaseFragment implements OnCalendarClickLis
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.ibMainClock:
+            /*case R.id.ibMainClock:
                 showSelectDateDialog();
                 break;
             case R.id.ibMainOk:
                 addSchedule();
-                break;
+                break;*/
         }
     }
 

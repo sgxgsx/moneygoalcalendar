@@ -69,10 +69,10 @@ public class EventSetFragment extends BaseFragment implements View.OnClickListen
     protected void bindView() {
         rvScheduleList = searchViewById(R.id.rvScheduleList);
         rlNoTask = searchViewById(R.id.rlNoTask);
-        etInputContent = searchViewById(R.id.etInputContent);
+        /*etInputContent = searchViewById(R.id.etInputContent);
         searchViewById(R.id.ibMainClock).setOnClickListener(this);
         searchViewById(R.id.ibMainOk).setOnClickListener(this);
-        initBottomInputBar();
+        initBottomInputBar();*/
         initScheduleList();
     }
 
@@ -127,12 +127,12 @@ public class EventSetFragment extends BaseFragment implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.ibMainClock:
+            /*case R.id.ibMainClock:
                 showSelectDateDialog();
                 break;
             case R.id.ibMainOk:
                 addSchedule();
-                break;
+                break;*/
         }
     }
 

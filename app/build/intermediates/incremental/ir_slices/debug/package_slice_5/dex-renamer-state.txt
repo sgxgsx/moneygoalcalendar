@@ -1,4 +1,0 @@
-#Wed Aug 08 01:08:12 EEST 2018
-base.0=/home/strawberry/Downloads/PROJECT/new/Calendar-master/app/build/intermediates/transforms/dexMerger/debug/5
-path.0=classes.dex
-renamed.0=classes.dex

@@ -1,15 +1,15 @@
 #Internal package file, do not edit.
-#Sun Aug 12 00:37:07 EEST 2018
-1.base=/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/assets/debug
-2.path=classes.dex
+#Sun Aug 12 19:49:09 EEST 2018
+1.base=C\:\\Users\\Alex\\project\\moneygoalcalendar\\app\\build\\intermediates\\assets\\debug
+2.path=crashlytics-build.properties
 0.baseType=DIRECTORY
-2.base=/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/transforms/dexMerger/debug/0
-2.set=DEX
+2.base=C\:\\Users\\Alex\\project\\moneygoalcalendar\\app\\build\\intermediates\\assets\\debug
+2.set=ASSET
 1.baseType=DIRECTORY
 count=3
 1.set=ASSET
-0.path=holiday.json
-0.set=ASSET
-0.base=/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/assets/debug
+0.path=classes.dex
+0.set=DEX
+0.base=C\:\\Users\\Alex\\project\\moneygoalcalendar\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 2.baseType=DIRECTORY
-1.path=crashlytics-build.properties
+1.path=holiday.json
