@@ -1,7 +1,9 @@
 package com.jeek.calendar.activity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -57,6 +59,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.default_sign_in_button).setOnClickListener(this);
         findViewById(R.id.tvAnonymousButton).setOnClickListener(this);
 
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CALENDAR}, 1000);
     }
 
     @Override

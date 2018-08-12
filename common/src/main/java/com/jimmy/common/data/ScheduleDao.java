@@ -1,13 +1,19 @@
 package com.jimmy.common.data;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.provider.CalendarContract;
+import android.support.v4.app.ActivityCompat;
 
 import com.jimmy.common.bean.Schedule;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -16,9 +22,14 @@ import java.util.List;
 public class ScheduleDao {
 
     private JeekSQLiteHelper mHelper;
+    private Context mContext;
+    private Activity mActivity;
+
 
     private ScheduleDao(Context context) {
         mHelper = new JeekSQLiteHelper(context);
+        mContext = context;
+        mActivity  = (Activity) context;
     }
 
     public static ScheduleDao getInstance(Context context) {
@@ -56,33 +67,7 @@ public class ScheduleDao {
         return id;
     }
 
-    public List<Schedule> getScheduleByDate(int year, int month, int day) {
-        List<Schedule> schedules = new ArrayList<>();
-        SQLiteDatabase db = mHelper.getReadableDatabase();
-        Cursor cursor = db.query(JeekDBConfig.SCHEDULE_TABLE_NAME, null,
-                String.format("%s=? and %s=? and %s=?", JeekDBConfig.SCHEDULE_YEAR,
-                        JeekDBConfig.SCHEDULE_MONTH, JeekDBConfig.SCHEDULE_DAY), new String[]{String.valueOf(year), String.valueOf(month), String.valueOf(day)}, null, null, null);
-        Schedule schedule;
-        while (cursor.moveToNext()) {
-            schedule = new Schedule();
-            schedule.setId(cursor.getInt(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_ID)));
-            schedule.setColor(cursor.getInt(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_COLOR)));
-            schedule.setTitle(cursor.getString(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_TITLE)));
-            schedule.setLocation(cursor.getString(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_LOCATION)));
-            schedule.setDesc(cursor.getString(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_DESC)));
-            schedule.setState(cursor.getInt(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_STATE)));
-            schedule.setYear(cursor.getInt(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_YEAR)));
-            schedule.setMonth(cursor.getInt(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_MONTH)));
-            schedule.setDay(cursor.getInt(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_DAY)));
-            schedule.setTime(cursor.getLong(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_TIME)));
-            schedule.setEventSetId(cursor.getInt(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_EVENT_SET_ID)));
-            schedules.add(schedule);
-        }
-        cursor.close();
-        db.close();
-        mHelper.close();
-        return schedules;
-    }
+
 
     public List<Integer> getTaskHintByMonth(int year, int month) {
         List<Integer> taskHint = new ArrayList<>();
@@ -180,6 +165,76 @@ public class ScheduleDao {
         db.close();
         mHelper.close();
         return schedules;
+    }
+/*public List<Schedule> getScheduleByDate(int year, int month, int day) {
+        List<Schedule> schedules = new ArrayList<>();
+        SQLiteDatabase db = mHelper.getReadableDatabase();
+        Cursor cursor = db.query(JeekDBConfig.SCHEDULE_TABLE_NAME, null,
+                String.format("%s=? and %s=? and %s=?", JeekDBConfig.SCHEDULE_YEAR,
+                        JeekDBConfig.SCHEDULE_MONTH, JeekDBConfig.SCHEDULE_DAY), new String[]{String.valueOf(year), String.valueOf(month), String.valueOf(day)}, null, null, null);
+        Schedule schedule;
+        while (cursor.moveToNext()) {
+            schedule = new Schedule();
+            schedule.setId(cursor.getInt(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_ID)));
+            schedule.setColor(cursor.getInt(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_COLOR)));
+            schedule.setTitle(cursor.getString(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_TITLE)));
+            schedule.setLocation(cursor.getString(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_LOCATION)));
+            schedule.setDesc(cursor.getString(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_DESC)));
+            schedule.setState(cursor.getInt(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_STATE)));
+            schedule.setYear(cursor.getInt(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_YEAR)));
+            schedule.setMonth(cursor.getInt(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_MONTH)));
+            schedule.setDay(cursor.getInt(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_DAY)));
+            schedule.setTime(cursor.getLong(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_TIME)));
+            schedule.setEventSetId(cursor.getInt(cursor.getColumnIndex(JeekDBConfig.SCHEDULE_EVENT_SET_ID)));
+            schedules.add(schedule);
+        }
+        cursor.close();
+        db.close();
+        mHelper.close();
+        return schedules;
+    }*/
+
+
+
+
+
+
+
+
+    public List<Schedule> getScheduleByDate(int year, int month, int day){
+        List<Schedule> schedules = new ArrayList<>();
+
+        String[] projection = new String[] { CalendarContract.Events.CALENDAR_ID, CalendarContract.Events.TITLE, CalendarContract.Events.DESCRIPTION, CalendarContract.Events.DTSTART, CalendarContract.Events.DTEND, CalendarContract.Events.ALL_DAY, CalendarContract.Events.EVENT_LOCATION };
+
+// 0 = January, 1 = February, ...
+
+        Calendar startTime = Calendar.getInstance();
+        startTime.set(year,month,day,0,0);
+
+        Calendar endTime= Calendar.getInstance();
+        endTime.set(year,month,day,23,59, 59);
+
+        String selection = "(( " + CalendarContract.Events.DTSTART + " >= " + startTime.getTimeInMillis() + " ) AND ( " + CalendarContract.Events.DTSTART + " <= " + endTime.getTimeInMillis() + " ))";
+        if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.READ_CALENDAR}, 1000);
+        }
+
+        Cursor cursor = mContext.getContentResolver().query( CalendarContract.Events.CONTENT_URI, projection, selection, null, null );
+
+// output the events
+
+        if (cursor.moveToFirst()) {
+            do {
+                Schedule schedule = new Schedule();
+                schedule.setTitle(cursor.getString(1));
+                schedule.setTime(cursor.getLong(3));
+                schedules.add(schedule);
+            } while ( cursor.moveToNext());
+        }
+        cursor.close();
+        mHelper.close();
+        return schedules;
+
     }
 
 }
