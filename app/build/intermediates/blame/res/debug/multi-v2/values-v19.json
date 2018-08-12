@@ -1,17 +1,17 @@
 {
     "logs": [
         {
-            "outputFile": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v19/values-v19.xml",
+            "outputFile": "C:\\Users\\Alex\\moneygoalcalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v19\\values-v19.xml",
             "map": [
                 {
-                    "source": "/home/strawberry/Downloads/moneygoalcalendar/app/src/main/res/values-v19/styles.xml",
+                    "source": "C:\\Users\\Alex\\moneygoalcalendar\\app\\src\\main\\res\\values-v19\\styles.xml",
                     "from": {
                         "startLines": "3,7",
                         "startColumns": "4,4",
-                        "startOffsets": "56,185",
+                        "startOffsets": "59,192",
                         "endLines": "5,12",
                         "endColumns": "12,12",
-                        "endOffsets": "179,515"
+                        "endOffsets": "184,527"
                     },
                     "to": {
                         "startLines": "2,5",

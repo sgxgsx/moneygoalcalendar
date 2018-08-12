@@ -1,29 +1,29 @@
 {
     "logs": [
         {
-            "outputFile": "/home/strawberry/Downloads/moneygoalcalendar/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v21/values-v21.xml",
+            "outputFile": "C:\\Users\\Alex\\moneygoalcalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
             "map": [
                 {
-                    "source": "/home/strawberry/Downloads/moneygoalcalendar/app/src/main/res/values-v21/styles.xml",
+                    "source": "C:\\Users\\Alex\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\d545ceb51bfeb53b130c58fb620ab9d9\\res\\values-v21\\values-v21.xml",
                     "from": {
-                        "startLines": "3,9",
-                        "startColumns": "4,4",
-                        "startOffsets": "56,356",
-                        "endLines": "7,19",
-                        "endColumns": "12,12",
-                        "endOffsets": "350,1072"
+                        "startLines": "2,5,8,11",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,223,386,554",
+                        "endLines": "4,7,10,13",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "218,381,549,716"
                     },
                     "to": {
-                        "startLines": "6,234",
-                        "startColumns": "4,4",
-                        "startOffsets": "354,17520",
-                        "endLines": "10,244",
-                        "endColumns": "12,12",
-                        "endOffsets": "648,18236"
+                        "startLines": "285,288,292,296",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "20832,21000,21289,21585",
+                        "endLines": "287,290,294,298",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "20995,21158,21452,21747"
                     }
                 },
                 {
-                    "source": "/home/strawberry/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/8284c8782e5308ba05af000eabc377db/res/values-v21/values-v21.xml",
+                    "source": "C:\\Users\\Alex\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\e52987e0f9bbc2f752418a59d1127086\\res\\values-v21\\values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,17,19,20,21,22,24,26,27,28,29,30,32,34,36,38,40,42,43,48,50,52,53,54,56,58,59,60,61,62,63,107,110,154,157,160,162,164,166,169,171,174,175,176,179,180,181,182,183,184,187,188,190,192,194,196,200,202,203,204,205,207,211,213,215,216,217,218,219,221,222,223,233,234,235,247",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -42,26 +42,7 @@
                     }
                 },
                 {
-                    "source": "/home/strawberry/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/6b6673754a392fbcc7a61b5a740f8d12/res/values-v21/values-v21.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,13",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,159,223,290,354,470,596,722,850,1022",
-                        "endLines": "2,3,4,5,6,7,8,9,12,17",
-                        "endColumns": "103,63,66,63,115,125,125,127,12,12",
-                        "endOffsets": "154,218,285,349,465,591,717,845,1017,1355"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,283,284,291,295,299,302",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,159,223,290,20590,20706,21163,21457,21752,21924",
-                        "endLines": "2,3,4,5,283,284,291,295,301,306",
-                        "endColumns": "103,63,66,63,115,125,125,127,12,12",
-                        "endOffsets": "154,218,285,349,20701,20827,21284,21580,21919,22257"
-                    }
-                },
-                {
-                    "source": "/home/strawberry/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/4f4f16ab80630cb21fc523ed45cfdb4d/res/values-v21/values-v21.xml",
+                    "source": "C:\\Users\\Alex\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\a059f95b570380e247b342235ab2fa16\\res\\values-v21\\values-v21.xml",
                     "from": {
                         "startLines": "2,5",
                         "startColumns": "4,4",
@@ -80,22 +61,41 @@
                     }
                 },
                 {
-                    "source": "/home/strawberry/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/3dce6cdc3eb24e4597f1d3dc17b06967/res/values-v21/values-v21.xml",
+                    "source": "C:\\Users\\Alex\\moneygoalcalendar\\app\\src\\main\\res\\values-v21\\styles.xml",
                     "from": {
-                        "startLines": "2,5,8,11",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,223,386,554",
-                        "endLines": "4,7,10,13",
-                        "endColumns": "12,12,12,12",
-                        "endOffsets": "218,381,549,716"
+                        "startLines": "3,9",
+                        "startColumns": "4,4",
+                        "startOffsets": "59,365",
+                        "endLines": "7,19",
+                        "endColumns": "12,12",
+                        "endOffsets": "357,1091"
                     },
                     "to": {
-                        "startLines": "285,288,292,296",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "20832,21000,21289,21585",
-                        "endLines": "287,290,294,298",
-                        "endColumns": "12,12,12,12",
-                        "endOffsets": "20995,21158,21452,21747"
+                        "startLines": "6,234",
+                        "startColumns": "4,4",
+                        "startOffsets": "354,17520",
+                        "endLines": "10,244",
+                        "endColumns": "12,12",
+                        "endOffsets": "648,18236"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Alex\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\519ebb79a3abf6c1cec28c3ea0e675fd\\res\\values-v21\\values-v21.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,159,223,290,354,470,596,722,850,1022",
+                        "endLines": "2,3,4,5,6,7,8,9,12,17",
+                        "endColumns": "103,63,66,63,115,125,125,127,12,12",
+                        "endOffsets": "154,218,285,349,465,591,717,845,1017,1355"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,283,284,291,295,299,302",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,159,223,290,20590,20706,21163,21457,21752,21924",
+                        "endLines": "2,3,4,5,283,284,291,295,301,306",
+                        "endColumns": "103,63,66,63,115,125,125,127,12,12",
+                        "endOffsets": "154,218,285,349,20701,20827,21284,21580,21919,22257"
                     }
                 }
             ]
