@@ -67,6 +67,8 @@ public class JeekUtils {
                 return R.drawable.orange_schedule_left_block;
             case 5:
                 return R.drawable.yellow_schedule_left_block;
+            case 6:
+                return R.drawable.grey_schedule_left_block;
             default:
                 return R.drawable.purple_schedule_left_block;
         }

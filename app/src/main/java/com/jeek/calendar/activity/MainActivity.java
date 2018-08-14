@@ -96,7 +96,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
         } else{
             anonym = false;
             if (mGoogleSignInAccount != null){
-                mUserNameTextView.setText(mGoogleSignInAccount.getDisplayName());
+                mUserNameTextView.setText(mGoogleSignInAccount.getEmail());
             }
         }
 
@@ -137,8 +137,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
             registerReceiver(mAddEventSetBroadcastReceiver, filter);
         }
     }
-*/
-/*
+
     private void initEventSetList() {
         mEventSets = new ArrayList<>();
         LinearLayoutManager manager = new LinearLayoutManager(this);
@@ -326,8 +325,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
     private void gotoAddEventSetActivity() {
         startActivityForResult(new Intent(this, AddEventSetActivity.class), ADD_EVENT_SET_CODE);
     }
-*/
-/*
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

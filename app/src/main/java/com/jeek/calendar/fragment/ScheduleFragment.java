@@ -45,7 +45,7 @@ import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 /**
  * Created by Jimmy on 2016/10/11 0011.
  */
-public class ScheduleFragment extends BaseFragment implements OnCalendarClickListener, View.OnClickListener,
+public class ScheduleFragment extends BaseFragment implements OnCalendarClickListener, /*View.OnClickListener,*/
         OnTaskFinishedListener<List<Schedule>>, SelectDateDialog.OnSelectDateListener {
 
     private ScheduleLayout slSchedule;
@@ -72,8 +72,8 @@ public class ScheduleFragment extends BaseFragment implements OnCalendarClickLis
         slSchedule = searchViewById(R.id.slSchedule);
         //etInputContent = searchViewById(R.id.etInputContent);
         rLNoTask = searchViewById(R.id.rlNoTask);
-        /*slSchedule.setOnCalendarClickListener(this);
-        searchViewById(R.id.ibMainClock).setOnClickListener(this);
+        slSchedule.setOnCalendarClickListener(this);
+        /*searchViewById(R.id.ibMainClock).setOnClickListener(this);
         searchViewById(R.id.ibMainOk).setOnClickListener(this);
         */initScheduleList();
         //initBottomInputBar();
@@ -147,19 +147,19 @@ public class ScheduleFragment extends BaseFragment implements OnCalendarClickLis
             }
         });
     }
-
+/*
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            /*case R.id.ibMainClock:
+            case R.id.ibMainClock:
                 showSelectDateDialog();
                 break;
             case R.id.ibMainOk:
                 addSchedule();
-                break;*/
+                break;
         }
     }
-
+*/
     private void showSelectDateDialog() {
         new SelectDateDialog(mActivity, this, mCurrentSelectYear, mCurrentSelectMonth, mCurrentSelectDay, slSchedule.getMonthCalendar().getCurrentItem()).show();
     }

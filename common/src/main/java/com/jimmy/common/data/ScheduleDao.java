@@ -4,16 +4,19 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.CalendarContract;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 
 import com.jimmy.common.bean.Schedule;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -30,6 +33,7 @@ public class ScheduleDao {
         mHelper = new JeekSQLiteHelper(context);
         mContext = context;
         mActivity  = (Activity) context;
+
     }
 
     public static ScheduleDao getInstance(Context context) {
@@ -166,6 +170,7 @@ public class ScheduleDao {
         mHelper.close();
         return schedules;
     }
+
 /*public List<Schedule> getScheduleByDate(int year, int month, int day) {
         List<Schedule> schedules = new ArrayList<>();
         SQLiteDatabase db = mHelper.getReadableDatabase();
@@ -194,27 +199,22 @@ public class ScheduleDao {
         return schedules;
     }*/
 
-
-
-
-
-
-
-
-    public List<Schedule> getScheduleByDate(int year, int month, int day){
+    public List<Schedule> getScheduleByDate(int year, int month, int day, String account){
         List<Schedule> schedules = new ArrayList<>();
 
-        String[] projection = new String[] { CalendarContract.Events.CALENDAR_ID, CalendarContract.Events.TITLE, CalendarContract.Events.DESCRIPTION, CalendarContract.Events.DTSTART, CalendarContract.Events.DTEND, CalendarContract.Events.ALL_DAY, CalendarContract.Events.EVENT_LOCATION };
+        String[] projection = new String[] { CalendarContract.Events.CALENDAR_ID, CalendarContract.Events.TITLE, CalendarContract.Events.DESCRIPTION, CalendarContract.Events.DTSTART, CalendarContract.Events.DTEND, CalendarContract.Events.EVENT_COLOR,CalendarContract.Events.DISPLAY_COLOR, CalendarContract.Events.EVENT_COLOR_KEY, CalendarContract.Events.ALL_DAY, CalendarContract.Events.EVENT_LOCATION, CalendarContract.Events.OWNER_ACCOUNT };
 
-// 0 = January, 1 = February, ...
 
         Calendar startTime = Calendar.getInstance();
-        startTime.set(year,month,day,0,0);
-
+        startTime.set(year,month,day,0, 0, 0);
+    //fix to retrieve events on 00:00:00
+        long time = startTime.getTimeInMillis();
+        time -= 1000;
+    //end fix
         Calendar endTime= Calendar.getInstance();
         endTime.set(year,month,day,23,59, 59);
 
-        String selection = "(( " + CalendarContract.Events.DTSTART + " >= " + startTime.getTimeInMillis() + " ) AND ( " + CalendarContract.Events.DTSTART + " <= " + endTime.getTimeInMillis() + " ))";
+        String selection = "(( " + CalendarContract.Events.DTSTART + " >= " + time + " ) AND ( " + CalendarContract.Events.DTSTART + " <= " + endTime.getTimeInMillis() +  " ) AND ( " + CalendarContract.Events.OWNER_ACCOUNT + " = " + "'" + account + "'" + " ))";
         if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.READ_CALENDAR}, 1000);
         }
@@ -222,15 +222,42 @@ public class ScheduleDao {
         Cursor cursor = mContext.getContentResolver().query( CalendarContract.Events.CONTENT_URI, projection, selection, null, null );
 
 // output the events
-
         if (cursor.moveToFirst()) {
             do {
                 Schedule schedule = new Schedule();
                 schedule.setTitle(cursor.getString(1));
                 schedule.setTime(cursor.getLong(3));
+                schedule.setTime_end(cursor.getLong(4));
+                Log.wtf("acc1", cursor.getString(10));
                 schedules.add(schedule);
             } while ( cursor.moveToNext());
         }
+        Log.wtf("wtf", String.valueOf(schedules.size()));
+        // sort
+        if(schedules.size() > 1){
+            int i = 0;
+            int goodPairsCounter = 0;
+            while (true) {
+                long time1 = schedules.get(i).getTime();
+                long time2 = schedules.get(i + 1).getTime();
+                if (time1 > time2) {
+                    Schedule sh = new Schedule(schedules.get(i).getId(), schedules.get(i).getColor(), schedules.get(i).getTitle(), schedules.get(i).getDesc(), schedules.get(i).getLocation(), schedules.get(i).getState(), schedules.get(i).getTime(), schedules.get(i).getTime_end(), schedules.get(i).getYear());
+                    schedules.remove(i);
+                    schedules.add(i + 1, sh);
+                    goodPairsCounter = 0;
+                } else {
+                    goodPairsCounter++;
+                }
+                i++;
+                if (i == schedules.size() - 1) {
+                    i = 0;
+                }
+                if (goodPairsCounter == schedules.size() - 1) break;
+
+            }
+        }
+
+
         cursor.close();
         mHelper.close();
         return schedules;

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.provider.CalendarContract;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -81,10 +82,12 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             viewHolder.vScheduleHintBlock.setBackgroundResource(JeekUtils.getScheduleBlockView(schedule.getColor()));
             viewHolder.tvScheduleTitle.setText(schedule.getTitle());
             if (schedule.getTime() != 0) {
-                viewHolder.tvScheduleTime.setText(JeekUtils.timeStamp2Time(schedule.getTime()));
+                String time_to_display = JeekUtils.timeStamp2Time(schedule.getTime()) + " - " + JeekUtils.timeStamp2Time(schedule.getTime_end());
+                viewHolder.tvScheduleTime.setText(time_to_display);
             } else {
                 viewHolder.tvScheduleTime.setText("");
             }
+            /*
             if (schedule.getState() == 0) {
                 viewHolder.tvScheduleState.setBackgroundResource(R.drawable.start_schedule_hint);
                 viewHolder.tvScheduleState.setText(mContext.getString(R.string.start));
@@ -100,6 +103,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     changeScheduleState(schedule);
                 }
             });
+            */
             viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -197,15 +201,15 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     protected class ScheduleViewHolder extends RecyclerView.ViewHolder {
 
-        protected View vScheduleHintBlock;
-        protected TextView tvScheduleState;
+        protected LinearLayout vScheduleHintBlock;
+        //protected TextView tvScheduleState;
         protected TextView tvScheduleTitle;
         protected TextView tvScheduleTime;
 
         public ScheduleViewHolder(View itemView) {
             super(itemView);
-            vScheduleHintBlock = itemView.findViewById(R.id.vScheduleHintBlock);
-            tvScheduleState = (TextView) itemView.findViewById(R.id.tvScheduleState);
+            vScheduleHintBlock = (LinearLayout) itemView.findViewById(R.id.vScheduleHintBlock);
+            //tvScheduleState = (TextView) itemView.findViewById(R.id.tvScheduleState);
             tvScheduleTitle = (TextView) itemView.findViewById(R.id.tvScheduleTitle);
             tvScheduleTime = (TextView) itemView.findViewById(R.id.tvScheduleTime);
         }

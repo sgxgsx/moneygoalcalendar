@@ -14,10 +14,27 @@ public class Schedule implements Serializable {
     private String location;
     private int state;
     private long time;
+    private long time_end;
     private int year;
+    public Schedule(){
+
+    }
+    public Schedule(int id, int color, String title, String desc, String location, int state, long time, long time_end, int year){
+        this.id = id;
+        this.color = color;
+        this.title = title;
+        this.desc = desc;
+        this.location = location;
+        this.state = state;
+        this.time = time;
+        this.time_end = time_end;
+        this.year = year;
+    }
+
     private int month;
     private int day;
     private int eventSetId;
+
 
     public int getId() {
         return id;
@@ -91,6 +108,13 @@ public class Schedule implements Serializable {
         this.time = time;
     }
 
+    public long getTime_end() {
+        return time_end;
+    }
+
+    public void setTime_end(long time_end) {
+        this.time_end = time_end;
+    }
     public int getDay() {
         return day;
     }

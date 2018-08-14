@@ -3,5 +3,7 @@
     <solid android:color="@color/color_schedule_grey"/>
     <corners
         android:bottomLeftRadius="@dimen/schedule_radius_size"
-        android:topLeftRadius="@dimen/schedule_radius_size"/>
+        android:topLeftRadius="@dimen/schedule_radius_size"
+        android:topRightRadius="4dp"
+        android:bottomRightRadius="4dp"/>
 </shape>

@@ -2,6 +2,8 @@ package com.jeek.calendar.task.schedule;
 
 import android.content.Context;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.jimmy.common.bean.Schedule;
 import com.jimmy.common.data.ScheduleDao;
 import com.jimmy.common.base.task.BaseAsyncTask;
@@ -17,6 +19,7 @@ public class LoadScheduleTask extends BaseAsyncTask<List<Schedule>> {
     private int mYear;
     private int mMonth;
     private int mDay;
+    private GoogleSignInAccount mAccount = GoogleSignIn.getLastSignedInAccount(mContext);
 
     public LoadScheduleTask(Context context, OnTaskFinishedListener<List<Schedule>> onTaskFinishedListener, int year, int month, int day) {
         super(context, onTaskFinishedListener);
@@ -28,6 +31,11 @@ public class LoadScheduleTask extends BaseAsyncTask<List<Schedule>> {
     @Override
     protected List<Schedule> doInBackground(Void... params) {
         ScheduleDao dao = ScheduleDao.getInstance(mContext);
-        return dao.getScheduleByDate(mYear, mMonth,mDay);
+        String account;
+        if (mAccount == null) {
+            return dao.getScheduleByDate(mYear, mMonth, mDay, "Anonymous");
+        }else{
+            return dao.getScheduleByDate(mYear, mMonth,mDay, mAccount.getEmail());
+        }
     }
 }
