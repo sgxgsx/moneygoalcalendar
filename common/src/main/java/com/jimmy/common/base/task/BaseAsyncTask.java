@@ -26,6 +26,7 @@ public abstract class BaseAsyncTask<T> extends AsyncTask<Void, Void, T> {
         super.onPostExecute(data);
         if (mOnTaskFinishedListener != null) {
             mOnTaskFinishedListener.onTaskFinished(data);
+
         }
     }
 }

@@ -44,6 +44,7 @@
     <string name="menu_no_category">Unclassified </string>
     <string name="menu_sign_out">Sign out</string>
     <string name="menu_delete_account">Delete Account</string>
+    <string name="menu_settings">Settings</string>
 
     <!--event.set-->
     <string name="event_set_list_name">List name</string>

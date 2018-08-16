@@ -36,7 +36,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.jeek.calendar.R;
-import com.jeek.calendar.adapter.EventSetAdapter;
+import com.jeek.calendar.adapter.CalendarClassAdapter;
+import com.jeek.calendar.task.calendarclass.LoadCalendarClassesTask;
+import com.jimmy.common.bean.CalendarClass;
 import com.jimmy.common.bean.EventSet;
 import com.jeek.calendar.fragment.EventSetFragment;
 import com.jeek.calendar.fragment.ScheduleFragment;
@@ -50,7 +52,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener/*, OnTaskFinishedListener<List<EventSet>>*/ {
+public class MainActivity extends BaseActivity implements View.OnClickListener, OnTaskFinishedListener<List<CalendarClass>> {
 
     public static int ADD_EVENT_SET_CODE = 1;
     public static String ADD_EVENT_SET_ACTION = "action.add.event.set";
@@ -58,10 +60,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
     private DrawerLayout dlMain;
     private LinearLayout llTitleDate;
     private TextView tvTitleMonth, tvTitleDay, tvTitle;
-    //private RecyclerView rvMenuEventSetList;
+    private RecyclerView rvMenuCalendarClassList;   //rvMenuEventSetist      CALENDARS
 
-    //private EventSetAdapter mEventSetAdapter;
-    //private List<EventSet> mEventSets;
+    private CalendarClassAdapter mCalendarClassAdapter;
+    private List<CalendarClass> mCalendarClasses;  // mEventSets              CALENDARS
 
     private BaseFragment mScheduleFragment;
     //private BaseFragment mEventSetFragment;
@@ -112,7 +114,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
         tvTitleMonth = searchViewById(R.id.tvTitleMonth);
         tvTitleDay = searchViewById(R.id.tvTitleDay);
         tvTitle = searchViewById(R.id.tvTitle);
-        //rvMenuEventSetList = searchViewById(R.id.rvMenuEventSetList);
+        rvMenuCalendarClassList = searchViewById(R.id.rvMenuEventSetList);
         mUserNameTextView = searchViewById(R.id.tvMenuTitleAccount);
         searchViewById(R.id.ivMainMenu).setOnClickListener(this);
         searchViewById(R.id.llMenuSchedule).setOnClickListener(this);
@@ -121,9 +123,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
         //searchViewById(R.id.tvMenuAddEventSet).setOnClickListener(this);
         searchViewById(R.id.tvMenuSignOut).setOnClickListener(this);
         searchViewById(R.id.tvMenuDeleteAccount).setOnClickListener(this);
+        searchViewById(R.id.tvMenuSettings).setOnClickListener(this);
         searchViewById(R.id.floatingActionButton).setOnClickListener(this);
         initUi();
-        //initEventSetList();
+        initCalendarClassesList();
         gotoScheduleFragment();
         //initBroadcastReceiver();
 
@@ -137,19 +140,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
             registerReceiver(mAddEventSetBroadcastReceiver, filter);
         }
     }
-
-    private void initEventSetList() {
-        mEventSets = new ArrayList<>();
+*/
+    private void initCalendarClassesList() {
+        mCalendarClasses = new ArrayList<>();
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
-        rvMenuEventSetList.setLayoutManager(manager);
+        rvMenuCalendarClassList.setLayoutManager(manager);
         DefaultItemAnimator itemAnimator = new DefaultItemAnimator();
         itemAnimator.setSupportsChangeAnimations(false);
-        rvMenuEventSetList.setItemAnimator(itemAnimator);
-        mEventSetAdapter = new EventSetAdapter(this, mEventSets);
-        rvMenuEventSetList.setAdapter(mEventSetAdapter);
+        rvMenuCalendarClassList.setItemAnimator(itemAnimator);
+        mCalendarClassAdapter = new CalendarClassAdapter(this, mCalendarClasses);
+        rvMenuCalendarClassList.setAdapter(mCalendarClassAdapter);
     }
-*/
+
     private void initUi() {
         dlMain.setScrimColor(Color.TRANSPARENT);
         mMonthText = getResources().getStringArray(R.array.calendar_month);
@@ -168,9 +171,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
     protected void initData() {
         super.initData();
         resetMainTitleDate(mCurrentSelectYear, mCurrentSelectMonth, mCurrentSelectDay);
-        /*
-        new LoadEventSetTask(this, this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-        */
+
+        new LoadCalendarClassesTask(this, this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+
     }
 
     public void resetMainTitleDate(int year, int month, int day) {
@@ -250,6 +253,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
                         });
                 }
                 break;
+            case R.id.tvMenuSettings:
+                gotoSettings();
+                break;
             default:
                 break;
         }
@@ -272,6 +278,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
         }
     }
 
+    private void gotoSettings(){
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
+    }
     private void gotoAuth(){
         Intent intent = new Intent(this, AuthActivity.class);
         startActivity(intent);
@@ -363,12 +373,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
         */
         super.onDestroy();
     }
-/*
+
     @Override
-    public void onTaskFinished(List<EventSet> data) {
-        mEventSetAdapter.changeAllData(data);
+    public void onTaskFinished(List<CalendarClass> data) {
+        mCalendarClassAdapter.changeAllData(data);
     }
-*/
+
 /*
     private class AddEventSetBroadcastReceiver extends BroadcastReceiver {
 

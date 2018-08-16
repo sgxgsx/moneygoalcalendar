@@ -2,16 +2,19 @@ package com.jimmy.common.data;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.provider.CalendarContract;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 
+import com.jimmy.common.bean.CalendarClass;
 import com.jimmy.common.bean.Schedule;
 
 import java.util.ArrayList;
@@ -234,6 +237,7 @@ public class ScheduleDao {
         }
         Log.wtf("wtf", String.valueOf(schedules.size()));
         // sort
+
         if(schedules.size() > 1){
             int i = 0;
             int goodPairsCounter = 0;
@@ -256,12 +260,59 @@ public class ScheduleDao {
 
             }
         }
-
-
+        getAllCalendars();
         cursor.close();
         mHelper.close();
         return schedules;
 
+    }
+
+    public List<CalendarClass> getAllCalendars(){
+        List<CalendarClass> calendars = new ArrayList<>();
+
+        String[] mProjection =
+                {
+                        CalendarContract.Calendars.ALLOWED_ATTENDEE_TYPES,
+                        CalendarContract.Calendars.ACCOUNT_NAME,
+                        CalendarContract.Calendars.CALENDAR_DISPLAY_NAME,
+                        CalendarContract.Calendars.CALENDAR_LOCATION,
+                        CalendarContract.Calendars.CALENDAR_TIME_ZONE
+                };
+
+        Uri uri = CalendarContract.Calendars.CONTENT_URI;
+        //String selection = "((" + CalendarContract.Calendars.ACCOUNT_NAME + " = ?) AND ("
+        //        + CalendarContract.Calendars.ACCOUNT_TYPE + " = ?) AND ("
+        //        + CalendarContract.Calendars.OWNER_ACCOUNT + " = ?))";
+        //String[] selectionArgs = new String[]{"cal@zoftino.com", "cal.zoftino.com",
+        //       "cal@zoftino.com"};
+
+        if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.READ_CALENDAR}, 1000);
+        }
+        Cursor cur = mContext.getContentResolver().query(uri, mProjection, null, null, null);
+
+        while (cur.moveToNext()) {
+            String allowed_att = cur.getString(0);
+            String accName     = cur.getString(1);
+            String displayName = cur.getString(2);
+            String location = cur.getString(3);
+            String time_zone = cur.getString(4);
+        /*  Log.wtf("Allowed attendee types", String.valueOf(allowed_att));
+            Log.wtf("acc name", accName);
+            Log.wtf("display name", displayName);
+            Log.wtf("location", location);
+            Log.wtf("time zone", time_zone);
+            Log.wtf("-----", "------------------");           */
+
+            CalendarClass cal = new CalendarClass();
+            cal.setAllowedAttendeeTypes(allowed_att);
+            cal.setAccountName(accName);
+            cal.setDisplayName(displayName);
+            cal.setLocation(location);
+            cal.setTimeZone(time_zone);
+            calendars.add(cal);
+        }
+        return calendars;
     }
 
 }

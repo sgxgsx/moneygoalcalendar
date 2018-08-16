@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.jeek.calendar.R;
 import com.jeek.calendar.activity.MainActivity;
+import com.jimmy.common.bean.CalendarClass;
 import com.jimmy.common.bean.EventSet;
 import com.jeek.calendar.dialog.ConfirmDialog;
 import com.jeek.calendar.task.eventset.RemoveEventSetTask;
@@ -23,36 +24,36 @@ import java.util.List;
 /**
  * Created by Jimmy on 2016/10/12 0012.
  */
-public class EventSetAdapter extends RecyclerView.Adapter<EventSetAdapter.EventSetViewHolder> {
+public class CalendarClassAdapter extends RecyclerView.Adapter<CalendarClassAdapter.CalendarClassViewHolder> {
 
     private Context mContext;
-    private List<EventSet> mEventSets;
+    private List<CalendarClass> mCalendarClasses;
 
-    public EventSetAdapter(Context context, List<EventSet> eventSets) {
+    public CalendarClassAdapter(Context context, List<CalendarClass> calendarClasses) {
         mContext = context;
-        mEventSets = eventSets;
+        mCalendarClasses = calendarClasses;
     }
 
     @Override
-    public EventSetViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new EventSetViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_event_set, parent, false));
+    public CalendarClassViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new CalendarClassViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_event_set, parent, false));
     }
 
     @Override
     public int getItemCount() {
-        return mEventSets.size();
+        return mCalendarClasses.size();
     }
 
     @Override
-    public void onBindViewHolder(EventSetViewHolder holder, final int position) {
-        final EventSet eventSet = mEventSets.get(position);
+    public void onBindViewHolder(CalendarClassViewHolder holder, final int position) {
+        final CalendarClass calendarClass = mCalendarClasses.get(position);
         holder.sdvEventSet.close(false);
-        holder.tvEventSetName.setText(eventSet.getName());
-        holder.vEventSetColor.setBackgroundResource(JeekUtils.getEventSetColor(eventSet.getColor()));
+        holder.tvEventSetName.setText(calendarClass.getDisplayName());
+        holder.vEventSetColor.setBackgroundResource(JeekUtils.getEventSetColor(5));
         holder.ibEventSetDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDeleteEventSetDialog(eventSet, position);
+                //showDeleteEventSetDialog(eventSet, position);
             }
         });
         /*
@@ -92,14 +93,14 @@ public class EventSetAdapter extends RecyclerView.Adapter<EventSetAdapter.EventS
         }
     }
     */
-    protected class EventSetViewHolder extends RecyclerView.ViewHolder {
+    protected class CalendarClassViewHolder extends RecyclerView.ViewHolder {
 
         private SlideDeleteView sdvEventSet;
         private View vEventSetColor;
         private TextView tvEventSetName;
         private ImageButton ibEventSetDelete;
 
-        public EventSetViewHolder(View itemView) {
+        public CalendarClassViewHolder(View itemView) {
             super(itemView);
             sdvEventSet = (SlideDeleteView) itemView.findViewById(R.id.sdvEventSet);
             vEventSetColor = itemView.findViewById(R.id.vEventSetColor);
@@ -108,19 +109,19 @@ public class EventSetAdapter extends RecyclerView.Adapter<EventSetAdapter.EventS
         }
     }
 
-    public void changeAllData(List<EventSet> eventSets) {
-        mEventSets.clear();
-        mEventSets.addAll(eventSets);
+    public void changeAllData(List<CalendarClass> calendarClasses) {
+        mCalendarClasses.clear();
+        mCalendarClasses.addAll(calendarClasses);
         notifyDataSetChanged();
     }
 
-    public void insertItem(EventSet eventSet) {
-        mEventSets.add(eventSet);
-        notifyItemInserted(mEventSets.size() - 1);
+    public void insertItem(CalendarClass calendarClass) {
+        mCalendarClasses.add(calendarClass);
+        notifyItemInserted(mCalendarClasses.size() - 1);
     }
 
     public void removeItem(int position) {
-        mEventSets.remove(position);
+        mCalendarClasses.remove(position);
         notifyDataSetChanged();
     }
 }
