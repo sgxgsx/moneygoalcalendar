@@ -52,7 +52,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener, OnTaskFinishedListener<List<CalendarClass>> {
+public class MainActivity extends BaseActivity implements View.OnClickListener/*,OnTaskFinishedListener<List<CalendarClass>>*/ {
 
     public static int ADD_EVENT_SET_CODE = 1;
     public static String ADD_EVENT_SET_ACTION = "action.add.event.set";
@@ -60,10 +60,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private DrawerLayout dlMain;
     private LinearLayout llTitleDate;
     private TextView tvTitleMonth, tvTitleDay, tvTitle;
-    private RecyclerView rvMenuCalendarClassList;   //rvMenuEventSetist      CALENDARS
+    //private RecyclerView rvMenuCalendarClassList;   //rvMenuEventSetist       CALENDARS
 
-    private CalendarClassAdapter mCalendarClassAdapter;
-    private List<CalendarClass> mCalendarClasses;  // mEventSets              CALENDARS
+    //private CalendarClassAdapter mCalendarClassAdapter;                       CALENDARS
+    //private List<CalendarClass> mCalendarClasses;  // mEventSets              CALENDARS
 
     private BaseFragment mScheduleFragment;
     //private BaseFragment mEventSetFragment;
@@ -114,7 +114,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         tvTitleMonth = searchViewById(R.id.tvTitleMonth);
         tvTitleDay = searchViewById(R.id.tvTitleDay);
         tvTitle = searchViewById(R.id.tvTitle);
-        rvMenuCalendarClassList = searchViewById(R.id.rvMenuEventSetList);
+        //rvMenuCalendarClassList = searchViewById(R.id.rvMenuEventSetList);
         mUserNameTextView = searchViewById(R.id.tvMenuTitleAccount);
         searchViewById(R.id.ivMainMenu).setOnClickListener(this);
         searchViewById(R.id.llMenuSchedule).setOnClickListener(this);
@@ -126,7 +126,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         searchViewById(R.id.tvMenuSettings).setOnClickListener(this);
         searchViewById(R.id.floatingActionButton).setOnClickListener(this);
         initUi();
-        initCalendarClassesList();
+        //initCalendarClassesList();
         gotoScheduleFragment();
         //initBroadcastReceiver();
 
@@ -140,7 +140,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             registerReceiver(mAddEventSetBroadcastReceiver, filter);
         }
     }
-*/
     private void initCalendarClassesList() {
         mCalendarClasses = new ArrayList<>();
         LinearLayoutManager manager = new LinearLayoutManager(this);
@@ -152,7 +151,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         mCalendarClassAdapter = new CalendarClassAdapter(this, mCalendarClasses);
         rvMenuCalendarClassList.setAdapter(mCalendarClassAdapter);
     }
-
+*/
     private void initUi() {
         dlMain.setScrimColor(Color.TRANSPARENT);
         mMonthText = getResources().getStringArray(R.array.calendar_month);
@@ -171,9 +170,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     protected void initData() {
         super.initData();
         resetMainTitleDate(mCurrentSelectYear, mCurrentSelectMonth, mCurrentSelectDay);
-
+        /*
         new LoadCalendarClassesTask(this, this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-
+        */
     }
 
     public void resetMainTitleDate(int year, int month, int day) {
@@ -373,12 +372,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         */
         super.onDestroy();
     }
-
+    /*
     @Override
     public void onTaskFinished(List<CalendarClass> data) {
         mCalendarClassAdapter.changeAllData(data);
     }
-
+    */
 /*
     private class AddEventSetBroadcastReceiver extends BroadcastReceiver {
 
