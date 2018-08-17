@@ -23,6 +23,7 @@ public class Schedule implements Serializable {
 
     private String repeat;
     private String account;
+    private String account_name;
 
     public Schedule(){
 
@@ -41,6 +42,14 @@ public class Schedule implements Serializable {
         this.account = account;
     }
 
+
+    public String getAccount_name() {
+        return account_name;
+    }
+
+    public void setAccount_name(String account_name) {
+        this.account_name = account_name;
+    }
 
     public String getAccount() {
         return account;

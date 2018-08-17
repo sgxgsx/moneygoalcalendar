@@ -216,7 +216,7 @@ public class ScheduleDao {
     public List<Schedule> getScheduleByDate(int year, int month, int day, String account){
         List<Schedule> schedules = new ArrayList<>();
 
-        String[] projection = new String[] { CalendarContract.Events.CALENDAR_ID, CalendarContract.Events.TITLE, CalendarContract.Events.DESCRIPTION, CalendarContract.Events.DTSTART, CalendarContract.Events.DTEND, CalendarContract.Events.DISPLAY_COLOR, CalendarContract.Events.EVENT_COLOR, CalendarContract.Events.EVENT_COLOR_KEY, CalendarContract.Events.ALL_DAY, CalendarContract.Events.EVENT_LOCATION, CalendarContract.Events.OWNER_ACCOUNT, CalendarContract.Events.RRULE};
+        String[] projection = new String[] { CalendarContract.Events.CALENDAR_ID, CalendarContract.Events.TITLE, CalendarContract.Events.DESCRIPTION, CalendarContract.Events.DTSTART, CalendarContract.Events.DTEND, CalendarContract.Events.DISPLAY_COLOR, CalendarContract.Events.EVENT_COLOR, CalendarContract.Events.EVENT_COLOR_KEY, CalendarContract.Events.ALL_DAY, CalendarContract.Events.EVENT_LOCATION, CalendarContract.Events.OWNER_ACCOUNT, CalendarContract.Events.RRULE, CalendarContract.Events.ACCOUNT_NAME};
 
 
         Calendar startTime = Calendar.getInstance();
@@ -247,6 +247,7 @@ public class ScheduleDao {
                 schedule.setLocation(cursor.getString(9));
                 schedule.setAccount(cursor.getString(10));
                 schedule.setRepeat(cursor.getString(11));
+                schedule.setAccount_name(cursor.getString(12));
                 schedules.add(schedule);
             } while ( cursor.moveToNext());
         }

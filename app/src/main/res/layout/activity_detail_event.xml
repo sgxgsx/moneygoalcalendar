@@ -22,7 +22,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabEditEvent"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="135dp"
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
     <ScrollView
         android:id="@+id/svEventDetail"
         android:layout_width="match_parent"
@@ -30,25 +40,16 @@
         android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tbDetailActivity">
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fabEditEvent"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="bottom|end"
-                android:layout_marginStart="13dp"
-                android:layout_marginTop="85dp"
-                android:clickable="true"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
 
 
             <android.support.constraint.ConstraintLayout
-                android:id="@+id/constraintLayout"
+                android:id="@+id/EventTitleLayout"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginStart="0dp"
@@ -63,7 +64,7 @@
                     android:id="@+id/tvEventTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="64dp"
+                    android:layout_marginStart="70dp"
                     android:layout_marginTop="8dp"
                     android:text="Event title"
                     android:textColor="@color/colorWrite"
@@ -76,22 +77,19 @@
 
 
             <android.support.constraint.ConstraintLayout
-                android:id="@+id/constraintLayout2"
+                android:id="@+id/DateLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+                android:layout_marginTop="4dp">
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/ivDate"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginBottom="16dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_clock_1"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -100,11 +98,11 @@
                     android:id="@+id/tvStartTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="@dimen/margin_start_detail_30dp"
                     android:layout_marginTop="10dp"
                     android:text="Saturday, August 3, 23.30 -"
                     android:textSize="@dimen/text_size_12sp"
-                    app:layout_constraintStart_toEndOf="@+id/imageView3"
+                    app:layout_constraintStart_toEndOf="@+id/ivDate"
                     app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -114,11 +112,11 @@
                     android:layout_height="wrap_content"
 
                     android:layout_marginBottom="8dp"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="@dimen/margin_start_detail_30dp"
                     android:text="Saturday, August 3, 23.30"
                     android:textSize="@dimen/text_size_12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView3"
+                    app:layout_constraintStart_toEndOf="@+id/ivDate"
                     app:layout_constraintTop_toBottomOf="@+id/tvStartTime"
                     app:layout_constraintVertical_bias="0.0" />
 
@@ -127,7 +125,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="11dp"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginStart="64dp"
+                    android:layout_marginStart="70dp"
                     android:layout_marginTop="0dp"
                     android:text="Repeat weekly"
                     android:textSize="8sp"
@@ -138,12 +136,10 @@
             </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
-                android:id="@+id/constraintLayout3"
+                android:id="@+id/DescriptionLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+                android:layout_marginTop="4dp">
 
                 <ImageView
                     android:id="@+id/iNoteImage"
@@ -152,6 +148,7 @@
                     android:layout_marginBottom="16dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_pencil"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -161,8 +158,8 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="@dimen/margin_start_detail_30dp"
+                    android:layout_marginTop="8dp"
                     android:text="ssfffsafwrafwwwwwwwwrqwrwrwrwrrwrrr"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -171,13 +168,10 @@
             </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
-                android:id="@+id/constraintLayout4"
+                android:id="@+id/NotificationLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+                android:layout_marginTop="8dp">
 
                 <ImageView
                     android:id="@+id/iNotificationImage"
@@ -186,6 +180,7 @@
                     android:layout_marginBottom="16dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_notification"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -195,7 +190,7 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="@dimen/margin_start_detail_30dp"
                     android:layout_marginTop="8dp"
                     android:text="notification wkfkwkqkrkqwkrkwkrkwqrkkwqrkwqkrkwkrkwqkrkqwrkwkrkwqk"
                     android:textSize="14sp"
@@ -205,12 +200,10 @@
             </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
-                android:id="@+id/constraintLayout5"
+                android:id="@+id/AccountLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
+                android:layout_marginTop="4dp">
 
                 <ImageView
                     android:id="@+id/iCalendarImage"
@@ -219,6 +212,7 @@
                     android:layout_marginBottom="16dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_calendar_interface_symbol"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -227,9 +221,8 @@
                     android:id="@+id/tvCalendarNameTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="18dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="@dimen/margin_start_detail_30dp"
                     android:text="name"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -241,7 +234,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginStart="64dp"
+                    android:layout_marginStart="70dp"
                     android:text="someemail@gmail.com"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -250,12 +243,10 @@
             </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
-                android:id="@+id/constraintLayout6"
+                android:id="@+id/LocationLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+                android:layout_marginTop="4dp">
 
                 <ImageView
                     android:id="@+id/iLocationImage"
@@ -264,6 +255,7 @@
                     android:layout_marginBottom="16dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_placeholder"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -273,7 +265,7 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="@dimen/margin_start_detail_30dp"
                     android:layout_marginTop="8dp"
                     android:text="location wkfkwkqkrkqwkrkwkrkwqrkkwqrkwqkrkwkrkwqkrkqwrkwkrkwqk"
                     android:textSize="14sp"
@@ -282,7 +274,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </android.support.constraint.ConstraintLayout>
 
-        </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
 
     </ScrollView>
 
