@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jeek.calendar.R;
+import com.jeek.calendar.activity.DetailEventActivity;
 import com.jeek.calendar.activity.ScheduleDetailActivity;
 import com.jimmy.common.bean.Schedule;
 import com.jeek.calendar.dialog.ConfirmDialog;
@@ -79,7 +80,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         if (holder instanceof ScheduleViewHolder) {
             final Schedule schedule = mSchedules.get(position);
             final ScheduleViewHolder viewHolder = (ScheduleViewHolder) holder;
-            viewHolder.vScheduleHintBlock.setBackgroundResource(JeekUtils.getScheduleBlockView(schedule.getColor()));
+            viewHolder.vScheduleHintBlock.setBackgroundColor(schedule.getColor());
             viewHolder.tvScheduleTitle.setText(schedule.getTitle());
             if (schedule.getTime() != 0) {
                 String time_to_display = JeekUtils.timeStamp2Time(schedule.getTime()) + " - " + JeekUtils.timeStamp2Time(schedule.getTime_end());
@@ -107,6 +108,8 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    mContext.startActivity(new Intent(mContext, DetailEventActivity.class).putExtra(DetailEventActivity.SCHEDULE_OBJ, schedule));
+                    /*
                     if (mBaseFragment instanceof ScheduleFragment) {
                         mContext.startActivity(new Intent(mContext, ScheduleDetailActivity.class)
                                 .putExtra(ScheduleDetailActivity.SCHEDULE_OBJ, schedule)
@@ -116,6 +119,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                                 .putExtra(ScheduleDetailActivity.SCHEDULE_OBJ, schedule)
                                 .putExtra(ScheduleDetailActivity.CALENDAR_POSITION, -1));
                     }
+                    */
                 }
             });
         } else if (holder instanceof ScheduleFinishViewHolder) {
@@ -201,14 +205,14 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     protected class ScheduleViewHolder extends RecyclerView.ViewHolder {
 
-        protected LinearLayout vScheduleHintBlock;
+        protected ConstraintLayout vScheduleHintBlock;
         //protected TextView tvScheduleState;
         protected TextView tvScheduleTitle;
         protected TextView tvScheduleTime;
 
         public ScheduleViewHolder(View itemView) {
             super(itemView);
-            vScheduleHintBlock = (LinearLayout) itemView.findViewById(R.id.vScheduleHintBlock);
+            vScheduleHintBlock = (ConstraintLayout) itemView.findViewById(R.id.vScheduleHintBlock);
             //tvScheduleState = (TextView) itemView.findViewById(R.id.tvScheduleState);
             tvScheduleTitle = (TextView) itemView.findViewById(R.id.tvScheduleTitle);
             tvScheduleTime = (TextView) itemView.findViewById(R.id.tvScheduleTime);

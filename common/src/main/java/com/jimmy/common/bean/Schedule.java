@@ -16,10 +16,18 @@ public class Schedule implements Serializable {
     private long time;
     private long time_end;
     private int year;
+    private int month;
+    private int day;
+    private int eventSetId;
+
+
+    private String repeat;
+    private String account;
+
     public Schedule(){
 
     }
-    public Schedule(int id, int color, String title, String desc, String location, int state, long time, long time_end, int year){
+    public Schedule(int id, int color, String title, String desc, String location, int state, long time, long time_end, int year, String repeat, String account){
         this.id = id;
         this.color = color;
         this.title = title;
@@ -29,12 +37,26 @@ public class Schedule implements Serializable {
         this.time = time;
         this.time_end = time_end;
         this.year = year;
+        this.repeat = repeat;
+        this.account = account;
     }
 
-    private int month;
-    private int day;
-    private int eventSetId;
 
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+    public String getRepeat() {
+        return repeat;
+    }
+
+    public void setRepeat(String repeat) {
+        this.repeat = repeat;
+    }
 
     public int getId() {
         return id;

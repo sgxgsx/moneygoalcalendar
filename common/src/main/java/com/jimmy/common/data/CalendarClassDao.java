@@ -40,6 +40,24 @@ public class CalendarClassDao {
 
         return id;
     }
+/*
+    public int[] getCalendarId(){
+        String[] mProjection = {CalendarContract.Calendars._ID};
+        Uri uri = CalendarContract.Calendars.CONTENT_URI;
+        Cursor cur = mContext.getContentResolver().query(uri, mProjection, null, null, null);
+        int amount = 0;
+        while (cur.moveToNext()){
+            amount++;
+        }
+        cur.moveToFirst();
+        int[] return_it = new int[amount];
+        amount = 0;
+        while (cur.moveToNext()){
+            return_it[amount] = cur.getInt(0);
+            amount++;
+        }
+        return return_it;
+    } */
 
 
     public List<CalendarClass> getAllCalendars(){

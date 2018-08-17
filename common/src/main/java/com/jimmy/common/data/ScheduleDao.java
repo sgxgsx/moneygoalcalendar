@@ -200,12 +200,23 @@ public class ScheduleDao {
         db.close();
         mHelper.close();
         return schedules;
+    }
+    public int getEventColor(String color){
+        String[] proj = new String[]{CalendarContract.Colors.COLOR};
+        String selection ="( " + CalendarContract.Colors.COLOR_KEY + " = " + color + " )";
+        Cursor cursor = mContext.getContentResolver().query(CalendarContract.Colors.CONTENT_URI, proj, selection, null, null);
+        if (cursor.moveToNext()){
+            return cursor.getInt(0);
+        } else{
+            Log.wtf("RETURN COLOR", "4166095");
+            return 4166095;
+        }
     }*/
 
     public List<Schedule> getScheduleByDate(int year, int month, int day, String account){
         List<Schedule> schedules = new ArrayList<>();
 
-        String[] projection = new String[] { CalendarContract.Events.CALENDAR_ID, CalendarContract.Events.TITLE, CalendarContract.Events.DESCRIPTION, CalendarContract.Events.DTSTART, CalendarContract.Events.DTEND, CalendarContract.Events.EVENT_COLOR,CalendarContract.Events.DISPLAY_COLOR, CalendarContract.Events.EVENT_COLOR_KEY, CalendarContract.Events.ALL_DAY, CalendarContract.Events.EVENT_LOCATION, CalendarContract.Events.OWNER_ACCOUNT };
+        String[] projection = new String[] { CalendarContract.Events.CALENDAR_ID, CalendarContract.Events.TITLE, CalendarContract.Events.DESCRIPTION, CalendarContract.Events.DTSTART, CalendarContract.Events.DTEND, CalendarContract.Events.DISPLAY_COLOR, CalendarContract.Events.EVENT_COLOR, CalendarContract.Events.EVENT_COLOR_KEY, CalendarContract.Events.ALL_DAY, CalendarContract.Events.EVENT_LOCATION, CalendarContract.Events.OWNER_ACCOUNT, CalendarContract.Events.RRULE};
 
 
         Calendar startTime = Calendar.getInstance();
@@ -217,26 +228,31 @@ public class ScheduleDao {
         Calendar endTime= Calendar.getInstance();
         endTime.set(year,month,day,23,59, 59);
 
-        String selection = "(( " + CalendarContract.Events.DTSTART + " >= " + time + " ) AND ( " + CalendarContract.Events.DTSTART + " <= " + endTime.getTimeInMillis() +  " ) AND ( " + CalendarContract.Events.OWNER_ACCOUNT + " = " + "'" + account + "'" + " ))";
+        String selection = "(( " + CalendarContract.Events.DTSTART + " >= " + time + " ) AND ( " + CalendarContract.Events.DTSTART + " <= " + endTime.getTimeInMillis() +  /*" ) AND ( " + CalendarContract.Events.OWNER_ACCOUNT + " = " + "'" + account + "'" + */" ))";
         if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.READ_CALENDAR}, 1000);
         }
 
-        Cursor cursor = mContext.getContentResolver().query( CalendarContract.Events.CONTENT_URI, projection, selection, null, null );
+        Cursor cursor = mContext.getContentResolver().query(CalendarContract.Events.CONTENT_URI, projection, selection, null, null );
 
 // output the events
         if (cursor.moveToFirst()) {
             do {
                 Schedule schedule = new Schedule();
                 schedule.setTitle(cursor.getString(1));
+                schedule.setDesc(cursor.getString(2));
                 schedule.setTime(cursor.getLong(3));
                 schedule.setTime_end(cursor.getLong(4));
-                Log.wtf("acc1", cursor.getString(10));
+                schedule.setColor(cursor.getInt(5));
+                schedule.setLocation(cursor.getString(9));
+                schedule.setAccount(cursor.getString(10));
+                schedule.setRepeat(cursor.getString(11));
                 schedules.add(schedule);
             } while ( cursor.moveToNext());
         }
         Log.wtf("wtf", String.valueOf(schedules.size()));
         // sort
+
 
         if(schedules.size() > 1){
             int i = 0;
@@ -245,7 +261,7 @@ public class ScheduleDao {
                 long time1 = schedules.get(i).getTime();
                 long time2 = schedules.get(i + 1).getTime();
                 if (time1 > time2) {
-                    Schedule sh = new Schedule(schedules.get(i).getId(), schedules.get(i).getColor(), schedules.get(i).getTitle(), schedules.get(i).getDesc(), schedules.get(i).getLocation(), schedules.get(i).getState(), schedules.get(i).getTime(), schedules.get(i).getTime_end(), schedules.get(i).getYear());
+                    Schedule sh = new Schedule(schedules.get(i).getId(), schedules.get(i).getColor(), schedules.get(i).getTitle(), schedules.get(i).getDesc(), schedules.get(i).getLocation(), schedules.get(i).getState(), schedules.get(i).getTime(), schedules.get(i).getTime_end(), schedules.get(i).getYear(), schedules.get(i).getRepeat(), schedules.get(i).getAccount());
                     schedules.remove(i);
                     schedules.add(i + 1, sh);
                     goodPairsCounter = 0;
@@ -260,59 +276,11 @@ public class ScheduleDao {
 
             }
         }
-        getAllCalendars();
         cursor.close();
         mHelper.close();
         return schedules;
 
     }
 
-    public List<CalendarClass> getAllCalendars(){
-        List<CalendarClass> calendars = new ArrayList<>();
-
-        String[] mProjection =
-                {
-                        CalendarContract.Calendars.ALLOWED_ATTENDEE_TYPES,
-                        CalendarContract.Calendars.ACCOUNT_NAME,
-                        CalendarContract.Calendars.CALENDAR_DISPLAY_NAME,
-                        CalendarContract.Calendars.CALENDAR_LOCATION,
-                        CalendarContract.Calendars.CALENDAR_TIME_ZONE
-                };
-
-        Uri uri = CalendarContract.Calendars.CONTENT_URI;
-        //String selection = "((" + CalendarContract.Calendars.ACCOUNT_NAME + " = ?) AND ("
-        //        + CalendarContract.Calendars.ACCOUNT_TYPE + " = ?) AND ("
-        //        + CalendarContract.Calendars.OWNER_ACCOUNT + " = ?))";
-        //String[] selectionArgs = new String[]{"cal@zoftino.com", "cal.zoftino.com",
-        //       "cal@zoftino.com"};
-
-        if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.READ_CALENDAR}, 1000);
-        }
-        Cursor cur = mContext.getContentResolver().query(uri, mProjection, null, null, null);
-
-        while (cur.moveToNext()) {
-            String allowed_att = cur.getString(0);
-            String accName     = cur.getString(1);
-            String displayName = cur.getString(2);
-            String location = cur.getString(3);
-            String time_zone = cur.getString(4);
-        /*  Log.wtf("Allowed attendee types", String.valueOf(allowed_att));
-            Log.wtf("acc name", accName);
-            Log.wtf("display name", displayName);
-            Log.wtf("location", location);
-            Log.wtf("time zone", time_zone);
-            Log.wtf("-----", "------------------");           */
-
-            CalendarClass cal = new CalendarClass();
-            cal.setAllowedAttendeeTypes(allowed_att);
-            cal.setAccountName(accName);
-            cal.setDisplayName(displayName);
-            cal.setLocation(location);
-            cal.setTimeZone(time_zone);
-            calendars.add(cal);
-        }
-        return calendars;
-    }
 
 }
