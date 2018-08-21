@@ -10,17 +10,19 @@
         android:id="@+id/tbDetailActivity"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/cardview_dark_background"/>
-    <TextView
-        android:id="@+id/tbTitleTest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
+
+        android:background="@color/cardview_dark_background" />
+
+    <ImageView
+        android:id="@+id/ivCancel"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Toolbar"
-        android:textColor="@color/colorWrite"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:src="@drawable/ic_cancel_12x12" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabEditEvent"
@@ -31,8 +33,8 @@
         android:layout_marginTop="135dp"
         android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ScrollView
         android:id="@+id/svEventDetail"
         android:layout_width="match_parent"
@@ -45,7 +47,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
 
 
             <android.support.constraint.ConstraintLayout
@@ -80,12 +81,12 @@
                 android:id="@+id/DateLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp">
+                android:layout_marginTop="20dp">
 
                 <ImageView
                     android:id="@+id/ivDate"
                     android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
@@ -123,7 +124,7 @@
                 <TextView
                     android:id="@+id/tvRepeat"
                     android:layout_width="wrap_content"
-                    android:layout_height="11dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:layout_marginStart="70dp"
                     android:layout_marginTop="0dp"
@@ -143,8 +144,8 @@
 
                 <ImageView
                     android:id="@+id/iNoteImage"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
@@ -171,12 +172,12 @@
                 android:id="@+id/NotificationLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="4dp">
 
                 <ImageView
                     android:id="@+id/iNotificationImage"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
@@ -220,7 +221,7 @@
                 <TextView
                     android:id="@+id/tvCalendarNameTextView"
                     android:layout_width="wrap_content"
-                    android:layout_height="18dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_marginStart="@dimen/margin_start_detail_30dp"
                     android:text="name"
@@ -250,8 +251,8 @@
 
                 <ImageView
                     android:id="@+id/iLocationImage"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"

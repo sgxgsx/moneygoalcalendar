@@ -1,12 +1,7 @@
 package com.jeek.calendar.fragment;
 
-import android.Manifest;
-import android.database.Cursor;
 import android.os.AsyncTask;
-import android.provider.CalendarContract;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.Editable;
@@ -19,12 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.jeek.calendar.R;
 import com.jeek.calendar.activity.MainActivity;
 import com.jeek.calendar.adapter.ScheduleAdapter;
-import com.jimmy.common.bean.Schedule;
+import com.jimmy.common.CalendarSystemDatabase.Schedule;
 import com.jeek.calendar.dialog.SelectDateDialog;
 import com.jeek.calendar.task.schedule.AddScheduleTask;
 import com.jeek.calendar.task.schedule.LoadScheduleTask;
@@ -37,10 +31,7 @@ import com.jimmy.common.util.DeviceUtils;
 import com.jimmy.common.util.ToastUtils;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-
-import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
 /**
  * Created by Jimmy on 2016/10/11 0011.

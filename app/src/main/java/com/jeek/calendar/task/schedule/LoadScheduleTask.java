@@ -4,8 +4,8 @@ import android.content.Context;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.jimmy.common.bean.Schedule;
-import com.jimmy.common.data.ScheduleDao;
+import com.jimmy.common.CalendarSystemDatabase.Schedule;
+import com.jimmy.common.CalendarSystemDatabase.ScheduleDao;
 import com.jimmy.common.base.task.BaseAsyncTask;
 import com.jimmy.common.listener.OnTaskFinishedListener;
 
@@ -33,9 +33,9 @@ public class LoadScheduleTask extends BaseAsyncTask<List<Schedule>> {
         ScheduleDao dao = ScheduleDao.getInstance(mContext);
         String account;
         if (mAccount == null) {
-            return dao.getScheduleByDate(mYear, mMonth, mDay, "Anonymous");
+            return dao.getScheduleByDate(mYear, mMonth, mDay, "ANONYMOUS");
         }else{
-            return dao.getScheduleByDate(mYear, mMonth,mDay, mAccount.getEmail());
+            return dao.getScheduleByDate(mYear, mMonth,mDay, mAccount.getDisplayName());
         }
     }
 }

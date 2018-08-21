@@ -17,7 +17,7 @@ import android.view.View;
 import com.jeek.calendar.library.R;
 import com.jeek.calendar.widget.calendar.CalendarUtils;
 import com.jeek.calendar.widget.calendar.LunarCalendarUtils;
-import com.jimmy.common.data.ScheduleDao;
+import com.jimmy.common.CalendarSystemDatabase.ScheduleDao;
 
 import org.joda.time.DateTime;
 

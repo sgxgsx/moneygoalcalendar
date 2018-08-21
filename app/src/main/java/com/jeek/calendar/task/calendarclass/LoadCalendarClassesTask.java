@@ -3,8 +3,8 @@ package com.jeek.calendar.task.calendarclass;
 import android.content.Context;
 
 import com.jimmy.common.base.task.BaseAsyncTask;
-import com.jimmy.common.bean.CalendarClass;
-import com.jimmy.common.data.CalendarClassDao;
+import com.jimmy.common.CalendarSystemDatabase.CalendarClass;
+import com.jimmy.common.CalendarSystemDatabase.CalendarClassDao;
 import com.jimmy.common.listener.OnTaskFinishedListener;
 
 import java.util.List;
@@ -20,6 +20,6 @@ public class LoadCalendarClassesTask extends BaseAsyncTask<List<CalendarClass>> 
     @Override
     protected List<CalendarClass> doInBackground(Void... params) {
         CalendarClassDao dao = CalendarClassDao.getInstance(mContext);
-        return dao.getAllCalendars();
+        return dao.getTrueCalendars();
     }
 }

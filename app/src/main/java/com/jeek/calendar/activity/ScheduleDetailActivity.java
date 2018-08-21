@@ -10,20 +10,16 @@ import android.widget.TextView;
 
 import com.jeek.calendar.R;
 import com.jimmy.common.bean.EventSet;
-import com.jimmy.common.bean.Schedule;
+import com.jimmy.common.CalendarSystemDatabase.Schedule;
 import com.jeek.calendar.dialog.InputLocationDialog;
 import com.jeek.calendar.dialog.SelectDateDialog;
 import com.jeek.calendar.dialog.SelectEventSetDialog;
-import com.jeek.calendar.task.eventset.LoadEventSetMapTask;
 import com.jeek.calendar.task.schedule.UpdateScheduleTask;
 import com.jeek.calendar.utils.DateUtils;
 import com.jeek.calendar.utils.JeekUtils;
 import com.jimmy.common.base.app.BaseActivity;
 import com.jimmy.common.listener.OnTaskFinishedListener;
 import com.jimmy.common.util.ToastUtils;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Jimmy on 2016/10/15 0015.

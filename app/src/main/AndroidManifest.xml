@@ -28,7 +28,8 @@
         <activity android:name=".activity.MoneyActivity" />
         <activity android:name=".activity.AddEventActivity" />
         <activity android:name=".activity.SettingsActivity" />
-        <activity android:name=".activity.DetailEventActivity"></activity>
+        <activity android:name=".activity.DetailEventActivity" />
+        <activity android:name=".activity.EditEventActivity"></activity>
     </application>
 
 </manifest>

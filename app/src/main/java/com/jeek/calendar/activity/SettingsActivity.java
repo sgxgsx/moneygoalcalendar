@@ -1,30 +1,39 @@
 package com.jeek.calendar.activity;
 
-import android.graphics.Color;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceCategory;
+import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
+import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
-import android.view.View;
+import android.util.Log;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.jeek.calendar.R;
 import com.jeek.calendar.adapter.CalendarClassAdapter;
+import com.jeek.calendar.task.CalendarSettingsEntry.LoadAllCalendarSettingsEntryTask;
 import com.jeek.calendar.task.calendarclass.LoadCalendarClassesTask;
+import com.jimmy.common.CalendarSystemDatabase.CalendarClassDao;
+import com.jimmy.common.SettingsDatabase.CalendarSettingsDatabase;
+import com.jimmy.common.SettingsDatabase.CalendarSettingsEntry;
 import com.jimmy.common.base.app.BaseActivity;
-import com.jimmy.common.bean.CalendarClass;
+import com.jimmy.common.CalendarSystemDatabase.CalendarClass;
 import com.jimmy.common.listener.OnTaskFinishedListener;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
+import java.util.Set;
 
-public class SettingsActivity extends BaseActivity implements /*View.OnClickListener,*/ OnTaskFinishedListener<List<CalendarClass>> {
+public class SettingsActivity extends BaseActivity implements /*View.OnClickListener,*/ OnTaskFinishedListener<List<CalendarSettingsEntry>>, SharedPreferences.OnSharedPreferenceChangeListener {
 
     private Toolbar mToolBar;
     private TextView mToolBarTextViewTitle;
@@ -32,48 +41,38 @@ public class SettingsActivity extends BaseActivity implements /*View.OnClickList
     private RecyclerView rvMenuCalendarClassList;   //rvMenuEventSetist      CALENDARS
 
     private CalendarClassAdapter mCalendarClassAdapter;
-    private List<CalendarClass> mCalendarClasses;
+    //private List<CalendarClass> mCalendarClasses;
+    private List<CalendarSettingsEntry> mCalendarSettingsEntry;
 
+    @Override
+    public void onCreate(Bundle onSaved)
+    {
+        super.onCreate(onSaved);
+        //mCalendarSettingsEntry = CalendarClassDao.getInstance(this).getAllCalendars();
+    }
 
     @Override
     protected void bindView() {
         setContentView(R.layout.activity_settings);
-        /*
-        dlMain = searchViewById(R.id.dlMain);
-        llTitleDate = searchViewById(R.id.llTitleDate);
-        tvTitleMonth = searchViewById(R.id.tvTitleMonth);
-        tvTitleDay = searchViewById(R.id.tvTitleDay);
-        tvTitle = searchViewById(R.id.tvTitle);
-        */
+
         mToolBar = searchViewById(R.id.tbSettings);
         mToolBarTextViewTitle = searchViewById(R.id.tvSettingsTitle);
         rvMenuCalendarClassList = searchViewById(R.id.rvSettingsCalendarClasses);
-        /*
-        mUserNameTextView = searchViewById(R.id.tvMenuTitleAccount);
-        searchViewById(R.id.ivMainMenu).setOnClickListener(this);
-        searchViewById(R.id.llMenuSchedule).setOnClickListener(this);
-        searchViewById(R.id.llMenuNoCategory).setOnClickListener(this);
-        searchViewById(R.id.llMenuGoMoney).setOnClickListener(this);
-        searchViewById(R.id.tvMenuAddEventSet).setOnClickListener(this);
-        searchViewById(R.id.tvMenuSignOut).setOnClickListener(this);
-        searchViewById(R.id.tvMenuDeleteAccount).setOnClickListener(this);
-        searchViewById(R.id.floatingActionButton).setOnClickListener(this);
-        */
-        //initUi();
         initCalendarClassesList();
-        //gotoScheduleFragment();
-        //initBroadcastReceiver();
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPreferences.registerOnSharedPreferenceChangeListener(this);
 
     }
     private void initCalendarClassesList() {
-        mCalendarClasses = new ArrayList<>();
+        mCalendarSettingsEntry = new ArrayList<>();
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         rvMenuCalendarClassList.setLayoutManager(manager);
         DefaultItemAnimator itemAnimator = new DefaultItemAnimator();
         itemAnimator.setSupportsChangeAnimations(false);
         rvMenuCalendarClassList.setItemAnimator(itemAnimator);
-        mCalendarClassAdapter = new CalendarClassAdapter(this, mCalendarClasses);
+        mCalendarClassAdapter = new CalendarClassAdapter(this, mCalendarSettingsEntry);
         rvMenuCalendarClassList.setAdapter(mCalendarClassAdapter);
     }
 
@@ -82,16 +81,30 @@ public class SettingsActivity extends BaseActivity implements /*View.OnClickList
     @Override
     protected void initData() {
         super.initData();
+        new LoadAllCalendarSettingsEntryTask(this, this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+    }
 
-        new LoadCalendarClassesTask(this, this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+    @Override
+    public void onTaskFinished(List<CalendarSettingsEntry> data) {
+        mCalendarClassAdapter.changeAllData(data);
 
     }
 
     @Override
-    public void onTaskFinished(List<CalendarClass> data) {
-        mCalendarClassAdapter.changeAllData(data);
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key){
+        if (key.equals(getString(R.string.pref_changed_value_calendars))){
+            Log.wtf("Tag", "changed");
+            initData();
+        }
     }
-/*
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this);
+    }
+
+    /*
     private void initBroadcastReceiver() {
         if (mAddEventSetBroadcastReceiver == null) {
             mAddEventSetBroadcastReceiver = new AddEventSetBroadcastReceiver();

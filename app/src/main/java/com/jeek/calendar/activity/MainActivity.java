@@ -1,11 +1,7 @@
 package com.jeek.calendar.activity;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -13,20 +9,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.firebase.ui.auth.AuthUI;
-import com.firebase.ui.auth.BuildConfig;
-import com.firebase.ui.auth.ErrorCodes;
-import com.firebase.ui.auth.IdpResponse;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -36,21 +24,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.jeek.calendar.R;
-import com.jeek.calendar.adapter.CalendarClassAdapter;
-import com.jeek.calendar.task.calendarclass.LoadCalendarClassesTask;
-import com.jimmy.common.bean.CalendarClass;
-import com.jimmy.common.bean.EventSet;
-import com.jeek.calendar.fragment.EventSetFragment;
 import com.jeek.calendar.fragment.ScheduleFragment;
-import com.jeek.calendar.task.eventset.LoadEventSetTask;
 import com.jimmy.common.base.app.BaseActivity;
 import com.jimmy.common.base.app.BaseFragment;
-import com.jimmy.common.listener.OnTaskFinishedListener;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.List;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener/*,OnTaskFinishedListener<List<CalendarClass>>*/ {
 

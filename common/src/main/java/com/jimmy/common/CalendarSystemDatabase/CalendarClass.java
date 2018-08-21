@@ -1,4 +1,4 @@
-package com.jimmy.common.bean;
+package com.jimmy.common.CalendarSystemDatabase;
 
 import java.io.Serializable;
 import java.util.List;

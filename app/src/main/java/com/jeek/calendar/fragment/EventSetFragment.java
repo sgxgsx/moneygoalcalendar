@@ -19,7 +19,7 @@ import android.widget.RelativeLayout;
 import com.jeek.calendar.R;
 import com.jeek.calendar.adapter.ScheduleAdapter;
 import com.jimmy.common.bean.EventSet;
-import com.jimmy.common.bean.Schedule;
+import com.jimmy.common.CalendarSystemDatabase.Schedule;
 import com.jeek.calendar.dialog.SelectDateDialog;
 import com.jeek.calendar.task.eventset.GetScheduleTask;
 import com.jeek.calendar.task.schedule.AddScheduleTask;

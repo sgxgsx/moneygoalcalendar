@@ -2,9 +2,7 @@ package com.jeek.calendar.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.AsyncTask;
-import android.provider.CalendarContract;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,12 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.jeek.calendar.R;
 import com.jeek.calendar.activity.DetailEventActivity;
-import com.jeek.calendar.activity.ScheduleDetailActivity;
-import com.jimmy.common.bean.Schedule;
+import com.jimmy.common.CalendarSystemDatabase.Schedule;
 import com.jeek.calendar.dialog.ConfirmDialog;
 import com.jeek.calendar.fragment.ScheduleFragment;
 import com.jeek.calendar.task.schedule.RemoveScheduleTask;
@@ -28,11 +24,7 @@ import com.jimmy.common.base.app.BaseFragment;
 import com.jimmy.common.listener.OnTaskFinishedListener;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-
-import static com.firebase.ui.auth.AuthUI.getApplicationContext;
 
 /**
  * Created by Jimmy on 2016/10/8 0008.

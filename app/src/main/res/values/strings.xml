@@ -46,7 +46,14 @@
     <string name="menu_delete_account">Delete Account</string>
     <string name="menu_settings">Settings</string>
 
+    <!--event menu-->
+    <string name="menu_delete_event">Delete</string>
+    <string name="menu_duplicate_event">Duplicate</string>
+
     <!--event.set-->
+    <string name="pref_changed_value_calendars">Calendar Changed</string>
+
+
     <string name="event_set_list_name">List name</string>
     <string name="event_set_color">Color</string>
     <string name="event_set_name_is_not_null">List name can\'t be empty.</string>
@@ -72,5 +79,8 @@
     <string name="sign_in_cancelled" translatable="false">Log in Cancel</string>
     <string name="no_internet_connection" translatable="false">No Internet</string>
     <string name="unknown_error" translatable="false">Unknown error</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

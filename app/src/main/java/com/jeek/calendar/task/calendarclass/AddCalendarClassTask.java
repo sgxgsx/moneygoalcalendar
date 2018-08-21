@@ -3,11 +3,9 @@ package com.jeek.calendar.task.calendarclass;
 import android.content.Context;
 
 import com.jimmy.common.base.task.BaseAsyncTask;
-import com.jimmy.common.bean.CalendarClass;
-import com.jimmy.common.data.CalendarClassDao;
+import com.jimmy.common.CalendarSystemDatabase.CalendarClass;
+import com.jimmy.common.CalendarSystemDatabase.CalendarClassDao;
 import com.jimmy.common.listener.OnTaskFinishedListener;
-
-import java.util.List;
 
 public class AddCalendarClassTask extends BaseAsyncTask<CalendarClass> {
 

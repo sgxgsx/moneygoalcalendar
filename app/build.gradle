@@ -2,15 +2,15 @@ apply plugin: 'com.android.application'
 
 android {
 
-    compileSdkVersion compile_sdk_version
+    compileSdkVersion 27
     defaultConfig {
         applicationId "com.smartapps.moneygoalcalendar"
         minSdkVersion min_sdk_version
         targetSdkVersion target_sdk_version
         versionCode 1
         versionName "1.0"
-    }
 
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -34,6 +34,11 @@ dependencies {
     // FIREBASE UI for auth and FIREBASE db
     implementation 'com.google.firebase:firebase-core:16.0.1'
     implementation 'com.firebaseui:firebase-ui-auth:4.1.0'
+    // settings
+    implementation 'com.android.support:preference-v7:27.1.1'
+
+    implementation "android.arch.persistence.room:runtime:1.1.1"
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
 }
 
 apply plugin: 'com.google.gms.google-services'
