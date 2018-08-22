@@ -50,8 +50,8 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     private void initData() {
-        mSchedules = new ArrayList<>();
-        mFinishSchedules = new ArrayList<>();
+        mSchedules = new ArrayList<Schedule>();
+        mFinishSchedules = new ArrayList<Schedule>();
     }
 
     @Override

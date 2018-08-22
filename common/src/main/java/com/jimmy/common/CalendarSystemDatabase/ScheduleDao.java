@@ -213,7 +213,7 @@ public class ScheduleDao {
         List<Schedule> schedules = new ArrayList<>();
         List<CalendarClass> calendarClasses = mCalendarClassDao.getTrueCalendars();
         if(Account.equals("ANONYMOUS")){
-            return null;
+            return schedules;
         }
         String[] projection = new String[] { CalendarContract.Events.CALENDAR_ID, CalendarContract.Events.TITLE, CalendarContract.Events.DESCRIPTION, CalendarContract.Events.DTSTART, CalendarContract.Events.DTEND, CalendarContract.Events.DISPLAY_COLOR, CalendarContract.Events.EVENT_COLOR, CalendarContract.Events.EVENT_COLOR_KEY, CalendarContract.Events.ALL_DAY, CalendarContract.Events.EVENT_LOCATION, CalendarContract.Events.OWNER_ACCOUNT, CalendarContract.Events.RRULE, CalendarContract.Events.ACCOUNT_NAME};
 
