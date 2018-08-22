@@ -59,7 +59,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.default_sign_in_button).setOnClickListener(this);
         findViewById(R.id.tvAnonymousButton).setOnClickListener(this);
 
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CALENDAR}, 1000);
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CALENDAR, Manifest.permission.INTERNET}, 1000);
     }
 
     @Override
