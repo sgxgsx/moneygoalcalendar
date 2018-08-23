@@ -1,13 +1,14 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:2:1-32:12
-MERGED from [:calendar] C:\Users\Alex\Documents\newfolder\moneygoalcalendar\calendar\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-15:12
-MERGED from [:common] C:\Users\Alex\Documents\newfolder\moneygoalcalendar\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-16:12
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:2:1-39:12
+MERGED from [:calendar] C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\calendar\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-15:12
+MERGED from [:common] C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-16:12
 MERGED from [com.firebaseui:firebase-ui-auth:4.1.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-4.1.0.aar\292ac1c65e824637bb72e3166bf72e64\AndroidManifest.xml:2:1-114:12
 MERGED from [com.android.support:design:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\a059f95b570380e247b342235ab2fa16\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:preference-v7:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\preference-v7-27.1.1.aar\0e5ab9f67bd60628819cd6710334a046\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\052b5fa17432ab4957ae77bce9f9f58d\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:customtabs:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\customtabs-27.1.1.aar\ce04fa667b826e2dc39149ee3a75a0a1\AndroidManifest.xml:17:1-22:12
 MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\library-1.4.2.aar\5aec11468269a2c72827e7f687d43390\AndroidManifest.xml:6:1-16:12
@@ -36,12 +37,15 @@ MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Alex
 MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\1ee0f6c6286f9c658cb494ca299431af\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\97c9d15843cce44ec2dfde548dd83ab4\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\1693a79b32655b8b4c2fbd76ffabab2b\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\778886d7a6bc23d6a630072fc616395f\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:transition:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\76a0c398b9b75e37dabfea2a51d0de19\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence.room:runtime:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\7292d4c2d1fe771bceef8a0dd1c2505e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\778886d7a6bc23d6a630072fc616395f\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\2d67c064fe225697c88bf16a1dc272a8\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\d545ceb51bfeb53b130c58fb620ab9d9\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\519ebb79a3abf6c1cec28c3ea0e675fd\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:cardview-v7:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\cec919e2a16e93d853a3ab2ae422c261\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence:db-framework:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\db-framework-1.1.1.aar\784666e0fb39864009a16d9369243994\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence:db:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\db-1.1.1.aar\052e76b2d7062d344eeb492498b8d2c8\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\8eb11f0989f938f9b6551a41f7ffc065\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\7d62683f6bcab753ed7fe6ede33450a7\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\e3cfe76d870e678e764a59cadf90b05f\AndroidManifest.xml:17:1-22:12
@@ -49,25 +53,25 @@ MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Alex\.gradle\caches\
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\c8f53f9d66dae8e413d2bbb1f31ef1e1\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.2] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.2.aar\9692c1989e323a7076f928f159ee743a\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.0.aar\554d4ac11f3d257b013579ddba1633b9\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:2:1-39:12
 	package
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:3:5-32
-		INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:3:5-32
+		INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:2:1-32:12
-		INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:2:1-39:12
+		INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:2:1-32:12
-		INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:2:1-39:12
+		INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:5:5-67
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:5:5-67
 MERGED from [com.firebaseui:firebase-ui-auth:4.1.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-4.1.0.aar\292ac1c65e824637bb72e3166bf72e64\AndroidManifest.xml:13:5-67
 MERGED from [com.firebaseui:firebase-ui-auth:4.1.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-4.1.0.aar\292ac1c65e824637bb72e3166bf72e64\AndroidManifest.xml:13:5-67
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-16.0.1.aar\2f0d0ade29c45ba52dcefb9aa379ed87\AndroidManifest.xml:22:5-67
@@ -79,25 +83,25 @@ MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] C:\Users\Alex\.
 MERGED from [com.google.firebase:firebase-iid:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-iid-16.0.0.aar\7ea3c8681706aebea659275dee541c09\AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-iid:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-iid-16.0.0.aar\7ea3c8681706aebea659275dee541c09\AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:5:22-64
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:5:22-64
 uses-permission#android.permission.WRITE_CALENDAR
-ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:6:5-73
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:6:5-73
 	android:name
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:6:22-70
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:6:22-70
 uses-permission#android.permission.READ_CALENDAR
-ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:7:5-72
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:7:5-72
 	android:name
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:7:22-69
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:7:22-69
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:8:5-80
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:8:5-80
 	android:name
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:8:22-77
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:8:22-77
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:9:5-81
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:9:5-81
 	android:name
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:9:22-78
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:9:22-78
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:10:5-79
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:10:5-79
 MERGED from [com.firebaseui:firebase-ui-auth:4.1.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-4.1.0.aar\292ac1c65e824637bb72e3166bf72e64\AndroidManifest.xml:12:5-79
 MERGED from [com.firebaseui:firebase-ui-auth:4.1.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-4.1.0.aar\292ac1c65e824637bb72e3166bf72e64\AndroidManifest.xml:12:5-79
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-16.0.1.aar\2f0d0ade29c45ba52dcefb9aa379ed87\AndroidManifest.xml:23:5-79
@@ -109,13 +113,13 @@ MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] C:\Users\Alex\.
 MERGED from [com.google.firebase:firebase-iid:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-iid-16.0.0.aar\7ea3c8681706aebea659275dee541c09\AndroidManifest.xml:22:5-79
 MERGED from [com.google.firebase:firebase-iid:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-iid-16.0.0.aar\7ea3c8681706aebea659275dee541c09\AndroidManifest.xml:22:5-79
 	android:name
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:10:22-76
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:10:22-76
 application
-ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:12:5-30:19
-MERGED from [:calendar] C:\Users\Alex\Documents\newfolder\moneygoalcalendar\calendar\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-13:38
-MERGED from [:calendar] C:\Users\Alex\Documents\newfolder\moneygoalcalendar\calendar\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-13:38
-MERGED from [:common] C:\Users\Alex\Documents\newfolder\moneygoalcalendar\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-14:19
-MERGED from [:common] C:\Users\Alex\Documents\newfolder\moneygoalcalendar\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-14:19
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:12:5-33:19
+MERGED from [:calendar] C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\calendar\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-13:38
+MERGED from [:calendar] C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\calendar\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-13:38
+MERGED from [:common] C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-14:19
+MERGED from [:common] C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-14:19
 MERGED from [com.firebaseui:firebase-ui-auth:4.1.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-4.1.0.aar\292ac1c65e824637bb72e3166bf72e64\AndroidManifest.xml:15:5-112:19
 MERGED from [com.firebaseui:firebase-ui-auth:4.1.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-4.1.0.aar\292ac1c65e824637bb72e3166bf72e64\AndroidManifest.xml:15:5-112:19
 MERGED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\extensions-1.1.1.aar\efe7db79bf948db509de1ed82fa8922d\AndroidManifest.xml:22:5-28:19
@@ -157,161 +161,181 @@ MERGED from [com.android.support.constraint:constraint-layout:1.1.2] C:\Users\Al
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.0.aar\554d4ac11f3d257b013579ddba1633b9\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.0.aar\554d4ac11f3d257b013579ddba1633b9\AndroidManifest.xml:22:5-20
 	android:supportsRtl
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:16:9-35
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:16:9-35
 	android:label
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:15:9-41
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:15:9-41
 	android:icon
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:14:9-43
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:14:9-43
 	android:allowBackup
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:13:9-35
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:13:9-35
 	android:theme
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:17:9-40
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:17:9-40
 activity#com.jeek.calendar.activity.AuthActivity
-ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:18:9-24:20
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:18:9-24:20
 	android:name
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:18:19-56
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:18:19-56
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:19:13-23:29
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:19:13-23:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:20:17-69
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:20:17-69
 	android:name
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:20:25-66
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:20:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:22:17-77
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:22:17-77
 	android:name
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:22:27-74
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:22:27-74
 activity#com.jeek.calendar.activity.MainActivity
-ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:25:9-59
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:25:9-59
 	android:name
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:25:19-56
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:25:19-56
 activity#com.jeek.calendar.activity.ScheduleDetailActivity
-ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:26:9-69
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:26:9-69
 	android:name
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:26:19-66
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:26:19-66
 activity#com.jeek.calendar.activity.AddEventSetActivity
-ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:27:9-66
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:27:9-66
 	android:name
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:27:19-63
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:27:19-63
 activity#com.jeek.calendar.activity.MoneyActivity
-ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:28:9-60
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:28:9-60
 	android:name
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:28:19-57
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:28:19-57
 activity#com.jeek.calendar.activity.AddEventActivity
-ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:29:9-63
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:29:9-63
 	android:name
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml:29:19-60
-uses-sdk
-INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml
-MERGED from [:calendar] C:\Users\Alex\Documents\newfolder\moneygoalcalendar\calendar\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:calendar] C:\Users\Alex\Documents\newfolder\moneygoalcalendar\calendar\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:common] C:\Users\Alex\Documents\newfolder\moneygoalcalendar\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:common] C:\Users\Alex\Documents\newfolder\moneygoalcalendar\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [com.firebaseui:firebase-ui-auth:4.1.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-4.1.0.aar\292ac1c65e824637bb72e3166bf72e64\AndroidManifest.xml:8:5-10:41
-MERGED from [com.firebaseui:firebase-ui-auth:4.1.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-4.1.0.aar\292ac1c65e824637bb72e3166bf72e64\AndroidManifest.xml:8:5-10:41
-MERGED from [com.android.support:design:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\a059f95b570380e247b342235ab2fa16\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:design:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\a059f95b570380e247b342235ab2fa16\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\052b5fa17432ab4957ae77bce9f9f58d\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\052b5fa17432ab4957ae77bce9f9f58d\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customtabs:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\customtabs-27.1.1.aar\ce04fa667b826e2dc39149ee3a75a0a1\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customtabs:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\customtabs-27.1.1.aar\ce04fa667b826e2dc39149ee3a75a0a1\AndroidManifest.xml:20:5-44
-MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\library-1.4.2.aar\5aec11468269a2c72827e7f687d43390\AndroidManifest.xml:12:5-14:41
-MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\library-1.4.2.aar\5aec11468269a2c72827e7f687d43390\AndroidManifest.xml:12:5-14:41
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\e52987e0f9bbc2f752418a59d1127086\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\e52987e0f9bbc2f752418a59d1127086\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\d53ee024f5ee4083d2a355516053329c\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\d53ee024f5ee4083d2a355516053329c\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\extensions-1.1.1.aar\efe7db79bf948db509de1ed82fa8922d\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\extensions-1.1.1.aar\efe7db79bf948db509de1ed82fa8922d\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-core:16.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.1.aar\4b3527391c1026a41099006b86328d6e\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-core:16.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.1.aar\4b3527391c1026a41099006b86328d6e\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-16.0.1.aar\2f0d0ade29c45ba52dcefb9aa379ed87\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-16.0.1.aar\2f0d0ade29c45ba52dcefb9aa379ed87\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-analytics:16.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.0.1.aar\a37d4ba285258dbeb56a70ae0ad0bb2f\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-analytics:16.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.0.1.aar\a37d4ba285258dbeb56a70ae0ad0bb2f\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-auth:16.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-auth-16.0.1.aar\806c546155f6abbcfd9ef919dcbfc419\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-auth:16.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-auth-16.0.1.aar\806c546155f6abbcfd9ef919dcbfc419\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-auth:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-auth-15.0.1.aar\7353fd6f8a912a912d740ca2e7f2a522\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-auth:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-auth-15.0.1.aar\7353fd6f8a912a912d740ca2e7f2a522\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-16.1.1.aar\b7a268521f66b415a6b0dba128f4d4a6\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-16.1.1.aar\b7a268521f66b415a6b0dba128f4d4a6\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-iid:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-iid-16.0.0.aar\7ea3c8681706aebea659275dee541c09\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-iid:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-iid-16.0.0.aar\7ea3c8681706aebea659275dee541c09\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-stats:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-stats-15.0.1.aar\1bd2b4192888d4f8e3cd6c0fe3ec26ee\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-stats:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-stats-15.0.1.aar\1bd2b4192888d4f8e3cd6c0fe3ec26ee\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-auth-interop-16.0.0.aar\ce2fc27313e928137b498902dc815b2b\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-auth-interop-16.0.0.aar\ce2fc27313e928137b498902dc815b2b\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-common:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-common-16.0.0.aar\f135b6075f8e7b11d0e5d9cdb607d1c0\AndroidManifest.xml:5:5-6:37
-MERGED from [com.google.firebase:firebase-common:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-common-16.0.0.aar\f135b6075f8e7b11d0e5d9cdb607d1c0\AndroidManifest.xml:5:5-6:37
-MERGED from [com.google.firebase:firebase-measurement-connector:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-16.0.0.aar\71c5fb6d51f498092f0cfcfd3a546ac9\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-measurement-connector:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-16.0.0.aar\71c5fb6d51f498092f0cfcfd3a546ac9\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-flags:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-flags-15.0.1.aar\d15cc082c3697dbae3f612494fac7525\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-flags:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-flags-15.0.1.aar\d15cc082c3697dbae3f612494fac7525\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-auth-api-phone:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-auth-api-phone-15.0.1.aar\36767d12f4b19d4ebd9a8170108944bf\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-auth-api-phone:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-auth-api-phone-15.0.1.aar\36767d12f4b19d4ebd9a8170108944bf\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-auth-base:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-auth-base-15.0.1.aar\40137357c74bef20152cd8c870ee7107\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-auth-base:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-auth-base-15.0.1.aar\40137357c74bef20152cd8c870ee7107\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-iid-interop:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-iid-interop-16.0.0.aar\1dd4f6ed79a3626d38099cf1f3fb0109\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-iid-interop:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-iid-interop-16.0.0.aar\1dd4f6ed79a3626d38099cf1f3fb0109\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\e5cb44adfe8b97eacd4abb5c739858b9\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\e5cb44adfe8b97eacd4abb5c739858b9\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\16b590f75c4bed4510650f6fee8bb754\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\16b590f75c4bed4510650f6fee8bb754\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-15.0.1.aar\a34ba15f90d1bbf67251c35df7e306ca\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-15.0.1.aar\a34ba15f90d1bbf67251c35df7e306ca\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\d14d983046ed97d107aada4e86896545\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\d14d983046ed97d107aada4e86896545\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\1ee0f6c6286f9c658cb494ca299431af\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\1ee0f6c6286f9c658cb494ca299431af\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\97c9d15843cce44ec2dfde548dd83ab4\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\97c9d15843cce44ec2dfde548dd83ab4\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\1693a79b32655b8b4c2fbd76ffabab2b\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\1693a79b32655b8b4c2fbd76ffabab2b\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\778886d7a6bc23d6a630072fc616395f\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\778886d7a6bc23d6a630072fc616395f\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\76a0c398b9b75e37dabfea2a51d0de19\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\76a0c398b9b75e37dabfea2a51d0de19\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\2d67c064fe225697c88bf16a1dc272a8\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\2d67c064fe225697c88bf16a1dc272a8\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\d545ceb51bfeb53b130c58fb620ab9d9\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\d545ceb51bfeb53b130c58fb620ab9d9\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\519ebb79a3abf6c1cec28c3ea0e675fd\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\519ebb79a3abf6c1cec28c3ea0e675fd\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\cec919e2a16e93d853a3ab2ae422c261\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\cec919e2a16e93d853a3ab2ae422c261\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\8eb11f0989f938f9b6551a41f7ffc065\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\8eb11f0989f938f9b6551a41f7ffc065\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\7d62683f6bcab753ed7fe6ede33450a7\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\7d62683f6bcab753ed7fe6ede33450a7\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\e3cfe76d870e678e764a59cadf90b05f\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\e3cfe76d870e678e764a59cadf90b05f\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\5929d59964985afdc453bdb7283e0f87\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\5929d59964985afdc453bdb7283e0f87\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\c8f53f9d66dae8e413d2bbb1f31ef1e1\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\c8f53f9d66dae8e413d2bbb1f31ef1e1\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support.constraint:constraint-layout:1.1.2] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.2.aar\9692c1989e323a7076f928f159ee743a\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support.constraint:constraint-layout:1.1.2] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.2.aar\9692c1989e323a7076f928f159ee743a\AndroidManifest.xml:5:5-7:41
-MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.0.aar\554d4ac11f3d257b013579ddba1633b9\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.0.aar\554d4ac11f3d257b013579ddba1633b9\AndroidManifest.xml:20:5-44
-INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml
-	android:targetSdkVersion
-		INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml
-	android:minSdkVersion
-		INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Alex\Documents\newfolder\moneygoalcalendar\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:29:19-60
+activity#com.jeek.calendar.activity.SettingsActivity
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:30:9-63
+	android:name
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:30:19-60
+activity#com.jeek.calendar.activity.DetailEventActivity
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:31:9-66
+	android:name
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:31:19-63
+activity#com.jeek.calendar.activity.EditEventActivity
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:32:9-73
+	android:name
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:32:19-61
 meta-data#com.google.android.gms.version
-ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-4.1.0.aar\292ac1c65e824637bb72e3166bf72e64\AndroidManifest.xml:16:9-18:69
+ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:35:5-37:65
 MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\d14d983046ed97d107aada4e86896545\AndroidManifest.xml:23:9-25:69
 MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\d14d983046ed97d107aada4e86896545\AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-4.1.0.aar\292ac1c65e824637bb72e3166bf72e64\AndroidManifest.xml:18:13-66
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:37:9-62
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-4.1.0.aar\292ac1c65e824637bb72e3166bf72e64\AndroidManifest.xml:17:13-58
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml:36:9-54
+uses-sdk
+INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml
+MERGED from [:calendar] C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\calendar\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:calendar] C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\calendar\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:common] C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:common] C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [com.firebaseui:firebase-ui-auth:4.1.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-4.1.0.aar\292ac1c65e824637bb72e3166bf72e64\AndroidManifest.xml:8:5-10:41
+MERGED from [com.firebaseui:firebase-ui-auth:4.1.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-4.1.0.aar\292ac1c65e824637bb72e3166bf72e64\AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:design:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\a059f95b570380e247b342235ab2fa16\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\a059f95b570380e247b342235ab2fa16\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:preference-v7:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\preference-v7-27.1.1.aar\0e5ab9f67bd60628819cd6710334a046\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:preference-v7:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\preference-v7-27.1.1.aar\0e5ab9f67bd60628819cd6710334a046\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\052b5fa17432ab4957ae77bce9f9f58d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\052b5fa17432ab4957ae77bce9f9f58d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\customtabs-27.1.1.aar\ce04fa667b826e2dc39149ee3a75a0a1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\customtabs-27.1.1.aar\ce04fa667b826e2dc39149ee3a75a0a1\AndroidManifest.xml:20:5-44
+MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\library-1.4.2.aar\5aec11468269a2c72827e7f687d43390\AndroidManifest.xml:12:5-14:41
+MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\library-1.4.2.aar\5aec11468269a2c72827e7f687d43390\AndroidManifest.xml:12:5-14:41
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\e52987e0f9bbc2f752418a59d1127086\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\e52987e0f9bbc2f752418a59d1127086\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\d53ee024f5ee4083d2a355516053329c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\d53ee024f5ee4083d2a355516053329c\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\extensions-1.1.1.aar\efe7db79bf948db509de1ed82fa8922d\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\extensions-1.1.1.aar\efe7db79bf948db509de1ed82fa8922d\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-core:16.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.1.aar\4b3527391c1026a41099006b86328d6e\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-core:16.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.1.aar\4b3527391c1026a41099006b86328d6e\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-16.0.1.aar\2f0d0ade29c45ba52dcefb9aa379ed87\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-16.0.1.aar\2f0d0ade29c45ba52dcefb9aa379ed87\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.0.1.aar\a37d4ba285258dbeb56a70ae0ad0bb2f\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.0.1.aar\a37d4ba285258dbeb56a70ae0ad0bb2f\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-auth:16.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-auth-16.0.1.aar\806c546155f6abbcfd9ef919dcbfc419\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-auth:16.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-auth-16.0.1.aar\806c546155f6abbcfd9ef919dcbfc419\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-auth-15.0.1.aar\7353fd6f8a912a912d740ca2e7f2a522\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-auth-15.0.1.aar\7353fd6f8a912a912d740ca2e7f2a522\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-16.1.1.aar\b7a268521f66b415a6b0dba128f4d4a6\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-16.1.1.aar\b7a268521f66b415a6b0dba128f4d4a6\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-iid-16.0.0.aar\7ea3c8681706aebea659275dee541c09\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-iid-16.0.0.aar\7ea3c8681706aebea659275dee541c09\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-stats-15.0.1.aar\1bd2b4192888d4f8e3cd6c0fe3ec26ee\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-stats-15.0.1.aar\1bd2b4192888d4f8e3cd6c0fe3ec26ee\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-auth-interop-16.0.0.aar\ce2fc27313e928137b498902dc815b2b\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-auth-interop-16.0.0.aar\ce2fc27313e928137b498902dc815b2b\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-common-16.0.0.aar\f135b6075f8e7b11d0e5d9cdb607d1c0\AndroidManifest.xml:5:5-6:37
+MERGED from [com.google.firebase:firebase-common:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-common-16.0.0.aar\f135b6075f8e7b11d0e5d9cdb607d1c0\AndroidManifest.xml:5:5-6:37
+MERGED from [com.google.firebase:firebase-measurement-connector:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-16.0.0.aar\71c5fb6d51f498092f0cfcfd3a546ac9\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-16.0.0.aar\71c5fb6d51f498092f0cfcfd3a546ac9\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-flags:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-flags-15.0.1.aar\d15cc082c3697dbae3f612494fac7525\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-flags:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-flags-15.0.1.aar\d15cc082c3697dbae3f612494fac7525\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-auth-api-phone-15.0.1.aar\36767d12f4b19d4ebd9a8170108944bf\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-auth-api-phone-15.0.1.aar\36767d12f4b19d4ebd9a8170108944bf\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-auth-base-15.0.1.aar\40137357c74bef20152cd8c870ee7107\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-auth-base-15.0.1.aar\40137357c74bef20152cd8c870ee7107\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-iid-interop-16.0.0.aar\1dd4f6ed79a3626d38099cf1f3fb0109\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-iid-interop-16.0.0.aar\1dd4f6ed79a3626d38099cf1f3fb0109\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\e5cb44adfe8b97eacd4abb5c739858b9\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\e5cb44adfe8b97eacd4abb5c739858b9\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\16b590f75c4bed4510650f6fee8bb754\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\16b590f75c4bed4510650f6fee8bb754\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-15.0.1.aar\a34ba15f90d1bbf67251c35df7e306ca\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-15.0.1.aar\a34ba15f90d1bbf67251c35df7e306ca\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\d14d983046ed97d107aada4e86896545\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\d14d983046ed97d107aada4e86896545\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\1ee0f6c6286f9c658cb494ca299431af\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\1ee0f6c6286f9c658cb494ca299431af\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\97c9d15843cce44ec2dfde548dd83ab4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\97c9d15843cce44ec2dfde548dd83ab4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\1693a79b32655b8b4c2fbd76ffabab2b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\1693a79b32655b8b4c2fbd76ffabab2b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\76a0c398b9b75e37dabfea2a51d0de19\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\76a0c398b9b75e37dabfea2a51d0de19\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence.room:runtime:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\7292d4c2d1fe771bceef8a0dd1c2505e\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence.room:runtime:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\7292d4c2d1fe771bceef8a0dd1c2505e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\778886d7a6bc23d6a630072fc616395f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\778886d7a6bc23d6a630072fc616395f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\2d67c064fe225697c88bf16a1dc272a8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\2d67c064fe225697c88bf16a1dc272a8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\d545ceb51bfeb53b130c58fb620ab9d9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\d545ceb51bfeb53b130c58fb620ab9d9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\519ebb79a3abf6c1cec28c3ea0e675fd\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\519ebb79a3abf6c1cec28c3ea0e675fd\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\cec919e2a16e93d853a3ab2ae422c261\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\cec919e2a16e93d853a3ab2ae422c261\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db-framework:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\db-framework-1.1.1.aar\784666e0fb39864009a16d9369243994\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db-framework:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\db-framework-1.1.1.aar\784666e0fb39864009a16d9369243994\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\db-1.1.1.aar\052e76b2d7062d344eeb492498b8d2c8\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\db-1.1.1.aar\052e76b2d7062d344eeb492498b8d2c8\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\8eb11f0989f938f9b6551a41f7ffc065\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\8eb11f0989f938f9b6551a41f7ffc065\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\7d62683f6bcab753ed7fe6ede33450a7\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\7d62683f6bcab753ed7fe6ede33450a7\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\e3cfe76d870e678e764a59cadf90b05f\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\e3cfe76d870e678e764a59cadf90b05f\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\5929d59964985afdc453bdb7283e0f87\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\5929d59964985afdc453bdb7283e0f87\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\c8f53f9d66dae8e413d2bbb1f31ef1e1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\c8f53f9d66dae8e413d2bbb1f31ef1e1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.2.aar\9692c1989e323a7076f928f159ee743a\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.2.aar\9692c1989e323a7076f928f159ee743a\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.0.aar\554d4ac11f3d257b013579ddba1633b9\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.0.aar\554d4ac11f3d257b013579ddba1633b9\AndroidManifest.xml:20:5-44
+INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Alex\Documents\Lastetskii\kkk\moneygoalcalendar\app\src\main\AndroidManifest.xml
 meta-data#com.facebook.sdk.ApplicationId
 ADDED from [com.firebaseui:firebase-ui-auth:4.1.0] C:\Users\Alex\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-4.1.0.aar\292ac1c65e824637bb72e3166bf72e64\AndroidManifest.xml:19:9-21:63
 	android:value

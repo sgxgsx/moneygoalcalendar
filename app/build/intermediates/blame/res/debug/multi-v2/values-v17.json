@@ -1,8 +1,19 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Alex\\Documents\\newfolder\\moneygoalcalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v17\\values-v17.xml",
+            "outputFile": "C:\\Users\\Alex\\Documents\\Lastetskii\\kkk\\moneygoalcalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v17\\values-v17.xml",
             "map": [
+                {
+                    "source": "C:\\Users\\Alex\\.gradle\\caches\\transforms-1\\files-1.1\\preference-v7-27.1.1.aar\\0e5ab9f67bd60628819cd6710334a046\\res\\values-v17\\values-v17.xml",
+                    "from": {
+                        "startLines": "2,7,11",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,280,441",
+                        "endLines": "6,10,14",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "275,436,604"
+                    }
+                },
                 {
                     "source": "C:\\Users\\Alex\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\e52987e0f9bbc2f752418a59d1127086\\res\\values-v17\\values-v17.xml",
                     "from": {
@@ -12,6 +23,14 @@
                         "endLines": "4,8,11,14,17,21,25,28,31,34,38,41,45,49",
                         "endColumns": "12,12,12,12,12,12,12,12,12,12,12,12,12,12",
                         "endOffsets": "223,451,609,759,931,1159,1401,1572,1746,1915,2188,2388,2592,2921"
+                    },
+                    "to": {
+                        "startLines": "15,18,22,25,28,31,35,39,42,45,48,52,55,59",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "609,782,1010,1168,1318,1490,1718,1960,2131,2305,2474,2747,2947,3151",
+                        "endLines": "17,21,24,27,30,34,38,41,44,47,51,54,58,62",
+                        "endColumns": "12,12,12,12,12,12,12,12,12,12,12,12,12,12",
+                        "endOffsets": "777,1005,1163,1313,1485,1713,1955,2126,2300,2469,2742,2942,3146,3475"
                     }
                 }
             ]

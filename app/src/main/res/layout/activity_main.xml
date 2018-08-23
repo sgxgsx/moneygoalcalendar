@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.jeek.calendar.widget.NoSlideDrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/dlMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,5 +10,52 @@
     <include layout="@layout/main_container"/>
 
     <include layout="@layout/main_menu"/>
+
+    <View
+        android:id="@+id/ChooseMenuButtonBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#aaffffff"
+        android:clickable="true"
+        android:visibility="invisible" />
+
+    <FrameLayout
+        android:id="@+id/flMainContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ImageView
+            android:id="@+id/ChooseModuleButtonTime"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="top|right"
+            android:layout_marginRight="-30dp"
+            android:layout_marginTop="-45dp"
+            android:clickable="true"
+            app:srcCompat="@android:drawable/presence_online" />
+
+        <ImageView
+            android:id="@+id/gotoMoneyButton"
+            android:layout_width="85dp"
+            android:layout_height="82dp"
+            android:layout_gravity="top|right"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="75dp"
+            android:clickable="true"
+            android:visibility="invisible"
+            app:srcCompat="@android:drawable/presence_online" />
+
+        <ImageView
+            android:id="@+id/gotoGoalButton"
+            android:layout_width="85dp"
+            android:layout_height="82dp"
+            android:layout_gravity="top|right"
+            android:layout_marginRight="100dp"
+            android:layout_marginTop="15dp"
+            android:clickable="true"
+            android:visibility="invisible"
+            app:srcCompat="@android:drawable/presence_online" />
+    </FrameLayout>
 
 </com.jeek.calendar.widget.NoSlideDrawerLayout>

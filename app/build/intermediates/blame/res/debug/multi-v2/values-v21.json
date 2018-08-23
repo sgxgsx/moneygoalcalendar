@@ -1,27 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Alex\\Documents\\newfolder\\moneygoalcalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
+            "outputFile": "C:\\Users\\Alex\\Documents\\Lastetskii\\kkk\\moneygoalcalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
             "map": [
-                {
-                    "source": "C:\\Users\\Alex\\Documents\\newfolder\\moneygoalcalendar\\app\\src\\main\\res\\values-v21\\styles.xml",
-                    "from": {
-                        "startLines": "3,9",
-                        "startColumns": "4,4",
-                        "startOffsets": "59,365",
-                        "endLines": "7,19",
-                        "endColumns": "12,12",
-                        "endOffsets": "357,1091"
-                    },
-                    "to": {
-                        "startLines": "6,234",
-                        "startColumns": "4,4",
-                        "startOffsets": "354,17520",
-                        "endLines": "10,244",
-                        "endColumns": "12,12",
-                        "endOffsets": "648,18236"
-                    }
-                },
                 {
                     "source": "C:\\Users\\Alex\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\d545ceb51bfeb53b130c58fb620ab9d9\\res\\values-v21\\values-v21.xml",
                     "from": {
@@ -39,6 +20,25 @@
                         "endLines": "287,290,294,298",
                         "endColumns": "12,12,12,12",
                         "endOffsets": "20995,21158,21452,21747"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Alex\\Documents\\Lastetskii\\kkk\\moneygoalcalendar\\app\\src\\main\\res\\values-v21\\styles.xml",
+                    "from": {
+                        "startLines": "3,9",
+                        "startColumns": "4,4",
+                        "startOffsets": "59,365",
+                        "endLines": "7,19",
+                        "endColumns": "12,12",
+                        "endOffsets": "357,1091"
+                    },
+                    "to": {
+                        "startLines": "6,234",
+                        "startColumns": "4,4",
+                        "startOffsets": "354,17520",
+                        "endLines": "10,244",
+                        "endColumns": "12,12",
+                        "endOffsets": "648,18236"
                     }
                 },
                 {

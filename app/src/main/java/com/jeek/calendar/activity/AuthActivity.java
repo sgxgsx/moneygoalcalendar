@@ -113,6 +113,9 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
             // Signed in successfully, show authenticated UI.
             updateUI(account);
         } catch (ApiException e) {
+            Toast toast = Toast.makeText(getApplicationContext(),"Хуева",Toast.LENGTH_SHORT);
+            toast.show();
+            Log.wtf("хех","хуева");
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
             Log.w("TAG", "signInResult:failed code=" + e.getStatusCode());

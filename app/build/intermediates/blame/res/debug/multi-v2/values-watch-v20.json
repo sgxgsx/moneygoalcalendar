@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Alex\\Documents\\newfolder\\moneygoalcalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
+            "outputFile": "C:\\Users\\Alex\\Documents\\Lastetskii\\kkk\\moneygoalcalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Alex\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-auth-15.0.1.aar\\7353fd6f8a912a912d740ca2e7f2a522\\res\\values-watch-v20\\values.xml",
