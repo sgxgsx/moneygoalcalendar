@@ -324,7 +324,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
     }
 
     private void gotoGoal() {
-        //TODO add gotogoal direction
+        //DONE add gotogoal direction
         gotoMoneyButton.setVisibility(View.INVISIBLE);
         gotoGoalButton.setVisibility(View.INVISIBLE);
         ChooseMenuButtonBackground.setVisibility(View.INVISIBLE);

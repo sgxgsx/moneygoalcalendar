@@ -30,7 +30,6 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHol
     private Context mContext;
     private List<Goal> mGoals;
 
-    //TODO DELETE IT
 
     public GoalsAdapter(Context context, List<Goal> goals) {
         mContext = context;

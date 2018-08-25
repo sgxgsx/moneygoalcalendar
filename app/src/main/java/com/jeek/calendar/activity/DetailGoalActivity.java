@@ -16,6 +16,12 @@ public class DetailGoalActivity extends AppCompatActivity {
 
     private Goal mGoal;
 
+    // TODO VLAD сделать DetailGoalActivity
+    // TODO VLAD удаление Goal
+    // TODO VLAD модифицирование Goal -> Создать GoalEditActivity
+    // TODO VLAD решить проблему прокрутки
+    // TODO VLAD добавление Goal -> Создать GoalAddActivity
+    // TODO VLAD поиграться с лейаутом (UI)
 
 
     @Override

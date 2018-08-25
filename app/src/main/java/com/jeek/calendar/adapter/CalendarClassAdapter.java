@@ -41,8 +41,6 @@ public class CalendarClassAdapter extends RecyclerView.Adapter<CalendarClassAdap
     private Context mContext;
     private List<CalendarSettingsEntry> mCalendarClasses;
 
-    //TODO DELETE IT
-
     public CalendarClassAdapter(Context context, List<CalendarSettingsEntry> calendarClasses) {
         mContext = context;
         mCalendarClasses = calendarClasses;

@@ -206,8 +206,8 @@ public class CalendarClassDao {
     // completed 1 VLAD сделать метод getAllCalendars просто для проверки есть ли такой календарь у нас, если нет то
     // completed 2 VLAD сделать query getCalendarByID и добавить календарь в CalendarSettingsDatabase
     // comleted 3 VLAD сделать метод getTrueCalendars в CalendarSettingsDao который возвращает календари где поставлена галочка true.
-    // TODO 4 VLAD сделать метод getEventsInTrueCalendars в ScheduleDao который возвращает ивенты только в Календарях с галочкой true
-    // TODO 5 VLAD сделать task LoadCalendarSettingsTask в app который загружает все календари с CalendarSettingsDao.
+    // DONE 4 VLAD сделать метод getEventsInTrueCalendars в ScheduleDao который возвращает ивенты только в Календарях с галочкой true
+    // DONE 5 VLAD сделать task LoadCalendarSettingsTask в app который загружает все календари с CalendarSettingsDao.
 
 
 /*
