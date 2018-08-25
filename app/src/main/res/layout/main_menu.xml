@@ -115,6 +115,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/llMenuGoGoal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_menu_border_with_arrow"
@@ -138,7 +139,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/space_10dp"
                             android:layout_weight="1"
-                            android:text="@string/menu_event_set"
+                            android:text="@string/menu_goal_tracker"
                             android:textColor="@color/colorWrite"
                             android:textSize="@dimen/text_size_18sp"/>
 

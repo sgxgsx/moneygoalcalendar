@@ -16,7 +16,11 @@ import android.widget.TextView;
 import com.jeek.calendar.R;
 import com.jeek.calendar.task.CalendarSettingsEntry.ChangeCalendarSettingsEntryValueTask;
 import com.jeek.calendar.task.CalendarSettingsEntry.LoadAllCalendarSettingsEntryTask;
+import com.jeek.calendar.task.goal.InsertGoalTask;
 import com.jimmy.common.CalendarSystemDatabase.CalendarClass;
+import com.jimmy.common.GoalDatabase.Aim;
+import com.jimmy.common.GoalDatabase.Goal;
+import com.jimmy.common.GoalDatabase.GoalSchedule;
 import com.jimmy.common.SettingsDatabase.CalendarSettingsEntry;
 import com.jimmy.common.bean.EventSet;
 import com.jeek.calendar.dialog.ConfirmDialog;
@@ -25,7 +29,9 @@ import com.jeek.calendar.utils.JeekUtils;
 import com.jeek.calendar.widget.SlideDeleteView;
 import com.jimmy.common.listener.OnTaskFinishedListener;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Jimmy on 2016/10/12 0012.
@@ -34,6 +40,8 @@ public class CalendarClassAdapter extends RecyclerView.Adapter<CalendarClassAdap
 
     private Context mContext;
     private List<CalendarSettingsEntry> mCalendarClasses;
+
+    //TODO DELETE IT
 
     public CalendarClassAdapter(Context context, List<CalendarSettingsEntry> calendarClasses) {
         mContext = context;
@@ -79,6 +87,23 @@ public class CalendarClassAdapter extends RecyclerView.Adapter<CalendarClassAdap
     private void changeTrueOrFalse(CalendarSettingsEntry calendarClass){
         Log.wtf("Change", "changed");
         new ChangeCalendarSettingsEntryValueTask(mContext, calendarClass).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        List<GoalSchedule> goalSchedules = new ArrayList<>();
+        List<Aim> aims = new ArrayList<>();
+        for(int i=0; i<5; ++i){
+            String title = "Goal " + String.valueOf(i) + "!";
+            goalSchedules.add(new GoalSchedule(i, i, title, null, null, true, 0, 0, null));
+            aims.add(new Aim(i,"Title aim " + String.valueOf(i), true, goalSchedules));
+        }
+        Random random = new Random();
+        String goal_name = "Goal name " + String.valueOf(random.nextInt());
+        String n;
+        if(goal_name.length() > 20) {
+            n = goal_name.substring(0, 20);
+        } else {
+            n = goal_name;
+        }
+        Goal goal = new Goal( n, 10000, aims, goalSchedules);
+        new InsertGoalTask(mContext, goal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
     private void showDeleteEventSetDialog(final EventSet eventSet, final int position) {

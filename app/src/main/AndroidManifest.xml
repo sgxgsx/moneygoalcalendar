@@ -9,6 +9,13 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <meta-data
+        android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
+    <meta-data
+        android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -29,11 +36,9 @@
         <activity android:name=".activity.AddEventActivity" />
         <activity android:name=".activity.SettingsActivity" />
         <activity android:name=".activity.DetailEventActivity" />
-        <activity android:name=".activity.EditEventActivity"></activity>
+        <activity android:name=".activity.EditEventActivity" />
+        <activity android:name=".activity.GoalActivity" />
+        <activity android:name=".activity.DetailGoalActivity"></activity>
     </application>
-
-    <meta-data
-        android:name="com.google.android.gms.version"
-        android:value="@integer/google_play_services_version" />
 
 </manifest>

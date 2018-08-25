@@ -34,7 +34,7 @@ import java.util.Arrays;
 public class AuthActivity extends AppCompatActivity implements View.OnClickListener{
 
     private String mUserName;
-    private FirebaseAuth mAuth;
+    //private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final int RC_SIGN_IN = 1;
@@ -53,7 +53,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 //firebase
-        mAuth = FirebaseAuth.getInstance();
+        //mAuth = FirebaseAuth.getInstance();
         mButton = (SignInButton) findViewById(R.id.default_sign_in_button);
         mButtonTextView = (TextView) findViewById(R.id.tvAnonymousButton);
         findViewById(R.id.default_sign_in_button).setOnClickListener(this);
@@ -108,6 +108,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
+            Toast.makeText(this, "Signing in handleSignIn", Toast.LENGTH_LONG).show();
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
             // Signed in successfully, show authenticated UI.
@@ -118,6 +119,8 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
             Log.wtf("хех","хуева");
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
+            Toast.makeText(this, "Signing in handleSignIn FUCK", Toast.LENGTH_LONG).show();
+            Log.wtf("WTF", "WTFFF");
             Log.w("TAG", "signInResult:failed code=" + e.getStatusCode());
             updateUI(null);
         }
@@ -146,6 +149,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
         Log.d("tag", "firebaseAuthWithGoogle:" + acct.getId());
 
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
+        /*
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -164,6 +168,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
                         // ...
                     }
                 });
+        */
     }
 
     private void updateUIfirebase(FirebaseUser user) {

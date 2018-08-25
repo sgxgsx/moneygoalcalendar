@@ -20,7 +20,6 @@ public class Schedule implements Serializable {
     private int day;
     private int eventSetId;
 
-
     private String repeat;
     private String account;
     private String account_name;
@@ -41,6 +40,9 @@ public class Schedule implements Serializable {
         this.repeat = repeat;
         this.account = account;
     }
+
+
+
 
 
     public String getAccount_name() {

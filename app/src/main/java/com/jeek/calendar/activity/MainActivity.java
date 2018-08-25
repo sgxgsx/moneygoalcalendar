@@ -56,9 +56,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
     private static final String ANONYMOUS = "ANONYMOUS";
     private boolean anonym;
     private TextView mUserNameTextView;
-    private FirebaseUser mUser;
+    //private FirebaseUser mUser;
     //firebase
-    private FirebaseAuth mAuth;
+    //private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
     private GoogleSignInAccount mGoogleSignInAccount;
 
@@ -66,7 +66,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mUser = FirebaseAuth.getInstance().getCurrentUser();
+        //mUser = FirebaseAuth.getInstance().getCurrentUser();
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -84,7 +84,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
         }
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        mAuth = FirebaseAuth.getInstance();
+        //mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -105,9 +105,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
         searchViewById(R.id.llMenuSchedule).setOnClickListener(this);
         //searchViewById(R.id.llMenuNoCategory).setOnClickListener(this);
         searchViewById(R.id.llMenuGoMoney).setOnClickListener(this);
+        searchViewById(R.id.llMenuGoGoal).setOnClickListener(this);
         //searchViewById(R.id.tvMenuAddEventSet).setOnClickListener(this);
         searchViewById(R.id.tvMenuSignOut).setOnClickListener(this);
-        searchViewById(R.id.tvMenuDeleteAccount).setOnClickListener(this);
+        //searchViewById(R.id.tvMenuDeleteAccount).setOnClickListener(this);
         searchViewById(R.id.tvMenuSettings).setOnClickListener(this);
         searchViewById(R.id.floatingActionButton).setOnClickListener(this);
         searchViewById(R.id.ChooseMenuButtonBackground).setOnClickListener(this);
@@ -219,12 +220,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
             case R.id.llMenuGoMoney:
                 gotoMoney();
                 break;
+            case R.id.llMenuGoGoal:
+                gotoGoalFromMenu();
+                break;
             case R.id.floatingActionButton:
                 gotoEventCreator();
                 break;
             case R.id.tvMenuSignOut:
                 signOut();
                 break;
+            /*
             case R.id.tvMenuDeleteAccount:
                 if(mUser != null){
                     mUser.delete()
@@ -241,6 +246,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
                         });
                 }
                 break;
+            */
             case R.id.tvMenuSettings:
                 gotoSettings();
                 break;
@@ -249,6 +255,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
                 break;
             case R.id.gotoMoneyButton:
                 gotoMoney();
+                break;
             case R.id.gotoGoalButton:
                 gotoGoal();
                 break;
@@ -262,7 +269,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
     private void signOut() {
         // Firebase sign out
         if(!anonym){
-            mAuth.signOut();
+            //mAuth.signOut();
 
             // Google sign out
             mGoogleSignInClient.signOut().addOnCompleteListener(this,
@@ -287,6 +294,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
         gotoGoalButton.setVisibility(View.INVISIBLE);
         ChooseMenuButtonBackground.setVisibility(View.INVISIBLE);
 
+    }
+
+    private void gotoGoalFromMenu(){
+        Intent intent = new Intent(this, GoalActivity.class);
+        startActivity(intent);
     }
 
     private void gotoSettings(){
@@ -316,6 +328,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
         gotoMoneyButton.setVisibility(View.INVISIBLE);
         gotoGoalButton.setVisibility(View.INVISIBLE);
         ChooseMenuButtonBackground.setVisibility(View.INVISIBLE);
+        gotoGoalFromMenu();
     }
 
     private void gotoScheduleFragment() {
