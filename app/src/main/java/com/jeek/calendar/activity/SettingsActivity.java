@@ -1,5 +1,7 @@
 package com.jeek.calendar.activity;
 
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.Observer;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -11,6 +13,7 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.provider.ContactsContract;
+import android.support.annotation.Nullable;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,7 +25,6 @@ import android.widget.TextView;
 
 import com.jeek.calendar.R;
 import com.jeek.calendar.adapter.CalendarClassAdapter;
-import com.jeek.calendar.task.CalendarSettingsEntry.LoadAllCalendarSettingsEntryTask;
 import com.jeek.calendar.task.calendarclass.LoadCalendarClassesTask;
 import com.jeek.calendar.task.goal.InsertGoalTask;
 import com.jimmy.common.CalendarSystemDatabase.CalendarClassDao;
@@ -38,13 +40,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class SettingsActivity extends BaseActivity implements /*View.OnClickListener,*/ OnTaskFinishedListener<List<CalendarSettingsEntry>>,  SharedPreferences.OnSharedPreferenceChangeListener {
+public class SettingsActivity extends BaseActivity /*implements View.OnClickListener, OnTaskFinishedListener<List<CalendarSettingsEntry>>,  SharedPreferences.OnSharedPreferenceChangeListener */{
 
     private Toolbar mToolBar;
     private TextView mToolBarTextViewTitle;
 
     private RecyclerView rvMenuCalendarClassList;   //rvMenuEventSetist      CALENDARS
-
+    private CalendarSettingsDatabase mDb;
     private CalendarClassAdapter mCalendarClassAdapter;
     //private List<CalendarClass> mCalendarClasses;
     private List<CalendarSettingsEntry> mCalendarSettingsEntry;
@@ -66,8 +68,8 @@ public class SettingsActivity extends BaseActivity implements /*View.OnClickList
         rvMenuCalendarClassList = searchViewById(R.id.rvSettingsCalendarClasses);
         initCalendarClassesList();
 
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        sharedPreferences.registerOnSharedPreferenceChangeListener(this);
+        //SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        //sharedPreferences.registerOnSharedPreferenceChangeListener(this);
 
     }
     private void initCalendarClassesList() {
@@ -87,38 +89,17 @@ public class SettingsActivity extends BaseActivity implements /*View.OnClickList
     @Override
     protected void initData() {
         super.initData();
-        new LoadAllCalendarSettingsEntryTask(this, this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-
-        new AsyncTask<Void,Void,List<Goal>>(){
-
+        Log.wtf("tag", "from database");
+        mDb = CalendarSettingsDatabase.getInstance(getApplicationContext());
+        final LiveData<List<CalendarSettingsEntry>> liveData = mDb.calendarSettingsDao().loadLiveDataSettingsCalendars();
+        liveData.observe(this, new Observer<List<CalendarSettingsEntry>>() {
             @Override
-            protected List<Goal> doInBackground(Void... voids) {
-                List<Goal> goals = GoalDatabase.getInstance(getApplicationContext()).goalDao().loadGoals();
-                if(goals == null){
-                    Log.wtf("NUll", "null goals");
-                } else{
-                    for(int i=0; i < goals.size(); ++i){
-                        Goal goal = goals.get(i);
-                        Log.wtf("goal", goal.getGoal_name());
-                    }
-                }
-                Log.wtf("goals", goals.toString());
-                return goals;
+            public void onChanged(@Nullable List<CalendarSettingsEntry> calendarSettingsEntries) {
+                mCalendarClassAdapter.changeAllData(calendarSettingsEntries);
             }
-
-            @Override
-            protected void onPostExecute(List<Goal> goals) {
-                super.onPostExecute(goals);
-                if(goals == null){
-                    Log.wtf("NUll", "null goals");
-                } else{
-
-                }
-                Log.wtf("goals", goals.toString());
-            }
-        }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        });
     }
-
+    /*
     @Override
     public void onTaskFinished(List<CalendarSettingsEntry> data) {
         mCalendarClassAdapter.changeAllData(data);
@@ -138,7 +119,7 @@ public class SettingsActivity extends BaseActivity implements /*View.OnClickList
         super.onDestroy();
         PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this);
     }
-
+    */
     /*
     private void initBroadcastReceiver() {
         if (mAddEventSetBroadcastReceiver == null) {

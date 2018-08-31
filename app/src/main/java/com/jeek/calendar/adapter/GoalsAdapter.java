@@ -15,10 +15,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jeek.calendar.R;
+import com.jeek.calendar.activity.AddGoalActivity;
+import com.jeek.calendar.activity.ChangeGoalActivity;
 import com.jeek.calendar.activity.DetailEventActivity;
 import com.jeek.calendar.activity.DetailGoalActivity;
 import com.jeek.calendar.widget.SlideDeleteView;
+import com.jimmy.common.GoalDatabase.Aim;
 import com.jimmy.common.GoalDatabase.Goal;
+import com.jimmy.common.GoalDatabase.GoalSchedule;
 import com.jimmy.common.SettingsDatabase.CalendarSettingsEntry;
 
 import java.text.Format;
@@ -51,19 +55,55 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHol
         final Goal goal = mGoals.get(position);
 
         holder.tvGoalName.setText(goal.getGoal_name());
-        String plannedProgress = "Planned: " + String.valueOf(2) + " Events (Improve)";
-        String doneProgress = "Done: 0 Events (Improve)";
-        holder.tvGoalPlannedProgress.setText(plannedProgress);
-        holder.tvGoalDoneProgress.setText(doneProgress);
+        int count = 0;
+        int done = 0;
+
+        if(goal.getAims() != null){
+            List<Aim> aims= goal.getAims();
+            for(int i =0; i<aims.size(); ++i){
+                List<GoalSchedule> goalSchedules = aims.get(i).getScheduleList();
+                if(goalSchedules != null){
+                    for(int j=0; j< goalSchedules.size(); ++j){
+                        if(goalSchedules.get(j).isState()){
+                            count += 1;
+                        } else {
+                            done += 1;
+                        }
+                    }
+                }
+            }
+        }
+        if(goal.getSchedules() != null){
+            List<GoalSchedule> goalSchedules = goal.getSchedules();
+            if(goalSchedules != null){
+                for(int j=0; j< goalSchedules.size(); ++j){
+                    if(goalSchedules.get(j).isState()){
+                        count += 1;
+                    } else {
+                        done += 1;
+                    }
+                }
+            }
+        }
+
+        holder.tvGoalPlannedProgress.setText(String.valueOf(count));
+        holder.tvGoalDoneProgress.setText(String.valueOf(done));
         Date date = new Date(goal.getDate_to());
-        Format format = new SimpleDateFormat("EEEE, MMMM d, HH:mm");
+        Format format = new SimpleDateFormat("dd.mm.yyyy");
         holder.tvDateTo.setText(format.format(date));
-        holder.tvMoney.setVisibility(View.GONE);
         holder.clGoal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 gotoDetail(goal);
                 Log.wtf("click", "click go to detail");
+            }
+        });
+
+        holder.vChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoChange(goal);
+                Log.wtf("goto", "Update");
             }
         });
         /*
@@ -75,11 +115,15 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHol
             @Override
             public void onClick(View v) {
                 changeTrueOrFalse(calendarClass);
-                Log.wtf("click", "click");
+                Log.wtf("click", "click")
                 notifyDataSetChanged();
             }
         });
         */
+    }
+
+    private void gotoChange(Goal goal){
+        mContext.startActivity(new Intent(mContext, ChangeGoalActivity.class).putExtra(ChangeGoalActivity.GOAL_OBJ, goal));
     }
 
     private void gotoDetail(Goal goal){
@@ -92,17 +136,20 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHol
         private TextView tvGoalPlannedProgress;
         private TextView tvGoalDoneProgress;
         private TextView tvDateTo;
-        private TextView tvMoney;
+        private View vChange;
 
         public GoalsViewHolder(View itemView) {
             super(itemView);
             clGoal = itemView.findViewById(R.id.clGoal);
             tvGoalName = itemView.findViewById(R.id.tvGoalName);
-            tvGoalPlannedProgress = itemView.findViewById(R.id.tvGoalPlannedProgress);
-            tvGoalDoneProgress = itemView.findViewById(R.id.tvGoalDoneProgress);
+            tvGoalPlannedProgress = itemView.findViewById(R.id.tvGoalDoneEvents);
+            tvGoalDoneProgress = itemView.findViewById(R.id.tvGoalAllEvents);
             tvDateTo = itemView.findViewById(R.id.tvGoalDate);
-            tvMoney = itemView.findViewById(R.id.tvGoalMoney);
+            vChange = itemView.findViewById(R.id.vChangeGoal);
         }
+    }
+    public void addGoal(Goal goal){
+
     }
 
     public void changeAllData(List<Goal> goals) {

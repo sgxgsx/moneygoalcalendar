@@ -36,9 +36,11 @@
         <activity android:name=".activity.AddEventActivity" />
         <activity android:name=".activity.SettingsActivity" />
         <activity android:name=".activity.DetailEventActivity" />
-        <activity android:name=".activity.EditEventActivity" />
         <activity android:name=".activity.GoalActivity" />
-        <activity android:name=".activity.DetailGoalActivity"></activity>
+        <activity android:name=".activity.DetailGoalActivity" />
+        <activity android:name=".activity.EditGoalActivity" />
+        <activity android:name=".activity.AddGoalActivity" />
+        <activity android:name=".activity.ChangeGoalActivity"></activity>
     </application>
 
 </manifest>

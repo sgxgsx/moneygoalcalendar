@@ -1,6 +1,7 @@
 package com.jimmy.common.SettingsDatabase;
 
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -14,6 +15,9 @@ import java.util.List;
 public interface CalendarSettingsDao {
     @Query("SELECT * FROM CalendarSettingsTable ORDER BY calendarID")
     List<CalendarSettingsEntry> loadSettingsCalendars();
+
+    @Query("SELECT * FROM CalendarSettingsTable ORDER BY calendarID")
+    LiveData<List<CalendarSettingsEntry>> loadLiveDataSettingsCalendars();
 
     @Insert
     void insertSettingsCalendar(CalendarSettingsEntry calendarSettingsEntry);

@@ -11,7 +11,7 @@
         android:id="@+id/GoalsTitleBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         app:contentInsetEnd="0dp"
         app:contentInsetLeft="0dp"
         app:contentInsetRight="0dp"
@@ -50,19 +50,33 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabGoal"
+        android:layout_width="67dp"
+        android:layout_height="67dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="25dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/GoalsTitleBar"
+        app:backgroundTint="#DC3023"
+        app:srcCompat="@drawable/btn_dialog_add_event_set" />
+
+
+    <ScrollView
+        android:id="@+id/svGoals"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/GoalsTitleBar"
+        app:layout_constraintBottom_toBottomOf="parent"
         >
         <com.jeek.calendar.widget.AbsoluteRecyclerView
             android:id="@+id/rvGoalsGoalActivity"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
     </ScrollView>
+
 
 </android.support.constraint.ConstraintLayout>

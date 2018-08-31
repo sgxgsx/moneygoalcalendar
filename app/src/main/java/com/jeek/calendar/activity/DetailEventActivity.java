@@ -1,5 +1,6 @@
 package com.jeek.calendar.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -158,9 +159,8 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
 
     private void gotoEditEvent() {
         Intent intent = new Intent(this, EditEventActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
     }
-
 
 
     public void deleteEvent(){

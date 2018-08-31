@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/holiday_text_color"/>
+    <solid android:color="#16A085"/>
+    <gradient android:startColor="#59c173" android:centerColor="#a17fe0"
+        android:endColor="#5d26c1"
+        />
     <corners
-        android:bottomLeftRadius="25dp"
-        android:topLeftRadius="25dp"
-        android:topRightRadius="25dp"
-        android:bottomRightRadius="25dp"/>
+        android:bottomLeftRadius="15dp"
+        android:topLeftRadius="15dp"
+        android:topRightRadius="15dp"
+        android:bottomRightRadius="15dp"/>
 </shape>

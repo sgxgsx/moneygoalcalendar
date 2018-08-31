@@ -49,6 +49,7 @@
     <!--event menu-->
     <string name="menu_delete_event">Delete</string>
     <string name="menu_duplicate_event">Duplicate</string>
+    <string name="menu_update_goal">Change</string>
 
     <!--event.set-->
     <string name="pref_changed_value_calendars">Calendar Changed</string>

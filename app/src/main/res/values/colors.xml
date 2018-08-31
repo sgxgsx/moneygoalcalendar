@@ -59,4 +59,9 @@
     <color name="color_input_location_text_hint">#AAA8B3</color>
     <color name="color_input_location_text">#272E3E</color>
 
+
+    <color name="color_mint_green">#36D7B7</color>
+    <color name="color_light_green">#00e640</color>
+    <color name="color_title_bar_purple">#663399</color>
+
 </resources>

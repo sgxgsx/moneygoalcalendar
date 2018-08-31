@@ -1,6 +1,7 @@
 package com.jimmy.common.GoalDatabase;
 
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -15,7 +16,7 @@ import java.util.List;
 @Dao
 public interface GoalDao {
     @Query("SELECT * FROM GoalsTable ORDER BY id")
-    List<Goal> loadGoals();
+    LiveData<List<Goal>> loadGoals();
 
     @Insert
     void insertSettingsCalendar(Goal goal);

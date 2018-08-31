@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vScheduleHintBlock"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/schedule_item_size"
+    android:layout_marginBottom="@dimen/space_3dp"
+    android:layout_marginLeft="@dimen/space_3dp"
+    android:layout_marginRight="@dimen/space_3dp"
+    android:background="@drawable/purple_schedule_left_block"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/llScheduleStateGoalScheduler"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvScheduleTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="6dp"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:lines="1"
+        android:text="和老板吃饭"
+        android:textColor="@color/colorWrite"
+        android:textSize="@dimen/text_size_16sp"
+        app:layout_constraintStart_toEndOf="@+id/llScheduleStateGoalScheduler"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvScheduleTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:ellipsize="end"
+        android:text="16:42 - 15:44"
+        android:textColor="@color/colorWrite"
+        android:textSize="@dimen/text_size_12sp"
+        app:layout_constraintStart_toEndOf="@+id/llScheduleStateGoalScheduler"
+        app:layout_constraintTop_toBottomOf="@+id/tvScheduleTitle" />
+
+
+</android.support.constraint.ConstraintLayout>
