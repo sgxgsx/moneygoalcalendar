@@ -14,7 +14,7 @@ import org.joda.time.DateTime;
 /**
  * Created by Jimmy on 2016/10/7 0007.
  */
-public class WeekAdapter extends PagerAdapter {
+public class  WeekAdapter extends PagerAdapter {
 
     private SparseArray<WeekView> mViews;
     private Context mContext;

@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 /**
  * Created by Jimmy on 2016/10/6 0006.
  */
-public class MonthAdapter extends PagerAdapter {
+public class  MonthAdapter extends PagerAdapter {
 
     private SparseArray<MonthView> mViews;
     private Context mContext;

@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * Created by Jimmy on 2016/10/11 0011.
  */
-public class EventSetDao {
+public class  EventSetDao {
 
     private JeekSQLiteHelper mHelper;
 

@@ -14,7 +14,7 @@ import com.jeek.calendar.library.R;
 /**
  * Created by Jimmy on 2016/10/6 0006.
  */
-public class WeekBarView extends View {
+public class  WeekBarView extends View {
 
     private int mWeekTextColor;
     private int mWeekSize;

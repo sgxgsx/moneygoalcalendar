@@ -11,7 +11,7 @@ import com.jimmy.common.SettingsDatabase.CalendarSettingsDao;
 
 @Database(entities = {Goal.class}, version = 1, exportSchema = false)
 @TypeConverters({GoalScheduleConverter.class, AimConverter.class})
-public abstract class GoalDatabase extends RoomDatabase {
+public abstract class  GoalDatabase extends RoomDatabase {
     private static final String LOG_TAG = GoalDatabase.class.getSimpleName();
     private static final Object LOCK = new Object();
     private static final String DATABASE_NAME = "GoalDatabased";

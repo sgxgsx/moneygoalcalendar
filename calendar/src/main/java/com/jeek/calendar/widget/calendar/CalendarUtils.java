@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * Created by Jimmy on 2016/10/6 0006.
  */
-public class CalendarUtils {
+public class  CalendarUtils {
 
     private static CalendarUtils sUtils;
     private Map<String, int[]> sAllHolidays = new HashMap<>();

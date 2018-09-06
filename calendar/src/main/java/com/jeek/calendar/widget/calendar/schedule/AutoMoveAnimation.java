@@ -8,7 +8,7 @@ import android.view.animation.Transformation;
 /**
  * Created by Jimmy on 2017/4/7 0007.
  */
-public class AutoMoveAnimation extends Animation {
+public class  AutoMoveAnimation extends Animation {
 
     private View mView;
     private int mDistance;

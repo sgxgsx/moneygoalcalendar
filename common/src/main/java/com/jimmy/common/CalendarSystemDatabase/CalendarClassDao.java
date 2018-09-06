@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class CalendarClassDao {
+public class  CalendarClassDao {
     private Context mContext;
     private Activity mActivity;
     private CalendarSettingsDatabase mCalendarSettingsDatabase;

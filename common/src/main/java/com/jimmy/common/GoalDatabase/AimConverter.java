@@ -8,7 +8,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.List;
 
-public class AimConverter {
+public class  AimConverter {
     @TypeConverter
     public String fromAimList(List<Aim> AimList) {
         if (AimList == null) {

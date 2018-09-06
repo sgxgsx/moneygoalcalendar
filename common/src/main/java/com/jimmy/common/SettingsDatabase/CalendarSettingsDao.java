@@ -12,7 +12,7 @@ import android.arch.persistence.room.Update;
 import java.util.List;
 
 @Dao
-public interface CalendarSettingsDao {
+public interface  CalendarSettingsDao {
     @Query("SELECT * FROM CalendarSettingsTable ORDER BY calendarID")
     List<CalendarSettingsEntry> loadSettingsCalendars();
 

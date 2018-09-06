@@ -9,7 +9,7 @@ import android.view.View;
 /**
  * Created by Jimmy on 2016/10/12 0012.
  */
-public class NoSlideDrawerLayout extends DrawerLayout {
+public class  NoSlideDrawerLayout extends DrawerLayout {
 
     private View vMenu;
     private boolean mCanMove;

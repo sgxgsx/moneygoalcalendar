@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by Jimmy on 2016/10/8 0008.
  */
-public class Schedule implements Serializable {
+public class  Schedule implements Serializable {
 
     private int id;
     private int color;

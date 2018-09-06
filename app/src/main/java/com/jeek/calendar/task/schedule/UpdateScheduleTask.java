@@ -10,7 +10,7 @@ import com.jimmy.common.listener.OnTaskFinishedListener;
 /**
  * Created by Jimmy on 2016/10/11 0011.
  */
-public class UpdateScheduleTask extends BaseAsyncTask<Boolean> {
+public class  UpdateScheduleTask extends BaseAsyncTask<Boolean> {
 
     private Schedule mSchedule;
 

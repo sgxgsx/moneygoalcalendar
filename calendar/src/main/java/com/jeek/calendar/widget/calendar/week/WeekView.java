@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * Created by Jimmy on 2016/10/7 0007.
  */
-public class WeekView extends View {
+public class  WeekView extends View {
 
     private static final int NUM_COLUMNS = 7;
     private Paint mPaint;

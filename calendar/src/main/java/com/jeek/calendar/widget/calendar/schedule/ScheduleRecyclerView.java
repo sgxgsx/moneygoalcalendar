@@ -9,7 +9,7 @@ import android.view.View;
 /**
  * Created by Jimmy on 2016/10/8 0008.
  */
-public class ScheduleRecyclerView extends RecyclerView {
+public class  ScheduleRecyclerView extends RecyclerView {
 
     public ScheduleRecyclerView(Context context) {
         this(context, null);

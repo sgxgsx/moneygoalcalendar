@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
 /**
  * Created by Jimmy on 2016/10/14 0014.
  */
-public class SelectDateDialog extends Dialog implements View.OnClickListener, OnCalendarClickListener {
+public class  SelectDateDialog extends Dialog implements View.OnClickListener, OnCalendarClickListener {
 
     private OnSelectDateListener mOnSelectDateListener;
     private TextView tvDate;

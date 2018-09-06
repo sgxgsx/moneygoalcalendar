@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * Created by Jimmy on 2016/10/8 0008.
  */
-public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class  ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private int SCHEDULE_TYPE = 1;
     private int SCHEDULE_CENTER = 2;

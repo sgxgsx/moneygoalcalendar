@@ -10,7 +10,7 @@ import java.nio.file.attribute.GroupPrincipal;
 import java.util.List;
 
 
-public class GoalScheduleConverter {
+public class  GoalScheduleConverter {
     @TypeConverter
     public String fromGoalScheduleList(List<GoalSchedule> GoalScheduleList) {
         if (GoalScheduleList == null) {

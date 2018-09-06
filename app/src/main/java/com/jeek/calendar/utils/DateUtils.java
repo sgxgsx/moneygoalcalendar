@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * Created by Jimmy on 2016/10/14 0014.
  */
-public class DateUtils {
+public class  DateUtils {
 
     /**
      * 时间戳转换成日期格式字符串

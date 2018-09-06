@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * Created by Jimmy on 2016/10/7 0007.
  */
-public class ScheduleLayout extends FrameLayout {
+public class  ScheduleLayout extends FrameLayout {
 
     private final int DEFAULT_MONTH = 0;
     private final int DEFAULT_WEEK = 1;

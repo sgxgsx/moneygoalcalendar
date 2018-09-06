@@ -22,7 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHolder> {
+public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHolder> {
     private Context mContext;
     private List<Goal> mGoals;
 
