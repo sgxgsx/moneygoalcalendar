@@ -1,5 +1,7 @@
 package com.jeek.calendar.activity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,8 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jeek.calendar.R;
-import com.jeek.calendar.adapter.GoalsAdapter;
-import com.jeek.calendar.task.goal.InsertGoalTask;
+import com.jeek.calendar.task.goal.UpdateGoalAsyncTask;
 import com.jimmy.common.GoalDatabase.Aim;
 import com.jimmy.common.GoalDatabase.Goal;
 import com.jimmy.common.GoalDatabase.GoalSchedule;
@@ -20,43 +21,51 @@ import com.jimmy.common.GoalDatabase.GoalSchedule;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddGoalActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener{
-
-    private GoalsAdapter mGoalsAdapter;
-
+public class AddAimActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener{
+    public static final String GOAL_OBJ = "GOAL.Obj.Add.Aim";
+    public static final int errorCode = 200;
+    private Goal mGoal;
     private EditText title, description;
     private TextView time;
-    private CheckBox aimsevents, cbtime;
-
-    // TODO LEHA добавь выбор времени в этот файл. (который будет вовзращать long)?
+    private CheckBox cbtime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_goal);
-
+        setContentView(R.layout.activity_add_aim);
         title = findViewById(R.id.etNameGoal);
         description = findViewById(R.id.etDescription);
-        aimsevents = findViewById(R.id.cbAimEvent);
         time = findViewById(R.id.tvDeadlineGoal);
         cbtime = findViewById(R.id.cbTime);
 
         cbtime.setOnCheckedChangeListener(this);
-                findViewById(R.id.ivCancel).setOnClickListener(this);
+        findViewById(R.id.ivCancel).setOnClickListener(this);
         findViewById(R.id.tvSaveGoal).setOnClickListener(this);
         findViewById(R.id.ivChangeColor).setOnClickListener(this);
         time.setOnClickListener(this);
+
+
+        if (getIntent().hasExtra(GOAL_OBJ)) {
+            mGoal = (Goal) getIntent().getSerializableExtra(GOAL_OBJ);
+
+        } else{
+            if(mGoal == null) throwError();
+        }
     }
+
+
+    // TODO LEHA добавь выбор времени в этот файл. (который будет вовзращать long)?
+
 
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.ivCancel:
-                finish();
+                cancel();
                 break;
             case R.id.tvSaveGoal:
-                saveGoal();
+                saveAim();
                 break;
             case R.id.ivChangeColor:
                 changeColor();
@@ -77,21 +86,21 @@ public class AddGoalActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
-    private void saveGoal(){
+    private void saveAim(){
         String name = title.getText().toString();
         String description = title.getText().toString();
         //TODO LEHA тут возвращаешь время. сюда. Мб просто Toast.
-        boolean aimandevents = aimsevents.isChecked();
+
         long date_to = 0;
         if(!cbtime.isChecked()){
-            date_to = 2040200100;
+            date_to = 2040200150;
         }
         //TODO add description to goals
-        List<Aim> aimList = new ArrayList<>();
-        List<GoalSchedule> goalSchedules = new ArrayList<>();
-        Goal goal = new Goal(name, date_to, description, aimList, goalSchedules);
-        new InsertGoalTask(getApplicationContext(), goal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-        finish();
+        List<GoalSchedule> goalScheduleList = new ArrayList<>();
+        Aim aim = new Aim(name, false, goalScheduleList);
+        mGoal.addAim(aim);
+        new UpdateGoalAsyncTask(getApplicationContext(), mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        finishOkResult();
     }
 
     private void changeColor(){
@@ -116,4 +125,22 @@ public class AddGoalActivity extends AppCompatActivity implements View.OnClickLi
             time.setVisibility(View.INVISIBLE);
         }
     }
+
+    private void cancel(){
+        Intent returnIntent = new Intent();
+        setResult(Activity.RESULT_CANCELED, returnIntent);
+        finish();
+    }
+
+    private void throwError(){
+        Intent returnIntent = new Intent();
+        setResult(errorCode, returnIntent);
+    }
+
+    private void finishOkResult(){
+        Intent returnIntent = new Intent().putExtra(GOAL_OBJ, mGoal);
+        setResult(Activity.RESULT_OK,returnIntent);
+        finish();
+    }
+
 }

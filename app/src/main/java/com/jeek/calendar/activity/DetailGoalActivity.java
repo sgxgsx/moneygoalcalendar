@@ -3,6 +3,7 @@ package com.jeek.calendar.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -11,44 +12,53 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.jeek.calendar.R;
 import com.jeek.calendar.adapter.DetailGoalAdapter;
-import com.jeek.calendar.adapter.GoalsAdapter;
 import com.jeek.calendar.task.goal.DeleteGoalTask;
-import com.jimmy.common.CalendarSystemDatabase.Schedule;
 import com.jimmy.common.GoalDatabase.Goal;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
 public class DetailGoalActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String GOAL_OBJ = "GOAL.Obj";
     public static final String GOAL_OBJW = "GOAL.Objw";
+    public static final String GOAL_OBJ_AIM = "GOAL.Obj.Add.Aim";
+    public static final int errorCode = 200;
 
     private Toolbar mToolbar;
     private Context mContext;
     private Goal mGoal;
     private RecyclerView rvDetail;
     private DetailGoalAdapter mDetailGoalAdapter;
-    private TextView goalName, time;
+    private TextView goalName, time, description;
     private ConstraintLayout dateLayout;
+    private ImageView noteImage;
 
-    // TODO VLAD сделать DetailGoalActivity
+    // completed VLAD сделать DetailGoalActivity
     // completed VLAD удаление Goal
-    // TODO VLAD модифицирование Goal -> Создать GoalEditActivity
+    // completed VLAD модифицирование Goal -> Создать GoalEditActivity
     // completed VLAD решить проблему прокрутки
-    // TODO VLAD добавление Goal -> Создать GoalAddActivity
+    // completed VLAD добавление Goal -> Создать GoalAddActivity
     // completed VLAD поиграться с лейаутом (UI)
+    // completed VLAD refactor GoalDatabase добавить общее, выполненое, невыполненое кол-во (3 int поля) ивентов в Goal, Aim
+    // TODO VLAD refactor GoalDatabase сделать в GoalSchedule время необязательным
+    // TODO VLAD сделать addAimActivity
+    // TODO VLAD сделать editAimActivity
+    // TODO VLAD сделать deleteAim
+    // TODO VLAD сделать addScheduleActivity            ( LEHA )
+    // TODO VLAD сделать editScheduleActivity           ( LEHA )
+    // TODO VLAD сделать deleteSchedule                 ( LEHA )
+    // TODO VLAD изменить drawable с часами или еще чем-то внутри, так что сам круг был простым drawable shape кругом, а внутреняя часть Image
+
 
 
     @Override
@@ -95,7 +105,13 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         goalName = findViewById(R.id.tvGoalName);
         time = findViewById(R.id.tvDeadlineGoal);
         dateLayout = findViewById(R.id.DateLayout);
+        description = findViewById(R.id.tvNoteTextView);
+
+        noteImage = findViewById(R.id.iNoteImage);
+        //TODO ПОМЕНЯТЬ INT ЦВЕТА
+        noteImage.setColorFilter(-525666, PorterDuff.Mode.MULTIPLY);
         goalName.setText(mGoal.getGoal_name());
+        description.setText(mGoal.getDescription());
         long ldate = mGoal.getDate_to();
         if(ldate == 0){
             dateLayout.setVisibility(View.GONE);
@@ -104,6 +120,7 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
             Format format = new SimpleDateFormat("dd.mm.yyyy");
             time.setText(format.format(date));
         }
+        findViewById(R.id.fabAddAimGoal).setOnClickListener(this);
 
     }
 
@@ -112,7 +129,16 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         switch (v.getId()){
             case R.id.ivCancel:
                 finish();
+                break;
+            case R.id.fabAddAimGoal:
+                gotoAddAimActivity();
+                break;
         }
+    }
+
+    private void gotoAddAimActivity(){
+        Intent intent = new Intent(mContext, AddAimActivity.class).putExtra(AddAimActivity.GOAL_OBJ, mGoal);
+        startActivityForResult(intent, 2);
     }
 
     private void deleteGoal(){
@@ -138,6 +164,21 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
             if (resultCode == Activity.RESULT_CANCELED) {
                 ; // nothing
                 Log.wtf("r", "canceled");
+            }
+        }
+        if (requestCode == 2){
+            if(resultCode == RESULT_OK){
+                mGoal = (Goal) data.getSerializableExtra(GOAL_OBJ_AIM);
+                mDetailGoalAdapter.changeAllData(mGoal);
+                initUI();
+            }
+            if (requestCode == RESULT_CANCELED){
+                ;
+                Log.wtf("r", "2 canceled");
+            }
+            if (resultCode == errorCode){
+                ;
+                Log.wtf("ERROR", "200");
             }
         }
     }

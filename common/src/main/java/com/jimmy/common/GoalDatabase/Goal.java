@@ -15,32 +15,49 @@ import java.util.List;
 public class Goal implements Serializable{
     @PrimaryKey(autoGenerate = true)
     private int id;
-    //private int doneschedules;
-    //private int inprogress;
+    private int doneschedules;
+    private int inprogress;
     private String goal_name;
+    private String description;
     private long date_to;
     private List<Aim> aims;
     private List<GoalSchedule> schedules;
 
 
     @Ignore
-    public Goal(String goal_name, long date_to, List<Aim> aims, List<GoalSchedule> schedules) {
+    public Goal(String goal_name, long date_to,String description, List<Aim> aims, List<GoalSchedule> schedules) {
         this.goal_name = goal_name;
         this.date_to = date_to;
         this.aims = aims;
         this.schedules = schedules;
+        this.description = description;
     }
 
-    public Goal(int id, String goal_name, long date_to, List<Aim> aims, List<GoalSchedule> schedules) {
+    public Goal(int id, String goal_name, long date_to,String description, List<Aim> aims, List<GoalSchedule> schedules) {
         this.id = id;
         this.goal_name = goal_name;
         this.date_to = date_to;
         this.aims = aims;
+        this.description = description;
         this.schedules = schedules;
-        //this.inprogress = 0;
-        //this.doneschedules = 0;
+        this.inprogress = 0;
+        this.doneschedules = 0;
     }
-/*
+
+    public void addAim(Aim aim){
+        if(aim != null){
+            aims.add(aim);
+        }
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public int getDoneschedules() {
         return doneschedules;
     }
@@ -56,7 +73,7 @@ public class Goal implements Serializable{
     public void setInprogress(int inprogress) {
         this.inprogress = inprogress;
     }
-*/
+
     public int getId() {
         return id;
     }

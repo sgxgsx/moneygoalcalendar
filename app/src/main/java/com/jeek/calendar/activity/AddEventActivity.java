@@ -1,10 +1,5 @@
 package com.jeek.calendar.activity;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
-
 import com.jeek.calendar.R;
 import com.jimmy.common.base.app.BaseActivity;
 

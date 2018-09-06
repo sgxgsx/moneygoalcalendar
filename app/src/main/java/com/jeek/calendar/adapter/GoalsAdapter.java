@@ -1,7 +1,5 @@
 package com.jeek.calendar.adapter;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
@@ -10,20 +8,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jeek.calendar.R;
-import com.jeek.calendar.activity.AddGoalActivity;
-import com.jeek.calendar.activity.ChangeGoalActivity;
-import com.jeek.calendar.activity.DetailEventActivity;
 import com.jeek.calendar.activity.DetailGoalActivity;
-import com.jeek.calendar.widget.SlideDeleteView;
+import com.jeek.calendar.activity.EditGoalActivity;
 import com.jimmy.common.GoalDatabase.Aim;
 import com.jimmy.common.GoalDatabase.Goal;
 import com.jimmy.common.GoalDatabase.GoalSchedule;
-import com.jimmy.common.SettingsDatabase.CalendarSettingsEntry;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;
@@ -89,7 +81,7 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHol
         holder.tvGoalPlannedProgress.setText(String.valueOf(count));
         holder.tvGoalDoneProgress.setText(String.valueOf(done));
         Date date = new Date(goal.getDate_to());
-        Format format = new SimpleDateFormat("dd.mm.yyyy");
+        Format format = new SimpleDateFormat("DD.MM.YYYY");
         holder.tvDateTo.setText(format.format(date));
         holder.clGoal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,7 +115,7 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHol
     }
 
     private void gotoChange(Goal goal){
-        mContext.startActivity(new Intent(mContext, ChangeGoalActivity.class).putExtra(ChangeGoalActivity.GOAL_OBJ, goal));
+        mContext.startActivity(new Intent(mContext, EditGoalActivity.class).putExtra(EditGoalActivity.GOAL_OBJ, goal));
     }
 
     private void gotoDetail(Goal goal){

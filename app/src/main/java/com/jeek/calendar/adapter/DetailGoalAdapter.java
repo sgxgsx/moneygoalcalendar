@@ -12,14 +12,10 @@ import android.widget.TextView;
 
 import com.jeek.calendar.R;
 import com.jeek.calendar.utils.JeekUtils;
-import com.jimmy.common.CalendarSystemDatabase.Schedule;
 import com.jimmy.common.GoalDatabase.Aim;
 import com.jimmy.common.GoalDatabase.Goal;
 import com.jimmy.common.GoalDatabase.GoalSchedule;
 
-import java.text.Format;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 public class DetailGoalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{

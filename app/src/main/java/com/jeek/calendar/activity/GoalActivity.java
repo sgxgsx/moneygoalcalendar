@@ -1,41 +1,23 @@
 package com.jeek.calendar.activity;
 
-import android.app.Activity;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Rect;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 
 import com.jeek.calendar.R;
-import com.jeek.calendar.adapter.CalendarClassAdapter;
 import com.jeek.calendar.adapter.GoalsAdapter;
-import com.jeek.calendar.dialog.ConfirmDialog;
 import com.jimmy.common.GoalDatabase.Goal;
 import com.jimmy.common.GoalDatabase.GoalDatabase;
-import com.jimmy.common.SettingsDatabase.CalendarSettingsEntry;
 import com.jimmy.common.base.app.BaseActivity;
-import com.jimmy.common.listener.OnTaskFinishedListener;
 
 import java.util.ArrayList;
 import java.util.List;

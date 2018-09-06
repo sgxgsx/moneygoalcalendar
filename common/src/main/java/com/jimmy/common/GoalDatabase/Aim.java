@@ -1,27 +1,40 @@
 package com.jimmy.common.GoalDatabase;
 
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
+
 import com.jimmy.common.CalendarSystemDatabase.Schedule;
 
 import java.io.Serializable;
 import java.util.List;
 
 public class Aim implements Serializable{
+    @PrimaryKey(autoGenerate = true)
     int id;
-    //int doneschedules;
-    //int inprogress;
+    int doneschedules;
+    int inprogress;
     String name;
     boolean done;
     List<GoalSchedule> scheduleList;
 
-    public Aim(int id, String name, boolean done, List<GoalSchedule> scheduleList) {
-        this.id = id;
+    @Ignore
+    public Aim(String name, boolean done, List<GoalSchedule> scheduleList){
         this.name = name;
-        //this.doneschedules = 0;
-        //this.inprogress = 0;
+        this.doneschedules = 0;
+        this.inprogress = 0;
         this.done = done;
         this.scheduleList = scheduleList;
     }
-/*
+
+    public Aim(int id, String name, boolean done, List<GoalSchedule> scheduleList) {
+        this.id = id;
+        this.name = name;
+        this.doneschedules = 0;
+        this.inprogress = 0;
+        this.done = done;
+        this.scheduleList = scheduleList;
+    }
+
     public int getDoneschedules() {
         return doneschedules;
     }
@@ -37,7 +50,7 @@ public class Aim implements Serializable{
     public void setInprogress(int inprogress) {
         this.inprogress = inprogress;
     }
-*/
+
     public int getId() {
         return id;
     }

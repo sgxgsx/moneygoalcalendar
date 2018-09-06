@@ -2,43 +2,23 @@ package com.jeek.calendar.activity;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
-import android.preference.PreferenceScreen;
-import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
-import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.jeek.calendar.R;
 import com.jeek.calendar.adapter.CalendarClassAdapter;
-import com.jeek.calendar.task.calendarclass.LoadCalendarClassesTask;
-import com.jeek.calendar.task.goal.InsertGoalTask;
-import com.jimmy.common.CalendarSystemDatabase.CalendarClassDao;
-import com.jimmy.common.GoalDatabase.Goal;
-import com.jimmy.common.GoalDatabase.GoalDatabase;
 import com.jimmy.common.SettingsDatabase.CalendarSettingsDatabase;
 import com.jimmy.common.SettingsDatabase.CalendarSettingsEntry;
 import com.jimmy.common.base.app.BaseActivity;
-import com.jimmy.common.CalendarSystemDatabase.CalendarClass;
-import com.jimmy.common.listener.OnTaskFinishedListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class SettingsActivity extends BaseActivity /*implements View.OnClickListener, OnTaskFinishedListener<List<CalendarSettingsEntry>>,  SharedPreferences.OnSharedPreferenceChangeListener */{
 

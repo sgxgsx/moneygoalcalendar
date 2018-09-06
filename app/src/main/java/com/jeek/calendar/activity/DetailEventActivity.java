@@ -1,6 +1,5 @@
 package com.jeek.calendar.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;

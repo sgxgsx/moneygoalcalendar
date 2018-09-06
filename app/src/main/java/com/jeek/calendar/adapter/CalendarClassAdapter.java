@@ -7,30 +7,20 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jeek.calendar.R;
 import com.jeek.calendar.task.CalendarSettingsEntry.ChangeCalendarSettingsEntryValueTask;
-import com.jeek.calendar.task.goal.InsertGoalTask;
-import com.jimmy.common.CalendarSystemDatabase.CalendarClass;
-import com.jimmy.common.GoalDatabase.Aim;
-import com.jimmy.common.GoalDatabase.Goal;
-import com.jimmy.common.GoalDatabase.GoalSchedule;
 import com.jimmy.common.SettingsDatabase.CalendarSettingsEntry;
 import com.jimmy.common.bean.EventSet;
 import com.jeek.calendar.dialog.ConfirmDialog;
 import com.jeek.calendar.task.eventset.RemoveEventSetTask;
-import com.jeek.calendar.utils.JeekUtils;
 import com.jeek.calendar.widget.SlideDeleteView;
 import com.jimmy.common.listener.OnTaskFinishedListener;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Created by Jimmy on 2016/10/12 0012.

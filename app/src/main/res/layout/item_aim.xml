@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/clGoal"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="80dp"
     android:layout_marginTop="4dp"
     android:layout_marginEnd="2dp"
     android:layout_marginStart="2dp"
@@ -29,7 +29,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="4dp"
         android:maxLines="1"
-        android:text="My real goal name we"
+        android:text="My real aim name we"
         android:textColor="@color/colorWrite"
         android:textSize="@dimen/text_size_20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +62,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginEnd="10dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         >
         <TextView
             android:id="@+id/tvGoalAllEvents"
@@ -83,7 +83,7 @@
         app:layout_constraintEnd_toStartOf="@id/llGoalAllEvents"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginEnd="5dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         >
         <TextView
             android:id="@+id/tvGoalDoneEvents"
@@ -96,23 +96,44 @@
             />
     </LinearLayout>
     <View
+        android:layout_width="62dp"
+        android:layout_height="32dp"
+        android:background="@drawable/half_circle"
+        android:backgroundTint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <View
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:background="@drawable/half_circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <View
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:background="@drawable/quarter_circle"
+        android:backgroundTint="#5d26c1"
+        android:layout_marginEnd="31dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <View
         android:id="@+id/vChangeGoal"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@drawable/quarter_circle_black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <View
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
         android:background="@drawable/quarter_circle"
         android:backgroundTint="@color/colorWrite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
     <View
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:background="@drawable/quarter_circle"
         android:backgroundTint="@color/colorWrite"
         app:layout_constraintEnd_toEndOf="parent"
