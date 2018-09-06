@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 /**
  * Created by Jimmy on 2016/10/11 0011.
  */
-public class JeekSQLiteHelper extends SQLiteOpenHelper {
+public class  JeekSQLiteHelper extends SQLiteOpenHelper {
 
     public JeekSQLiteHelper(Context context) {
         super(context, JeekDBConfig.DATABASE_NAME, null, JeekDBConfig.DATABASE_VERSION);

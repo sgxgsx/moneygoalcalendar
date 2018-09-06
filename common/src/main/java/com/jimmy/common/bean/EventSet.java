@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by Jimmy on 2016/10/11 0011.
  */
-public class EventSet implements Serializable {
+public class  EventSet implements Serializable {
 
     private int id;
     private String name;

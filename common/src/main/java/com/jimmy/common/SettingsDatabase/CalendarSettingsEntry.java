@@ -8,7 +8,7 @@ import android.arch.persistence.room.PrimaryKey;
 import java.util.Date;
 
 @Entity(tableName="CalendarSettingsTable")
-public class CalendarSettingsEntry {
+public class  CalendarSettingsEntry {
     @PrimaryKey
     private int calendarID;
     private String calendarName;

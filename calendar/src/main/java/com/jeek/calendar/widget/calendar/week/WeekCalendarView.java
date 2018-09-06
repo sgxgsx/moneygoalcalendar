@@ -12,7 +12,7 @@ import com.jeek.calendar.widget.calendar.OnCalendarClickListener;
 /**
  * Created by Jimmy on 2016/10/7 0007.
  */
-public class WeekCalendarView extends ViewPager implements OnWeekClickListener {
+public class  WeekCalendarView extends ViewPager implements OnWeekClickListener {
 
     private OnCalendarClickListener mOnCalendarClickListener;
     private WeekAdapter mWeekAdapter;

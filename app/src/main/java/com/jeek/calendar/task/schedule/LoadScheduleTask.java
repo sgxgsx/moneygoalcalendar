@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by Jimmy on 2016/10/11 0011.
  */
-public class LoadScheduleTask extends BaseAsyncTask<List<Schedule>> {
+public class  LoadScheduleTask extends BaseAsyncTask<List<Schedule>> {
 
     private int mYear;
     private int mMonth;

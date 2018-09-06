@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Created by Jimmy on 2016/10/15 0015.
  */
-public class SelectEventSetDialog extends Dialog implements View.OnClickListener, OnTaskFinishedListener<List<EventSet>> {
+public class  SelectEventSetDialog extends Dialog implements View.OnClickListener, OnTaskFinishedListener<List<EventSet>> {
 
     public static int ADD_EVENT_SET_CODE = 1;
 

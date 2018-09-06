@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * Created by Jimmy on 2016/10/12 0012.
  */
-public class EventSetFragment extends BaseFragment implements View.OnClickListener, OnTaskFinishedListener<List<Schedule>>, SelectDateDialog.OnSelectDateListener {
+public class  EventSetFragment extends BaseFragment implements View.OnClickListener, OnTaskFinishedListener<List<Schedule>>, SelectDateDialog.OnSelectDateListener {
 
     public static String EVENT_SET_OBJ = "event.set.obj";
 

@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * Created by Jimmy on 2016/10/6 0006.
  */
-public class MonthView extends View {
+public class  MonthView extends View {
 
     private static final int NUM_COLUMNS = 7;
     private static final int NUM_ROWS = 6;

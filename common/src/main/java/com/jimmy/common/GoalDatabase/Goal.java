@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity(tableName = "GoalsTable")
-public class Goal implements Serializable{
+public class  Goal implements Serializable{
     @PrimaryKey(autoGenerate = true)
     private int id;
     //private int doneschedules;

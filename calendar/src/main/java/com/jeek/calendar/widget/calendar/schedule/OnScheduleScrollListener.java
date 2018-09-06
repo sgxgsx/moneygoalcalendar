@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 /**
  * Created by Jimmy on 2016/10/7 0007.
  */
-public class OnScheduleScrollListener extends GestureDetector.SimpleOnGestureListener {
+public class  OnScheduleScrollListener extends GestureDetector.SimpleOnGestureListener {
 
     private ScheduleLayout mScheduleLayout;
 

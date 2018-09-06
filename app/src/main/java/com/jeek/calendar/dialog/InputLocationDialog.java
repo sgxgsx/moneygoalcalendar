@@ -10,7 +10,7 @@ import com.jeek.calendar.R;
 /**
  * Created by Jimmy on 2016/10/15 0015.
  */
-public class InputLocationDialog extends Dialog implements View.OnClickListener {
+public class  InputLocationDialog extends Dialog implements View.OnClickListener {
 
     private OnLocationBackListener mOnLocationBackListener;
     private EditText etLocationContent;

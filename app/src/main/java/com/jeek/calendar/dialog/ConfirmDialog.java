@@ -10,7 +10,7 @@ import com.jeek.calendar.R;
 /**
  * Created by Jimmy on 2016/10/18 0018.
  */
-public class ConfirmDialog extends Dialog implements View.OnClickListener {
+public class  ConfirmDialog extends Dialog implements View.OnClickListener {
 
     private TextView tvTitle;
     private String mTitle;

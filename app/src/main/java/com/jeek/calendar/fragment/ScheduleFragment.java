@@ -36,7 +36,7 @@ import java.util.List;
 /**
  * Created by Jimmy on 2016/10/11 0011.
  */
-public class ScheduleFragment extends BaseFragment implements OnCalendarClickListener, /*View.OnClickListener,*/
+public class  ScheduleFragment extends BaseFragment implements OnCalendarClickListener, /*View.OnClickListener,*/
         OnTaskFinishedListener<List<Schedule>>, SelectDateDialog.OnSelectDateListener {
 
     private ScheduleLayout slSchedule;

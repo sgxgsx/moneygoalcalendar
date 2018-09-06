@@ -14,7 +14,7 @@ import com.jimmy.common.SettingsDatabase.CalendarSettingsEntry;
 import java.util.List;
 
 @Dao
-public interface GoalDao {
+public interface  GoalDao {
     @Query("SELECT * FROM GoalsTable ORDER BY id")
     LiveData<List<Goal>> loadGoals();
 

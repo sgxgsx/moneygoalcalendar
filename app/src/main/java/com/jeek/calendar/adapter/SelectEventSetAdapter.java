@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Created by Jimmy on 2016/10/15 0015.
  */
-public class SelectEventSetAdapter extends BaseAdapter {
+public class  SelectEventSetAdapter extends BaseAdapter {
 
     private Context mContext;
     private List<EventSet> mEventSets;

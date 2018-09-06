@@ -3,7 +3,7 @@ package com.jimmy.common.data;
 /**
  * Created by Jimmy on 2016/10/11 0011.
  */
-public interface JeekDBConfig {
+public interface  JeekDBConfig {
 
     int DATABASE_VERSION = 3;
 

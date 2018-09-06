@@ -11,7 +11,7 @@ import android.widget.FrameLayout;
 /**
  * Created by Jimmy on 2016/10/12 0012.
  */
-public class SlideDeleteView extends FrameLayout {
+public class  SlideDeleteView extends FrameLayout {
 
     private int mDeleteViewWidth;
     private int mWidth;

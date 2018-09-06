@@ -9,7 +9,7 @@ import com.jimmy.common.listener.OnTaskFinishedListener;
 /**
  * Created by Jimmy on 2016/10/11 0011.
  */
-public class RemoveScheduleTask extends BaseAsyncTask<Boolean> {
+public class  RemoveScheduleTask extends BaseAsyncTask<Boolean> {
 
     private long mId;
 

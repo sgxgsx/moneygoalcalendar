@@ -5,7 +5,7 @@ import com.jimmy.common.CalendarSystemDatabase.Schedule;
 import java.io.Serializable;
 import java.util.List;
 
-public class Aim implements Serializable{
+public class  Aim implements Serializable{
     int id;
     //int doneschedules;
     //int inprogress;

@@ -9,7 +9,7 @@ import android.view.MotionEvent;
 /**
  * Created by Jimmy on 2016/10/12 0012.
  */
-public class AbsoluteRecyclerView extends RecyclerView {
+public class  AbsoluteRecyclerView extends RecyclerView {
 
     public AbsoluteRecyclerView(Context context) {
         super(context);

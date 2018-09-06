@@ -11,7 +11,7 @@ import com.jeek.calendar.R;
 /**
  * Created by Jimmy on 2016/10/12 0012.
  */
-public class SelectColorDialog extends Dialog implements View.OnClickListener {
+public class  SelectColorDialog extends Dialog implements View.OnClickListener {
 
     private OnSelectColorListener mOnSelectColorListener;
     private int mColor;

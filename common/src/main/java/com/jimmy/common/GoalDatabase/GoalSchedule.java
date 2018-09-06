@@ -2,7 +2,7 @@ package com.jimmy.common.GoalDatabase;
 
 import java.io.Serializable;
 
-public class GoalSchedule implements Serializable{
+public class  GoalSchedule implements Serializable{
     private final String CALENDAR_NAME = "GoalCalendar";
 
 

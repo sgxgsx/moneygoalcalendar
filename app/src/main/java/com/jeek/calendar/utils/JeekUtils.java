@@ -9,7 +9,7 @@ import java.util.Locale;
 /**
  * Created by Jimmy on 2016/10/10 0010.
  */
-public class JeekUtils {
+public class  JeekUtils {
 
     public static String timeStamp2Time(long time) {
         return new SimpleDateFormat("HH:mm", Locale.CHINA).format(new Date(time));

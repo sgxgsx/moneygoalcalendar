@@ -3,7 +3,7 @@ package com.jimmy.common.CalendarSystemDatabase;
 import java.io.Serializable;
 import java.util.List;
 
-public class CalendarClass implements Serializable{
+public class  CalendarClass implements Serializable{
     private int[] allowedAttendeeTypes;
     private String accountName;
     private String displayName;
