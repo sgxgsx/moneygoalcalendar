@@ -40,7 +40,7 @@ public class AddEventSetActivity extends BaseActivity implements View.OnClickLis
         etEventSetName = searchViewById(R.id.etEventSetName);
         vEventSetColor = searchViewById(R.id.vEventSetColor);
         searchViewById(R.id.tvCancel).setOnClickListener(this);
-        searchViewById(R.id.tvFinish).setOnClickListener(this);
+        searchViewById(R.id.tvCreate).setOnClickListener(this);
         searchViewById(R.id.rlEventSetColor).setOnClickListener(this);
     }
 
@@ -51,7 +51,7 @@ public class AddEventSetActivity extends BaseActivity implements View.OnClickLis
                 setResult(ADD_EVENT_SET_CANCEL);
                 finish();
                 break;
-            case R.id.tvFinish:
+            case R.id.tvCreate:
                 addEventSet();
                 break;
             case R.id.rlEventSetColor:

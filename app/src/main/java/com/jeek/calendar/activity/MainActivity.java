@@ -94,7 +94,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
         tvTitleDay = searchViewById(R.id.tvTitleDay);
         tvTitle = searchViewById(R.id.tvTitle);
         ChooseModuleButtonTime=searchViewById(R.id.ChooseModuleButtonTime);
-        ChooseMenuButtonBackground=searchViewById(R.id.ChooseMenuButtonBackground);
+        ChooseMenuButtonBackground=searchViewById(R.id.chooseMenuButtonBackground2);
         gotoMoneyButton=searchViewById(R.id.gotoMoneyButton);
         gotoGoalButton=searchViewById(R.id.gotoGoalButton);
         //rvMenuCalendarClassList = searchViewById(R.id.rvMenuEventSetList);
@@ -109,7 +109,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
         //searchViewById(R.id.tvMenuDeleteAccount).setOnClickListener(this);
         searchViewById(R.id.tvMenuSettings).setOnClickListener(this);
         searchViewById(R.id.floatingActionButton).setOnClickListener(this);
-        searchViewById(R.id.ChooseMenuButtonBackground).setOnClickListener(this);
+        searchViewById(R.id.chooseMenuButtonBackground2).setOnClickListener(this);
         searchViewById(R.id.gotoGoalButton).setOnClickListener(this);
         searchViewById(R.id.gotoMoneyButton).setOnClickListener(this);
         searchViewById(R.id.ChooseModuleButtonTime).setOnClickListener(this);
@@ -257,7 +257,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
             case R.id.gotoGoalButton:
                 gotoGoal();
                 break;
-            case R.id.ChooseMenuButtonBackground:
+            case R.id.chooseMenuButtonBackground2:
                 hideFloatingChoiceMenu();
                 break;
             default:

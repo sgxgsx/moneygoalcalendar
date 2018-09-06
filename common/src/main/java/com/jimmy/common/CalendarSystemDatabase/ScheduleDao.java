@@ -2,6 +2,7 @@ package com.jimmy.common.CalendarSystemDatabase;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -9,19 +10,25 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.CalendarContract;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.View;
 
+import com.jimmy.common.R;
 import com.jimmy.common.data.JeekDBConfig;
 import com.jimmy.common.data.JeekSQLiteHelper;
+import com.jimmy.common.util.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  * Created by Jimmy on 2016/10/11 0011.
  */
-public class ScheduleDao {
+public class ScheduleDao{
 
     private JeekSQLiteHelper mHelper;
     private Context mContext;
@@ -56,6 +63,12 @@ public class ScheduleDao {
         db.close();
         return row > 0 ? getLastScheduleId() : 0;
     }
+
+
+
+
+
+
 
     private int getLastScheduleId() {
         SQLiteDatabase db = mHelper.getReadableDatabase();
@@ -108,6 +121,34 @@ public class ScheduleDao {
         mHelper.close();
         return taskHint;
     }
+
+    public void addEvent(Schedule mSchedule) {
+
+        ContentResolver cr = mContext.getContentResolver();
+
+        Calendar beginTime = Calendar.getInstance();
+        beginTime.set(mSchedule.getYear(), mSchedule.getMonth(), mSchedule.getDay(), 9, 30);
+
+        Calendar endTime = Calendar.getInstance();
+        endTime.set(mSchedule.getYear(), mSchedule.getMonth(), mSchedule.getDay(), 10, 30);
+
+        ContentValues values = new ContentValues();
+        values.put(CalendarContract.Events.DTSTART, beginTime.getTimeInMillis());
+        values.put(CalendarContract.Events.DTEND, endTime.getTimeInMillis());
+        values.put(CalendarContract.Events.TITLE, mSchedule.getTitle());
+        values.put(CalendarContract.Events.DESCRIPTION, mSchedule.getDesc());
+        values.put(CalendarContract.Events.CALENDAR_ID, 1);
+        TimeZone tz = TimeZone.getDefault();
+        values.put(CalendarContract.Events.EVENT_TIMEZONE, tz.getDisplayName(Locale.getDefault(Locale.Category.DISPLAY)));
+        values.put(CalendarContract.Events.EVENT_LOCATION, mSchedule.getLocation());
+        values.put(CalendarContract.Events.GUESTS_CAN_INVITE_OTHERS, "1");
+        values.put(CalendarContract.Events.GUESTS_CAN_SEE_GUESTS, "1");
+        /*values.put(CalendarContract.Events.);*/
+
+
+        cr.insert(CalendarContract.Events.CONTENT_URI, values);
+    }
+
 
     public boolean removeSchedule(long id) {
         SQLiteDatabase db = mHelper.getWritableDatabase();
@@ -212,18 +253,18 @@ public class ScheduleDao {
     public List<Schedule> getScheduleByDate(int year, int month, int day, String Account){
         List<Schedule> schedules = new ArrayList<>();
         List<CalendarClass> calendarClasses = mCalendarClassDao.getTrueCalendars();
-        if(Account.equals("ANONYMOUS")){
+        /*if(Account.equals("ANONYMOUS")){
             return schedules;
-        }
+        }*/
         String[] projection = new String[] { CalendarContract.Events.CALENDAR_ID, CalendarContract.Events.TITLE, CalendarContract.Events.DESCRIPTION, CalendarContract.Events.DTSTART, CalendarContract.Events.DTEND, CalendarContract.Events.DISPLAY_COLOR, CalendarContract.Events.EVENT_COLOR, CalendarContract.Events.EVENT_COLOR_KEY, CalendarContract.Events.ALL_DAY, CalendarContract.Events.EVENT_LOCATION, CalendarContract.Events.OWNER_ACCOUNT, CalendarContract.Events.RRULE, CalendarContract.Events.ACCOUNT_NAME};
 
 
         Calendar startTime = Calendar.getInstance();
         startTime.set(year,month,day,0, 0, 0);
-    //fix to retrieve events on 00:00:00
+        //fix to retrieve events on 00:00:00
         long time = startTime.getTimeInMillis();
         time -= 1000;
-    //end fix
+        //end fix
         Calendar endTime= Calendar.getInstance();
         endTime.set(year,month,day,23,59, 59);
 
