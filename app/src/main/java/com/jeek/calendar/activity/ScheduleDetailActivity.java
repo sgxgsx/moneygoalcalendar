@@ -49,7 +49,7 @@ public class ScheduleDetailActivity extends BaseActivity implements View.OnClick
         TextView tvTitle = searchViewById(R.id.tvTitle);
         tvTitle.setText(getString(R.string.schedule_event_detail_setting));
         searchViewById(R.id.tvCancel).setOnClickListener(this);
-        searchViewById(R.id.tvFinish).setOnClickListener(this);
+        searchViewById(R.id.tvCreate).setOnClickListener(this);
         //searchViewById(R.id.llScheduleEventSet).setOnClickListener(this);
         searchViewById(R.id.llScheduleTime).setOnClickListener(this);
         searchViewById(R.id.llScheduleLocation).setOnClickListener(this);
@@ -84,7 +84,7 @@ public class ScheduleDetailActivity extends BaseActivity implements View.OnClick
                 setResult(UPDATE_SCHEDULE_CANCEL);
                 finish();
                 break;
-            case R.id.tvFinish:
+            case R.id.tvCreate:
                 confirm();
                 break;
             /*

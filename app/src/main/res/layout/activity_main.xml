@@ -11,13 +11,7 @@
 
     <include layout="@layout/main_menu"/>
 
-    <View
-        android:id="@+id/ChooseMenuButtonBackground"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#aaffffff"
-        android:clickable="true"
-        android:visibility="invisible" />
+    <include layout="@layout/halph_transp_background"/>
 
     <FrameLayout
         android:id="@+id/flMainContainer"
