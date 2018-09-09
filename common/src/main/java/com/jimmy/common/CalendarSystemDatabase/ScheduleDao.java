@@ -143,6 +143,7 @@ public class  ScheduleDao{
         values.put(CalendarContract.Events.EVENT_LOCATION, mSchedule.getLocation());
         values.put(CalendarContract.Events.GUESTS_CAN_INVITE_OTHERS, "1");
         values.put(CalendarContract.Events.GUESTS_CAN_SEE_GUESTS, "1");
+        values.put(CalendarContract.Events.EVENT_COLOR, -552015);
         /*values.put(CalendarContract.Events.);*/
 
 
