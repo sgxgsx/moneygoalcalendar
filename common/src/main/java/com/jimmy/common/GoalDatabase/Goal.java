@@ -5,6 +5,7 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
+import android.util.Log;
 
 import com.jimmy.common.CalendarSystemDatabase.Schedule;
 
@@ -47,6 +48,19 @@ public class  Goal implements Serializable{
     public void addAim(Aim aim){
         if(aim != null){
             aims.add(aim);
+        }
+    }
+
+    public void deleteAimById(int id){
+        for(int i=0; i < aims.size(); ++i){
+            if(aims.get(i).getId() == id){
+                Log.wtf("Goal", "delete aim " + String.valueOf(id) + " i " + String.valueOf(i) + " i id " + String.valueOf(aims.get(i).getId()));
+                aims.remove(i);
+                for(int j=i; j< aims.size(); ++j){
+                    aims.get(j).setId(j);
+                }
+                break;
+            }
         }
     }
 

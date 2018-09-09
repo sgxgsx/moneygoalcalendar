@@ -82,7 +82,7 @@
                 android:layout_marginTop="8dp"
                 android:maxLength="20"
                 android:maxLines="1"
-                android:hint="Yout goal name"
+                android:hint="Yout aim name"
                 android:textSize="14sp"
                 android:textColorHighlight="@color/colorWrite"
                 app:layout_constraintBottom_toBottomOf="parent"

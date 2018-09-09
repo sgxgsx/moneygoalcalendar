@@ -32,6 +32,9 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     public static final String GOAL_OBJ = "GOAL.Obj";
     public static final String GOAL_OBJW = "GOAL.Objw";
     public static final String GOAL_OBJ_AIM = "GOAL.Obj.Add.Aim";
+    public static final String GOAL_OBJ_AIM_DETAIL = "GOAL.Obj.Detail.Aim";
+
+
     public static final int errorCode = 200;
 
     private Toolbar mToolbar;
@@ -50,9 +53,10 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     // completed VLAD добавление Goal -> Создать GoalAddActivity
     // completed VLAD поиграться с лейаутом (UI)
     // completed VLAD refactor GoalDatabase добавить общее, выполненое, невыполненое кол-во (3 int поля) ивентов в Goal, Aim
-    // TODO VLAD refactor GoalDatabase сделать в GoalSchedule время необязательным
-    // TODO VLAD сделать addAimActivity
+    // completed VLAD refactor GoalDatabase сделать в GoalSchedule время необязательным
+    // completed VLAD сделать addAimActivity
     // TODO VLAD сделать editAimActivity
+    // TODO VLAD сделать detailAimActivity
     // TODO VLAD сделать deleteAim
     // TODO VLAD сделать addScheduleActivity            ( LEHA )
     // TODO VLAD сделать editScheduleActivity           ( LEHA )
@@ -165,8 +169,7 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
                 ; // nothing
                 Log.wtf("r", "canceled");
             }
-        }
-        if (requestCode == 2){
+        }else if(requestCode == 2){
             if(resultCode == RESULT_OK){
                 mGoal = (Goal) data.getSerializableExtra(GOAL_OBJ_AIM);
                 mDetailGoalAdapter.changeAllData(mGoal);
@@ -179,6 +182,17 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
             if (resultCode == errorCode){
                 ;
                 Log.wtf("ERROR", "200");
+            }
+        }else if(requestCode == 3) {
+            if(resultCode == Activity.RESULT_OK){
+                Log.wtf("goal", "change requestCode 3");
+                mGoal = (Goal) data.getSerializableExtra(GOAL_OBJ_AIM_DETAIL);
+                mDetailGoalAdapter.changeAllData(mGoal);
+                initUI();
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                ; // nothing
+                Log.wtf("detailGoalActivity", "canceled 3");
             }
         }
     }

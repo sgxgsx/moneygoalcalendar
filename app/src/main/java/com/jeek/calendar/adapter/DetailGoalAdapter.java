@@ -1,6 +1,9 @@
 package com.jeek.calendar.adapter;
 
+import android.app.Activity;
+import android.arch.persistence.room.Room;
 import android.content.Context;
+import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,15 +14,23 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jeek.calendar.R;
+import com.jeek.calendar.activity.AddAimActivity;
+import com.jeek.calendar.activity.DetailAimActivity;
+import com.jeek.calendar.activity.EditGoalActivity;
 import com.jeek.calendar.utils.JeekUtils;
 import com.jimmy.common.GoalDatabase.Aim;
 import com.jimmy.common.GoalDatabase.Goal;
+import com.jimmy.common.GoalDatabase.GoalDatabase;
 import com.jimmy.common.GoalDatabase.GoalSchedule;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class DetailGoalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private Context mContext;
+    private Activity mActivity;
     private Goal mGoal;
     private List<Aim> aims;
     private List<GoalSchedule> goalSchedules;
@@ -27,6 +38,7 @@ public class DetailGoalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     public DetailGoalAdapter(Context context, Goal goal) {
         mContext = context;
+        mActivity = (Activity) mContext;
         mGoal = goal;
         aims = mGoal.getAims();
         goalSchedules = mGoal.getSchedules();
@@ -93,11 +105,17 @@ public class DetailGoalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             viewHolder.tvGoalName.setText(aim.getName());
             viewHolder.tvGoalPlannedProgress.setText(String.valueOf(18));
             viewHolder.tvGoalDoneProgress.setText(String.valueOf(1));
-            viewHolder.tvDateTo.setVisibility(View.GONE);
+            //Date date = new Date();
+            //Format format = new SimpleDateFormat("DD.MM.YYYY");
+            //viewHolder.tvDateTo.setText(format.format(date));
+            viewHolder.tvDateTo.setText("19.10.2018");
             viewHolder.clGoal.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Log.wtf("click", "click go to detail");
+                    Intent intent = new Intent(mContext, DetailAimActivity.class).putExtra(DetailAimActivity.GOAL_OBJ, mGoal)
+                            .putExtra(DetailAimActivity.AIM_OBJ, aim);
+                    mActivity.startActivityForResult(intent, 3);
                 }
             });
 

@@ -88,7 +88,7 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
 
     private void saveAim(){
         String name = title.getText().toString();
-        String description = title.getText().toString();
+        String desc = description.getText().toString();
         //TODO LEHA тут возвращаешь время. сюда. Мб просто Toast.
 
         long date_to = 0;
@@ -97,7 +97,7 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
         }
         //TODO add description to goals
         List<GoalSchedule> goalScheduleList = new ArrayList<>();
-        Aim aim = new Aim(name, false, goalScheduleList);
+        Aim aim = new Aim(mGoal.getAims().size(), name, false, desc, goalScheduleList);
         mGoal.addAim(aim);
         new UpdateGoalAsyncTask(getApplicationContext(), mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         finishOkResult();
