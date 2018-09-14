@@ -1,8 +1,12 @@
 package com.jeek.calendar.activity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.AsyncTask;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,13 +19,19 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.jeek.calendar.R;
+import com.jeek.calendar.task.schedule.AddEventTask;
+import com.jeek.calendar.task.schedule.DeleteEventTask;
 import com.jimmy.common.CalendarSystemDatabase.Schedule;
+import com.jimmy.common.CalendarSystemDatabase.ScheduleDao;
+import com.jimmy.common.listener.OnTaskFinishedListener;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class DetailEventActivity extends AppCompatActivity implements View.OnClickListener {
+import static com.jeek.calendar.activity.AddEventSetActivity.EVENT_SET_OBJ;
+
+public class DetailEventActivity extends AppCompatActivity implements View.OnClickListener, OnTaskFinishedListener<Schedule> {
 
     public static final String SCHEDULE_OBJ = "Schedule.Event";
 
@@ -32,6 +42,7 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
     private ConstraintLayout mclTextTitle, mclDateLayout, mclNotificationLayout, mclLocationLayout, mclNoteLayout, mclOwnerLayout;
     private ScrollView mScrollView;
     private FloatingActionButton mfabEditEvent;
+    private ScheduleDao daoSchedule;
 
 
     private Schedule mSchedule;
@@ -148,7 +159,8 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
         int id = v.getId();
         switch (id){
             case R.id.fabEditEvent:
-                gotoEditEvent();
+                /*gotoEditEvent();*/
+                deleteEvent();
                 break;
             case R.id.ivCancel:
                 finish();
@@ -162,13 +174,29 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
     }
 
 
+
     public void deleteEvent(){
-        // TODO функцию удаления ивента
-        ;
+        Log.wtf("suka","activitydelete1");
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_CALENDAR}, 999);
+        }
+        new DeleteEventTask(this, this, mSchedule).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+
+
+
+
     }
 
     private void duplicateEvent(){
         // TODO функцию создания дубликата ивента
         ;
     }
+
+    @Override
+    public void onTaskFinished(Schedule data) {
+        setResult(1, new Intent().putExtra(EVENT_SET_OBJ, data));
+        finish();
+    }
+
+
 }

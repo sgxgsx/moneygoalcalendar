@@ -8,23 +8,23 @@ import com.jimmy.common.CalendarSystemDatabase.ScheduleDao;
 import com.jimmy.common.base.task.BaseAsyncTask;
 import com.jimmy.common.listener.OnTaskFinishedListener;
 
-public class AddEventTask extends BaseAsyncTask<Schedule> {
+public class DeleteEventTask extends BaseAsyncTask<Schedule> {
     private Schedule mSchedule;
-    public AddEventTask(Context context, OnTaskFinishedListener<Schedule> onTaskFinishedListener, Schedule schedule) {
+    public DeleteEventTask(Context context, OnTaskFinishedListener<Schedule> onTaskFinishedListener, Schedule schedule) {
         super(context, onTaskFinishedListener);
         mSchedule = schedule;
-        Log.wtf("suka","addeventtask1");
+        Log.wtf("suka","task1");
     }
 
     @Override
     protected Schedule doInBackground(Void... params) {
+        Log.wtf("suka","task2");
         if (mSchedule != null) {
             ScheduleDao dao = ScheduleDao.getInstance(mContext);
-            dao.addEvent(mSchedule);
+            dao.deleteEvent(mSchedule);
             return mSchedule;
         } else {
             return null;
         }
     }
-
 }

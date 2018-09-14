@@ -1,12 +1,15 @@
 package com.jeek.calendar.activity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
@@ -23,6 +26,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.jeek.calendar.R;
 import com.jeek.calendar.fragment.ScheduleFragment;
+import com.jimmy.common.CalendarSystemDatabase.CalendarClassDao;
 import com.jimmy.common.base.app.BaseActivity;
 import com.jimmy.common.base.app.BaseFragment;
 
@@ -59,6 +63,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
     //private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
     private GoogleSignInAccount mGoogleSignInAccount;
+    private CalendarClassDao calendarClassDao;
 
 
     @Override
@@ -83,6 +88,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         //mAuth = FirebaseAuth.getInstance();
+
+        //create default calendar
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CALENDAR}, 12345);
+        }
+        if (calendarClassDao!= null && !calendarClassDao.defaultCalendarCreated()) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_CALENDAR}, 12345);
+            }
+            calendarClassDao.createDefaultAppCalendar();
+        }
+
+
+
     }
 
     @Override

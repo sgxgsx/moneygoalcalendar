@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -136,8 +137,7 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
         }
         String content = etScheduleTitle.getText().toString();
         if (TextUtils.isEmpty(content)) {
-            // TODO LEHA тут баг и в ToastUtils 21 строка
-            ToastUtils.showShortToast(mActivity, R.string.schedule_input_content_is_no_null);
+            ToastUtils.showShortToast(this, R.string.schedule_input_content_is_no_null);
         } else {
             mSchedule.setTitle(content);
             mSchedule.setState(0);
@@ -163,9 +163,9 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void onSelectDate(int year, int month, int day, long time, int position) {
-        mSchedule.setYear(year);
-        mSchedule.setMonth(month);
-        mSchedule.setDay(day);
+        mSchedule.setYear(year); mCurrentSelectDay=mSchedule.getYear();
+        mSchedule.setMonth(month); mCurrentSelectMonth=mSchedule.getMonth();
+        mSchedule.setDay(day); mCurrentSelectDay=mSchedule.getDay();
         mSchedule.setTime(time);
         mPosition = position;
         resetDateTimeUi();

@@ -3,16 +3,19 @@ package com.jimmy.common.CalendarSystemDatabase;
 import android.Manifest;
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.provider.CalendarContract;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.jimmy.common.R;
 import com.jimmy.common.data.JeekDBConfig;
@@ -137,7 +140,9 @@ public class  ScheduleDao{
         values.put(CalendarContract.Events.DTEND, endTime.getTimeInMillis());
         values.put(CalendarContract.Events.TITLE, mSchedule.getTitle());
         values.put(CalendarContract.Events.DESCRIPTION, mSchedule.getDesc());
-        values.put(CalendarContract.Events.CALENDAR_ID, 1);
+        values.put(CalendarContract.Events.CALENDAR_ID, 2);
+        //todo сделать нормальный алгоритм присваивания ID эвенту
+        values.put(CalendarContract.Events._ID, (int)Math.random()*999);
         TimeZone tz = TimeZone.getDefault();
         values.put(CalendarContract.Events.EVENT_TIMEZONE, tz.getDisplayName(Locale.getDefault(Locale.Category.DISPLAY)));
         values.put(CalendarContract.Events.EVENT_LOCATION, mSchedule.getLocation());
@@ -150,6 +155,16 @@ public class  ScheduleDao{
         cr.insert(CalendarContract.Events.CONTENT_URI, values);
     }
 
+    public void deleteEvent(Schedule mSchedule) {
+        //todo сделать синхронизацию с гуглом(если надр будет)
+        Log.wtf("suka","dao");
+        Uri uri = CalendarContract.Events.CONTENT_URI;
+
+        String mSelectionClause = CalendarContract.Events.TITLE+ " = ?";
+        String[] mSelectionArgs = {mSchedule.getTitle()};
+
+        int updCount = mContext.getContentResolver().delete(uri,mSelectionClause,mSelectionArgs);
+    }
 
     public boolean removeSchedule(long id) {
         SQLiteDatabase db = mHelper.getWritableDatabase();
@@ -184,6 +199,13 @@ public class  ScheduleDao{
         mHelper.close();
         return row > 0;
     }
+
+    public void modifyEvent(Schedule mSchedule) {
+
+
+    }
+
+
 
     public List<Schedule> getScheduleByEventSetId(int id) {
         List<Schedule> schedules = new ArrayList<>();
