@@ -6,13 +6,15 @@
     android:layout_height="match_parent"
     tools:context="com.jeek.calendar.activity.DetailEventActivity">
 
+    <!--
+        android:background="@color/cardview_dark_background" />
+        -->
     <Toolbar
         android:id="@+id/tbDetailActivity"
         android:layout_width="match_parent"
         android:layout_height="50dp"
 
-        android:background="@color/cardview_dark_background" />
-
+        android:background="@color/colorPrimaryDark" />
     <ImageView
         android:id="@+id/ivCancel"
         android:layout_width="16dp"
@@ -55,12 +57,12 @@
                 android:layout_height="100dp"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
-                android:background="@color/cardview_dark_background"
+                android:background="@color/colorPrimaryDark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
-
+                <!--android:background="@color/cardview_dark_background"-->
                 <TextView
                     android:id="@+id/tvEventTitle"
                     android:layout_width="wrap_content"

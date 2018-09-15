@@ -17,10 +17,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GoogleAuthProvider;
+//import com.google.firebase.auth.AuthCredential;
+//import com.google.firebase.auth.FirebaseAuth;
+//import com.google.firebase.auth.FirebaseUser;
+//import com.google.firebase.auth.GoogleAuthProvider;
 import com.jeek.calendar.R;
 
 public class AuthActivity extends AppCompatActivity implements View.OnClickListener{
@@ -28,7 +28,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
     private String mUserName;
     //private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
-    private FirebaseAuth.AuthStateListener mAuthListener;
+    //private FirebaseAuth.AuthStateListener mAuthListener;
     private static final int RC_SIGN_IN = 1;
     private static final String ANONYMOUS = "ANONYMOUS";
     private SignInButton mButton;
@@ -109,12 +109,12 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
             Toast toast = Toast.makeText(getApplicationContext(),"Хуева",Toast.LENGTH_SHORT);
             toast.show();
             Log.wtf("хех","хуева");
-
+            e.printStackTrace();
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
             Toast.makeText(this, "Signing in handleSignIn FUCK", Toast.LENGTH_LONG).show();
             Log.wtf("WTF", "WTFFF");
-            Log.w("TAG", "signInResult:failed code=" + e.getStatusCode());
+            Log.w("TAG", "signInResult:failed code=" + e.getStatusCode() + " \n" + e.getMessage() + e.getCause() + " " + e.getStackTrace());
             updateUI(null);
         }
     }
@@ -141,7 +141,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d("tag", "firebaseAuthWithGoogle:" + acct.getId());
 
-        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
+        //AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         /*
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -163,7 +163,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
                 });
         */
     }
-
+    /*
     private void updateUIfirebase(FirebaseUser user) {
         if (user != null) {
             Toast.makeText(this, "You are signed in ", Toast.LENGTH_LONG).show();
@@ -174,4 +174,5 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
             findViewById(R.id.default_sign_in_button).setVisibility(View.VISIBLE);
         }
     }
+    */
 }

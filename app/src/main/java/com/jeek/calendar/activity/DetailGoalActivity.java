@@ -55,9 +55,9 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     // completed VLAD refactor GoalDatabase добавить общее, выполненое, невыполненое кол-во (3 int поля) ивентов в Goal, Aim
     // completed VLAD refactor GoalDatabase сделать в GoalSchedule время необязательным
     // completed VLAD сделать addAimActivity
-    // TODO VLAD сделать editAimActivity
-    // TODO VLAD сделать detailAimActivity
-    // TODO VLAD сделать deleteAim
+    // completed VLAD сделать editAimActivity
+    // completed VLAD сделать detailAimActivity
+    // completed VLAD сделать deleteAim
     // TODO VLAD сделать addScheduleActivity            ( LEHA )
     // TODO VLAD сделать editScheduleActivity           ( LEHA )
     // TODO VLAD сделать deleteSchedule                 ( LEHA )

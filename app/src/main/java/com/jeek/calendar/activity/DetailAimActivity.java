@@ -101,7 +101,7 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
 
         noteImage = findViewById(R.id.iNoteImage);
         //TODO ПОМЕНЯТЬ INT ЦВЕТА
-        noteImage.setColorFilter(-525666, PorterDuff.Mode.MULTIPLY);
+        noteImage.setColorFilter(-552015, PorterDuff.Mode.MULTIPLY);
         aimName.setText(mAim.getName());
         //description.setText(mAim.getScheduleList().toString());
         description.setText(mAim.getDescription());

@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "1084649415419",
-    "firebase_url": "https://money-goal-calendar.firebaseio.com",
-    "project_id": "money-goal-calendar",
-    "storage_bucket": "money-goal-calendar.appspot.com"
+    "project_number": "160218896399",
+    "firebase_url": "https://money-goal-proj-1537025431122.firebaseio.com",
+    "project_id": "money-goal-proj-1537025431122",
+    "storage_bucket": "money-goal-proj-1537025431122.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1084649415419:android:89274187f7518446",
+        "mobilesdk_app_id": "1:160218896399:android:89274187f7518446",
         "android_client_info": {
           "package_name": "com.smartapps.moneygoalcalendar"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1084649415419-f9em2j61775p0gnem5ma258uhvojhg82.apps.googleusercontent.com",
+          "client_id": "160218896399-kmvduneea47e5ndmaskvo7sq85n2g6pm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.smartapps.moneygoalcalendar",
@@ -23,13 +23,13 @@
           }
         },
         {
-          "client_id": "1084649415419-t715cforo1sh0i5mprp1sr2lf42qp9tv.apps.googleusercontent.com",
+          "client_id": "160218896399-2310ndg6r5565tva783u3nfosli5gvm6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDAnu5dxXD_3Ne0ebIYoK-K0o3ztnYY5ls"
+          "current_key": "AIzaSyCN9NLa9sdhsFR44L9KxjX9zWudAL9x3sA"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "1084649415419-t715cforo1sh0i5mprp1sr2lf42qp9tv.apps.googleusercontent.com",
+              "client_id": "160218896399-2310ndg6r5565tva783u3nfosli5gvm6.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -1,15 +1,13 @@
 apply plugin: 'com.android.library'
 
 android {
-
     compileSdkVersion 27
     defaultConfig {
-        minSdkVersion min_sdk_version
-        targetSdkVersion target_sdk_version
+        minSdkVersion 21
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -17,6 +15,8 @@ android {
         }
     }
     buildToolsVersion '27.0.3'
+    productFlavors {
+    }
 }
 
 dependencies {
@@ -26,9 +26,9 @@ dependencies {
     implementation 'com.android.support:support-v4:27.1.1'
     implementation 'com.android.support:support-annotations:27.1.1'
     implementation 'com.android.support:preference-v7:27.1.1'
-    implementation "android.arch.persistence.room:runtime:1.1.1"
+    implementation 'android.arch.persistence.room:runtime:1.1.1'
     annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
     implementation 'com.google.code.gson:gson:2.8.2'
-    implementation "android.arch.lifecycle:extensions:1.1.1"
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
     annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
 }
