@@ -14,9 +14,7 @@ import com.jeek.calendar.R;
 public class  SelectColorDialog extends Dialog implements View.OnClickListener {
 
     private OnSelectColorListener mOnSelectColorListener;
-    private int mColor;
-    private View[] mColorBorderView;
-    private View[] mColorView;
+    private String mColor;
 
     public SelectColorDialog(Context context, OnSelectColorListener onSelectColorListener) {
         super(context, R.style.DialogFullScreen);
@@ -26,62 +24,66 @@ public class  SelectColorDialog extends Dialog implements View.OnClickListener {
     }
 
     private void initView() {
-        findViewById(R.id.tvCancel).setOnClickListener(this);
-        findViewById(R.id.tvConfirm).setOnClickListener(this);
-        mColorBorderView = new View[6];
-        mColorView = new View[6];
-        LinearLayout llTopColor = (LinearLayout) findViewById(R.id.llTopColor);
-        LinearLayout llBottomColor = (LinearLayout) findViewById(R.id.llBottomColor);
-        for (int i = 0; i < llTopColor.getChildCount(); i++) {
-            RelativeLayout child = (RelativeLayout) llTopColor.getChildAt(i);
-            mColorBorderView[i] = child.getChildAt(0);
-            mColorView[i] = child.getChildAt(1);
-            final int finalI = i;
-            child.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    changeColor(finalI);
-                }
-            });
-        }
-        for (int i = 0; i < llBottomColor.getChildCount(); i++) {
-            RelativeLayout child = (RelativeLayout) llBottomColor.getChildAt(i);
-            mColorBorderView[i + 3] = child.getChildAt(0);
-            mColorView[i + 3] = child.getChildAt(1);
-            final int finalI = i;
-            child.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    changeColor(finalI + 3);
-                }
-            });
-        }
-    }
-
-    private void changeColor(int position) {
-        mColor = position;
-        for (int i = 0; i < mColorBorderView.length; i++) {
-            mColorBorderView[i].setVisibility(position == i ? View.VISIBLE : View.GONE);
-        }
+        findViewById(R.id.dsc_default).setOnClickListener(this);
+        findViewById(R.id.dsc_banana).setOnClickListener(this);
+        findViewById(R.id.dsc_tangerine).setOnClickListener(this);
+        findViewById(R.id.dsc_tomato).setOnClickListener(this);
+        findViewById(R.id.dsc_basil).setOnClickListener(this);
+        findViewById(R.id.dsc_sage).setOnClickListener(this);
+        findViewById(R.id.dsc_peacock).setOnClickListener(this);
+        findViewById(R.id.dsc_blueberry).setOnClickListener(this);
+        findViewById(R.id.dsc_lavender).setOnClickListener(this);
+        findViewById(R.id.dsc_grape).setOnClickListener(this);
+        findViewById(R.id.dsc_flamingo).setOnClickListener(this);
+        findViewById(R.id.dsc_graphite).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.tvCancel:
-                dismiss();
+            case R.id.dsc_default:
+                mColor = "#0073e6";
                 break;
-            case R.id.tvConfirm:
-                if (mOnSelectColorListener != null) {
-                    mOnSelectColorListener.onSelectColor(mColor);
-                }
-                dismiss();
+            case R.id.dsc_banana:
+                mColor = "#ffe135";
+                break;
+            case R.id.dsc_tangerine:
+                mColor = "#f28500";
+                break;
+            case R.id.dsc_tomato:
+                mColor = "#ff6347";
+                break;
+            case R.id.dsc_basil:
+                mColor = "#005600";
+                break;
+            case R.id.dsc_sage:
+                mColor = "#00a300";
+                break;
+            case R.id.dsc_peacock:
+                mColor = "#008e94";
+                break;
+            case R.id.dsc_blueberry:
+                mColor = "#2b3d71";
+                break;
+            case R.id.dsc_lavender:
+                mColor = "#9191ea";
+                break;
+            case R.id.dsc_grape:
+                mColor = "#b01376";
+                break;
+            case R.id.dsc_flamingo:
+                mColor = "#fb9475";
+                break;
+            case R.id.dsc_graphite:
+                mColor = "#3f4243";
                 break;
         }
+        mOnSelectColorListener.onSelectColor(mColor);
+        dismiss();
     }
 
     public interface OnSelectColorListener {
-        void onSelectColor(int color);
+        void onSelectColor(String color);
     }
 
 }

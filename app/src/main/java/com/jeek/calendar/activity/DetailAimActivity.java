@@ -3,6 +3,7 @@ package com.jeek.calendar.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.support.constraint.ConstraintLayout;
@@ -74,6 +75,7 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
                 return false;
             }
         });
+        mToolbar.setBackgroundColor(Color.parseColor("#761CCA"));
         findViewById(R.id.ivCancel).setOnClickListener(this);
         if (getIntent().hasExtra(GOAL_OBJ)) {
             mGoal = (Goal) getIntent().getSerializableExtra(GOAL_OBJ);

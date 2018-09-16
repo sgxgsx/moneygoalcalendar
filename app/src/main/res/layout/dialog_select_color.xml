@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:paddingLeft="@dimen/space_20dp"
-              android:paddingRight="@dimen/space_20dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginStart="30dp"
+    android:layout_marginEnd="30dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,195 +12,478 @@
         android:layout_gravity="center_vertical"
         android:background="@drawable/dialog_background"
         android:orientation="vertical">
-
-        <TextView
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dsc_tomato"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="@dimen/space_10dp"
-            android:text="@string/event_set_select_color"
-            android:textColor="@color/color_schedule_purple"
-            android:textSize="@dimen/text_size_16sp"
-            android:textStyle="bold"/>
+            android:layout_height="40dp">
+            <LinearLayout
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/color_tomato"
+                app:layout_constraintStart_toStartOf="parent"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent">
+                <View
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/circle"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/text_tomato"
+                android:text="@string/tomato"
+                android:textSize="@dimen/text_size_16sp"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8.5dp"
+                android:layout_marginStart="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-        <View
+            <ImageView
+                android:id="@+id/chosen_tomato"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dsc_tangerine"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/schedule_hint_dash_line_width"
-            android:background="@color/color_schedule_purple"/>
+            android:layout_height="40dp">
+            <LinearLayout
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/color_tangerine"
+                app:layout_constraintStart_toStartOf="parent"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent">
+                <View
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/circle"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/text_tangerine"
+                android:text="@string/tangerine"
+                android:textSize="@dimen/text_size_16sp"
+                android:textColor="#333"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8.5dp"
+                android:layout_marginStart="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-        <LinearLayout
-            android:id="@+id/llTopColor"
+            <ImageView
+                android:id="@+id/chosen_tangerine"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dsc_banana"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/space_16dp"
-            android:orientation="horizontal">
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="@dimen/select_color_item_height"
-                android:layout_weight="1">
-
+            android:layout_height="40dp">
+            <LinearLayout
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/color_banana"
+                app:layout_constraintStart_toStartOf="parent"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent">
                 <View
-                    android:layout_width="@dimen/select_color_item_width"
-                    android:layout_height="@dimen/select_color_item_height"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/select_color_item_border"/>
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/circle"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/text_banana"
+                android:text="@string/banana"
+                android:textSize="@dimen/text_size_16sp"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8.5dp"
+                android:layout_marginStart="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-                <View
-                    android:layout_width="@dimen/select_color_item_child_width"
-                    android:layout_height="@dimen/select_color_item_child_height"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/purple_select_color_item"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="@dimen/select_color_item_height"
-                android:layout_weight="1">
-
-                <View
-                    android:layout_width="@dimen/select_color_item_width"
-                    android:layout_height="@dimen/select_color_item_height"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/select_color_item_border"
-                    android:visibility="gone"/>
-
-                <View
-                    android:layout_width="@dimen/select_color_item_child_width"
-                    android:layout_height="@dimen/select_color_item_child_height"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/blue_select_color_item"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="@dimen/select_color_item_height"
-                android:layout_weight="1">
-
-                <View
-                    android:layout_width="@dimen/select_color_item_width"
-                    android:layout_height="@dimen/select_color_item_height"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/select_color_item_border"
-                    android:visibility="gone"/>
-
-                <View
-                    android:layout_width="@dimen/select_color_item_child_width"
-                    android:layout_height="@dimen/select_color_item_child_height"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/green_select_color_item"/>
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llBottomColor"
+            <ImageView
+                android:id="@+id/chosen_banana"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dsc_basil"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/space_16dp"
-            android:orientation="horizontal">
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="@dimen/select_color_item_height"
-                android:layout_weight="1">
-
+            android:layout_height="40dp">
+            <LinearLayout
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/color_basil"
+                app:layout_constraintStart_toStartOf="parent"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent">
                 <View
-                    android:layout_width="@dimen/select_color_item_width"
-                    android:layout_height="@dimen/select_color_item_height"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/select_color_item_border"
-                    android:visibility="gone"/>
-
-                <View
-                    android:layout_width="@dimen/select_color_item_child_width"
-                    android:layout_height="@dimen/select_color_item_child_height"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/pink_select_color_item"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="@dimen/select_color_item_height"
-                android:layout_weight="1">
-
-                <View
-                    android:layout_width="@dimen/select_color_item_width"
-                    android:layout_height="@dimen/select_color_item_height"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/select_color_item_border"
-                    android:visibility="gone"/>
-
-                <View
-                    android:layout_width="@dimen/select_color_item_child_width"
-                    android:layout_height="@dimen/select_color_item_child_height"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/orange_select_color_item"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="@dimen/select_color_item_height"
-                android:layout_weight="1">
-
-                <View
-                    android:layout_width="@dimen/select_color_item_width"
-                    android:layout_height="@dimen/select_color_item_height"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/select_color_item_border"
-                    android:visibility="gone"/>
-
-                <View
-                    android:layout_width="@dimen/select_color_item_child_width"
-                    android:layout_height="@dimen/select_color_item_child_height"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/yellow_select_color_item"/>
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/space_16dp"
-            android:layout_marginTop="@dimen/space_10dp">
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/circle"/>
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/tvCancel"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/space_30dp"
-                android:layout_marginRight="@dimen/space_30dp"
-                android:layout_weight="1"
-                android:background="@drawable/btn_cancel"
+                android:id="@+id/text_basil"
+                android:text="@string/basil"
+                android:textSize="@dimen/text_size_16sp"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8.5dp"
+                android:layout_marginStart="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/chosen_basil"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dsc_sage"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <LinearLayout
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/color_sage"
+                app:layout_constraintStart_toStartOf="parent"
                 android:gravity="center"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:text="@string/cancel"
-                android:textColor="@color/colorWrite"/>
+                app:layout_constraintTop_toTopOf="parent">
+                <View
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/circle"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/text_sage"
+                android:text="@string/sage"
+                android:textSize="@dimen/text_size_16sp"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8.5dp"
+                android:layout_marginStart="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/chosen_sage"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dsc_peacock"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <LinearLayout
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/color_peacock"
+                app:layout_constraintStart_toStartOf="parent"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent">
+                <View
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/circle"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/text_peacock"
+                android:text="@string/peacock"
+                android:textSize="@dimen/text_size_16sp"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8.5dp"
+                android:layout_marginStart="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/chosen_peacock"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dsc_blueberry"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <LinearLayout
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/color_blueberry"
+                app:layout_constraintStart_toStartOf="parent"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent">
+                <View
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/circle"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/text_blueberry"
+                android:text="@string/blueberry"
+                android:textSize="@dimen/text_size_16sp"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8.5dp"
+                android:layout_marginStart="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/chosen_blueberry"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dsc_lavender"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <LinearLayout
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/color_lavender"
+                app:layout_constraintStart_toStartOf="parent"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent">
+                <View
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/circle"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/text_lavender"
+                android:text="@string/lavender"
+                android:textSize="@dimen/text_size_16sp"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8.5dp"
+                android:layout_marginStart="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/chosen_lavender"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dsc_grape"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <LinearLayout
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/color_grape"
+                app:layout_constraintStart_toStartOf="parent"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent">
+                <View
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/circle"/>
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/tvConfirm"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/space_30dp"
-                android:layout_marginRight="@dimen/space_30dp"
-                android:layout_weight="1"
-                android:background="@drawable/btn_confirm"
-                android:gravity="center"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:text="@string/confirm"
-                android:textColor="@color/colorWrite"/>
+                android:id="@+id/text_grape"
+                android:text="@string/grape"
+                android:textSize="@dimen/text_size_16sp"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8.5dp"
+                android:layout_marginStart="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-        </LinearLayout>
+            <ImageView
+                android:id="@+id/chosen_grape"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dsc_flamingo"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <LinearLayout
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/color_flamingo"
+                app:layout_constraintStart_toStartOf="parent"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent">
+                <View
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/circle"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_flamingo"
+                android:text="@string/flamingo"
+                android:textSize="@dimen/text_size_16sp"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8.5dp"
+                android:layout_marginStart="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/chosen_flamingo"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dsc_graphite"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <LinearLayout
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/color_graphite"
+                app:layout_constraintStart_toStartOf="parent"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent">
+                <View
+                    android:id="@+id/dsc_l_graphite"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/circle"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_graphite"
+                android:text="@string/graphite"
+                android:textSize="@dimen/text_size_16sp"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8.5dp"
+                android:layout_marginStart="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/chosen_graphite"
+                android:background="#FFF"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dsc_default"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <LinearLayout
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/color_default"
+                app:layout_constraintStart_toStartOf="parent"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent">
+                <View
+                    android:id="@+id/dsc_l_default"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:background="@drawable/circle"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_def"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:text="@string/default_color"
+                android:textSize="@dimen/text_size_16sp"
+                android:layout_marginTop="8.5dp"
+                android:layout_marginStart="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/chosen_def"
+                android:background="#FFF"
+                android:visibility="visible"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="240dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintStart_toStartOf="@id/text_def"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
 
     </LinearLayout>
+
+
 
 </LinearLayout>

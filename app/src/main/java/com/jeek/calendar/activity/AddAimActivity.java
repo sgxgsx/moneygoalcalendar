@@ -2,7 +2,14 @@ package com.jeek.calendar.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.AsyncTask;
+import android.provider.MediaStore;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,26 +20,35 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jeek.calendar.R;
+import com.jeek.calendar.dialog.SelectColorDialog;
 import com.jeek.calendar.task.goal.UpdateGoalAsyncTask;
 import com.jimmy.common.GoalDatabase.Aim;
 import com.jimmy.common.GoalDatabase.Goal;
 import com.jimmy.common.GoalDatabase.GoalSchedule;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddAimActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener{
+public class AddAimActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener,
+        SelectColorDialog.OnSelectColorListener{
     public static final String GOAL_OBJ = "GOAL.Obj.Add.Aim";
     public static final int errorCode = 200;
+    public static final int GET_FROM_GALLERY = 3;
+    private ConstraintLayout mToolBar;
     private Goal mGoal;
     private EditText title, description;
     private TextView time;
     private CheckBox cbtime;
 
+    private SelectColorDialog mColorDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_aim);
+        mToolBar = findViewById(R.id.nbAddGoal);
         title = findViewById(R.id.etNameGoal);
         description = findViewById(R.id.etDescription);
         time = findViewById(R.id.tvDeadlineGoal);
@@ -43,14 +59,12 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
         findViewById(R.id.tvSaveGoal).setOnClickListener(this);
         findViewById(R.id.ivChangeColor).setOnClickListener(this);
         time.setOnClickListener(this);
-
-
         if (getIntent().hasExtra(GOAL_OBJ)) {
             mGoal = (Goal) getIntent().getSerializableExtra(GOAL_OBJ);
-
         } else{
             if(mGoal == null) throwError();
         }
+
     }
 
 
@@ -103,9 +117,18 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
         finishOkResult();
     }
 
+    @Override
+    public void onSelectColor(String color) {
+        mToolBar.setBackgroundColor(Color.parseColor(color));
+    }
+
     private void changeColor(){
         // TODO add changeColor
-        ;
+        if (mColorDialog == null) {
+            mColorDialog = new SelectColorDialog(this, this);
+        }
+        mColorDialog.show();
+        //startActivityForResult(new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI), GET_FROM_GALLERY);
     }
 
 
@@ -143,4 +166,26 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
         finish();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        //Detects request codes
+        if(requestCode==GET_FROM_GALLERY && resultCode == Activity.RESULT_OK) {
+            Uri selectedImage = data.getData();
+            Bitmap bitmap = null;
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+                Drawable drb = new BitmapDrawable(getResources(), bitmap);
+                mToolBar.setBackground(drb);
+            } catch (FileNotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
 }

@@ -64,4 +64,20 @@
     <color name="color_light_green">#00e640</color>
     <color name="color_title_bar_purple">#663399</color>
 
+
+
+
+    <color name="color_tangerine">#f28500</color>
+    <color name="color_banana">#ffe135</color>
+    <color name="color_tomato">#ff6347</color>
+    <color name="color_basil">#005600</color>
+    <color name="color_sage">#00a300</color>
+    <color name="color_peacock">#008e94</color>
+    <color name="color_blueberry">#2b3d71</color>
+    <color name="color_lavender">#9191ea</color>
+    <color name="color_grape">#b01376</color>
+    <color name="color_flamingo">#fb9475</color>
+    <color name="color_graphite">#3f4243</color>
+    <color name="color_default">#0073e6</color>
+
 </resources>

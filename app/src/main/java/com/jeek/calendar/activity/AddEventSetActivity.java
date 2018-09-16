@@ -85,8 +85,8 @@ public class AddEventSetActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
-    public void onSelectColor(int color) {
-        mColor = color;
-        vEventSetColor.setBackgroundResource(JeekUtils.getEventSetCircle(color));
+    public void onSelectColor(String color) {
+        // mColor = color;
+        //vEventSetColor.setBackgroundResource(JeekUtils.getEventSetCircle(color));
     }
 }
