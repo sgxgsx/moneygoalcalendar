@@ -274,7 +274,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
                 gotoMoney();
                 break;
             case R.id.gotoGoalButton:
-                gotoGoal();
+                /*gotoGoal();*/
+                gotoProgressBar();
                 break;
             case R.id.chooseMenuButtonBackground2:
                 hideFloatingChoiceMenu();
@@ -347,6 +348,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
         ChooseMenuButtonBackground.setVisibility(View.INVISIBLE);
         gotoGoalFromMenu();
     }
+    private void gotoProgressBar() {
+        Intent intent = new Intent(this, ProgressBarExample.class);
+        startActivity(intent);
+    }
+
+
 
     private void gotoScheduleFragment() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

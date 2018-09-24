@@ -140,19 +140,20 @@ public class  ScheduleDao{
         values.put(CalendarContract.Events.DTEND, endTime.getTimeInMillis());
         values.put(CalendarContract.Events.TITLE, mSchedule.getTitle());
         values.put(CalendarContract.Events.DESCRIPTION, mSchedule.getDesc());
-        values.put(CalendarContract.Events.CALENDAR_ID, 2);
-        //todo сделать нормальный алгоритм присваивания ID эвенту
-        values.put(CalendarContract.Events._ID, (int)Math.random()*999);
+        values.put(CalendarContract.Events.CALENDAR_ID, 1);
+        //todo сделать нормальный алгоритм присваивания ID эвенту(например через время создания)
+        values.put(CalendarContract.Events._ID, (int)Math.random()*9999);
         TimeZone tz = TimeZone.getDefault();
         values.put(CalendarContract.Events.EVENT_TIMEZONE, tz.getDisplayName(Locale.getDefault(Locale.Category.DISPLAY)));
         values.put(CalendarContract.Events.EVENT_LOCATION, mSchedule.getLocation());
-        values.put(CalendarContract.Events.GUESTS_CAN_INVITE_OTHERS, "1");
-        values.put(CalendarContract.Events.GUESTS_CAN_SEE_GUESTS, "1");
+        /*values.put(CalendarContract.Events.GUESTS_CAN_INVITE_OTHERS, "1");
+        values.put(CalendarContract.Events.GUESTS_CAN_SEE_GUESTS, "1");*/
         values.put(CalendarContract.Events.EVENT_COLOR, -552015);
         /*values.put(CalendarContract.Events.);*/
 
-
+        Log.wtf("ScheduleDao","values.put");
         cr.insert(CalendarContract.Events.CONTENT_URI, values);
+        Log.wtf("ScheduleDao","cr.instert");
     }
 
     public void deleteEvent(Schedule mSchedule) {
@@ -160,8 +161,8 @@ public class  ScheduleDao{
         Log.wtf("suka","dao");
         Uri uri = CalendarContract.Events.CONTENT_URI;
 
-        String mSelectionClause = CalendarContract.Events.TITLE+ " = ?";
-        String[] mSelectionArgs = {mSchedule.getTitle()};
+        String mSelectionClause = CalendarContract.Events._ID+ " = ?";
+        String[] mSelectionArgs = {Integer.toString(mSchedule.getId())};
 
         int updCount = mContext.getContentResolver().delete(uri,mSelectionClause,mSelectionArgs);
     }
@@ -200,8 +201,32 @@ public class  ScheduleDao{
         return row > 0;
     }
 
-    public void modifyEvent(Schedule mSchedule) {
+    public void editEvent(Schedule mSchedule) {
+        Calendar beginTime = Calendar.getInstance();
+        beginTime.set(mSchedule.getYear(), mSchedule.getMonth(), mSchedule.getDay(), 9, 30);
 
+        Calendar endTime = Calendar.getInstance();
+        endTime.set(mSchedule.getYear(), mSchedule.getMonth(), mSchedule.getDay(), 10, 30);
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(CalendarContract.Events.DTSTART, beginTime.getTimeInMillis());
+        contentValues.put(CalendarContract.Events.DTEND, endTime.getTimeInMillis());
+        contentValues.put(CalendarContract.Events.TITLE, mSchedule.getTitle());
+        contentValues.put(CalendarContract.Events.DESCRIPTION, mSchedule.getDesc());
+        contentValues.put(CalendarContract.Events.CALENDAR_ID, 1);
+        contentValues.put(CalendarContract.Events._ID, mSchedule.getId());
+        TimeZone tz = TimeZone.getDefault();
+        contentValues.put(CalendarContract.Events.EVENT_TIMEZONE, tz.getDisplayName(Locale.getDefault(Locale.Category.DISPLAY)));
+        contentValues.put(CalendarContract.Events.EVENT_LOCATION, mSchedule.getLocation());
+        /*values.put(CalendarContract.Events.GUESTS_CAN_INVITE_OTHERS, "1");
+        values.put(CalendarContract.Events.GUESTS_CAN_SEE_GUESTS, "1");*/
+        contentValues.put(CalendarContract.Events.EVENT_COLOR, mSchedule.getColor());
+
+        Uri uri = CalendarContract.Events.CONTENT_URI;
+
+        String mSelectionClause = CalendarContract.Events._ID+ " = ?";
+        String[] mSelectionArgs = {Integer.toString(mSchedule.getId())};
+
+        int updCount = mContext.getContentResolver().update(uri, contentValues,mSelectionClause,mSelectionArgs);
 
     }
 
