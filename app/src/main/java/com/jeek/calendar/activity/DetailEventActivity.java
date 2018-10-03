@@ -159,7 +159,6 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
         int id = v.getId();
         switch (id){
             case R.id.fabEditEvent:
-                /*gotoEditEvent();*/
                 deleteEvent();
                 break;
             case R.id.ivCancel:
@@ -168,7 +167,7 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
-    private void gotoEditEvent() {
+    private void EditEvent() {
         Intent intent = new Intent(this, EditEventActivity.class);
         startActivityForResult(intent, 1);
     }

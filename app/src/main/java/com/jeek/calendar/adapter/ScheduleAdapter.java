@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,12 +53,15 @@ public class  ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     private void initData() {
         mSchedules = new ArrayList<Schedule>();
         mFinishSchedules = new ArrayList<Schedule>();
+        Log.wtf("SchedAdapt","Inited");
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == SCHEDULE_TYPE) {
+            Log.wtf("onCreateViewHolder","Item_schedule inserting");
             return new ScheduleViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_schedule, parent, false));
+
         } else if (viewType == SCHEDULE_FINISH_TYPE) {
             return new ScheduleFinishViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_schedule_finish, parent, false));
         } else if (viewType == SCHEDULE_CENTER) {
@@ -245,9 +249,11 @@ public class  ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     public void changeAllData(List<Schedule> schedules) {
         distinguishData(schedules);
+        Log.wtf("changeAllData","end");
     }
 
     public void insertItem(Schedule schedule) {
+        Log.wtf("InsertItem","start");
         mSchedules.add(schedule);
         notifyItemInserted(mSchedules.size() - 1);
     }
@@ -296,6 +302,8 @@ public class  ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         mSchedules.clear();
         mFinishSchedules.clear();
         for (int i = 0, count = schedules.size(); i < count; i++) {
+            Log.wtf("distinguishData","iter = "+i);
+
             Schedule schedule = schedules.get(i);
             if (schedule.getState() == 2) {
                 mFinishSchedules.add(schedule);

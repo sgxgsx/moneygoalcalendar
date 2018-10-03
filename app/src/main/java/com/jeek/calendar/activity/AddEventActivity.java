@@ -63,7 +63,7 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     protected void bindView() {
-        setContentView(R.layout.activity_add_event_2);
+        setContentView(R.layout.activity_add_event_3);
         TextView tvTitle = searchViewById(R.id.tvTitle);
         tvTitle.setText(getString(R.string.schedule_event_detail_setting));
         searchViewById(R.id.tvCancel).setOnClickListener(this);
@@ -71,7 +71,7 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
         searchViewById(R.id.llScheduleTime).setOnClickListener(this);
         searchViewById(R.id.llScheduleLocation).setOnClickListener(this);
 
-        vScheduleColor = searchViewById(R.id.vScheduleColor);
+        /*vScheduleColor = searchViewById(R.id.vScheduleColor);*/
         etScheduleTitle = searchViewById(R.id.etScheduleTitle);
         etScheduleDesc = searchViewById(R.id.etScheduleDesc);
         tvScheduleTime = searchViewById(R.id.tvScheduleTime);

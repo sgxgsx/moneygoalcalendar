@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -82,13 +83,15 @@ public class  ScheduleFragment extends BaseFragment implements OnCalendarClickLi
         resetScheduleList();
     }
 
-    public void resetScheduleList() {
-        new LoadScheduleTask(mActivity, this, mCurrentSelectYear, mCurrentSelectMonth, mCurrentSelectDay).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-    }
-
     private void initDate() {
         Calendar calendar = Calendar.getInstance();
         setCurrentSelectDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+    }
+
+    public void resetScheduleList() {
+        Log.wtf("resetScheduleList","start");
+        new LoadScheduleTask(mActivity, this, mCurrentSelectYear, mCurrentSelectMonth, mCurrentSelectDay).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        Log.wtf("resetScheduleList","end");
     }
 
     @Override
@@ -112,6 +115,7 @@ public class  ScheduleFragment extends BaseFragment implements OnCalendarClickLi
         rvScheduleList.setItemAnimator(itemAnimator);
         mScheduleAdapter = new ScheduleAdapter(mActivity, this);
         rvScheduleList.setAdapter(mScheduleAdapter);
+        Log.wtf("initScheduleList","end");
     }
 
     private void initBottomInputBar() {

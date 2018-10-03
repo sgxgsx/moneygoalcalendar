@@ -35,7 +35,7 @@
     <string name="schedule_show_finish_task">Show completed</string>
     <string name="schedule_hide_finish_task">Hide completed</string>
     <string name="schedule_delete_this_schedule">Delete the schedule?</string>
-
+    <string name="input_desc">Input description...</string>
     <!--menu-->
     <string name="menu_schedule">Scheduler</string>
     <string name="menu_goal_tracker">Goal Tracker</string>
