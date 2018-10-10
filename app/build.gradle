@@ -44,6 +44,7 @@ dependencies {
     //Apache2.0Licens
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile 'com.github.Kunzisoft:Android-SwitchDateTimePicker:2.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

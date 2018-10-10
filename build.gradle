@@ -24,6 +24,8 @@ allprojects {
             url 'https://maven.google.com/'
             name 'Google'
         }
+        //todo work correctly
+        maven { url "https://jitpack.io" }
     }
     ext {
         compile_sdk_version = 27

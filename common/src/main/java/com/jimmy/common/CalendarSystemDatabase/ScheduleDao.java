@@ -140,9 +140,9 @@ public class  ScheduleDao{
         values.put(CalendarContract.Events.DTEND, endTime.getTimeInMillis());
         values.put(CalendarContract.Events.TITLE, mSchedule.getTitle());
         values.put(CalendarContract.Events.DESCRIPTION, mSchedule.getDesc());
-        values.put(CalendarContract.Events.CALENDAR_ID, 1);
+        values.put(CalendarContract.Events.CALENDAR_ID, 238);
         //todo сделать нормальный алгоритм присваивания ID эвенту(например через время создания)
-        values.put(CalendarContract.Events._ID, (int)Math.random()*9999);
+        values.put(CalendarContract.Events._ID, (int)Math.random()*999999);
         TimeZone tz = TimeZone.getDefault();
         values.put(CalendarContract.Events.EVENT_TIMEZONE, tz.getDisplayName(Locale.getDefault(Locale.Category.DISPLAY)));
         values.put(CalendarContract.Events.EVENT_LOCATION, mSchedule.getLocation());

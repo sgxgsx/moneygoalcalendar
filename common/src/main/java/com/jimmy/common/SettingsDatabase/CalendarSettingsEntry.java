@@ -23,8 +23,8 @@ public class  CalendarSettingsEntry {
     public int getCalendarID() {
         return calendarID;
     }
-
     public void setCalendarID(int calendarID) {
+
         this.calendarID = calendarID;
     }
 

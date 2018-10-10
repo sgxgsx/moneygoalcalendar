@@ -1,7 +1,10 @@
 package com.jeek.calendar.adapter;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -135,5 +138,14 @@ public class CalendarClassAdapter extends RecyclerView.Adapter<CalendarClassAdap
     public void removeItem(int position) {
         mCalendarClasses.remove(position);
         notifyDataSetChanged();
+    }
+
+    public void createDefaultCalendar(){
+
+
+            Log.wtf("create acc","started main act1");
+
+
+
     }
 }

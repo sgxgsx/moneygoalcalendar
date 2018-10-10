@@ -16,6 +16,9 @@ public interface  CalendarSettingsDao {
     @Query("SELECT * FROM CalendarSettingsTable ORDER BY calendarID")
     List<CalendarSettingsEntry> loadSettingsCalendars();
 
+    @Query("SELECT * FROM CalendarSettingsTable WHERE calendarID = :id")
+    boolean ifOurCalendarIsInDb(int id);
+
     @Query("SELECT * FROM CalendarSettingsTable ORDER BY calendarID")
     LiveData<List<CalendarSettingsEntry>> loadLiveDataSettingsCalendars();
 
@@ -27,4 +30,6 @@ public interface  CalendarSettingsDao {
 
     @Delete
     void deleteSettingsCalendar(CalendarSettingsEntry calendarSettingsEntry);
+
+
 }

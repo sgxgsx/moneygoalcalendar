@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -12,6 +13,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -26,13 +28,18 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.jeek.calendar.R;
 import com.jeek.calendar.fragment.ScheduleFragment;
+import com.jeek.calendar.task.CalendarSettingsEntry.AddCalendarTask;
 import com.jimmy.common.CalendarSystemDatabase.CalendarClassDao;
+import com.jimmy.common.CalendarSystemDatabase.Schedule;
 import com.jimmy.common.base.app.BaseActivity;
 import com.jimmy.common.base.app.BaseFragment;
+import com.jimmy.common.listener.OnTaskFinishedListener;
 
 import java.util.Calendar;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener/*,OnTaskFinishedListener<List<CalendarClass>>*/ {
+import static com.jeek.calendar.activity.AddEventSetActivity.EVENT_SET_OBJ;
+
+public class MainActivity extends BaseActivity implements View.OnClickListener,OnTaskFinishedListener<Integer> {
 
     public static int ADD_EVENT_SET_CODE = 1;
     public static String ADD_EVENT_SET_ACTION = "action.add.event.set";
@@ -64,7 +71,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
     private GoogleSignInClient mGoogleSignInClient;
     private GoogleSignInAccount mGoogleSignInAccount;
     private CalendarClassDao calendarClassDao;
-
+    private OnTaskFinishedListener<Integer> onTaskFinishedListener;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -90,17 +97,26 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
         //mAuth = FirebaseAuth.getInstance();
 
         //create default calendar
+        //TODO проверить ошибку при которой приложуха закрывается и крашится при условии что календарь уже создан
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_CALENDAR}, 123456);
+        }
+
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CALENDAR}, 12345);
+
         }
+        /*new AddCalendarTask(this,this,238).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);*/
+
+        /*
         if (calendarClassDao!= null && !calendarClassDao.defaultCalendarCreated()) {
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_CALENDAR}, 12345);
-            }
+            Log.wtf("create acc","started main act1");
+
             calendarClassDao.createDefaultAppCalendar();
         }
 
-
+*/
 
     }
 
@@ -136,6 +152,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
         //initCalendarClassesList();
         gotoScheduleFragment();
         //initBroadcastReceiver();
+
 
     }
 /*
@@ -450,5 +467,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener/*
         }
     }
 */
-
+    @Override
+    public void onTaskFinished(Integer data) {
+        setResult(1, new Intent().putExtra(EVENT_SET_OBJ, data));
+        finish();
+    }
 }

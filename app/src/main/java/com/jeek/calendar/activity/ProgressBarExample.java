@@ -111,7 +111,7 @@ public class ProgressBarExample extends AppCompatActivity {
                 ProgressBar_Lines[i].setLayoutParams(params);
                 Log.wtf("iter=",""+i);
             }
-            for(int i=NumberOfLines_completed+5;i<50;++i){
+            for(int i=NumberOfLines_completed;i<50;++i){
                 ProgressBar_Lines[i] =  mLayoutInflater.inflate(R.layout.item_progressbar_line,rootLayout);
                 LinearLayout.LayoutParams params=(LinearLayout.LayoutParams)ProgressBar_Lines[i].getLayoutParams();
                 params.setMargins(marginInPixels*i,0,0,0);

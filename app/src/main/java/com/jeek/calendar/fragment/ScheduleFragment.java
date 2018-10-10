@@ -18,6 +18,7 @@ import android.widget.RelativeLayout;
 
 import com.jeek.calendar.R;
 import com.jeek.calendar.activity.MainActivity;
+import com.jeek.calendar.adapter.CalendarClassAdapter;
 import com.jeek.calendar.adapter.ScheduleAdapter;
 import com.jimmy.common.CalendarSystemDatabase.Schedule;
 import com.jeek.calendar.dialog.SelectDateDialog;
@@ -46,6 +47,7 @@ public class  ScheduleFragment extends BaseFragment implements OnCalendarClickLi
     private RelativeLayout rLNoTask;
 
     private ScheduleAdapter mScheduleAdapter;
+    private CalendarClassAdapter mCalendarClassAdapter;
     private int mCurrentSelectYear, mCurrentSelectMonth, mCurrentSelectDay;
     private long mTime;
 

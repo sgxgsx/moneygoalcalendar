@@ -26,4 +26,6 @@ public class ChangeCalendarSettingsEntryValueTask extends AsyncTask<CalendarSett
         CalendarSettingsDatabase.getInstance(mContext).calendarSettingsDao().updateSettingsCalendar(calendarSettingsEntry);
         return null;
     }
+
+
 }
