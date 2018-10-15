@@ -292,7 +292,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
                 break;
             case R.id.gotoGoalButton:
                 /*gotoGoal();*/
-                gotoProgressBar();
+                /*gotoProgressBar();*/
+                gotoChooseDateActivity();
                 break;
             case R.id.chooseMenuButtonBackground2:
                 hideFloatingChoiceMenu();
@@ -370,7 +371,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         startActivity(intent);
     }
 
-
+    private void gotoChooseDateActivity() {
+        Intent intent = new Intent(this, ChooseDateActivity.class);
+        startActivity(intent);
+    }
 
     private void gotoScheduleFragment() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

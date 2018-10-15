@@ -45,7 +45,8 @@
     <string name="menu_sign_out">Sign out</string>
     <string name="menu_delete_account">Delete Account</string>
     <string name="menu_settings">Settings</string>
-
+    <!--zaloopa_datepicker-->
+    <string name="clean">Clean</string>
     <!--event menu-->
     <string name="menu_delete_event">Delete</string>
     <string name="menu_duplicate_event">Duplicate</string>

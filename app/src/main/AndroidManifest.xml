@@ -49,6 +49,7 @@
         <activity android:name=".activity.AddGoalActivity" />
         <activity android:name=".activity.DetailAimActivity" />
         <activity android:name=".activity.ProgressBarExample" />
+        <activity android:name=".activity.ChooseDateActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

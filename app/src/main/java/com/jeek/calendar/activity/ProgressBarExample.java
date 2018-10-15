@@ -27,11 +27,15 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.jeek.calendar.R;
+import com.jeek.calendar.dialog.AddEventDialog;
+import com.jeek.calendar.dialog.InputLocationDialog;
+import com.jimmy.common.base.app.BaseActivity;
 
-public class ProgressBarExample extends AppCompatActivity {
+public class ProgressBarExample extends BaseActivity implements AddEventDialog.OnAddEventListener {
     Context context;
     Handler handler = new Handler();
-
+Bundle saved;
+    private AddEventDialog mAddEventDialog;
 
     int numberOfLines=50;
     double percentCompleted=0.6;
@@ -40,8 +44,8 @@ public class ProgressBarExample extends AppCompatActivity {
     int NumberOfLines_completed=(int)(numberOfLines*percentCompleted);
     View[] ProgressBar_Lines=new View[numberOfLines];
 
-
-
+@Override
+protected void bindView() {};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -165,9 +169,13 @@ public class ProgressBarExample extends AppCompatActivity {
 
     public void onClickFillProgressBar(View view) {
 
-
-
-        Log.wtf("Button","OnClickStarted");
+        showInputLocationDialog();
+    }
+    private void showInputLocationDialog() {
+        if (mAddEventDialog == null) {
+            mAddEventDialog = new AddEventDialog(this, this,saved);
+        }
+        mAddEventDialog.show();
     }
 
     public static float pxFromDp(final Context context, final float dp) {
@@ -182,6 +190,8 @@ public class ProgressBarExample extends AppCompatActivity {
         }
     };
 
-
+    @Override
+    public void OnAddEvent(String text) {
+    }
 
 }

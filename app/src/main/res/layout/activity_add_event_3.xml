@@ -18,7 +18,7 @@
         <Toolbar
             android:id="@+id/tbDetailActivity"
             android:layout_width="0dp"
-            android:layout_height="47dp"
+            android:layout_height="46dp"
 
             android:background="@color/colorPrimaryDark"
             app:layout_constraintEnd_toEndOf="parent"
@@ -98,6 +98,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="80dp"
                         android:layout_marginTop="40dp"
+                        android:background="@android:color/transparent"
                         android:hint="Insert event title..."
                         android:text=""
                         android:textColor="@color/colorWrite"
@@ -191,7 +192,8 @@
                         android:layout_marginStart="@dimen/margin_start_detail_30dp"
                         android:layout_marginTop="8dp"
                         android:text=""
-                        android:hint="input_desc"
+                        android:background="@android:color/transparent"
+                        android:hint="Input_desc"
                         android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/iNoteImage"
