@@ -73,7 +73,7 @@ public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 String time_to_display = JeekUtils.timeStamp2Time(schedule.getTime()) + " - " + JeekUtils.timeStamp2Time(schedule.getTime_end());
                 viewHolder.tvScheduleTime.setText(time_to_display);
             } else {
-                viewHolder.tvScheduleTime.setText("");
+                viewHolder.tvScheduleTime.setText("no time");
             }
             viewHolder.vScheduleHintBlock.setOnClickListener(new View.OnClickListener() {
                 @Override

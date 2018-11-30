@@ -99,12 +99,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         //create default calendar
         //TODO проверить ошибку при которой приложуха закрывается и крашится при условии что календарь уже создан
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_CALENDAR}, 123456);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_CALENDAR}, 16);
         }
 
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CALENDAR}, 12345);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CALENDAR}, 16);
 
         }
         /*new AddCalendarTask(this,this,238).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);*/

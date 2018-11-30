@@ -38,7 +38,7 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
 
     private Toolbar mToolbar;
     private TextView mtbTextView, mtvEventTitle, mtvStartTime, mtvEndTime, mtvRepeat;
-    private TextView mtvNote, mtvLocation, mtvCalendarName, mtvCalendarOwner, mtvNotification;
+    private TextView mtvNote, mtvLocation, mtvCalendarOwner, mtvNotification;
     private ConstraintLayout mclTextTitle, mclDateLayout, mclNotificationLayout, mclLocationLayout, mclNoteLayout, mclOwnerLayout;
     private ScrollView mScrollView;
     private FloatingActionButton mfabEditEvent;
@@ -59,7 +59,6 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
         mtvRepeat = findViewById(R.id.tvRepeat);
         mtvNote = findViewById(R.id.tvNoteTextView);
         mtvLocation = findViewById(R.id.tvLocationTextView);
-        mtvCalendarName = findViewById(R.id.tvCalendarNameTextView);
         mtvCalendarOwner = findViewById(R.id.tvCalendarOwnerTextView);
         mtvNotification = findViewById(R.id.tvNotificationTextView);
 
@@ -115,7 +114,6 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
         String location = mSchedule.getLocation();
         String description = mSchedule.getDesc();
         String owner = mSchedule.getAccount();
-        String owner_name = mSchedule.getAccount_name();
         String title = mSchedule.getTitle();
         String notification = null;
 
@@ -134,7 +132,6 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
         ifHideLayout(location, mclLocationLayout, mtvLocation);
         ifHideLayout(description, mclNoteLayout, mtvNote);
         ifHideLayout(owner, mclOwnerLayout, mtvCalendarOwner);
-        ifHideLayout(owner_name, null, mtvCalendarName);
         ifHideLayout(notification, mclNotificationLayout, mtvNotification);
     }
 

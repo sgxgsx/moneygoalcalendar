@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "160218896399",
-    "firebase_url": "https://money-goal-proj-1537025431122.firebaseio.com",
-    "project_id": "money-goal-proj-1537025431122",
-    "storage_bucket": "money-goal-proj-1537025431122.appspot.com"
+    "project_number": "608533542440",
+    "firebase_url": "https://goal-tracker-1542558599762.firebaseio.com",
+    "project_id": "goal-tracker-1542558599762",
+    "storage_bucket": "goal-tracker-1542558599762.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:160218896399:android:89274187f7518446",
+        "mobilesdk_app_id": "1:608533542440:android:89274187f7518446",
         "android_client_info": {
           "package_name": "com.smartapps.moneygoalcalendar"
         }
       },
       "oauth_client": [
         {
-          "client_id": "160218896399-kmvduneea47e5ndmaskvo7sq85n2g6pm.apps.googleusercontent.com",
+          "client_id": "608533542440-dpncl7mu6tmot7kggemggb3fgga3diih.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.smartapps.moneygoalcalendar",
-            "certificate_hash": "81960e16d926facc2ff2c9ad8bb34f7ac1d8a88f"
+            "certificate_hash": "f259d1183188dade41589c7cab76949b6eac3618"
           }
         },
         {
-          "client_id": "160218896399-2310ndg6r5565tva783u3nfosli5gvm6.apps.googleusercontent.com",
+          "client_id": "608533542440-h8uddjofeqltqcq0m465t6njpqpvdulu.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCN9NLa9sdhsFR44L9KxjX9zWudAL9x3sA"
+          "current_key": "AIzaSyDsHC_9sE4qSzMnBOCv8yTt4XxBzOxJiKA"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "160218896399-2310ndg6r5565tva783u3nfosli5gvm6.apps.googleusercontent.com",
+              "client_id": "608533542440-h8uddjofeqltqcq0m465t6njpqpvdulu.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

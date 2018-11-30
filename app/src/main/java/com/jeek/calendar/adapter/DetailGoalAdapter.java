@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -101,8 +103,16 @@ public class DetailGoalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         } else if (holder instanceof  DetailGoalAdapter.AimsViewHolder){
             Log.wtf("ID: Aim", String.valueOf(position) + " and " + String.valueOf(aims.size()));
             final Aim aim = aims.get(position);
+            Log.wtf("tag", "ta" + aim.getColor());
+            Log.wtf("tag", "ta" + String.valueOf(Color.parseColor(aim.getColor())));
             final DetailGoalAdapter.AimsViewHolder viewHolder = (DetailGoalAdapter.AimsViewHolder) holder;
             viewHolder.tvGoalName.setText(aim.getName());
+            Log.wtf("tag", aim.getColor());
+            ColorStateList list = ColorStateList.valueOf(Color.parseColor(aim.getColor()));
+            viewHolder.clGoal.setBackgroundTintList(list);
+            viewHolder.vChange1.setBackgroundTintList(list);
+            viewHolder.vChange2.setBackgroundTintList(list);
+            viewHolder.llTime.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(aim.getColor()) + 5));
             viewHolder.tvGoalPlannedProgress.setText(String.valueOf(18));
             viewHolder.tvGoalDoneProgress.setText(String.valueOf(1));
             //Date date = new Date();
@@ -118,13 +128,14 @@ public class DetailGoalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     mActivity.startActivityForResult(intent, 3);
                 }
             });
-
+            /*
             viewHolder.vChange.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Log.wtf("goto", "Update");
                 }
             });
+            */
         }
     }
 
@@ -135,7 +146,8 @@ public class DetailGoalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         private TextView tvGoalPlannedProgress;
         private TextView tvGoalDoneProgress;
         private TextView tvDateTo;
-        private View vChange;
+        private View vChange1, vChange2;
+        private LinearLayout llTime;
 
         public AimsViewHolder(View itemView) {
             super(itemView);
@@ -144,7 +156,9 @@ public class DetailGoalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             tvGoalPlannedProgress = itemView.findViewById(R.id.tvGoalDoneEvents);
             tvGoalDoneProgress = itemView.findViewById(R.id.tvGoalAllEvents);
             tvDateTo = itemView.findViewById(R.id.tvGoalDate);
-            vChange = itemView.findViewById(R.id.vChangeGoal);
+            vChange1 = itemView.findViewById(R.id.toChange1);
+            vChange2 = itemView.findViewById(R.id.toChange2);
+            llTime = itemView.findViewById(R.id.AimTime);
         }
     }
 

@@ -44,7 +44,7 @@ public class EditGoalActivity extends AppCompatActivity implements View.OnClickL
         cbtime = findViewById(R.id.cbTime);
 
         cbtime.setOnCheckedChangeListener(this);
-        findViewById(R.id.tvSaveGoal).setOnClickListener(this);
+        findViewById(R.id.llSaveGoal).setOnClickListener(this);
         findViewById(R.id.tvDeadlineGoal).setOnClickListener(this);
         findViewById(R.id.ivChangeColor).setOnClickListener(this);
         findViewById(R.id.ivCancel).setOnClickListener(this);
@@ -57,7 +57,7 @@ public class EditGoalActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.tvSaveGoal:
+            case R.id.llSaveGoal:
                 changeGoal();
                 break;
             case R.id.tvDeadlineGoal:

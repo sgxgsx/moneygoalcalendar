@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_menu_background"
+    android:background="@color/colorPrimary"
     tools:context="com.jeek.calendar.activity.GoalActivity">
 
 
@@ -12,7 +12,7 @@
         android:id="@+id/GoalsTitleBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/color_menu_title_background"
+        android:background="@color/colorPrimaryDark"
         app:contentInsetEnd="0dp"
         app:contentInsetLeft="0dp"
         app:contentInsetRight="0dp"
@@ -60,7 +60,7 @@
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:backgroundTint="#DC3023"
+        app:backgroundTint="@color/colorAccent"
         app:srcCompat="@drawable/btn_dialog_add_event_set" />
 
 

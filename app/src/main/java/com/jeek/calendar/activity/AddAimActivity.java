@@ -41,7 +41,7 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
     private EditText title, description;
     private TextView time;
     private CheckBox cbtime;
-
+    private String mColor = "#FFFFFF";
     private SelectColorDialog mColorDialog;
 
     @Override
@@ -104,14 +104,13 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
         String name = title.getText().toString();
         String desc = description.getText().toString();
         //TODO LEHA тут возвращаешь время. сюда. Мб просто Toast.
-
         long date_to = 0;
         if(!cbtime.isChecked()){
             date_to = 2040200150;
         }
         //TODO add description to goals
         List<GoalSchedule> goalScheduleList = new ArrayList<>();
-        Aim aim = new Aim(mGoal.getAims().size(), name, false, desc, goalScheduleList);
+        Aim aim = new Aim(mGoal.getAims().size(), name, false, desc, mColor, goalScheduleList);
         mGoal.addAim(aim);
         new UpdateGoalAsyncTask(getApplicationContext(), mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         finishOkResult();
@@ -120,6 +119,7 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onSelectColor(String color) {
         mToolBar.setBackgroundColor(Color.parseColor(color));
+        mColor = color;
     }
 
     private void changeColor(){

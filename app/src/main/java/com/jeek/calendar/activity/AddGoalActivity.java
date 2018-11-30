@@ -43,7 +43,7 @@ public class AddGoalActivity extends AppCompatActivity implements View.OnClickLi
 
         cbtime.setOnCheckedChangeListener(this);
                 findViewById(R.id.ivCancel).setOnClickListener(this);
-        findViewById(R.id.tvSaveGoal).setOnClickListener(this);
+        findViewById(R.id.llSaveGoal).setOnClickListener(this);
         findViewById(R.id.ivChangeColor).setOnClickListener(this);
         time.setOnClickListener(this);
     }
@@ -55,7 +55,7 @@ public class AddGoalActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.ivCancel:
                 finish();
                 break;
-            case R.id.tvSaveGoal:
+            case R.id.llSaveGoal:
                 saveGoal();
                 break;
             case R.id.ivChangeColor:
@@ -79,7 +79,7 @@ public class AddGoalActivity extends AppCompatActivity implements View.OnClickLi
 
     private void saveGoal(){
         String name = title.getText().toString();
-        String description = title.getText().toString();
+        String desc = description.getText().toString();
         //TODO LEHA тут возвращаешь время. сюда. Мб просто Toast.
         boolean aimandevents = aimsevents.isChecked();
         long date_to = 0;
@@ -89,7 +89,7 @@ public class AddGoalActivity extends AppCompatActivity implements View.OnClickLi
         //TODO add description to goals
         List<Aim> aimList = new ArrayList<>();
         List<GoalSchedule> goalSchedules = new ArrayList<>();
-        Goal goal = new Goal(name, date_to, description, aimList, goalSchedules);
+        Goal goal = new Goal(name, date_to, desc, aimList, goalSchedules);
         new InsertGoalTask(getApplicationContext(), goal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         finish();
     }

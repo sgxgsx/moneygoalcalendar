@@ -92,7 +92,7 @@ public class  WeekView extends View {
             mSelectBGColor = array.getColor(R.styleable.WeekCalendarView_week_selected_circle_color, Color.parseColor("#E8E8E8"));
             mSelectBGTodayColor = array.getColor(R.styleable.WeekCalendarView_week_selected_circle_today_color, Color.parseColor("#FF8594"));
             mNormalDayColor = array.getColor(R.styleable.WeekCalendarView_week_normal_text_color, Color.parseColor("#575471"));
-            mCurrentDayColor = array.getColor(R.styleable.WeekCalendarView_week_today_text_color, Color.parseColor("#FF8594"));
+            mCurrentDayColor = array.getColor(R.styleable.WeekCalendarView_week_today_text_color, Color.parseColor("#FF5C5A"));
             mHintCircleColor = array.getColor(R.styleable.WeekCalendarView_week_hint_circle_color, Color.parseColor("#FE8595"));
             mLunarTextColor = array.getColor(R.styleable.WeekCalendarView_week_lunar_text_color, Color.parseColor("#ACA9BC"));
             mHolidayTextColor = array.getColor(R.styleable.WeekCalendarView_week_holiday_color, Color.parseColor("#A68BFF"));
@@ -106,7 +106,7 @@ public class  WeekView extends View {
             mSelectBGColor = Color.parseColor("#E8E8E8");
             mSelectBGTodayColor = Color.parseColor("#FF8594");
             mNormalDayColor = Color.parseColor("#575471");
-            mCurrentDayColor = Color.parseColor("#FF8594");
+            mCurrentDayColor = Color.parseColor("#FF5C5A");
             mHintCircleColor = Color.parseColor("#FE8595");
             mLunarTextColor = Color.parseColor("#ACA9BC");
             mHolidayTextColor = Color.parseColor("#A68BFF");
@@ -288,13 +288,13 @@ public class  WeekView extends View {
                     dayString = LunarCalendarUtils.getLunarHoliday(lunar.lunarYear, lunar.lunarMonth, day);
                 }
                 if ("".equals(dayString)) {
-                    dayString = LunarCalendarUtils.getLunarDayString(day);
+                    //dayString = LunarCalendarUtils.getLunarDayString(day);
                     mLunarPaint.setColor(mLunarTextColor);
                 }
                 if ("初一".equals(dayString)) {
                     DateTime curDay = mStartDate.plusDays(i);
                     LunarCalendarUtils.Lunar chuyi = LunarCalendarUtils.solarToLunar(new LunarCalendarUtils.Solar(curDay.getYear(), curDay.getMonthOfYear(), curDay.getDayOfMonth()));
-                    dayString = LunarCalendarUtils.getLunarFirstDayString(chuyi.lunarMonth, chuyi.isLeap);
+                    //dayString = LunarCalendarUtils.getLunarFirstDayString(chuyi.lunarMonth, chuyi.isLeap);
                 }
                 if (i == selected) {
                     mLunarPaint.setColor(mSelectDayColor);

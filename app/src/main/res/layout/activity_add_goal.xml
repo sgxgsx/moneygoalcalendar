@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context="com.jeek.calendar.activity.AddGoalActivity">
 
     <android.support.constraint.ConstraintLayout
@@ -23,19 +24,28 @@
             app:layout_constraintStart_toStartOf="parent"
 
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvSaveGoal"
+        <LinearLayout
+            android:id="@+id/llSaveGoal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SAVE"
-            android:textStyle="italic"
-            android:textSize="@dimen/text_size_14sp"
-            android:textColor="@color/colorWrite"
+            android:layout_height="25dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/purple_schedule_left_block"
+            android:backgroundTint="#76DAFE">
+            <TextView
+                android:id="@+id/tvSaveGoal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  SAVE  "
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:textStyle="italic|bold"
+                android:textSize="@dimen/text_size_14sp"
+                android:textColor="@color/colorPrimaryDark"
+                />
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/ivChangeColor"
@@ -59,14 +69,14 @@
             android:id="@+id/DateLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="5dp">
 
             <ImageView
                 android:id="@+id/ivName"
                 android:layout_width="24dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="16dp"
                 android:src="@drawable/ic_clock_1"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -75,7 +85,7 @@
 
             <EditText
                 android:id="@+id/etNameGoal"
-                android:layout_width="150dp"
+                android:layout_width="200dp"
                 android:layout_height="40dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginStart="@dimen/margin_start_detail_30dp"
@@ -83,8 +93,10 @@
                 android:maxLength="20"
                 android:maxLines="1"
                 android:hint="Yout goal name"
+                android:textColorHint="#737078"
+                android:textColor="@color/colorTextWhite"
                 android:textSize="14sp"
-                android:textColorHighlight="@color/colorWrite"
+                android:background="@android:color/transparent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/ivName"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -92,18 +104,24 @@
 
         </android.support.constraint.ConstraintLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorPrimaryDark"/>
+
         <android.support.constraint.ConstraintLayout
             android:id="@+id/TimeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="5dp">
 
             <ImageView
                 android:id="@+id/ivDate"
                 android:layout_width="24dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="16dp"
                 android:src="@drawable/ic_clock_1"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -118,6 +136,7 @@
                 android:layout_marginTop="16dp"
                 android:text="Saturday, August 3, 23.30"
                 android:textSize="@dimen/text_size_16sp"
+                android:textColor="@color/colorTextWhite"
                 app:layout_constraintStart_toEndOf="@+id/ivDate"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -132,19 +151,24 @@
 
 
         </android.support.constraint.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorPrimaryDark"/>
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/AimEventLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="5dp">
 
             <ImageView
                 android:id="@+id/ivAimEvent"
                 android:layout_width="24dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="16dp"
                 android:src="@drawable/ic_clock_1"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -158,6 +182,7 @@
                 android:layout_marginStart="@dimen/margin_start_detail_30dp"
                 android:layout_marginTop="16dp"
                 android:text="Aims and Events in Goal"
+                android:textColor="@color/colorTextWhite"
                 android:textSize="@dimen/text_size_16sp"
                 app:layout_constraintStart_toEndOf="@+id/ivAimEvent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -174,18 +199,24 @@
 
         </android.support.constraint.ConstraintLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorPrimaryDark"/>
+
         <android.support.constraint.ConstraintLayout
             android:id="@+id/DescriptionLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp">
+            android:layout_marginTop="5dp">
 
             <ImageView
                 android:id="@+id/iNoteImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="16dp"
                 android:src="@drawable/ic_pencil"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -194,16 +225,20 @@
 
             <EditText
                 android:id="@+id/etDescription"
-                android:layout_width="200dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginStart="@dimen/margin_start_detail_30dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:hint="Description of your goal."
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="8dp"
                 android:background="@android:color/transparent"
-                android:textSize="14sp"
+                android:hint="Description of your goal."
+                android:textColor="@color/colorTextWhite"
                 android:textColorHighlight="@color/colorWrite"
+                android:textColorHint="#737078"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iNoteImage"
                 app:layout_constraintTop_toTopOf="parent" />
         </android.support.constraint.ConstraintLayout>

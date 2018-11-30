@@ -105,12 +105,12 @@ public class  MonthView extends View {
     private void initAttrs(TypedArray array, int year, int month) {
         if (array != null) {
             mSelectDayColor = array.getColor(R.styleable.MonthCalendarView_month_selected_text_color, Color.parseColor("#FFFFFF"));
-            mSelectBGColor = array.getColor(R.styleable.MonthCalendarView_month_selected_circle_color, Color.parseColor("#E8E8E8"));
-            mSelectBGTodayColor = array.getColor(R.styleable.MonthCalendarView_month_selected_circle_today_color, Color.parseColor("#FF8594"));
-            mNormalDayColor = array.getColor(R.styleable.MonthCalendarView_month_normal_text_color, Color.parseColor("#575471"));
-            mCurrentDayColor = array.getColor(R.styleable.MonthCalendarView_month_today_text_color, Color.parseColor("#FF8594"));
-            mHintCircleColor = array.getColor(R.styleable.MonthCalendarView_month_hint_circle_color, Color.parseColor("#FE8595"));
-            mLastOrNextMonthTextColor = array.getColor(R.styleable.MonthCalendarView_month_last_or_next_month_text_color, Color.parseColor("#ACA9BC"));
+            mSelectBGColor = array.getColor(R.styleable.MonthCalendarView_month_selected_circle_color, Color.parseColor("#FF5C5A"));
+            mSelectBGTodayColor = array.getColor(R.styleable.MonthCalendarView_month_selected_circle_today_color, Color.parseColor("#FF5C5A"));
+            mNormalDayColor = array.getColor(R.styleable.MonthCalendarView_month_normal_text_color, Color.parseColor("#ACA9BC"));
+            mCurrentDayColor = array.getColor(R.styleable.MonthCalendarView_month_today_text_color, Color.parseColor("#FF5C5A"));
+            mHintCircleColor = array.getColor(R.styleable.MonthCalendarView_month_hint_circle_color, Color.parseColor("#FF5C5A"));
+            mLastOrNextMonthTextColor = array.getColor(R.styleable.MonthCalendarView_month_last_or_next_month_text_color, Color.parseColor("#575471"));
             mLunarTextColor = array.getColor(R.styleable.MonthCalendarView_month_lunar_text_color, Color.parseColor("#ACA9BC"));
             mHolidayTextColor = array.getColor(R.styleable.MonthCalendarView_month_holiday_color, Color.parseColor("#A68BFF"));
             mDaySize = array.getInteger(R.styleable.MonthCalendarView_month_day_text_size, 13);
@@ -121,10 +121,10 @@ public class  MonthView extends View {
         } else {
             mSelectDayColor = Color.parseColor("#FFFFFF");
             mSelectBGColor = Color.parseColor("#E8E8E8");
-            mSelectBGTodayColor = Color.parseColor("#FF8594");
+            mSelectBGTodayColor = Color.parseColor("#FF5C5A");
             mNormalDayColor = Color.parseColor("#575471");
-            mCurrentDayColor = Color.parseColor("#FF8594");
-            mHintCircleColor = Color.parseColor("#FE8595");
+            mCurrentDayColor = Color.parseColor("#FF5C5A");
+            mHintCircleColor = Color.parseColor("#FF5C5A");
             mLastOrNextMonthTextColor = Color.parseColor("#ACA9BC");
             mHolidayTextColor = Color.parseColor("#A68BFF");
             mDaySize = 13;
@@ -364,7 +364,7 @@ public class  MonthView extends View {
                     dayString = LunarCalendarUtils.getLunarHoliday(lunar.lunarYear, lunar.lunarMonth, day);
                 }
                 if ("".equals(dayString)) {
-                    dayString = LunarCalendarUtils.getLunarDayString(day);
+                    //dayString = LunarCalendarUtils.getLunarDayString(day);
                     mLunarPaint.setColor(mLunarTextColor);
                 }
                 if ("初一".equals(dayString)) {
@@ -377,7 +377,7 @@ public class  MonthView extends View {
                         }
                     }
                     LunarCalendarUtils.Lunar chuyi = LunarCalendarUtils.solarToLunar(new LunarCalendarUtils.Solar(curYear, curMonth, firstDay));
-                    dayString = LunarCalendarUtils.getLunarFirstDayString(chuyi.lunarMonth, chuyi.isLeap);
+                    //dayString = LunarCalendarUtils.getLunarFirstDayString(chuyi.lunarMonth, chuyi.isLeap);
                 }
                 if (selected[0] == row && selected[1] == column) {
                     mLunarPaint.setColor(mSelectDayColor);
