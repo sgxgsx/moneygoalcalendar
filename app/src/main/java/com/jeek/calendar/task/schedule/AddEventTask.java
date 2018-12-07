@@ -13,7 +13,7 @@ public class AddEventTask extends BaseAsyncTask<Schedule> {
     public AddEventTask(Context context, OnTaskFinishedListener<Schedule> onTaskFinishedListener, Schedule schedule) {
         super(context, onTaskFinishedListener);
         mSchedule = schedule;
-        Log.wtf("suka","addeventtask1");
+        Log.wtf("OK","addeventtask1");
     }
 
     @Override

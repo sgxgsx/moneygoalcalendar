@@ -4,38 +4,29 @@ package com.jeek.calendar.activity;
 import android.app.Activity;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.constraint.ConstraintLayout;
-import android.support.constraint.ConstraintSet;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.text.Layout;
-import android.transition.TransitionManager;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.jeek.calendar.R;
 import com.jeek.calendar.dialog.AddEventDialog;
-import com.jeek.calendar.dialog.InputLocationDialog;
+import com.jeek.calendar.dialog.SelectCalendarDialog;
 import com.jimmy.common.base.app.BaseActivity;
 
-public class ProgressBarExample extends BaseActivity implements AddEventDialog.OnAddEventListener {
+
+public class ProgressBarExample extends BaseActivity implements  AddEventDialog.OnAddEventListener, SelectCalendarDialog.OnSelectCalendarListener {
     Context context;
     Handler handler = new Handler();
 Bundle saved;
     private AddEventDialog mAddEventDialog;
+private SelectCalendarDialog mSelectCalendarDialog;
 
     int numberOfLines=50;
     double percentCompleted=0.6;
@@ -44,30 +35,19 @@ Bundle saved;
     int NumberOfLines_completed=(int)(numberOfLines*percentCompleted);
     View[] ProgressBar_Lines=new View[numberOfLines];
 
+
 @Override
-protected void bindView() {};
+protected void bindView() {}
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.progress_bar);
+
         //Fill ProgressBar
-        initProgressBar_2();
+
+
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -167,10 +147,20 @@ protected void bindView() {};
     }
 
 
-    public void onClickFillProgressBar(View view) {
-
-        showInputLocationDialog();
+    public void onClickFillProgressBarD(View view) {
+        showSelectCalendarDialog();
     }
+
+
+
+    private void showSelectCalendarDialog(){
+        if (mSelectCalendarDialog==null){
+            mSelectCalendarDialog = new SelectCalendarDialog(this,this);
+
+        }
+        mSelectCalendarDialog.show();
+    }
+
     private void showInputLocationDialog() {
         if (mAddEventDialog == null) {
             mAddEventDialog = new AddEventDialog(this, this,saved);
@@ -194,4 +184,7 @@ protected void bindView() {};
     public void OnAddEvent(String text) {
     }
 
+    @Override
+    public void onSelectCalendar(int id,String name) {
+    }
 }

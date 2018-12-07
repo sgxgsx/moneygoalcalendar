@@ -99,15 +99,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         //create default calendar
         //TODO проверить ошибку при которой приложуха закрывается и крашится при условии что календарь уже создан
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_CALENDAR}, 123456);
-        }
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_CALENDAR}, 16);
+        } else Log.wtf("Permission","Write garandted");
 
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CALENDAR}, 12345);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CALENDAR}, 16);
 
         }
-        /*new AddCalendarTask(this,this,238).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);*/
+        //todo crashes ?
+        //new AddCalendarTask(this,this,23).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
         /*
         if (calendarClassDao!= null && !calendarClassDao.defaultCalendarCreated()) {
@@ -292,8 +293,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
                 break;
             case R.id.gotoGoalButton:
                 /*gotoGoal();*/
-                /*gotoProgressBar();*/
-                gotoChooseDateActivity();
+                gotoProgressBar();
+                //gotoChooseDateActivity();
                 break;
             case R.id.chooseMenuButtonBackground2:
                 hideFloatingChoiceMenu();
@@ -367,6 +368,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         gotoGoalFromMenu();
     }
     private void gotoProgressBar() {
+        //Intent intent = new Intent(this, MenuSampleActivity.class);
         Intent intent = new Intent(this, ProgressBarExample.class);
         startActivity(intent);
     }
