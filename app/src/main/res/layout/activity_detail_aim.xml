@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_menu_background"
+    android:background="@color/colorPrimary"
     tools:context="com.jeek.calendar.activity.DetailAimActivity">
 
     <Toolbar
@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="0dp"
-        android:background="@color/color_menu_title_background"
+        android:background="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,21 +28,6 @@
 
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvAimName"
-        android:layout_width="250dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:textAlignment="center"
-        android:text="Aim Name"
-        android:textSize="@dimen/text_size_20sp"
-        android:textStyle="italic|bold"
-        android:textColor="@color/colorWrite"
-        app:layout_constraintStart_toEndOf="@id/ivCancel"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabAddAimGoal"
         android:layout_width="67dp"
@@ -52,7 +37,7 @@
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:backgroundTint="#DC3023"
+        app:backgroundTint="@color/colorAccent"
         app:srcCompat="@drawable/btn_dialog_add_event_set" />
 
     <ScrollView
@@ -69,10 +54,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginTop="@dimen/space_10dp"
+                android:layout_marginStart="@dimen/space_8dp"
+                android:layout_marginEnd="@dimen/space_8dp"
+                android:layout_marginBottom="@dimen/space_10dp"
                 android:background="@drawable/rectangle"
                 android:orientation="vertical">
                 <android.support.constraint.ConstraintLayout
@@ -85,24 +74,39 @@
                         android:id="@+id/ivDate"
                         android:layout_width="24dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="18dp"
+                        android:layout_marginStart="@dimen/space_20dp"
+                        android:layout_marginTop="@dimen/space_18dp"
                         android:src="@drawable/ic_clock_1"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
-
+                    <TextView
+                        android:id="@+id/tvAimName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="@dimen/space_14dp"
+                        android:text="This is the name"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimary"
+                        app:layout_constraintStart_toEndOf="@id/ivDate"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
                     <TextView
                         android:id="@+id/tvDeadlineAim"
                         android:layout_width="wrap_content"
                         android:layout_height="24dp"
                         android:layout_marginStart="@dimen/margin_start_detail_30dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="@dimen/space_6dp"
                         android:text="Saturday, August 3, 23.30"
                         android:textSize="@dimen/text_size_16sp"
+                        android:textColor="@color/colorPrimary"
                         app:layout_constraintStart_toEndOf="@+id/ivDate"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="@id/tvAimName"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
                 </android.support.constraint.ConstraintLayout>
@@ -117,9 +121,9 @@
                         android:id="@+id/iNoteImage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="@dimen/space_18dp"
+                        android:layout_marginStart="@dimen/space_20dp"
+                        android:layout_marginTop="@dimen/space_18dp"
                         android:src="@drawable/ic_pencil"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -129,11 +133,12 @@
                         android:id="@+id/tvNoteTextView"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginBottom="@dimen/space_10dp"
                         android:layout_marginStart="@dimen/margin_start_detail_30dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="@dimen/space_10dp"
                         android:text="ssfffsafwrafwwwwwwwwrqwrwrwrwrrwrrfassssssssfasfasffffffsaffaqr"
                         android:textSize="14sp"
+                        android:textColor="@color/colorPrimary"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/iNoteImage"
                         app:layout_constraintTop_toTopOf="parent" />

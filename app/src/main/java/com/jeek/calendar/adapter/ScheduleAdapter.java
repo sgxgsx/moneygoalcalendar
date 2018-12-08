@@ -2,6 +2,7 @@ package com.jeek.calendar.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.AsyncTask;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
@@ -76,7 +77,8 @@ public class  ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         if (holder instanceof ScheduleViewHolder) {
             final Schedule schedule = mSchedules.get(position);
             final ScheduleViewHolder viewHolder = (ScheduleViewHolder) holder;
-            viewHolder.vScheduleHintBlock.setBackgroundColor(schedule.getColor());
+            //viewHolder.vScheduleHintBlock.setBackgroundColor(schedule.getColor());
+            viewHolder.vScheduleHintBlock.setBackgroundTintList(ColorStateList.valueOf(schedule.getColor()));
             viewHolder.tvScheduleTitle.setText(schedule.getTitle());
             if (schedule.getTime() != 0) {
                 String time_to_display = JeekUtils.timeStamp2Time(schedule.getTime()) + " - " + JeekUtils.timeStamp2Time(schedule.getTime_end());

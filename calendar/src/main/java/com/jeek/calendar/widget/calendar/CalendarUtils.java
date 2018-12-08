@@ -221,49 +221,32 @@ public class  CalendarUtils {
     public static String getHolidayFromSolar(int year, int month, int day) {
         String message = "";
         if (month == 0 && day == 1) {
-            message = "元旦";
         } else if (month == 1 && day == 14) {
-            message = "情人节";
         } else if (month == 2 && day == 8) {
-            message = "妇女节";
         } else if (month == 2 && day == 12) {
-            message = "植树节";
         } else if (month == 3) {
             if (day == 1) {
-                message = "愚人节";
             } else if (day >= 4 && day <= 6) {
                 if (year <= 1999) {
                     int compare = (int) (((year - 1900) * 0.2422 + 5.59) - ((year - 1900) / 4));
                     if (compare == day) {
-                        message = "清明节";
                     }
                 } else {
                     int compare = (int) (((year - 2000) * 0.2422 + 4.81) - ((year - 2000) / 4));
                     if (compare == day) {
-                        message = "清明节";
                     }
                 }
             }
         } else if (month == 4 && day == 1) {
-            message = "劳动节";
         } else if (month == 4 && day == 4) {
-            message = "青年节";
         } else if (month == 4 && day == 12) {
-            message = "护士节";
         } else if (month == 5 && day == 1) {
-            message = "儿童节";
         } else if (month == 6 && day == 1) {
-            message = "建党节";
         } else if (month == 7 && day == 1) {
-            message = "建军节";
         } else if (month == 8 && day == 10) {
-            message = "教师节";
         } else if (month == 9 && day == 1) {
-            message = "国庆节";
         } else if (month == 10 && day == 11) {
-            message = "光棍节";
         } else if (month == 11 && day == 25) {
-            message = "圣诞节";
         }
         return message;
     }

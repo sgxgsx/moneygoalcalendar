@@ -48,6 +48,7 @@ public class  Goal implements Serializable{
     public void addAim(Aim aim){
         if(aim != null){
             aims.add(aim);
+            inprogress++;
         }
     }
 
@@ -55,6 +56,12 @@ public class  Goal implements Serializable{
         for(int i=0; i < aims.size(); ++i){
             if(aims.get(i).getId() == id){
                 Log.wtf("Goal", "delete aim " + String.valueOf(id) + " i " + String.valueOf(i) + " i id " + String.valueOf(aims.get(i).getId()));
+                if(aims.get(i).isDone()){
+                    //TODO ЕСЛИ УДАЛЯЕТСЯ AIM ПРОВЕРЯТЬ КОЛ-ВО SHEDULE В НЕМ И УБИВАТЬ НЕНУЖНОЕ КОЛ-ВО
+                    doneschedules--;
+                } else{
+                    inprogress--;
+                }
                 aims.remove(i);
                 for(int j=i; j< aims.size(); ++j){
                     aims.get(j).setId(j);

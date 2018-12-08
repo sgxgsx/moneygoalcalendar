@@ -63,6 +63,11 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
                         }
                     }
                 }
+                if(aims.get(i).isDone()){
+                    done += 1;
+                } else{
+                    count += 1;
+                }
             }
         }
         if(goal.getSchedules() != null){
@@ -80,9 +85,9 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
 
         holder.tvGoalPlannedProgress.setText(String.valueOf(count));
         holder.tvGoalDoneProgress.setText(String.valueOf(done));
-        Date date = new Date(goal.getDate_to());
-        Format format = new SimpleDateFormat("DD.MM.YYYY");
-        holder.tvDateTo.setText(format.format(date));
+        //Date date = new Date(goal.getDate_to());
+        //Format format = new SimpleDateFormat("DD.MM.YYYY");
+        //holder.tvDateTo.setText(format.format(date));
         holder.clGoal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,7 +95,7 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
                 Log.wtf("click", "click go to detail");
             }
         });
-
+        /*
         holder.vChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,7 +103,7 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
                 Log.wtf("goto", "Update");
             }
         });
-        /*
+
         holder.sdvEventSet.close(false);
         String text = calendarClass.getCalendarName() + String.valueOf(calendarClass.isShow());
         holder.tvEventSetName.setText(text);
@@ -127,17 +132,17 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
         private TextView tvGoalName;
         private TextView tvGoalPlannedProgress;
         private TextView tvGoalDoneProgress;
-        private TextView tvDateTo;
+        //private TextView tvDateTo;
         private View vChange;
 
         public GoalsViewHolder(View itemView) {
             super(itemView);
             clGoal = itemView.findViewById(R.id.clGoal);
             tvGoalName = itemView.findViewById(R.id.tvGoalName);
-            tvGoalPlannedProgress = itemView.findViewById(R.id.tvGoalDoneEvents);
-            tvGoalDoneProgress = itemView.findViewById(R.id.tvGoalAllEvents);
-            tvDateTo = itemView.findViewById(R.id.tvGoalDate);
-            vChange = itemView.findViewById(R.id.vChangeGoal);
+            tvGoalPlannedProgress = itemView.findViewById(R.id.tvGoalAllEvents);
+            tvGoalDoneProgress = itemView.findViewById(R.id.tvGoalDoneEvents);
+            //tvDateTo = itemView.findViewById(R.id.tvGoalDate);
+            //vChange = itemView.findViewById(R.id.vChangeGoal);
         }
     }
     public void addGoal(Goal goal){

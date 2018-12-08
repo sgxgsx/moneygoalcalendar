@@ -4,70 +4,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/clGoal"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:layout_marginTop="4dp"
-    android:layout_marginEnd="2dp"
-    android:layout_marginStart="2dp"
+    android:layout_height="110dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="@dimen/space_8dp"
+    android:layout_marginStart="@dimen/space_8dp"
     android:layout_marginBottom="4dp"
-    android:background="@drawable/goal_block">
+    android:background="@drawable/goal_block"
+    android:backgroundTint="#fff">
 
     <!-- max 20chars text for tvGoalName !-->
     <LinearLayout
+        android:id="@+id/llGoalDoneCheck"
         android:layout_width="50dp"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         >
-
     </LinearLayout>
-    <TextView
-        android:id="@+id/tvGoalName"
-        android:layout_width="253dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="50dp"
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_marginTop="4dp"
-        android:maxLines="1"
-        android:text="My real goal name we"
-        android:textColor="@color/colorWrite"
-        android:textSize="@dimen/text_size_20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/goal_photo"
+        android:backgroundTint="@color/colorPrimaryDark"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/purple_schedule_left_block"
+            android:backgroundTint="#802C2A32"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/tvGoalName"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:maxLines="1"
+                android:text="  My real goal name we  "
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textSize="@dimen/text_size_20sp" />
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+    <!--
     <LinearLayout
         android:layout_width="100dp"
         android:layout_height="30dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="0dp"
-        android:layout_marginBottom="3dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="@drawable/shape_for_date"
+        android:backgroundTint="#FAD951"
         >
         <TextView
             android:id="@+id/tvGoalDate"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="29.12.2004"
+            android:textColor="@color/colorPrimary"
             android:gravity="center"
             android:textSize="@dimen/text_size_14sp"
             />
+
     </LinearLayout>
+    !-->
 
     <LinearLayout
         android:id="@+id/llGoalAllEvents"
         android:layout_width="26dp"
         android:layout_height="26dp"
         android:background="@drawable/circle_red"
+        android:backgroundTint="#FF5C5A"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginEnd="10dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
         >
         <TextView
             android:id="@+id/tvGoalAllEvents"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textColor="@color/colorPrimary"
             android:gravity="center"
             android:textStyle="bold"
             android:text="28"
@@ -80,51 +109,23 @@
         android:layout_width="26dp"
         android:layout_height="26dp"
         android:background="@drawable/circle_green"
+        android:backgroundTint="#00C382"
         app:layout_constraintEnd_toStartOf="@id/llGoalAllEvents"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginEnd="5dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
         >
         <TextView
             android:id="@+id/tvGoalDoneEvents"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
+            android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             android:text="18"
             android:textSize="@dimen/text_size_12sp"
             />
     </LinearLayout>
-    <View
-        android:id="@+id/vChangeGoal"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/quarter_circle_black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
-    <View
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@drawable/quarter_circle"
-        android:backgroundTint="@color/colorWrite"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-    <View
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:background="@drawable/quarter_circle"
-        android:backgroundTint="@color/colorWrite"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
-    <View
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:background="@drawable/quarter_circle"
-        android:backgroundTint="#5d26c1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 </android.support.constraint.ConstraintLayout>

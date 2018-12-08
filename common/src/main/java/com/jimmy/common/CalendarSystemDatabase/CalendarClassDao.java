@@ -69,6 +69,34 @@ public class  CalendarClassDao {
         }
     }
 
+    class TupleCalendar{
+        int id;
+        String name;
+
+        public TupleCalendar(int id, String name) {
+            this.id = id;
+            this.name = name;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
+
+
+
     public int addCalendarClass(CalendarClass calendarClass) {
         // add CALENDAR
         int id = 2;                         // calendar id
@@ -94,6 +122,7 @@ public class  CalendarClassDao {
             }
             return return_it;
         } */
+
     public ArrayList<Tuple> getSavedCalendars(){
         ArrayList<Tuple> savedCalendar = new ArrayList<>();
         List<CalendarSettingsEntry> list = mCalendarSettingsDatabase.calendarSettingsDao().loadSettingsCalendars();
@@ -101,7 +130,6 @@ public class  CalendarClassDao {
             savedCalendar.add(new Tuple(list.get(i).getCalendarID(), list.get(i).isShow()));
         }
         return savedCalendar;
-
     }
 
     private int ifInCalendars(int id){
@@ -118,7 +146,7 @@ public class  CalendarClassDao {
 
     public List<Integer> getAllCalendarsIDs(){
         List<Integer> calendars = new ArrayList<>();
-        String[] mProjection = {CalendarContract.Calendars._ID};
+        String[] mProjection = {CalendarContract.Calendars._ID};//, CalendarContract.Calendars.CALENDAR_DISPLAY_NAME};
         Uri uri = CalendarContract.Calendars.CONTENT_URI;
         if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.READ_CALENDAR}, 1000);
@@ -126,6 +154,22 @@ public class  CalendarClassDao {
         Cursor cur = mContext.getContentResolver().query(uri, mProjection, null, null, null);
         while (cur.moveToNext()){
             calendars.add(cur.getInt(0));
+            //Log.wtf("CALENDAR", cur.getString(1));
+        }
+        return calendars;
+    }
+
+    public List<TupleCalendar> getAllCalendarsIDsAndNames(){
+        List<TupleCalendar> calendars = new ArrayList<>();
+        String[] mProjection = {CalendarContract.Calendars._ID, CalendarContract.Calendars.ACCOUNT_NAME};//, CalendarContract.Calendars.CALENDAR_DISPLAY_NAME};
+        Uri uri = CalendarContract.Calendars.CONTENT_URI;
+        if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.READ_CALENDAR}, 1000);
+        }
+        Cursor cur = mContext.getContentResolver().query(uri, mProjection, null, null, null);
+        while (cur.moveToNext()){
+            calendars.add(new TupleCalendar(cur.getInt(0), cur.getString(1)));
+            //Log.wtf("CALENDAR", cur.getString(1));
         }
         return calendars;
     }
@@ -156,7 +200,6 @@ public class  CalendarClassDao {
 
         while (cur.moveToNext()){
             String allowed_att = cur.getString(0);
-            String accName     = cur.getString(1);
             String displayName = cur.getString(2);
             String location = cur.getString(3);
             String time_zone = cur.getString(4);
@@ -168,7 +211,6 @@ public class  CalendarClassDao {
 
 
             cal.setAllowedAttendeeTypes(allowed_att);
-            cal.setAccountName(accName);
             cal.setDisplayName(displayName);
             cal.setLocation(location);
             cal.setTimeZone(time_zone);

@@ -16,21 +16,23 @@ public class Aim implements Serializable{
     int doneschedules;
     int inprogress;
     String name;
+    String color;
     String description;
     boolean done;
     List<GoalSchedule> scheduleList;
 
     @Ignore
-    public Aim(String name, boolean done,String description, List<GoalSchedule> scheduleList){
+    public Aim(String name, boolean done,String description, String color, List<GoalSchedule> scheduleList){
         this.name = name;
         this.doneschedules = 0;
         this.inprogress = 0;
         this.done = done;
         this.description = description;
         this.scheduleList = scheduleList;
+        this.color = color;
     }
 
-    public Aim(int id, String name, boolean done,String description, List<GoalSchedule> scheduleList) {
+    public Aim(int id, String name, boolean done,String description,String color, List<GoalSchedule> scheduleList) {
         this.id = id;
         this.name = name;
         this.doneschedules = 0;
@@ -38,9 +40,16 @@ public class Aim implements Serializable{
         this.done = done;
         this.description = description;
         this.scheduleList = scheduleList;
+        this.color = color;
     }
 
+    public String getColor() {
+        return color;
+    }
 
+    public void setColor(String color) {
+        this.color = color;
+    }
 
     public String getDescription() {
         return description;

@@ -75,7 +75,6 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
                 return false;
             }
         });
-        mToolbar.setBackgroundColor(Color.parseColor("#761CCA"));
         findViewById(R.id.ivCancel).setOnClickListener(this);
         if (getIntent().hasExtra(GOAL_OBJ)) {
             mGoal = (Goal) getIntent().getSerializableExtra(GOAL_OBJ);
@@ -110,7 +109,8 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
         //long ldate = mAim.getDate_to();
         long ldate = 0;
         if(ldate == 0){
-            dateLayout.setVisibility(View.GONE);
+            //dateLayout.setVisibility(View.GONE);
+            //time.setVisibility(View.GONE);
         } else {
             Date date = new Date(ldate);
             Format format = new SimpleDateFormat("dd.mm.yyyy");

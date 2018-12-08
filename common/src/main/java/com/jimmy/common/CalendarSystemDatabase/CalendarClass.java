@@ -5,7 +5,6 @@ import java.util.List;
 
 public class  CalendarClass implements Serializable{
     private int[] allowedAttendeeTypes;
-    private String accountName;
     private String displayName;
     private String location;           // ????????
     private String timeZone;
@@ -78,14 +77,6 @@ public class  CalendarClass implements Serializable{
         for(int i =0; i< allowedA.length; ++i){
             allowedAttendeeTypes[i] = Integer.parseInt(allowedA[i]);
         }
-    }
-
-    public String getAccountName() {
-        return accountName;
-    }
-
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
     }
 
     public String getDisplayName() {
