@@ -2,6 +2,7 @@ package com.jeek.calendar.activity;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -21,6 +23,8 @@ import com.jimmy.common.base.app.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import me.tangke.slidemenu.SlideMenu;
 
 public class GoalActivity extends BaseActivity implements View.OnClickListener{
 
@@ -35,17 +39,40 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
     }
 
     @Override
     protected void bindView() {
-        setContentView(R.layout.activity_goal);
+        //setContentView(R.layout.activity_goal);
+        SlideMenu slideMenu = new SlideMenu(this);
+        setContentView(slideMenu);
+        LayoutInflater content = getLayoutInflater();
+        View contentView = content.inflate(R.layout.activity_goal, null);
+        // Setup the content
+        //View contentView = new View(this);
+        slideMenu.addView(contentView, new SlideMenu.LayoutParams(
+                SlideMenu.LayoutParams.MATCH_PARENT, SlideMenu.LayoutParams.MATCH_PARENT,
+                SlideMenu.LayoutParams.ROLE_CONTENT));
+
+
+        LayoutInflater contentMenu = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentMenuView = contentMenu.inflate(R.layout.main_menu, null);
+
+        slideMenu.addView(contentMenuView, new SlideMenu.LayoutParams(800,
+                SlideMenu.LayoutParams.MATCH_PARENT, SlideMenu.LayoutParams.ROLE_PRIMARY_MENU));
+
         mToolbar = findViewById(R.id.GoalsTitleBar);
         rvGoals = findViewById(R.id.rvGoalsGoalActivity);
         findViewById(R.id.ivMenuInGoal).setOnClickListener(this);
         findViewById(R.id.fabGoal).setOnClickListener(this);
         initGoalsList();
-    }
+
+
+
+       }
 
     private void initGoalsList() {
         mGoals = new ArrayList<>();

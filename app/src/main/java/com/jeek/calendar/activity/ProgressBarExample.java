@@ -44,7 +44,6 @@ protected void bindView() {}
 
         setContentView(R.layout.progress_bar);
 
-        //Fill ProgressBar
 
 
     }

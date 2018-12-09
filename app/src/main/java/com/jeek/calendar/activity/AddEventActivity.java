@@ -8,6 +8,7 @@ import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -23,13 +24,32 @@ import com.jimmy.common.CalendarSystemDatabase.ScheduleDao;
 import com.jimmy.common.base.app.BaseActivity;
 import com.jimmy.common.listener.OnTaskFinishedListener;
 import com.jimmy.common.util.ToastUtils;
+import com.kunzisoft.switchdatetime.SwitchDateTimeDialogFragment;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Locale;
+import java.util.TimeZone;
 
 import static com.jeek.calendar.activity.AddEventSetActivity.EVENT_SET_OBJ;
 
 public class AddEventActivity extends BaseActivity implements View.OnClickListener,SelectDateDialog.OnSelectDateListener
         , InputLocationDialog.OnLocationBackListener, OnTaskFinishedListener<Schedule>{
+
+
+    //
+    private static final String TAG = "Sample";
+
+    private static final String TAG_DATETIME_FRAGMENT = "TAG_DATETIME_FRAGMENT";
+
+    private static final String STATE_TEXTVIEW = "STATE_TEXTVIEW";
+    private TextView textView;
+
+    private SwitchDateTimeDialogFragment dateTimeFragment;
+    //
+
 
 
     public static int CREATE_SCHEDULE_CANCEL = 1;
@@ -99,7 +119,7 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
         /*setScheduleData();*/
         setCurrentDate();
         resetDateTimeUi();
-
+        setTimeDialog();
 
     }
 
@@ -171,6 +191,76 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
         resetDateTimeUi();
 
     }
+
+    public void setTimeDialog(){
+        TextView textView;
+        textView = findViewById(R.id.tvEndTime);
+
+
+        // Construct SwitchDateTimePicker
+        dateTimeFragment = (SwitchDateTimeDialogFragment) getSupportFragmentManager().findFragmentByTag(TAG_DATETIME_FRAGMENT);
+        if(dateTimeFragment == null) {
+            dateTimeFragment = SwitchDateTimeDialogFragment.newInstance(
+                    getString(R.string.label_datetime_dialog),
+                    getString(android.R.string.ok),
+                    getString(android.R.string.cancel),
+                    getString(R.string.clean) // Optional
+            );
+        }
+
+        // Optionally define a timezone
+        dateTimeFragment.setTimeZone(TimeZone.getDefault());
+
+        // Init format
+        final SimpleDateFormat myDateFormat = new SimpleDateFormat("d MMM yyyy HH:mm", java.util.Locale.getDefault());
+        // Assign unmodifiable values
+        dateTimeFragment.set24HoursMode(true);
+        dateTimeFragment.setHighlightAMPMSelection(false);
+        dateTimeFragment.setMinimumDateTime(new GregorianCalendar(2015, Calendar.JANUARY, 1).getTime());
+        dateTimeFragment.setMaximumDateTime(new GregorianCalendar(2025, Calendar.DECEMBER, 31).getTime());
+
+        // Define new day and month format
+        try {
+            dateTimeFragment.setSimpleDateMonthAndDayFormat(new SimpleDateFormat("MMMM dd", Locale.getDefault()));
+        } catch (SwitchDateTimeDialogFragment.SimpleDateMonthAndDayFormatException e) {
+            Log.e(TAG, e.getMessage());
+        }
+
+        // Set listener for date
+        // Or use dateTimeFragment.setOnButtonClickListener(new SwitchDateTimeDialogFragment.OnButtonClickListener() {
+        final TextView tv = textView;
+        dateTimeFragment.setOnButtonClickListener(new SwitchDateTimeDialogFragment.OnButtonWithNeutralClickListener() {
+            @Override
+            public void onPositiveButtonClick(Date date) {
+                tv.setText(myDateFormat.format(date));
+            }
+
+            @Override
+            public void onNegativeButtonClick(Date date) {
+                // Do nothing
+            }
+
+            @Override
+            public void onNeutralButtonClick(Date date) {
+                // Optional if neutral button does'nt exists
+                tv.setText("");
+            }
+        });
+
+        TextView buttonView = findViewById(R.id.tvEndTime);
+        buttonView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Re-init each time
+                dateTimeFragment.startAtTimeView();
+                dateTimeFragment.setDefaultDateTime(new GregorianCalendar(2017, Calendar.MARCH, 4, 15, 20).getTime());
+                dateTimeFragment.show(getSupportFragmentManager(), TAG_DATETIME_FRAGMENT);
+            }
+        });
+    }
+
+
+
 
     @Override
     public void onLocationBack(String text) {

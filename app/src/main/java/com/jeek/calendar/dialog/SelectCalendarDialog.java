@@ -1,10 +1,12 @@
 package com.jeek.calendar.dialog;
 
 import android.app.Dialog;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.content.Context;
@@ -30,15 +32,21 @@ public class SelectCalendarDialog extends Dialog implements OnTaskFinishedListen
     ScheduleDao mScheduleDao;
     Context mContext;
     private OnSelectCalendarListener mOnSelectCalendarListener;
-    private String[][] calendars=mScheduleDao.getAllCalendarsIDsAndNames();
+
+    public String[][] calendars = new String[100][100];
+/*
+    private String[][] calendars={{"1","da"},{"2","db"},{"3","dc"}};
+*/
 
 
     public SelectCalendarDialog(Context context, SelectCalendarDialog.OnSelectCalendarListener OnSelectCalendarListener) {
 
         super(context, R.style.DialogFullScreen);
+
         mOnSelectCalendarListener=OnSelectCalendarListener;
         setContentView(R.layout.dialog_select_calendar);
         mContext=context;
+        new GetCalendarInfoTask(mContext,this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         initView();
     }
     /*public void onAddField(View v) {
@@ -58,30 +66,36 @@ public class SelectCalendarDialog extends Dialog implements OnTaskFinishedListen
         Main.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         Main.setOrientation(LinearLayout.VERTICAL);
         MainCont.addView(Main);
-
+        //todo ya hz ono ne uspevaet zakonchit' task pered vivodom
         new GetCalendarInfoTask(mContext,this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
+        TextView[] tv =new TextView[20];
         int idd=0;
         for(String[] S:calendars) {
             Log.wtf("Calendar"+idd,calendars[idd][0]+" "+calendars[idd][1]);
 
-            TextView tv=new TextView(mContext);
-
+            tv[idd]= new TextView(mContext);
+            tv[idd].setText("id:"+calendars[idd][0]+" name:"+calendars[idd][1]);
+            Log.wtf("TDTDTDTD",calendars[idd][0]+" "+calendars[idd][1]);
+            tv[idd].setBackgroundColor(Color.BLACK);
+            tv[idd].setTextColor(Color.WHITE);
+            tv[idd].setGravity(Gravity.CENTER);
             final int index = idd;
-            tv.setOnClickListener(new View.OnClickListener() {
+            final TextView tt = tv[idd];
+            tv[idd].setOnClickListener(new View.OnClickListener() {
+
                 public void onClick(View v) {
 
-                    Log.wtf("Calendar"+index,calendars[index][0]+" "+calendars[index][1]);
+                    Log.wtf("Calendar "+index,calendars[index][0]+" "+calendars[index][1]);
 
                     mOnSelectCalendarListener.onSelectCalendar(Integer.parseInt(calendars[index][0]),calendars[index][1]);
 
-                    // Code here executes on main thread after user presses button
                 }
             });
 
-            tv.setText("Button"+ ++idd);
+            Main.addView(tt,400,70);
 
-            Main.addView(tv,100,25);
+            idd++;
             if(calendars[idd][0] == null) break;
         }
         Log.wtf("FFF",calendars.toString());

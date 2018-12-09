@@ -14,7 +14,7 @@ package com.jeek.calendar.task.schedule;
 public class GetCalendarInfoTask extends BaseAsyncTask<String[][]> {
     public GetCalendarInfoTask(Context context, OnTaskFinishedListener<String[][]> onTaskFinishedListener) {
         super(context, onTaskFinishedListener);
-        Log.wtf("OK","addeventtask1");
+        Log.wtf("OK","return calendars id name");
     }
 
     @Override
@@ -23,8 +23,8 @@ public class GetCalendarInfoTask extends BaseAsyncTask<String[][]> {
             ScheduleDao dao = ScheduleDao.getInstance(mContext);
             String[][] calendars;
             calendars = dao.getAllCalendarsIDsAndNames();
+            Log.wtf("GetCalendarsInfoTask",""+calendars[0][0]);
             return calendars;
-
     }
 
 }

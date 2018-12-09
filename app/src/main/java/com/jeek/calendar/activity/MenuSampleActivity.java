@@ -31,7 +31,6 @@ public class MenuSampleActivity extends Activity{
 
     @Override
     protected void onCreate(Bundle state) {
-        super.onCreate(state);
         //setContentView(R.layout.activity_menu_sample);
         super.onCreate(state);
         SlideMenu slideMenu = new SlideMenu(this);
@@ -45,7 +44,7 @@ public class MenuSampleActivity extends Activity{
                 SlideMenu.LayoutParams.ROLE_CONTENT));
 
         // Setup the primary menu
-        LinearLayout primaryMenu = new LinearLayout(this);
+        /*LinearLayout primaryMenu = new LinearLayout(this);
         primaryMenu.setBackgroundColor(Color.BLUE);
         primaryMenu.setOrientation(LinearLayout.VERTICAL);
         TextView tv1 = new TextView(this);
@@ -91,9 +90,11 @@ public class MenuSampleActivity extends Activity{
         primaryMenu.addView(tv1,800,75);
         primaryMenu.addView(tv2,800,75);
         primaryMenu.addView(tv3,800,75);
-        primaryMenu.addView(tv4,800,75);
+        primaryMenu.addView(tv4,800,75);*/
+        LayoutInflater contentMenu = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentMenuView = contentMenu.inflate(R.layout.main_menu, null);
 
-        slideMenu.addView(primaryMenu, new SlideMenu.LayoutParams(800,
+        slideMenu.addView(contentMenuView, new SlideMenu.LayoutParams(800,
                 SlideMenu.LayoutParams.MATCH_PARENT, SlideMenu.LayoutParams.ROLE_PRIMARY_MENU));
 
 

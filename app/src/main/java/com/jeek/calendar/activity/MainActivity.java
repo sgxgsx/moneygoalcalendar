@@ -1,6 +1,7 @@
 package com.jeek.calendar.activity;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -15,6 +16,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -37,6 +39,8 @@ import com.jimmy.common.listener.OnTaskFinishedListener;
 
 import java.util.Calendar;
 
+import me.tangke.slidemenu.SlideMenu;
+
 import static com.jeek.calendar.activity.AddEventSetActivity.EVENT_SET_OBJ;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener,OnTaskFinishedListener<Integer> {
@@ -44,7 +48,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
     public static int ADD_EVENT_SET_CODE = 1;
     public static String ADD_EVENT_SET_ACTION = "action.add.event.set";
 
-    private DrawerLayout dlMain;
+    //private DrawerLayout dlMain;
     private LinearLayout llTitleDate;
     private TextView tvTitleMonth, tvTitleDay, tvTitle;
     private View ChooseModuleButtonTime,gotoMoneyButton,gotoGoalButton,ChooseMenuButtonBackground;
@@ -123,8 +127,30 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
 
     @Override
     protected void bindView() {
-        setContentView(R.layout.activity_main);
-        dlMain = searchViewById(R.id.dlMain);
+        //setContentView(R.layout.activity_main);
+
+
+        SlideMenu slideMenu = new SlideMenu(this);
+        setContentView(slideMenu);
+        LayoutInflater content = getLayoutInflater();
+        View contentView = content.inflate(R.layout.activity_main, null);
+        // Setup the content
+        //View contentView = new View(this);
+        slideMenu.addView(contentView, new SlideMenu.LayoutParams(
+                SlideMenu.LayoutParams.MATCH_PARENT, SlideMenu.LayoutParams.MATCH_PARENT,
+                SlideMenu.LayoutParams.ROLE_CONTENT));
+
+
+        LayoutInflater contentMenu = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentMenuView = contentMenu.inflate(R.layout.main_menu, null);
+
+        slideMenu.addView(contentMenuView, new SlideMenu.LayoutParams(800,
+                SlideMenu.LayoutParams.MATCH_PARENT, SlideMenu.LayoutParams.ROLE_PRIMARY_MENU));
+
+
+
+
+        //dlMain = searchViewById(R.id.dlMain);
         llTitleDate = searchViewById(R.id.llTitleDate);
         tvTitleMonth = searchViewById(R.id.tvTitleMonth);
         tvTitleDay = searchViewById(R.id.tvTitleDay);
@@ -178,7 +204,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
     }
 */
     private void initUi() {
-        dlMain.setScrimColor(Color.TRANSPARENT);
+        //dlMain.setScrimColor(Color.TRANSPARENT);
         mMonthText = getResources().getStringArray(R.array.calendar_month);
         llTitleDate.setVisibility(View.VISIBLE);
         tvTitle.setVisibility(View.GONE);
@@ -237,7 +263,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ivMainMenu:
-                dlMain.openDrawer(Gravity.START);
+                //dlMain.openDrawer(Gravity.START);
                 break;
             case R.id.llMenuSchedule:
                 gotoScheduleFragment();
@@ -393,7 +419,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         ft.commit();
         llTitleDate.setVisibility(View.VISIBLE);
         tvTitle.setVisibility(View.GONE);
-        dlMain.closeDrawer(Gravity.START);
+        //dlMain.closeDrawer(Gravity.START);
     }
 /*
     public void gotoEventSetFragment(EventSet eventSet) {
@@ -430,7 +456,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         }
     }
 */
-    @Override
+    /*@Override
     public void onBackPressed() {
         if (dlMain.isDrawerOpen(Gravity.START)) {
             dlMain.closeDrawer(Gravity.START);
@@ -443,7 +469,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
                 Toast.makeText(this, getString(R.string.exit_app_hint), Toast.LENGTH_SHORT).show();
             }
         }
-    }
+    }*/
     @Override
     protected void onDestroy() {
         /*
