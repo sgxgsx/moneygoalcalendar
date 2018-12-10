@@ -7,8 +7,8 @@
         android:id="@+id/chooseMenuButtonBackground2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#aa000000"
+        android:background="#33000000"
         android:clickable="true"
-        android:visibility="invisible" />
+        android:focusable="true"/>
 
 </android.support.constraint.ConstraintLayout>

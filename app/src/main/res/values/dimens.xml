@@ -55,4 +55,10 @@
 
     <dimen name="margin_start_detail_30dp">30dp</dimen>
 
+
+
+
+
+    <dimen name="icon_width">24dp</dimen>
+
 </resources>

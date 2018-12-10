@@ -47,7 +47,7 @@ public class EditGoalActivity extends AppCompatActivity implements View.OnClickL
         findViewById(R.id.llSaveGoal).setOnClickListener(this);
         findViewById(R.id.tvDeadlineGoal).setOnClickListener(this);
         findViewById(R.id.ivChangeColor).setOnClickListener(this);
-        findViewById(R.id.ivCancel).setOnClickListener(this);
+        findViewById(R.id.llCancel).setOnClickListener(this);
         description.setText(mGoal.getDescription());
         title.setText(mGoal.getGoal_name());
         aimsevents.setChecked(true);
@@ -66,7 +66,7 @@ public class EditGoalActivity extends AppCompatActivity implements View.OnClickL
             case R.id.ivChangeColor:
                 changeColor();
                 break;
-            case R.id.ivCancel:
+            case R.id.llCancel:
                 cancel();
                 break;
         }

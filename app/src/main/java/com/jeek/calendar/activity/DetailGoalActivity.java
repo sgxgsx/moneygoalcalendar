@@ -61,7 +61,6 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     // TODO VLAD сделать addScheduleActivity            ( LEHA )
     // TODO VLAD сделать editScheduleActivity           ( LEHA )
     // TODO VLAD сделать deleteSchedule                 ( LEHA )
-    // TODO VLAD изменить drawable с часами или еще чем-то внутри, так что сам круг был простым drawable shape кругом, а внутреняя часть Image
 
 
 
@@ -87,7 +86,7 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
                 return false;
             }
         });
-        findViewById(R.id.ivCancel).setOnClickListener(this);
+        findViewById(R.id.llCancel).setOnClickListener(this);
         if (getIntent().hasExtra(GOAL_OBJ)) {
             mGoal = (Goal) getIntent().getSerializableExtra(GOAL_OBJ);
             LinearLayoutManager manager = new LinearLayoutManager(this);
@@ -112,8 +111,6 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         description = findViewById(R.id.tvNoteTextView);
 
         noteImage = findViewById(R.id.iNoteImage);
-        //TODO ПОМЕНЯТЬ INT ЦВЕТА
-        noteImage.setColorFilter(-525666, PorterDuff.Mode.MULTIPLY);
         goalName.setText(mGoal.getGoal_name());
         description.setText(mGoal.getDescription());
         long ldate = mGoal.getDate_to();
@@ -131,7 +128,7 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.ivCancel:
+            case R.id.llCancel:
                 finish();
                 break;
             case R.id.fabAddAimGoal:

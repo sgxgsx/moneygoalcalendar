@@ -62,7 +62,7 @@ public class EditAimActivity extends AppCompatActivity implements View.OnClickLi
         findViewById(R.id.tvSaveGoal).setOnClickListener(this);
         findViewById(R.id.tvDeadlineGoal).setOnClickListener(this);
         findViewById(R.id.ivChangeColor).setOnClickListener(this);
-        findViewById(R.id.ivCancel).setOnClickListener(this);
+        findViewById(R.id.llCancel).setOnClickListener(this);
         description.setText(mAim.getDescription());
         title.setText(mAim.getName());
         time.setOnClickListener(this);
@@ -81,7 +81,7 @@ public class EditAimActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.ivChangeColor:
                 changeColor();
                 break;
-            case R.id.ivCancel:
+            case R.id.llCancel:
                 cancel();
                 break;
         }
@@ -146,7 +146,6 @@ public class EditAimActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void changeColor(){
-        // TODO add changeColor
         if (mColorDialog == null) {
             mColorDialog = new SelectColorDialog(this, this);
         }

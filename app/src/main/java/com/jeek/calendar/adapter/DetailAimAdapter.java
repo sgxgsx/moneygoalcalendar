@@ -21,11 +21,14 @@ import com.jeek.calendar.utils.JeekUtils;
 import com.jimmy.common.GoalDatabase.Aim;
 import com.jimmy.common.GoalDatabase.Goal;
 import com.jimmy.common.GoalDatabase.GoalSchedule;
+import com.jimmy.common.GoalDatabase.Note;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private Context mContext;
@@ -33,7 +36,7 @@ public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     private Goal mGoal;
     private Aim mAim;
     private List<GoalSchedule> goalSchedules;
-
+    private List<Note> noteList;
 
     public DetailAimAdapter(Context context, Goal goal, Aim aim) {
         mContext = context;
@@ -41,6 +44,7 @@ public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         mGoal = goal;
         mAim = aim;
         goalSchedules = mAim.getScheduleList();
+        noteList = mAim.getNoteList();
     }
 
     @Override
@@ -49,15 +53,18 @@ public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             return new DetailAimAdapter.ScheduleViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_schedule, parent, false));
         }
         Log.wtf("WWWWW", "БЛЯТЬ ТУТ ХУЕВО ПИЗДЕЦ");
-        return new DetailAimAdapter.ScheduleViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_schedule, parent, false));
+        return new DetailAimAdapter.NoteViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_note, parent, false));
     }
 
     @Override
     public int getItemViewType(int position) {
-        if(goalSchedules == null){
-            return 0;
+        if(goalSchedules != null || noteList != null){
+            if (goalSchedules == null) return 3; //notes
+            if (noteList == null) return 1;
+            if (position < goalSchedules.size()) return 1;
+            return 3;
         }
-        return 1;
+        return 0;
     }
 
     @Override
@@ -83,6 +90,35 @@ public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     mActivity.startActivityForResult(intent, 3);
                 }
             });
+        } else if (holder instanceof DetailAimAdapter.NoteViewHolder){
+            Log.wtf("note", "note");
+            Note note = null;
+            if(goalSchedules == null){
+                note = noteList.get(position);
+            } else{
+                if (position > goalSchedules.size() - 1){
+                    note = noteList.get(position - goalSchedules.size());
+                }else {
+                    note = noteList.get(position);
+                }
+            }
+            final NoteViewHolder viewHolder = (NoteViewHolder) holder;
+            if(!note.getTitle().equals("")){
+                viewHolder.tvTitle.setVisibility(View.VISIBLE);
+                String text = note.getTitle() + ":";
+                viewHolder.tvTitle.setText(text);
+            }
+
+            Date currentTime = new Date(note.getTime());
+            SimpleDateFormat sdf = new SimpleDateFormat("MMM d   HH:mm");  // TODO CHANGE LOCALE локализировать
+            String currentDateandTime = sdf.format(currentTime);
+
+            viewHolder.tvTime.setText(currentDateandTime);
+            viewHolder.tvText.setText(note.getText());
+            //TODO добавить онклики для перехода
+            /* добавить ид для лейаута и онклик на него для редактирования.
+               улучшить дизайн.
+            * */
         } else{
             Log.wtf("Bad", "news");
         }
@@ -104,20 +140,33 @@ public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
+    protected class NoteViewHolder extends RecyclerView.ViewHolder {
+        protected TextView tvTitle, tvText, tvTime;
+
+        public NoteViewHolder(View itemView) {
+            super(itemView);
+            tvTitle = (TextView) itemView.findViewById(R.id.tvNoteTitle);
+            tvTime = (TextView) itemView.findViewById(R.id.tvNoteTime);
+            tvText = (TextView) itemView.findViewById(R.id.tvNoteText);
+        }
+    }
+
     @Override
     public int getItemCount() {
         //Log.wtf("SIZE", String.valueOf(aims.size() + goalSchedules.size() + 2) + " or " + String.valueOf(aims.size() + goalSchedules.size()));
-        if(goalSchedules == null){
-            return 0;
-        }
-        return goalSchedules.size();
+        int size = 0;
+        if(goalSchedules != null) size += goalSchedules.size();
+        if(noteList != null) size += noteList.size();
+        return size;
     }
+
 
     public void changeAllData(Goal goal, Aim aim) {
         mGoal = goal;
         Log.wtf("wwsad", mGoal.getGoal_name());
         mAim = aim;
         goalSchedules = mAim.getScheduleList();
+        noteList = mAim.getNoteList();
         Log.wtf("wwsad", "here");
         notifyDataSetChanged();
     }

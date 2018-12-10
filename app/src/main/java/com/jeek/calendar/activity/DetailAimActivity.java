@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -49,8 +50,8 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
     private DetailAimAdapter mDetailAimAdapter;
     private TextView aimName, time, description;
     private ConstraintLayout dateLayout;
-    private ImageView noteImage;
-
+    private View AddNote,AddEvent, MenuButtonBackground;
+    private boolean buttonNotShowen;
 
 
     @Override
@@ -75,7 +76,7 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
                 return false;
             }
         });
-        findViewById(R.id.ivCancel).setOnClickListener(this);
+        findViewById(R.id.llCancel).setOnClickListener(this);
         if (getIntent().hasExtra(GOAL_OBJ)) {
             mGoal = (Goal) getIntent().getSerializableExtra(GOAL_OBJ);
             mAim = (Aim) getIntent().getSerializableExtra(AIM_OBJ);
@@ -100,9 +101,10 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
         dateLayout = findViewById(R.id.DateLayout);
         description = findViewById(R.id.tvNoteTextView);
 
-        noteImage = findViewById(R.id.iNoteImage);
-        //TODO ПОМЕНЯТЬ INT ЦВЕТА
-        noteImage.setColorFilter(-552015, PorterDuff.Mode.MULTIPLY);
+        AddNote = findViewById(R.id.fabAddNoteAim);
+        AddEvent = findViewById(R.id.fabAddAimGoal);
+        MenuButtonBackground = (View) findViewById(R.id.chooseMenuButtonBackground2);
+        MenuButtonBackground.setVisibility(View.INVISIBLE);
         aimName.setText(mAim.getName());
         //description.setText(mAim.getScheduleList().toString());
         description.setText(mAim.getDescription());
@@ -116,14 +118,17 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
             Format format = new SimpleDateFormat("dd.mm.yyyy");
             time.setText(format.format(date));
         }
+        buttonNotShowen = true;
         findViewById(R.id.fabAddAimGoal).setOnClickListener(this);
-
+        findViewById(R.id.fabAddNoteAim).setOnClickListener(this);
+        findViewById(R.id.chooseMenuButtonBackground2).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
+        Log.wtf("c", "click");
         switch (v.getId()){
-            case R.id.ivCancel:
+            case R.id.llCancel:
                 if(mChanges){
                     Log.wtf("aim", "here");
                     finishOkResult();
@@ -131,9 +136,42 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
                 finish();
                 break;
             case R.id.fabAddAimGoal:
-                gotoAddEvent();
+                if(buttonNotShowen){
+                    showFloatingChoiceMenu();
+                    Log.wtf("Not", "shown");
+                } else{
+                    gotoAddEvent();
+                    Log.wtf("go", " to Add Event");
+                }
                 break;
+            case R.id.fabAddNoteAim:
+                gotoNote();
+                Log.wtf("go", "to add note");
+                break;
+            case R.id.chooseMenuButtonBackground2:
+                hideFloatingChoiceMenu();
+                break;//TODO исправить то что оно не вызвается.
         }
+    }
+
+    private void showFloatingChoiceMenu() {
+        AddNote.setVisibility(View.VISIBLE);
+        findViewById(R.id.chooseMenuButtonBackground2).setVisibility(View.VISIBLE);
+        findViewById(R.id.chooseMenuButtonBackground2).setOnClickListener(this);
+        buttonNotShowen = false;
+    }
+    private void hideFloatingChoiceMenu() {
+        Log.wtf("www", "hide");
+        AddNote.setVisibility(View.INVISIBLE);
+        MenuButtonBackground.setVisibility(View.INVISIBLE);
+        findViewById(R.id.chooseMenuButtonBackground2).setVisibility(View.INVISIBLE);
+        buttonNotShowen = true;
+    }
+
+    private void gotoNote(){
+        Intent intent = new Intent(mContext, NoteActivity.class).putExtra(GOAL_OBJ, mGoal)
+                .putExtra(AIM_OBJ, mAim);
+        startActivityForResult(intent, 6);
     }
 
     private void gotoAddEvent(){
@@ -179,6 +217,19 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
                 Log.wtf("r", "canceled");
             }
         }
+        if (requestCode == 6){
+            if (resultCode == RESULT_OK){
+                mChanges = true;
+                mAim = (Aim) data.getSerializableExtra(AIM_OBJ);
+                mGoal = (Goal) data.getSerializableExtra(GOAL_OBJ);
+                new UpdateGoalAsyncTask(getApplicationContext(), mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                mDetailAimAdapter.changeAllData(mGoal, mAim);
+                initUI();
+            } else if (resultCode == RESULT_CANCELED){
+                //nothhing
+                Log.wtf("r", "canceled");
+            }
+        }
         /*
         if (requestCode == 2){
             if(resultCode == RESULT_OK){
@@ -208,4 +259,5 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
         }
         super.onBackPressed();
     }
+
 }

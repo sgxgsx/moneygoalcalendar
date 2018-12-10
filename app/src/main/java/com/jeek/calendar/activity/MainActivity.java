@@ -56,7 +56,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
 
     //private CalendarClassAdapter mCalendarClassAdapter;                       CALENDARS
     //private List<CalendarClass> mCalendarClasses;  // mEventSets              CALENDARS
-
     private BaseFragment mScheduleFragment;
     //private BaseFragment mEventSetFragment;
     //private EventSet mCurrentEventSet;
@@ -95,6 +94,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
             if (mGoogleSignInAccount != null){
                 mUserNameTextView.setText(mGoogleSignInAccount.getEmail());
             }
+
         }
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);

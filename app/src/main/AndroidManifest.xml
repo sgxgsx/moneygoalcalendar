@@ -61,7 +61,8 @@
         -->
 
         <activity android:name=".activity.AddAimActivity" />
-        <activity android:name=".activity.EditAimActivity"></activity>
+        <activity android:name=".activity.EditAimActivity" />
+        <activity android:name=".activity.NoteActivity"></activity>
     </application>
 
 </manifest>

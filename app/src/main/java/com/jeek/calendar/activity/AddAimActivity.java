@@ -25,6 +25,7 @@ import com.jeek.calendar.task.goal.UpdateGoalAsyncTask;
 import com.jimmy.common.GoalDatabase.Aim;
 import com.jimmy.common.GoalDatabase.Goal;
 import com.jimmy.common.GoalDatabase.GoalSchedule;
+import com.jimmy.common.GoalDatabase.Note;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -55,7 +56,7 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
         cbtime = findViewById(R.id.cbTime);
 
         cbtime.setOnCheckedChangeListener(this);
-        findViewById(R.id.ivCancel).setOnClickListener(this);
+        findViewById(R.id.llCancel).setOnClickListener(this);
         findViewById(R.id.tvSaveGoal).setOnClickListener(this);
         findViewById(R.id.ivChangeColor).setOnClickListener(this);
         time.setOnClickListener(this);
@@ -75,7 +76,7 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.ivCancel:
+            case R.id.llCancel:
                 cancel();
                 break;
             case R.id.tvSaveGoal:
@@ -108,9 +109,8 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
         if(!cbtime.isChecked()){
             date_to = 2040200150;
         }
-        //TODO add description to goals
         List<GoalSchedule> goalScheduleList = new ArrayList<>();
-        Aim aim = new Aim(mGoal.getAims().size(), name, false, desc, mColor, goalScheduleList);
+        Aim aim = new Aim(mGoal.getAims().size(), name, false, desc, mColor, goalScheduleList, new ArrayList<Note>());
         mGoal.addAim(aim);
         new UpdateGoalAsyncTask(getApplicationContext(), mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         finishOkResult();
@@ -180,10 +180,8 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
                 Drawable drb = new BitmapDrawable(getResources(), bitmap);
                 mToolBar.setBackground(drb);
             } catch (FileNotFoundException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }

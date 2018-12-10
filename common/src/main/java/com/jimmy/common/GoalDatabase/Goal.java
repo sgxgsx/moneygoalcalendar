@@ -23,18 +23,20 @@ public class  Goal implements Serializable{
     private long date_to;
     private List<Aim> aims;
     private List<GoalSchedule> schedules;
+    private List<Note> noteList;
 
 
     @Ignore
-    public Goal(String goal_name, long date_to,String description, List<Aim> aims, List<GoalSchedule> schedules) {
+    public Goal(String goal_name, long date_to,String description, List<Aim> aims, List<GoalSchedule> schedules, List<Note> noteList) {
         this.goal_name = goal_name;
         this.date_to = date_to;
         this.aims = aims;
         this.schedules = schedules;
         this.description = description;
+        this.noteList = noteList;
     }
 
-    public Goal(int id, String goal_name, long date_to,String description, List<Aim> aims, List<GoalSchedule> schedules) {
+    public Goal(int id, String goal_name, long date_to,String description, List<Aim> aims, List<GoalSchedule> schedules, List<Note> noteList) {
         this.id = id;
         this.goal_name = goal_name;
         this.date_to = date_to;
@@ -43,6 +45,7 @@ public class  Goal implements Serializable{
         this.schedules = schedules;
         this.inprogress = 0;
         this.doneschedules = 0;
+        this.noteList = noteList;
     }
 
     public void addAim(Aim aim){
@@ -69,6 +72,29 @@ public class  Goal implements Serializable{
                 break;
             }
         }
+    }
+
+    public void addNote(Note note){
+        noteList.add(note);
+    }
+
+    public void deleteNote(int id){
+        if(id == noteList.size() - 1){
+            noteList.remove(id);
+        } else{
+            noteList.remove(id);
+            for(int i=id; i<noteList.size(); i++){
+                noteList.get(i).setId(i);
+            }
+        }
+    }
+
+    public List<Note> getNoteList() {
+        return noteList;
+    }
+
+    public void setNoteList(List<Note> noteList) {
+        this.noteList = noteList;
     }
 
     public String getDescription() {

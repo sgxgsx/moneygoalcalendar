@@ -10,11 +10,11 @@ import android.util.Log;
 import com.jimmy.common.SettingsDatabase.CalendarSettingsDao;
 
 @Database(entities = {Goal.class}, version = 1, exportSchema = false)
-@TypeConverters({GoalScheduleConverter.class, AimConverter.class})
+@TypeConverters({GoalScheduleConverter.class, AimConverter.class, NoteConverter.class})
 public abstract class  GoalDatabase extends RoomDatabase {
     private static final String LOG_TAG = GoalDatabase.class.getSimpleName();
     private static final Object LOCK = new Object();
-    private static final String DATABASE_NAME = "GoalDatabasedw";
+    private static final String DATABASE_NAME = "GoalDatabasw";
     private static GoalDatabase GoalDatabase;
 
     public static GoalDatabase getInstance(Context context){

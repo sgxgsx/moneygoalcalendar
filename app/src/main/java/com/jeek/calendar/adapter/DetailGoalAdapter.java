@@ -1,6 +1,7 @@
 package com.jeek.calendar.adapter;
 
 import android.app.Activity;
+import android.app.LauncherActivity;
 import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.content.Intent;
@@ -36,6 +37,7 @@ public class DetailGoalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private Goal mGoal;
     private List<Aim> aims;
     private List<GoalSchedule> goalSchedules;
+    private List<LauncherActivity.ListItem> ss;
 
 
     public DetailGoalAdapter(Context context, Goal goal) {

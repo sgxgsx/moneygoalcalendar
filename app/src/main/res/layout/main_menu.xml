@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:layout_gravity="start"
-              android:layout_marginRight="@dimen/action_bar_height"
-              android:background="@color/color_menu_title_background"
-              android:clickable="true"
-              android:fitsSystemWindows="true"
-              android:orientation="vertical"
-              android:tag="menu">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:layout_marginEnd="@dimen/action_bar_height"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:forceHasOverlappingRendering="true"
+    android:tag="menu">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/action_bar_height"
-        android:paddingLeft="@dimen/space_20dp"
+        android:paddingStart="@dimen/space_20dp"
+        android:layout_marginTop="25dp"
+        android:paddingEnd="@dimen/space_20dp"
         android:orientation="vertical">
 
         <TextView
@@ -30,32 +32,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/account_name"
-            android:textColor="@color/color_schedule_orange"
+            android:textColor="@color/colorAccent"
             android:textSize="@dimen/text_size_16sp" />
     </LinearLayout>
 
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/color_menu_background"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
         android:overScrollMode="never"
         android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/llMenuSchedule"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/menu_item_height"
-                    android:background="@drawable/menu_item_border"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_marginTop="1dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -71,13 +76,13 @@
                         android:layout_marginLeft="@dimen/space_10dp"
                         android:layout_weight="1"
                         android:text="@string/menu_schedule"
-                        android:textColor="@color/colorWrite"
+                        android:textColor="#BD00FB"
                         android:textSize="@dimen/text_size_18sp"/>
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="@dimen/space_10dp"
+                        android:layout_marginStart="@dimen/space_10dp"
                         android:src="@mipmap/ic_menu_go"/>
 
                 </LinearLayout>
@@ -85,7 +90,8 @@
                     android:id="@+id/llMenuGoMoney"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/menu_item_border"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_marginTop="1dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -98,16 +104,16 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/space_20dp"
+                            android:layout_marginStart="@dimen/space_20dp"
                             android:src="@mipmap/ic_menu_event_set"/>
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/space_10dp"
+                            android:layout_marginStart="@dimen/space_10dp"
                             android:layout_weight="1"
                             android:text="@string/menu_money"
-                            android:textColor="@color/colorWrite"
+                            android:textColor="#00C382"
                             android:textSize="@dimen/text_size_18sp"/>
 
                     </LinearLayout>
@@ -118,7 +124,8 @@
                     android:id="@+id/llMenuGoGoal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_menu_border_with_arrow"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_marginTop="1dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -131,16 +138,16 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/space_20dp"
+                            android:layout_marginStart="@dimen/space_20dp"
                             android:src="@mipmap/ic_menu_event_set"/>
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/space_10dp"
+                            android:layout_marginStart="@dimen/space_10dp"
                             android:layout_weight="1"
                             android:text="@string/menu_goal_tracker"
-                            android:textColor="@color/colorWrite"
+                            android:textColor="#FAD951"
                             android:textSize="@dimen/text_size_18sp"/>
 
                     </LinearLayout>
@@ -178,11 +185,6 @@
 
                 </LinearLayout>
                 -->
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/line_height"
-                    android:background="@color/color_menu_line"/>
                 <!--
                 <com.jeek.calendar.widget.AbsoluteRecyclerView
                     android:id="@+id/rvMenuEventSetList"
@@ -207,36 +209,46 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="true"
+                    android:focusable="true"
                     android:drawablePadding="@dimen/space_16dp"
                     android:paddingBottom="@dimen/space_16dp"
-                    android:paddingLeft="@dimen/space_30dp"
+                    android:paddingStart="@dimen/space_30dp"
                     android:paddingTop="@dimen/space_16dp"
                     android:text="@string/menu_sign_out"
-                    android:textColor="@color/menu_item_text_color"/>
+                    android:textColor="@color/menu_item_text_color"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_marginTop="1dp"/>
 
                 <TextView
                     android:id="@+id/tvMenuDeleteAccount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="true"
+                    android:focusable="true"
                     android:drawablePadding="@dimen/space_16dp"
                     android:paddingBottom="@dimen/space_16dp"
-                    android:paddingLeft="@dimen/space_30dp"
+                    android:paddingStart="@dimen/space_30dp"
                     android:paddingTop="@dimen/space_16dp"
                     android:text="@string/menu_delete_account"
-                    android:textColor="@color/menu_item_text_color"/>
+                    android:textColor="@color/menu_item_text_color"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_marginTop="1dp"/>
 
                 <TextView
                     android:id="@+id/tvMenuSettings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="true"
+                    android:focusable="true"
                     android:drawablePadding="@dimen/space_16dp"
                     android:paddingBottom="@dimen/space_16dp"
-                    android:paddingLeft="@dimen/space_30dp"
+                    android:paddingStart="@dimen/space_30dp"
                     android:paddingTop="@dimen/space_16dp"
                     android:text="@string/menu_settings"
-                    android:textColor="@color/menu_item_text_color"/>
+                    android:textColor="@color/menu_item_text_color"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"/>
 
             </LinearLayout>
 

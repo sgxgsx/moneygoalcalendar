@@ -20,9 +20,10 @@ public class Aim implements Serializable{
     String description;
     boolean done;
     List<GoalSchedule> scheduleList;
+    List<Note> noteList;
 
     @Ignore
-    public Aim(String name, boolean done,String description, String color, List<GoalSchedule> scheduleList){
+    public Aim(String name, boolean done,String description, String color, List<GoalSchedule> scheduleList, List<Note> noteList){
         this.name = name;
         this.doneschedules = 0;
         this.inprogress = 0;
@@ -30,9 +31,10 @@ public class Aim implements Serializable{
         this.description = description;
         this.scheduleList = scheduleList;
         this.color = color;
+        this.noteList = noteList;
     }
 
-    public Aim(int id, String name, boolean done,String description,String color, List<GoalSchedule> scheduleList) {
+    public Aim(int id, String name, boolean done,String description,String color, List<GoalSchedule> scheduleList, List<Note> noteList) {
         this.id = id;
         this.name = name;
         this.doneschedules = 0;
@@ -41,6 +43,30 @@ public class Aim implements Serializable{
         this.description = description;
         this.scheduleList = scheduleList;
         this.color = color;
+        this.noteList = noteList;
+    }
+
+    public void addNote(Note note){
+        noteList.add(note);
+    }
+
+    public void deleteNote(int id){
+        if(id == noteList.size() - 1){
+            noteList.remove(id);
+        } else{
+            noteList.remove(id);
+            for(int i=id; i<noteList.size(); i++){
+                noteList.get(i).setId(i);
+            }
+        }
+    }
+
+    public List<Note> getNoteList() {
+        return noteList;
+    }
+
+    public void setNoteList(List<Note> noteList) {
+        this.noteList = noteList;
     }
 
     public String getColor() {
