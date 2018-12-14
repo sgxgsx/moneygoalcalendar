@@ -47,20 +47,22 @@ public class Aim implements Serializable{
     }
 
     public void addNote(Note note){
-        noteList.add(note);
+        noteList.add(0, note);
     }
 
     public void deleteNote(int id){
-        if(id == noteList.size() - 1){
-            noteList.remove(id);
-        } else{
-            noteList.remove(id);
-            for(int i=id; i<noteList.size(); i++){
-                noteList.get(i).setId(i);
-            }
+        noteList.remove(id);
+        for(int i=0; i<noteList.size(); i++){
+            noteList.get(i).setId(i);
         }
     }
 
+    public void changeNote(int id, String title, String text, long time){
+        Note mNote = noteList.get(id);
+        noteList.remove(id);
+        mNote.changeNote(title, text, time);
+        noteList.add(0, mNote);
+    }
     public List<Note> getNoteList() {
         return noteList;
     }

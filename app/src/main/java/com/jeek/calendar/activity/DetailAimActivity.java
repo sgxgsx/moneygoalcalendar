@@ -38,6 +38,7 @@ import java.util.Date;
 public class DetailAimActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String GOAL_OBJ = "GOAL.Obj.Detail.Aim";
     public static final String AIM_OBJ = "AIM.Obj.Detail.Aim";
+    public static final String NOTE_OBJ = "Note.Obj";
     public static final int errorCode = 200;
 
     private boolean mChanges = false;

@@ -20,8 +20,11 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.jeek.calendar.R;
+import com.jeek.calendar.adapter.DetailAimAdapter;
 import com.jeek.calendar.adapter.DetailGoalAdapter;
 import com.jeek.calendar.task.goal.DeleteGoalTask;
+import com.jeek.calendar.task.goal.UpdateGoalAsyncTask;
+import com.jimmy.common.GoalDatabase.Aim;
 import com.jimmy.common.GoalDatabase.Goal;
 
 import java.text.Format;
@@ -33,6 +36,7 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     public static final String GOAL_OBJW = "GOAL.Objw";
     public static final String GOAL_OBJ_AIM = "GOAL.Obj.Add.Aim";
     public static final String GOAL_OBJ_AIM_DETAIL = "GOAL.Obj.Detail.Aim";
+    public static final String NOTE_OBJ = "Note.Obj";
 
 
     public static final int errorCode = 200;
@@ -45,7 +49,8 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     private TextView goalName, time, description;
     private ConstraintLayout dateLayout;
     private ImageView noteImage;
-
+    private boolean buttonNotShowen = true;
+    private View AddNote,AddAim, MenuButtonBackground;
     // completed VLAD сделать DetailGoalActivity
     // completed VLAD удаление Goal
     // completed VLAD модифицирование Goal -> Создать GoalEditActivity
@@ -109,6 +114,9 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         time = findViewById(R.id.tvDeadlineGoal);
         dateLayout = findViewById(R.id.DateLayout);
         description = findViewById(R.id.tvNoteTextView);
+        AddAim = findViewById(R.id.fabAddAimGoal);
+        AddNote = findViewById(R.id.fabAddNoteGoal);
+        MenuButtonBackground = findViewById(R.id.chooseMenuButtonBackground2);
 
         noteImage = findViewById(R.id.iNoteImage);
         goalName.setText(mGoal.getGoal_name());
@@ -121,8 +129,9 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
             Format format = new SimpleDateFormat("dd.mm.yyyy");
             time.setText(format.format(date));
         }
-        findViewById(R.id.fabAddAimGoal).setOnClickListener(this);
-
+        AddAim.setOnClickListener(this);
+        AddNote.setOnClickListener(this);
+        MenuButtonBackground.setOnClickListener(this);
     }
 
     @Override
@@ -132,9 +141,38 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
                 finish();
                 break;
             case R.id.fabAddAimGoal:
-                gotoAddAimActivity();
+                if(buttonNotShowen){
+                    showFloatingChoiceMenu();
+                    Log.wtf("Not", "shown");
+                } else{
+                    gotoAddAimActivity();
+                    Log.wtf("go", " to Add Event");
+                }
+                break;
+            case R.id.fabAddNoteGoal:
+                gotoNote();
+                break;
+            case R.id.chooseMenuButtonBackground2:
+                hideFloatingChoiceMenu();
                 break;
         }
+    }
+
+    private void showFloatingChoiceMenu() {
+        MenuButtonBackground.setVisibility(View.VISIBLE);
+        AddNote.setVisibility(View.VISIBLE);
+        buttonNotShowen = false;
+    }
+    private void hideFloatingChoiceMenu() {
+        Log.wtf("www", "hide");
+        AddNote.setVisibility(View.INVISIBLE);
+        MenuButtonBackground.setVisibility(View.INVISIBLE);
+        buttonNotShowen = true;
+    }
+
+    private void gotoNote(){
+        Intent intent = new Intent(mContext, NoteActivity.class).putExtra(NoteActivity.GOAL_OBJ, mGoal);
+        startActivityForResult(intent, 3);
     }
 
     private void gotoAddAimActivity(){
@@ -166,7 +204,7 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
                 ; // nothing
                 Log.wtf("r", "canceled");
             }
-        }else if(requestCode == 2){
+        } else if(requestCode == 2){
             if(resultCode == RESULT_OK){
                 mGoal = (Goal) data.getSerializableExtra(GOAL_OBJ_AIM);
                 mDetailGoalAdapter.changeAllData(mGoal);
@@ -180,16 +218,16 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
                 ;
                 Log.wtf("ERROR", "200");
             }
-        }else if(requestCode == 3) {
-            if(resultCode == Activity.RESULT_OK){
-                Log.wtf("goal", "change requestCode 3");
+        } else if(requestCode == 3){
+            if (resultCode == RESULT_OK){
+                //mChanges = true;
                 mGoal = (Goal) data.getSerializableExtra(GOAL_OBJ_AIM_DETAIL);
+                new UpdateGoalAsyncTask(getApplicationContext(), mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
                 mDetailGoalAdapter.changeAllData(mGoal);
                 initUI();
-            }
-            if (resultCode == Activity.RESULT_CANCELED) {
-                ; // nothing
-                Log.wtf("detailGoalActivity", "canceled 3");
+            } else if (resultCode == RESULT_CANCELED){
+                //nothhing
+                Log.wtf("r", "canceled");
             }
         }
     }

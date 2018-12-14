@@ -17,6 +17,7 @@ import com.jeek.calendar.activity.AddAimActivity;
 import com.jeek.calendar.activity.DetailAimActivity;
 import com.jeek.calendar.activity.DetailEventActivity;
 import com.jeek.calendar.activity.EditGoalActivity;
+import com.jeek.calendar.activity.NoteActivity;
 import com.jeek.calendar.utils.JeekUtils;
 import com.jimmy.common.GoalDatabase.Aim;
 import com.jimmy.common.GoalDatabase.Goal;
@@ -102,6 +103,7 @@ public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     note = noteList.get(position);
                 }
             }
+            final Note NoteFinal = new Note(note.getId(), note.getTitle(), note.getText(), note.getTime());
             final NoteViewHolder viewHolder = (NoteViewHolder) holder;
             if(!note.getTitle().equals("")){
                 viewHolder.tvTitle.setVisibility(View.VISIBLE);
@@ -115,10 +117,13 @@ public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
             viewHolder.tvTime.setText(currentDateandTime);
             viewHolder.tvText.setText(note.getText());
-            //TODO добавить онклики для перехода
-            /* добавить ид для лейаута и онклик на него для редактирования.
-               улучшить дизайн.
-            * */
+            viewHolder.clNote.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, NoteActivity.class).putExtra(DetailAimActivity.GOAL_OBJ, mGoal).putExtra(DetailAimActivity.AIM_OBJ, mAim).putExtra(DetailAimActivity.NOTE_OBJ, NoteFinal);
+                    mActivity.startActivityForResult(intent, 3);
+                }
+            });
         } else{
             Log.wtf("Bad", "news");
         }
@@ -141,10 +146,12 @@ public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     protected class NoteViewHolder extends RecyclerView.ViewHolder {
+        protected ConstraintLayout clNote;
         protected TextView tvTitle, tvText, tvTime;
 
         public NoteViewHolder(View itemView) {
             super(itemView);
+            clNote = (ConstraintLayout) itemView.findViewById(R.id.clNote);
             tvTitle = (TextView) itemView.findViewById(R.id.tvNoteTitle);
             tvTime = (TextView) itemView.findViewById(R.id.tvNoteTime);
             tvText = (TextView) itemView.findViewById(R.id.tvNoteText);

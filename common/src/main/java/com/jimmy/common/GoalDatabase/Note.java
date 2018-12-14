@@ -28,6 +28,11 @@ public class Note implements Serializable {
         this.time = time;
     }
 
+    public void changeNote(String title, String text, long time){
+        setText(text);
+        setTitle(title);
+        setTime(time);
+    }
     public long getTime() {
         return time;
     }
