@@ -125,26 +125,48 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+
                     <TextView
-                        android:id="@+id/tvScheduleTime"
+                        android:id="@+id/tvScheduleTime3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_start_detail_30dp"
                         android:layout_marginTop="10dp"
-                        android:text="Saturday, August 3, 23.30 -"
+                        android:text="Saturday, August 3"
                         android:textSize="@dimen/text_size_12sp"
                         app:layout_constraintStart_toEndOf="@+id/ivDate"
                         app:layout_constraintTop_toTopOf="parent" />
 
+                    <TextView
+                        android:id="@+id/tvScheduleTime2"
+                        android:layout_width="112dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="188dp"
+                        android:layout_marginTop="32dp"
+                        android:text="00.00"
+                        android:textSize="@dimen/text_size_12sp"
+                        app:layout_constraintStart_toEndOf="@+id/ivDate"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/tvEndTime"
+                        android:id="@+id/tvScheduleTime4"
+                        android:layout_width="112dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="188dp"
+                        android:layout_marginTop="10dp"
+                        android:text="00.00"
+                        android:textSize="@dimen/text_size_12sp"
+                        app:layout_constraintStart_toEndOf="@+id/ivDate"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvEndTime2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
                         android:layout_marginBottom="8dp"
                         android:layout_marginStart="@dimen/margin_start_detail_30dp"
-                        android:text="Saturday, August 3, 23.30"
+                        android:text="Saturday, August 3"
                         android:textSize="@dimen/text_size_12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/ivDate"
@@ -155,9 +177,7 @@
                         android:id="@+id/tvRepeat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginStart="70dp"
-                        android:layout_marginTop="0dp"
+                        android:layout_marginStart="68dp"
                         android:text="Repeat weekly"
                         android:textSize="8sp"
                         app:layout_constraintBottom_toBottomOf="parent"
