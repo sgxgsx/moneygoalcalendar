@@ -16,10 +16,70 @@ public class  Schedule implements Serializable {
     private long time;
     private long time_end;
     private int year;
-    private int month;
-    private int day;
-    private int eventSetId;
 
+    public int getYearend() {
+        return yearend;
+    }
+
+    public void setYearend(int yearend) {
+        this.yearend = yearend;
+    }
+
+    public int getMonthend() {
+        return monthend;
+    }
+
+    public void setMonthend(int monthend) {
+        this.monthend = monthend;
+    }
+
+    public int getDayend() {
+        return dayend;
+    }
+
+    public void setDayend(int dayend) {
+        this.dayend = dayend;
+    }
+
+    public int getHour() {
+        return hour;
+    }
+
+    public void setHour(int hour) {
+        this.hour = hour;
+    }
+
+    public int getHourend() {
+        return hourend;
+    }
+
+    public void setHourend(int hourend) {
+        this.hourend = hourend;
+    }
+
+    public int getMinute() {
+        return minute;
+    }
+
+    public void setMinute(int minute) {
+        this.minute = minute;
+    }
+
+    public int getMinuteend() {
+        return minuteend;
+    }
+
+    public void setMinuteend(int minuteend) {
+        this.minuteend = minuteend;
+    }
+
+    private int yearend;
+    private int month,monthend;
+    private int day,dayend;
+    private int hour,hourend;
+    private int minute,minuteend;
+    private long timeStartSCH=8,timeEndSCH;
+    private int eventSetId;
     private String repeat;
     private String account;
     private String account_name;
@@ -39,6 +99,7 @@ public class  Schedule implements Serializable {
         this.year = year;
         this.repeat = repeat;
         this.account = account;
+
     }
 
 

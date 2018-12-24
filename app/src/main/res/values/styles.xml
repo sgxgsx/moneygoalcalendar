@@ -38,4 +38,13 @@
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
+    <style name="MyDatePickerDialogStyle" parent="@style/ThemeOverlay.AppCompat.Dialog.Alert">
+        <item name="showTitle">false</item>
+        <item name="colorControlActivated">#ffea00</item>
+        <item name="android:selectableItemBackgroundBorderless">@color/colorPrimaryDark</item>
+        <item name="colorControlHighlight">#c51162</item>
+        <item name="android:headerBackground">#00c853</item>
+    </style>
+
+
 </resources>

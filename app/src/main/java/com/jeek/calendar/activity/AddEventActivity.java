@@ -1,23 +1,30 @@
 package com.jeek.calendar.activity;
 import android.Manifest;
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.DialogFragment;
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.jeek.calendar.R;
 import com.jeek.calendar.adapter.ScheduleAdapter;
 import com.jeek.calendar.dialog.InputLocationDialog;
+import com.jeek.calendar.dialog.MyDatePickerDialog;
 import com.jeek.calendar.dialog.SelectDateDialog;
 import com.jeek.calendar.task.schedule.AddEventTask;
 import com.jimmy.common.CalendarSystemDatabase.Schedule;
@@ -42,7 +49,20 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
         , InputLocationDialog.OnLocationBackListener, OnTaskFinishedListener<Schedule>{
 
 
-    //
+    //костыль ебаный если чо
+    /*public static int endORstartDatePicker=0;
+    public static String info="null";
+    public static int yearStart;
+    public static int monthStart;
+    public static int dayStart;
+    public static int yearEnd;
+    public static int monthEnd;
+    public static int dayEnd;*/
+
+
+
+
+
     private static final String TAG = "Sample";
 
     private static final String TAG_DATETIME_FRAGMENT = "TAG_DATETIME_FRAGMENT";
@@ -68,6 +88,7 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
     private TextView
             tvScheduleTime, tvScheduleLocation;
 
+    Calendar dateAndTime=Calendar.getInstance();
 
     private SelectDateDialog mSelectDateDialog;
     private InputLocationDialog mInputLocationDialog;
@@ -85,19 +106,21 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
     @Override
     protected void bindView() {
         setContentView(R.layout.activity_add_event_3);
-        TextView tvTitle = searchViewById(R.id.tvTitle);
-        tvTitle.setText(getString(R.string.schedule_event_detail_setting));
-        searchViewById(R.id.tvCancel).setOnClickListener(this);
-        searchViewById(R.id.tvCreate).setOnClickListener(this);
+       /* TextView tvTitle = searchViewById(R.id.tvTitle);
+        tvTitle.setText(getString(R.string.schedule_event_detail_setting));*/
+        searchViewById(R.id.llCancel).setOnClickListener(this);
+        searchViewById(R.id.llSaveGoal).setOnClickListener(this);
+        searchViewById(R.id.iNoteImage).setOnClickListener(this);
         //searchViewById(R.id.llScheduleTime).setOnClickListener(this);
-        searchViewById(R.id.llScheduleLocation).setOnClickListener(this);
-        searchViewById(R.id.tvScheduleTime3).setOnClickListener(this);
+        //searchViewById(R.id.llScheduleLocation).setOnClickListener(this);
+        //searchViewById(R.id.tvScheduleTime3).setOnClickListener(this);
 
         /*vScheduleColor = searchViewById(R.id.vScheduleColor);*/
         etScheduleTitle = searchViewById(R.id.etScheduleTitle);
         etScheduleDesc = searchViewById(R.id.etScheduleDesc);
-        tvScheduleTime = searchViewById(R.id.tvScheduleTime2);
-        tvScheduleLocation = searchViewById(R.id.tvScheduleLocation);
+        tvScheduleTime = searchViewById(R.id.tvDateStart);
+        //tvScheduleLocation = searchViewById(R.id.tvScheduleLocation);
+
     }
 
 
@@ -121,28 +144,24 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
         /*setScheduleData();*/
         setCurrentDate();
         resetDateTimeUi();
-        setTimeDialog1();
-        setTimeDialog2();
-        setDateDialog1();
-        setDateDialog2();
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.tvCancel:
+            case R.id.llCancel:
                 setResult(CREATE_SCHEDULE_CANCEL);
                 finish();
                 break;
-            case R.id.tvCreate:
+            case R.id.iNoteImage:
                 addEvent();
                 break;
             /*case R.id.llScheduleTime:
                 showSelectDateDialog();
                 break;*/
-            case R.id.llScheduleLocation:
+            /*case R.id.llScheduleLocation:
                 showInputLocationDialog();
-                break;
+                break;*/
 
 
         }
@@ -166,10 +185,20 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
         } else {
             mSchedule.setTitle(content);
             mSchedule.setState(0);
-            mSchedule.setTime(mTime);
-            mSchedule.setYear(mCurrentSelectYear);
-            mSchedule.setMonth(mCurrentSelectMonth);
-            mSchedule.setDay(mCurrentSelectDay);
+            Calendar cal = Calendar.getInstance();
+            cal.set(Calendar.YEAR, mSchedule.getYear());
+            cal.set(Calendar.MONTH, mSchedule.getMonth());
+            cal.set(Calendar.DAY_OF_MONTH, mSchedule.getDay());
+            cal.set(Calendar.HOUR_OF_DAY, mSchedule.getHour());
+            cal.set(Calendar.MINUTE, mSchedule.getMinute());
+            mSchedule.setTime(cal.getTime().getTime());
+            cal.set(Calendar.YEAR, mSchedule.getYearend());
+            cal.set(Calendar.MONTH, mSchedule.getMonthend());
+            cal.set(Calendar.DAY_OF_MONTH, mSchedule.getDayend());
+            cal.set(Calendar.HOUR_OF_DAY, mSchedule.getHourend());
+            cal.set(Calendar.MINUTE, mSchedule.getMinuteend());
+            mSchedule.setTime_end(cal.getTime().getTime());
+
             new AddEventTask(this, this, mSchedule).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }
     }
@@ -188,286 +217,119 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void onSelectDate(int year, int month, int day, long time, int position) {
-        mSchedule.setYear(year); mCurrentSelectDay=mSchedule.getYear();
+        /*mSchedule.setYear(year); mCurrentSelectDay=mSchedule.getYear();
         mSchedule.setMonth(month); mCurrentSelectMonth=mSchedule.getMonth();
         mSchedule.setDay(day); mCurrentSelectDay=mSchedule.getDay();
-        mSchedule.setTime(time);
+        mSchedule.setTime(time);*/
         mPosition = position;
         resetDateTimeUi();
 
     }
 
-    public void setTimeDialog1(){
-        final TextView textView1;
-        textView1 = findViewById(R.id.tvScheduleTime4);
+
+    /*public void showDatePicker(View v) {
+        MyDatePickerDialog newFragment = new MyDatePickerDialog();
+        newFragment.show(getSupportFragmentManager(), "date picker");
+        Log.wtf("onClick  ","");
+    }*/
 
 
-        // Construct SwitchDateTimePicker
-        dateTimeFragment = (SwitchDateTimeDialogFragment) getSupportFragmentManager().findFragmentByTag(TAG_DATETIME_FRAGMENT);
-        if(dateTimeFragment == null) {
-            dateTimeFragment = SwitchDateTimeDialogFragment.newInstance(
-                    getString(R.string.label_datetime_dialog),
-                    getString(android.R.string.ok),
-                    getString(android.R.string.cancel),
-                    getString(R.string.clean) // Optional
-            );
-        }
-
-        // Optionally define a timezone
-        dateTimeFragment.setTimeZone(TimeZone.getDefault());
-
-        // Init format
-        final SimpleDateFormat myDateFormat = new SimpleDateFormat("d MMM yyyy HH:mm", java.util.Locale.getDefault());
-        // Assign unmodifiable values
-        dateTimeFragment.set24HoursMode(true);
-        dateTimeFragment.setHighlightAMPMSelection(false);
-        dateTimeFragment.setMinimumDateTime(new GregorianCalendar(2015, Calendar.JANUARY, 1).getTime());
-        dateTimeFragment.setMaximumDateTime(new GregorianCalendar(2025, Calendar.DECEMBER, 31).getTime());
-
-        // Define new day and month format
-        try {
-            dateTimeFragment.setSimpleDateMonthAndDayFormat(new SimpleDateFormat("MMMM dd", Locale.getDefault()));
-        } catch (SwitchDateTimeDialogFragment.SimpleDateMonthAndDayFormatException e) {
-            Log.e(TAG, e.getMessage());
-        }
-
-        // Set listener for date
-        // Or use dateTimeFragment.setOnButtonClickListener(new SwitchDateTimeDialogFragment.OnButtonClickListener() {
-
-
-        TextView buttonView = findViewById(R.id.tvScheduleTime4);
-        buttonView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Re-init each time
-                timeDialogId=1;
-                v=textView1;
-                Log.wtf(timeDialogId+"","  Id of dialog");
-                dateTimeFragment.startAtTimeView();
-                dateTimeFragment.setDefaultDateTime(new GregorianCalendar(2017, Calendar.MARCH, 4, 15, 20).getTime());
-                dateTimeFragment.show(getSupportFragmentManager(), TAG_DATETIME_FRAGMENT);
-            }
-        });
+    public void setDateStart(View v) {
+        new DatePickerDialog(this,
+                R.style.MyDatePickerDialogStyle,
+                dstart,
+                dateAndTime.get(Calendar.YEAR),
+                dateAndTime.get(Calendar.MONTH),
+                dateAndTime.get(Calendar.DAY_OF_MONTH))
+                .show();
+    }
+    public void setDateEnd(View v) {
+        new DatePickerDialog(this,
+                R.style.MyDatePickerDialogStyle,
+                dend,
+                dateAndTime.get(Calendar.YEAR),
+                dateAndTime.get(Calendar.MONTH),
+                dateAndTime.get(Calendar.DAY_OF_MONTH))
+                .show();
     }
 
-    public void setTimeDialog2(){
-        final TextView textView;
-        textView = findViewById(R.id.tvScheduleTime2);
-
-
-        // Construct SwitchDateTimePicker
-        dateTimeFragment = (SwitchDateTimeDialogFragment) getSupportFragmentManager().findFragmentByTag(TAG_DATETIME_FRAGMENT);
-        if(dateTimeFragment == null) {
-            dateTimeFragment = SwitchDateTimeDialogFragment.newInstance(
-                    getString(R.string.label_datetime_dialog),
-                    getString(android.R.string.ok),
-                    getString(android.R.string.cancel),
-                    getString(R.string.clean) // Optional
-            );
-        }
-
-        // Optionally define a timezone
-        dateTimeFragment.setTimeZone(TimeZone.getDefault());
-
-        // Init format
-        final SimpleDateFormat myDateFormat = new SimpleDateFormat("d MMM yyyy HH:mm", java.util.Locale.getDefault());
-        // Assign unmodifiable values
-        dateTimeFragment.set24HoursMode(true);
-        dateTimeFragment.setHighlightAMPMSelection(false);
-        dateTimeFragment.setMinimumDateTime(new GregorianCalendar(2015, Calendar.JANUARY, 1).getTime());
-        dateTimeFragment.setMaximumDateTime(new GregorianCalendar(2025, Calendar.DECEMBER, 31).getTime());
-
-        // Define new day and month format
-        try {
-            dateTimeFragment.setSimpleDateMonthAndDayFormat(new SimpleDateFormat("MMMM dd", Locale.getDefault()));
-        } catch (SwitchDateTimeDialogFragment.SimpleDateMonthAndDayFormatException e) {
-            Log.e(TAG, e.getMessage());
-        }
-
-        // Set listener for date
-        // Or use dateTimeFragment.setOnButtonClickListener(new SwitchDateTimeDialogFragment.OnButtonClickListener() {
-
-
-        TextView buttonView = findViewById(R.id.tvScheduleTime2);
-        buttonView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Re-init each time
-                timeDialogId=2;
-                v=textView;
-
-                Log.wtf(timeDialogId+"","  Id of dialog");
-                dateTimeFragment.startAtTimeView();
-                dateTimeFragment.setDefaultDateTime(new GregorianCalendar(2017, Calendar.MARCH, 4, 15, 20).getTime());
-                dateTimeFragment.show(getSupportFragmentManager(), TAG_DATETIME_FRAGMENT);
-            }
-        });
+    public void setTimeStart(View v) {
+        new TimePickerDialog(this, tstart,
+                dateAndTime.get(Calendar.HOUR_OF_DAY),
+                dateAndTime.get(Calendar.MINUTE), true)
+                .show();
     }
-
-    public void setDateDialog1(){
-        final TextView textView;
-        textView = findViewById(R.id.tvScheduleTime3);
-
-
-        // Construct SwitchDateTimePicker
-        dateTimeFragment = (SwitchDateTimeDialogFragment) getSupportFragmentManager().findFragmentByTag(TAG_DATETIME_FRAGMENT);
-        if(dateTimeFragment == null) {
-            dateTimeFragment = SwitchDateTimeDialogFragment.newInstance(
-                    getString(R.string.label_datetime_dialog),
-                    getString(android.R.string.ok),
-                    getString(android.R.string.cancel),
-                    getString(R.string.clean) // Optional
-            );
-        }
-
-        // Optionally define a timezone
-        dateTimeFragment.setTimeZone(TimeZone.getDefault());
-
-        // Init format
-        final SimpleDateFormat myDateFormat = new SimpleDateFormat("d MMM yyyy HH:mm", java.util.Locale.getDefault());
-        // Assign unmodifiable values
-        dateTimeFragment.set24HoursMode(true);
-        dateTimeFragment.setHighlightAMPMSelection(false);
-        dateTimeFragment.setMinimumDateTime(new GregorianCalendar(2015, Calendar.JANUARY, 1).getTime());
-        dateTimeFragment.setMaximumDateTime(new GregorianCalendar(2025, Calendar.DECEMBER, 31).getTime());
-
-        // Define new day and month format
-        try {
-            dateTimeFragment.setSimpleDateMonthAndDayFormat(new SimpleDateFormat("MMMM dd", Locale.getDefault()));
-        } catch (SwitchDateTimeDialogFragment.SimpleDateMonthAndDayFormatException e) {
-            Log.e(TAG, e.getMessage());
-        }
-
-        // Set listener for date
-        // Or use dateTimeFragment.setOnButtonClickListener(new SwitchDateTimeDialogFragment.OnButtonClickListener() {
-
-
-
-        TextView buttonView = findViewById(R.id.tvScheduleTime3);
-        buttonView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Re-init each time
-                timeDialogId=3;
-                v=textView;
-                Log.wtf(timeDialogId+"","  Id of dialog");
-                dateTimeFragment.startAtCalendarView();
-
-                dateTimeFragment.setDefaultDateTime(new GregorianCalendar(2017, Calendar.MARCH, 4, 15, 20).getTime());
-                dateTimeFragment.show(getSupportFragmentManager(), TAG_DATETIME_FRAGMENT);
-            }
-        });
+    public void setTimeEnd(View v) {
+        new TimePickerDialog(this, tend,
+                dateAndTime.get(Calendar.HOUR_OF_DAY),
+                dateAndTime.get(Calendar.MINUTE), true)
+                .show();
     }
+    // установка начальных даты и времени
+    private void setInitialDateTimeDateStart() {
 
-    public void setDateDialog2(){
-        final TextView textView;
-        textView = findViewById(R.id.tvEndTime2);
+        TextView tvv = findViewById(R.id.tvDateStart);
+                tvv.setText(DateUtils.formatDateTime(this,
+                dateAndTime.getTimeInMillis(),
+                DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR));
+    }
+    private void setInitialDateTimeDateEnd() {
 
+        TextView tvv = findViewById(R.id.tvDateEnd);
 
-        // Construct SwitchDateTimePicker
-        dateTimeFragment = (SwitchDateTimeDialogFragment) getSupportFragmentManager().findFragmentByTag(TAG_DATETIME_FRAGMENT);
-        if(dateTimeFragment == null) {
-            dateTimeFragment = SwitchDateTimeDialogFragment.newInstance(
-                    getString(R.string.label_datetime_dialog),
-                    getString(android.R.string.ok),
-                    getString(android.R.string.cancel),
-                    getString(R.string.clean) // Optional
-            );
-        }
+        tvv.setText(DateUtils.formatDateTime(this,
+                dateAndTime.getTimeInMillis(),
+                DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR));
+    }
+    private void setInitialDateTimeTimeStart() {
 
-        // Optionally define a timezone
-        dateTimeFragment.setTimeZone(TimeZone.getDefault());
+        TextView tvv = findViewById(R.id.tvTimeStart);
+        tvv.setText(DateUtils.formatDateTime(this,
+                dateAndTime.getTimeInMillis(),
+                DateUtils.FORMAT_SHOW_TIME));
+    }
+    private void setInitialDateTimeTimeEnd() {
 
-        // Init format
-        final SimpleDateFormat myDateFormatDate = new SimpleDateFormat("d MMM yyyy", java.util.Locale.getDefault());
-        final SimpleDateFormat myDateFormatTime = new SimpleDateFormat("HH:mm",java.util.Locale.getDefault());
-        // Assign unmodifiable values
-        dateTimeFragment.set24HoursMode(true);
-        dateTimeFragment.setHighlightAMPMSelection(false);
-        dateTimeFragment.setMinimumDateTime(new GregorianCalendar(2015, Calendar.JANUARY, 1).getTime());
-        dateTimeFragment.setMaximumDateTime(new GregorianCalendar(2025, Calendar.DECEMBER, 31).getTime());
-
-        // Define new day and month format
-        try {
-            dateTimeFragment.setSimpleDateMonthAndDayFormat(new SimpleDateFormat("MMMM dd", Locale.getDefault()));
-        } catch (SwitchDateTimeDialogFragment.SimpleDateMonthAndDayFormatException e) {
-            Log.e(TAG, e.getMessage());
-        }
-
-        // Set listener for date
-        // Or use dateTimeFragment.setOnButtonClickListener(new SwitchDateTimeDialogFragment.OnButtonClickListener() {
-
-        dateTimeFragment.setOnButtonClickListener(new SwitchDateTimeDialogFragment.OnButtonWithNeutralClickListener() {
-            @Override
-            public void onPositiveButtonClick(Date date) {
-                Calendar cal = Calendar.getInstance();
-                cal.setTime(date);
-                int year = cal.get(Calendar.YEAR);
-                int month = cal.get(Calendar.MONTH);
-                int day = cal.get(Calendar.DAY_OF_MONTH);
-                int time = cal.get(Calendar.MILLISECOND);
-
-                switch(timeDialogId) {
-                    case 0:
-                        Log.wtf("datePicker","case 0");
-
-                        break;
-                    case 1:
-                        v.setText(myDateFormatTime.format(date));
-                        Log.wtf("datePicker", "case 1");
-                        mSchedule.setTime(time);
-                        break;
-                    case 2:
-                        v.setText(myDateFormatTime.format(date));
-                        Log.wtf("datePicker", "case 1");
-                        break;
-                    case 3:
-                        v.setText(myDateFormatDate.format(date));
-                        Log.wtf("datePicker", "case 3");
-
-                        mSchedule.setDay(day);
-                        mSchedule.setMonth(month);
-                        mSchedule.setYear(year);
-                        break;
-                    case 4:
-                        v.setText(myDateFormatDate.format(date));
-                        Log.wtf("datePicker", "case 4");
-                        break;
-                    default:
-                            break;
-
-                }
-            }
-
-            @Override
-            public void onNegativeButtonClick(Date date) {
-                // Do nothing
-            }
-
-            @Override
-            public void onNeutralButtonClick(Date date) {
-                // Optional if neutral button does'nt exists
-                v.setText("");
-            }
-        });
-
-        TextView buttonView = findViewById(R.id.tvEndTime2);
-        buttonView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Re-init each time
-                timeDialogId=4;
-                v=textView;
-                Log.wtf(timeDialogId+"","  Id of dialog");
-                dateTimeFragment.startAtCalendarView();
-                dateTimeFragment.setDefaultDateTime(new GregorianCalendar(2017, Calendar.MARCH, 4, 15, 20).getTime());
-                dateTimeFragment.show(getSupportFragmentManager(), TAG_DATETIME_FRAGMENT);
-            }
-        });
+        TextView tvv = findViewById(R.id.tvTimeEnd);
+        tvv.setText(DateUtils.formatDateTime(this,
+                dateAndTime.getTimeInMillis(),
+                DateUtils.FORMAT_SHOW_TIME));
     }
 
 
 
+
+    TimePickerDialog.OnTimeSetListener tstart=new TimePickerDialog.OnTimeSetListener() {
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            dateAndTime.set(Calendar.HOUR_OF_DAY, hourOfDay);mSchedule.setHour(hourOfDay);
+            dateAndTime.set(Calendar.MINUTE, minute);mSchedule.setMinute(minute);
+            setInitialDateTimeTimeStart();
+        }
+    };
+    TimePickerDialog.OnTimeSetListener tend=new TimePickerDialog.OnTimeSetListener() {
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            dateAndTime.set(Calendar.HOUR_OF_DAY, hourOfDay);mSchedule.setHourend(hourOfDay);
+            dateAndTime.set(Calendar.MINUTE, minute);mSchedule.setMinuteend(minute);
+            setInitialDateTimeTimeEnd();
+        }
+    };
+
+    DatePickerDialog.OnDateSetListener dstart=new DatePickerDialog.OnDateSetListener() {
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            dateAndTime.set(Calendar.YEAR, year);mSchedule.setYear(year);
+            dateAndTime.set(Calendar.MONTH, monthOfYear);mSchedule.setMonth(monthOfYear);
+            dateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);mSchedule.setDay(dayOfMonth);
+            setInitialDateTimeDateStart();
+        }
+    };
+    DatePickerDialog.OnDateSetListener dend=new DatePickerDialog.OnDateSetListener() {
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            dateAndTime.set(Calendar.YEAR, year);mSchedule.setYearend(year);
+            dateAndTime.set(Calendar.MONTH, monthOfYear);mSchedule.setMonthend(monthOfYear);
+            dateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);mSchedule.setDayend(dayOfMonth);
+            setInitialDateTimeDateEnd();
+        }
+    };
 
 
 
@@ -481,4 +343,5 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
         setResult(1, new Intent().putExtra(EVENT_SET_OBJ, data));
         finish();
     }
+
 }
