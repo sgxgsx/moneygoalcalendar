@@ -131,37 +131,41 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
-                                android:id="@+id/tvScheduleTime3"
+                                android:id="@+id/tvDateStart"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginBottom="13dp"
                                 android:layout_marginStart="@dimen/margin_start_detail_30dp"
                                 android:layout_marginTop="13dp"
-                                android:layout_marginBottom="13dp"
+                                android:onClick="setDateStart"
+                                android:padding="5dp"
                                 android:text="Saturday, August 3"
-                                android:textSize="@dimen/text_size_14sp"
                                 android:textColor="@color/colorPrimaryDark"
-                                app:layout_constraintStart_toEndOf="@+id/ivDate"
+                                android:textSize="@dimen/text_size_14sp"
                                 app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/ivDate"
                                 app:layout_constraintTop_toTopOf="parent" />
                         </android.support.constraint.ConstraintLayout>
 
                         <LinearLayout
                             android:id="@+id/llPickTimeFrom"
-                            android:layout_width="80dp"
+                            android:layout_width="101dp"
                             android:layout_height="match_parent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
+
                             <TextView
-                                android:id="@+id/tvScheduleTime4"
+                                android:id="@+id/tvTimeStart"
                                 android:layout_width="wrap_content"
-                                android:layout_height="18dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:onClick="setTimeStart"
+                                android:padding="5dp"
                                 android:text="00:00"
                                 android:textAlignment="center"
-                                android:layout_gravity="center"
-                                android:layout_marginStart="10dp"
-                                android:textSize="@dimen/text_size_14sp"
-                                android:textColor="@color/colorPrimaryDark" />
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/text_size_14sp" />
                         </LinearLayout>
                     </android.support.constraint.ConstraintLayout>
 
@@ -176,36 +180,40 @@
                         android:layout_height="40dp">
 
                         <TextView
-                            android:id="@+id/tvEndTime2"
+                            android:id="@+id/tvDateEnd"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="13dp"
                             android:layout_marginStart="70dp"
                             android:layout_marginTop="13dp"
-                            android:layout_marginBottom="13dp"
+                            android:onClick="setDateEnd"
+                            android:padding="5dp"
                             android:text="Saturday, August 3"
-                            android:textSize="@dimen/text_size_14sp"
                             android:textColor="@color/colorPrimaryDark"
-                            app:layout_constraintStart_toStartOf="parent"
+                            android:textSize="@dimen/text_size_14sp"
                             app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <LinearLayout
                             android:id="@+id/llPickTimeTo"
-                            android:layout_width="80dp"
+                            android:layout_width="101dp"
                             android:layout_height="match_parent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
+
                             <TextView
-                                android:id="@+id/tvScheduleTime2"
+                                android:id="@+id/tvTimeEnd"
                                 android:layout_width="wrap_content"
-                                android:layout_height="18dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:onClick="setTimeEnd"
+                                android:padding="5dp"
                                 android:text="00:00"
                                 android:textAlignment="center"
-                                android:layout_gravity="center"
-                                android:layout_marginStart="10dp"
-                                android:textSize="@dimen/text_size_14sp"
-                                android:textColor="@color/colorPrimaryDark" />
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/text_size_14sp" />
                         </LinearLayout>
                     </android.support.constraint.ConstraintLayout>
 

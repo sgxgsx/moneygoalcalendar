@@ -132,19 +132,19 @@ public class  ScheduleDao{
         ContentResolver cr = mContext.getContentResolver();
 
         Calendar beginTime = Calendar.getInstance();
-        beginTime.set(mSchedule.getYear(), mSchedule.getMonth(), mSchedule.getDay(), 9, 30);
+        beginTime.set(mSchedule.getYear(), mSchedule.getMonth(), mSchedule.getDay(), mSchedule.getHour(), mSchedule.getMinute());
 
         Calendar endTime = Calendar.getInstance();
-        endTime.set(mSchedule.getYear(), mSchedule.getMonth(), mSchedule.getDay(), 10, 30);
+        endTime.set(mSchedule.getYearend(), mSchedule.getMonthend(), mSchedule.getDayend(), mSchedule.getHourend(), mSchedule.getMinuteend());
 
         ContentValues values = new ContentValues();
         values.put(CalendarContract.Events.DTSTART, beginTime.getTimeInMillis());
         values.put(CalendarContract.Events.DTEND, endTime.getTimeInMillis());
+        //values.put(CalendarContract.Events.DTSTART,mSchedule.getTime());
+        //values.put(CalendarContract.Events.DTEND,mSchedule.getTime_end());
         values.put(CalendarContract.Events.TITLE, mSchedule.getTitle());
         values.put(CalendarContract.Events.DESCRIPTION, mSchedule.getDesc());
-        values.put(CalendarContract.Events.CALENDAR_ID, 238);
-        //todo сделать нормальный алгоритм присваивания ID эвенту(например через время создания)
-        values.put(CalendarContract.Events._ID, (int)Math.random()*999999);
+        values.put(CalendarContract.Events.CALENDAR_ID, 3);
         TimeZone tz = TimeZone.getDefault();
         values.put(CalendarContract.Events.EVENT_TIMEZONE, tz.getDisplayName(Locale.getDefault(Locale.Category.DISPLAY)));
         values.put(CalendarContract.Events.EVENT_LOCATION, mSchedule.getLocation());

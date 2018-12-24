@@ -157,6 +157,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         tvTitle = searchViewById(R.id.tvTitle);
         ChooseModuleButtonTime=searchViewById(R.id.ChooseModuleButtonTime);
         ChooseMenuButtonBackground=searchViewById(R.id.chooseMenuButtonBackground2);
+        ChooseMenuButtonBackground.setVisibility(View.INVISIBLE);
         gotoMoneyButton=searchViewById(R.id.gotoMoneyButton);
         gotoGoalButton=searchViewById(R.id.gotoGoalButton);
         //rvMenuCalendarClassList = searchViewById(R.id.rvMenuEventSetList);
