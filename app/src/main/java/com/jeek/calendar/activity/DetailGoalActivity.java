@@ -3,7 +3,10 @@ package com.jeek.calendar.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -49,6 +52,7 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     private TextView goalName, time, description;
     private ConstraintLayout dateLayout;
     private ImageView noteImage;
+    //private ImageView detailImage;
     private boolean buttonNotShowen = true;
     private View AddNote,AddAim, MenuButtonBackground;
     // completed VLAD сделать DetailGoalActivity
@@ -117,6 +121,7 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         AddAim = findViewById(R.id.fabAddAimGoal);
         AddNote = findViewById(R.id.fabAddNoteGoal);
         MenuButtonBackground = findViewById(R.id.chooseMenuButtonBackground2);
+        //detailImage = findViewById(R.id.ivImageDetailGoal);
 
         noteImage = findViewById(R.id.iNoteImage);
         goalName.setText(mGoal.getGoal_name());
@@ -129,10 +134,28 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
             Format format = new SimpleDateFormat("dd.mm.yyyy");
             time.setText(format.format(date));
         }
+
+
         AddAim.setOnClickListener(this);
         AddNote.setOnClickListener(this);
         MenuButtonBackground.setOnClickListener(this);
+
+        //TODO на потом : нужно при создании и эдите Гоала добавить поле с чекбоксом "Показывать ли картинку в бэкграунде" а здесь делать проверку - нужно ли показывать
+        //TODO на потом : если да, то переделать item_aim!
+        /*
+        if(!mGoal.getImage_path().equals("")){
+            BitmapDrawable background = setImage(mGoal.getImage_path());
+            detailImage.setImageDrawable(background);
+        }
+        */
     }
+
+/*
+    private BitmapDrawable setImage(String path){
+        Bitmap selectedImage = BitmapFactory.decodeFile(path);
+        return new BitmapDrawable(getResources(), selectedImage);
+    }
+*/
 
     @Override
     public void onClick(View v) {

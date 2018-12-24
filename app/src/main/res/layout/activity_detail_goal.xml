@@ -60,6 +60,12 @@
         app:backgroundTint="@color/colorAccent"
         app:srcCompat="@drawable/btn_dialog_add_event_set" />
 
+    <ImageView
+        android:id="@+id/ivImageDetailGoal"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
     <ScrollView
         android:id="@+id/svEventDetail"
         android:layout_width="match_parent"
@@ -69,7 +75,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tbDetailGoalActivity"
         app:layout_constraintBottom_toBottomOf="parent">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

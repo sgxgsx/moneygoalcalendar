@@ -27,7 +27,7 @@
                 android:layout_height="@dimen/icon_width"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:src="@drawable/ic_chevron_left" />
+                android:src="@drawable/ic_clock_1" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/llSaveGoal"

@@ -4,13 +4,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -131,6 +135,7 @@ public class DetailGoalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             viewHolder.llTime.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(aim.getColor()) + 5));
             viewHolder.tvGoalPlannedProgress.setText(String.valueOf(18));
             viewHolder.tvGoalDoneProgress.setText(String.valueOf(1));
+
             //Date date = new Date();
             //Format format = new SimpleDateFormat("DD.MM.YYYY");
             //viewHolder.tvDateTo.setText(format.format(date));
@@ -199,6 +204,7 @@ public class DetailGoalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             vChange1 = itemView.findViewById(R.id.toChange1);
             vChange2 = itemView.findViewById(R.id.toChange2);
             llTime = itemView.findViewById(R.id.AimTime);
+
         }
     }
 

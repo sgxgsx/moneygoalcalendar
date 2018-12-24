@@ -104,6 +104,7 @@
             />
     </LinearLayout>
     <View
+        android:id="@+id/ivSomeChange"
         android:layout_width="60dp"
         android:layout_height="30dp"
         android:background="@drawable/half_circle"

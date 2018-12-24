@@ -1,13 +1,21 @@
 package com.jeek.calendar.adapter;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jeek.calendar.R;
@@ -17,6 +25,8 @@ import com.jimmy.common.GoalDatabase.Aim;
 import com.jimmy.common.GoalDatabase.Goal;
 import com.jimmy.common.GoalDatabase.GoalSchedule;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,6 +35,7 @@ import java.util.List;
 public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHolder> {
     private Context mContext;
     private List<Goal> mGoals;
+    final String TAG = "GoalsAdapter";
 
 
     public GoalsAdapter(Context context, List<Goal> goals) {
@@ -82,6 +93,15 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
                 }
             }
         }
+        if(!goal.getImage_path().equals("")){
+            Bitmap selectedImage = BitmapFactory.decodeFile(goal.getImage_path());
+            BitmapDrawable background = new BitmapDrawable(mContext.getResources(), selectedImage);
+            holder.imageGoal.setImageDrawable(background);
+        } else{
+            Log.wtf(TAG, "no path");
+        }
+
+
 
         holder.tvGoalPlannedProgress.setText(String.valueOf(count));
         holder.tvGoalDoneProgress.setText(String.valueOf(done));
@@ -92,7 +112,7 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
             @Override
             public void onClick(View v) {
                 gotoDetail(goal);
-                Log.wtf("click", "click go to detail");
+                Log.wtf(TAG, "click go to detail");
             }
         });
         /*
@@ -118,11 +138,11 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
         });
         */
     }
-
+/*
     private void gotoChange(Goal goal){
         mContext.startActivity(new Intent(mContext, EditGoalActivity.class).putExtra(EditGoalActivity.GOAL_OBJ, goal));
     }
-
+*/
     private void gotoDetail(Goal goal){
         mContext.startActivity(new Intent(mContext, DetailGoalActivity.class).putExtra(DetailGoalActivity.GOAL_OBJ, goal));
     }
@@ -132,6 +152,7 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
         private TextView tvGoalName;
         private TextView tvGoalPlannedProgress;
         private TextView tvGoalDoneProgress;
+        private ImageView imageGoal;
         //private TextView tvDateTo;
         private View vChange;
 
@@ -141,6 +162,7 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
             tvGoalName = itemView.findViewById(R.id.tvGoalName);
             tvGoalPlannedProgress = itemView.findViewById(R.id.tvGoalAllEvents);
             tvGoalDoneProgress = itemView.findViewById(R.id.tvGoalDoneEvents);
+            imageGoal = itemView.findViewById(R.id.ivImageGoal);
             //tvDateTo = itemView.findViewById(R.id.tvGoalDate);
             //vChange = itemView.findViewById(R.id.vChangeGoal);
         }

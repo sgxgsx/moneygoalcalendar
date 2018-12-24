@@ -153,19 +153,25 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
         setResult(Activity.RESULT_OK, returnIntent);
         finish();
     }
-    /*
     @Override
     public void onBackPressed() {
         Log.wtf("aim", "back press");
-        save();
+        if (mNote != null){
+            change();
+        } else{
+            save();
+        }
         super.onBackPressed();
     }
-        */
 }
 // TODO улучшить дизайн NOTE item
 /*
-        Присваивание картинки к Goal'у
-        Улучшить дизайн Goal item
+        // Присваивание картинки к Goal'у
+        // Исправить баг в ГоалАктивити
+        // Улучшить дизайн Goal item
+        // Улучшить дизайн лейаута с календарем    - кнопку выбора модуля (зеленая)
+        Улучшить дизайн ЭддИвентАктивити
+
         Сделать логотип приложения
         Сделайть сайт приложения
 * */

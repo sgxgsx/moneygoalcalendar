@@ -1,11 +1,14 @@
 package com.jeek.calendar.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.provider.MediaStore;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +17,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,14 +35,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddGoalActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener{
-
+    private static final String TAG = "AddGoalActivity";
     private final int RESULT_LOAD_IMG = 100;
     private GoalsAdapter mGoalsAdapter;
 
-    private ConstraintLayout ImagePicker;
     private EditText title, description;
+    private ImageView ivGoal;
     private TextView time;
     private CheckBox aimsevents, cbtime;
+    private String image_path = "";
 
     // TODO LEHA добавь выбор времени в этот файл. (который будет вовзращать long)?
 
@@ -46,7 +51,7 @@ public class AddGoalActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_goal);
-        ImagePicker = findViewById(R.id.nbAddGoal);
+        ivGoal = findViewById(R.id.ivAddGoal);
         title = findViewById(R.id.etNameGoal);
         description = findViewById(R.id.etDescription);
         aimsevents = findViewById(R.id.cbAimEvent);
@@ -100,7 +105,7 @@ public class AddGoalActivity extends AppCompatActivity implements View.OnClickLi
         }
         List<Aim> aimList = new ArrayList<>();
         List<GoalSchedule> goalSchedules = new ArrayList<>();
-        Goal goal = new Goal(name, date_to, desc, aimList, goalSchedules, new ArrayList<Note>());
+        Goal goal = new Goal(name, date_to, desc, image_path, aimList, goalSchedules, new ArrayList<Note>());
         new InsertGoalTask(getApplicationContext(), goal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         finish();
     }
@@ -129,25 +134,41 @@ public class AddGoalActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+    private void setImage(String path){
+        Bitmap selectedImage = BitmapFactory.decodeFile(path);
+        BitmapDrawable background = new BitmapDrawable(getResources(), selectedImage);
+        ivGoal.setImageDrawable(background);
+    }
+
+    private String getRealPathFromURI(Context context, Uri contentUri) {
+        Cursor cursor = null;
+        try {
+            String[] proj = { MediaStore.Images.Media.DATA };
+            cursor = context.getContentResolver().query(contentUri,  proj, null, null, null);
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        } catch (Exception e) {
+            Log.e(TAG, "getRealPathFromURI Exception : " + e.toString());
+            return "";
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
+
     @Override
     protected void onActivityResult(int reqCode, int resultCode, Intent data) {
         super.onActivityResult(reqCode, resultCode, data);
 
 
         if (resultCode == RESULT_OK) {
-            try {
-                final Uri imageUri = data.getData();
-                final InputStream imageStream = getContentResolver().openInputStream(imageUri);
-                Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
-                BitmapDrawable background = new BitmapDrawable(getApplicationContext().getResources(), selectedImage);
-                ImagePicker.setBackground(background);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-                Log.wtf("wtf", "Something went wrong AddGoalActivity");
-            }
-
+            final Uri imageUri = data.getData();
+            image_path = getRealPathFromURI(getApplicationContext(), imageUri);
+            setImage(image_path);
         }else {
-            Log.wtf("wtf", "No image picked");
+            Log.wtf(TAG, "No image picked");
         }
     }
 }

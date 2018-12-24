@@ -20,6 +20,7 @@ public class  Goal implements Serializable{
     private int inprogress;
     private String goal_name;
     private String description;
+    private String image_path;
     private long date_to;
     private List<Aim> aims;
     private List<GoalSchedule> schedules;
@@ -27,16 +28,17 @@ public class  Goal implements Serializable{
 
 
     @Ignore
-    public Goal(String goal_name, long date_to,String description, List<Aim> aims, List<GoalSchedule> schedules, List<Note> noteList) {
+    public Goal(String goal_name, long date_to, String description, String image_path, List<Aim> aims, List<GoalSchedule> schedules, List<Note> noteList) {
         this.goal_name = goal_name;
         this.date_to = date_to;
         this.aims = aims;
         this.schedules = schedules;
         this.description = description;
         this.noteList = noteList;
+        this.image_path = image_path;
     }
 
-    public Goal(int id, String goal_name, long date_to,String description, List<Aim> aims, List<GoalSchedule> schedules, List<Note> noteList) {
+    public Goal(int id, String goal_name, long date_to, String description, String image_path, List<Aim> aims, List<GoalSchedule> schedules, List<Note> noteList) {
         this.id = id;
         this.goal_name = goal_name;
         this.date_to = date_to;
@@ -46,6 +48,7 @@ public class  Goal implements Serializable{
         this.inprogress = 0;
         this.doneschedules = 0;
         this.noteList = noteList;
+        this.image_path = image_path;
     }
 
     public void addAim(Aim aim){
@@ -87,6 +90,14 @@ public class  Goal implements Serializable{
                 noteList.get(i).setId(i);
             }
         }
+    }
+
+    public String getImage_path() {
+        return image_path;
+    }
+
+    public void setImage_path(String image_path) {
+        this.image_path = image_path;
     }
 
     public List<Note> getNoteList() {
