@@ -106,19 +106,20 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
     @Override
     protected void bindView() {
         setContentView(R.layout.activity_add_event_3);
-        TextView tvTitle = searchViewById(R.id.tvTitle);
-        tvTitle.setText(getString(R.string.schedule_event_detail_setting));
-        searchViewById(R.id.tvCancel).setOnClickListener(this);
-        searchViewById(R.id.tvCreate).setOnClickListener(this);
+       /* TextView tvTitle = searchViewById(R.id.tvTitle);
+        tvTitle.setText(getString(R.string.schedule_event_detail_setting));*/
+        searchViewById(R.id.llCancel).setOnClickListener(this);
+        searchViewById(R.id.llSaveGoal).setOnClickListener(this);
+        searchViewById(R.id.iNoteImage).setOnClickListener(this);
         //searchViewById(R.id.llScheduleTime).setOnClickListener(this);
-        searchViewById(R.id.llScheduleLocation).setOnClickListener(this);
+        //searchViewById(R.id.llScheduleLocation).setOnClickListener(this);
         //searchViewById(R.id.tvScheduleTime3).setOnClickListener(this);
 
         /*vScheduleColor = searchViewById(R.id.vScheduleColor);*/
         etScheduleTitle = searchViewById(R.id.etScheduleTitle);
         etScheduleDesc = searchViewById(R.id.etScheduleDesc);
         tvScheduleTime = searchViewById(R.id.tvDateStart);
-        tvScheduleLocation = searchViewById(R.id.tvScheduleLocation);
+        //tvScheduleLocation = searchViewById(R.id.tvScheduleLocation);
 
     }
 
@@ -148,19 +149,19 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.tvCancel:
+            case R.id.llCancel:
                 setResult(CREATE_SCHEDULE_CANCEL);
                 finish();
                 break;
-            case R.id.tvCreate:
+            case R.id.iNoteImage:
                 addEvent();
                 break;
             /*case R.id.llScheduleTime:
                 showSelectDateDialog();
                 break;*/
-            case R.id.llScheduleLocation:
+            /*case R.id.llScheduleLocation:
                 showInputLocationDialog();
-                break;
+                break;*/
 
 
         }

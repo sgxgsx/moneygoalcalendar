@@ -84,17 +84,18 @@
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="0dp"
                     android:background="@color/colorPrimaryDark">
+
                     <EditText
                         android:id="@+id/etScheduleTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="70dp"
                         android:layout_gravity="center"
+                        android:layout_marginStart="70dp"
+                        android:background="@android:color/transparent"
                         android:hint="Event Title"
                         android:textColor="@color/colorICWhite"
                         android:textColorHint="@color/colorICGrey"
-                        android:textSize="24sp"
-                        android:background="@android:color/transparent"/>
+                        android:textSize="24sp" />
 
                 </LinearLayout>
 
@@ -206,10 +207,11 @@
                                 android:layout_height="18dp"
                                 android:layout_gravity="center"
                                 android:layout_marginStart="10dp"
+                                android:onClick="setTimeStart"
                                 android:text="00:00"
                                 android:textAlignment="center"
-                                android:textSize="@dimen/text_size_14sp"
-                                android:textColor="@color/colorICWhite"/>
+                                android:textColor="@color/colorICWhite"
+                                android:textSize="@dimen/text_size_14sp" />
                         </LinearLayout>
                     </android.support.constraint.ConstraintLayout>
 
@@ -250,12 +252,13 @@
                                 android:id="@+id/tvTimeEnd"
                                 android:layout_width="wrap_content"
                                 android:layout_height="18dp"
-                                android:textAlignment="center"
                                 android:layout_gravity="center"
                                 android:layout_marginStart="10dp"
+                                android:onClick="setTimeEnd"
                                 android:text="00:00"
-                                android:textSize="@dimen/text_size_14sp"
-                                android:textColor="@color/colorICWhite" />
+                                android:textAlignment="center"
+                                android:textColor="@color/colorICWhite"
+                                android:textSize="@dimen/text_size_14sp" />
                         </LinearLayout>
                     </android.support.constraint.ConstraintLayout>
 
