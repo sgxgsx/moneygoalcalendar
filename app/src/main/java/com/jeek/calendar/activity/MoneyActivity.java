@@ -17,4 +17,15 @@ public class MoneyActivity extends AppCompatActivity {
         tvMoney = (TextView) findViewById(R.id.tvMoney);
         tvMoney.setVisibility(View.VISIBLE);
     }
+
 }
+
+//TODO Money:
+/*
+
+    1. сделать лейаут МаниАктивити 100процентом с правым меню.
+    2. сделать лейаут добавления
+    3. сделать лейаут меню с выбором кошельков, бюджетов, манигоалов, и других настроек
+    4.
+
+ */
