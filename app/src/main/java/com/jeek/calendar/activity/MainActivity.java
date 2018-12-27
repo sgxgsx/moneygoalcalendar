@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,7 +52,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
     //private DrawerLayout dlMain;
     private LinearLayout llTitleDate;
     private TextView tvTitleMonth, tvTitleDay, tvTitle;
-    private View ChooseModuleButtonTime,gotoMoneyButton,gotoGoalButton,ChooseMenuButtonBackground;
+    private View gotoMoneyButton,gotoGoalButton,ChooseMenuButtonBackground;
+    private View ChooseModuleButtonTime;
     //private RecyclerView rvMenuCalendarClassList;   //rvMenuEventSetist       CALENDARS
 
     //private CalendarClassAdapter mCalendarClassAdapter;                       CALENDARS
@@ -349,11 +351,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
     }
 
     private void showFloatingChoiceMenu() {
+        Log.wtf("log", "show menu");
         gotoMoneyButton.setVisibility(View.VISIBLE);
         gotoGoalButton.setVisibility(View.VISIBLE);
         ChooseMenuButtonBackground.setVisibility(View.VISIBLE);
     }
     private void hideFloatingChoiceMenu() {
+        Log.wtf("log", "hide menu");
         gotoMoneyButton.setVisibility(View.INVISIBLE);
         gotoGoalButton.setVisibility(View.INVISIBLE);
         ChooseMenuButtonBackground.setVisibility(View.INVISIBLE);

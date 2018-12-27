@@ -7,14 +7,6 @@
     android:layout_height="match_parent"
     tools:context="com.jeek.calendar.activity.MoneyActivity"
     android:background="@color/colorPrimary">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvMoney"
-        android:textSize="22sp"
-        android:text="@string/app_name"
-        android:padding="@dimen/space_20dp"
-        android:textAlignment="center"/>
     <android.support.constraint.ConstraintLayout
         android:id="@+id/clMoneyToolBar"
         android:layout_width="match_parent"
@@ -28,18 +20,18 @@
             android:layout_height="50dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-            <ImageView
-                android:layout_width="@dimen/icon_width"
-                android:layout_height="@dimen/icon_width"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="13dp"
-                android:src="@drawable/ic_chevron_left"/>
+            <ImageButton
+                android:id="@+id/ivMenuInGoal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorTranslate"
+                android:src="@drawable/btn_menu"/>
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>
     <LinearLayout
         android:id="@+id/clMoneyPickListMenu"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:orientation="horizontal"
         android:background="@color/colorPrimaryDark"
         app:layout_constraintTop_toBottomOf="@+id/clMoneyToolBar"
