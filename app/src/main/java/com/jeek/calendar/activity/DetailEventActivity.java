@@ -3,6 +3,8 @@ package com.jeek.calendar.activity;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -13,6 +15,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,14 +38,12 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
     public static String EVENT_SET_OBJ = "event.set.obj";
     public static final String SCHEDULE_OBJ = "Schedule.Event";
 
-
-    private Toolbar mToolbar;
     private TextView mtbTextView, mtvEventTitle, mtvStartTime, mtvEndTime, mtvRepeat;
     private TextView mtvNote, mtvLocation, mtvCalendarOwner, mtvNotification;
     private ConstraintLayout mclTextTitle, mclDateLayout, mclNotificationLayout, mclLocationLayout, mclNoteLayout, mclOwnerLayout;
     private ScrollView mScrollView;
-    private FloatingActionButton mfabEditEvent;
-    private ScheduleDao daoSchedule;
+    private ImageView mImageColor;
+
 
 
     private Schedule mSchedule;
@@ -52,7 +53,7 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_event);
 
-        mToolbar = findViewById(R.id.tbDetailActivity);
+
         mtvEventTitle = findViewById(R.id.tvEventTitle);
         mtvStartTime = findViewById(R.id.tvStartTime);
         mtvEndTime = findViewById(R.id.tvEndTime);
@@ -62,6 +63,7 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
         mtvCalendarOwner = findViewById(R.id.tvCalendarOwnerTextView);
         mtvNotification = findViewById(R.id.tvNotificationTextView);
 
+        mImageColor  = findViewById(R.id.ivName);
         mclTextTitle = findViewById(R.id.EventTitleLayout);
         mclLocationLayout = findViewById(R.id.LocationLayout);
         mclNoteLayout = findViewById(R.id.DescriptionLayout);
@@ -70,10 +72,14 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
         mclNotificationLayout = findViewById(R.id.NotificationLayout);
 
         mScrollView = findViewById(R.id.svEventDetail);
-        findViewById(R.id.fabEditEvent).setOnClickListener(this);
-        findViewById(R.id.ivCancel).setOnClickListener(this);
+        findViewById(R.id.llCancel).setOnClickListener(this);
+        findViewById(R.id.llEdit).setOnClickListener(this);
+        findViewById(R.id.llDelete).setOnClickListener(this);
+        findViewById(R.id.llDuplicate).setOnClickListener(this);
 
-        mToolbar.inflateMenu(R.menu.detail_event_menu);
+
+        // TODO доработать с меню в тулбаре с разными ивентами
+
         if (getIntent().hasExtra(SCHEDULE_OBJ)) {
             mSchedule = (Schedule) getIntent().getSerializableExtra(SCHEDULE_OBJ);
             initUI();
@@ -82,26 +88,6 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.detail_event_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.MenuDeleteEvent:
-                deleteEvent();
-                Toast.makeText(getApplicationContext(),"Item 1 Selected", Toast.LENGTH_LONG).show();
-                return true;
-            case R.id.MenuDuplicateEvent:
-                duplicateEvent();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 
     private void initUI() {
 
@@ -124,9 +110,7 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
         mtvStartTime.setText(format.format(date) + " -");
         mtvEndTime.setText(format_end.format(date_end));
 
-
-        mclTextTitle.setBackgroundColor(mSchedule.getColor());
-        mToolbar.setBackgroundColor(mSchedule.getColor());
+        mImageColor.setImageTintList(ColorStateList.valueOf(mSchedule.getColor()));;
 
         ifHideLayout(repeat, null, mtvRepeat);
         ifHideLayout(location, mclLocationLayout, mtvLocation);
@@ -155,21 +139,25 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View v) {
         int id = v.getId();
         switch (id){
-            case R.id.fabEditEvent:
+            case R.id.llDelete:
                 deleteEvent();
                 break;
-            case R.id.ivCancel:
+            case R.id.llCancel:
                 finish();
+                break;
+            case R.id.llDuplicate:
+                duplicateEvent();
+                break;
+            case R.id.llEdit:
+                editEvent();
                 break;
         }
     }
 
-    private void EditEvent() {
+    private void editEvent() {
         Intent intent = new Intent(this, EditEventActivity.class);
         startActivityForResult(intent, 1);
     }
-
-
 
     public void deleteEvent(){
         Log.wtf("suka","activitydelete1");
@@ -177,10 +165,6 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_CALENDAR}, 999);
         }
         new DeleteEventTask(this, this, mSchedule).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-
-
-
-
     }
 
     private void duplicateEvent(){

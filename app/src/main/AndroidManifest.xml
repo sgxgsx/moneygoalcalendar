@@ -47,6 +47,7 @@
         <activity android:name=".activity.DetailAimActivity" android:screenOrientation="portrait"/>
         <activity android:name=".activity.ProgressBarExample" android:screenOrientation="portrait"/>
         <activity android:name=".activity.ChooseDateActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.EditEventActivity" android:screenOrientation="portrait"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
