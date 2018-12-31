@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ONPU</string>
+    <string name="app_name" translatable="false">Goalmetrix</string>
     <string name="exit_app_hint">Click to exit.</string>
     <string name="cancel">Cancel</string>
     <string name="confirm">Confirm</string>
@@ -86,6 +86,36 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">Map</string>
 
+    
+    
+    
+    <!-- Money -->
+    <string name="money_daily">Daily</string>
+    <string name="money_weekly">Weekly</string>
+    <string name="money_monthly">Monthly</string>
+    <string name="money_total">Total</string>
+    <string name="money_transaction">Transactions</string>
+    <string name="money_statistics">Statistics</string>
+    <string name="money_accounts">Accounts</string>
+    <string name="money_settings">Settings</string>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     <!-- colors -->
     <string name="tomato">Tomato</string>
@@ -100,6 +130,9 @@
     <string name="flamingo">Flamingo</string>
     <string name="graphite">Graphite</string>
     <string name="default_color">Default color</string>
+    
+    
+    
 
 
 </resources>

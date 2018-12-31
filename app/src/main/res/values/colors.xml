@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--<color name="colorPrimary">#736EB0</color> !-->
+    <!-- main colors   -->
     <color name="colorPrimary">#37343F</color>
     <color name="colorPrimaryDark">#2C2A32</color>
     <color name="colorAccent">#FF5C5A</color>
+    <color name="colorLime">#00C382</color>
+    <color name="colorDarkCyan">#006057</color>
+    <color name="colorSoftYellow">#FAD951</color>
+    <color name="colorMagenta">#BD00FB</color>
+    <color name="colorBlue">#76DAFE</color>
+
+
+    <!-- text -->
     <color name="colorGrey">#8b869a</color>
     <color name="colorTextWhite">#EBEAEB</color>
     <color name="colorICWhite">#DEDEDE</color>
     <color name="colorICGrey">#C7C7C7</color>
     <color name="colorBackBlue">#76DAFE</color>
+    
+    
+    <!-- other -->
+    
+    
+    
+    
     <color name="colorBackground">#F0F1F5</color>
     <color name="colorWrite">#FFFFFF</color>
     <color name="colorTranslate">#00FFFFFF</color>

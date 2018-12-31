@@ -28,7 +28,6 @@
                 android:id="@+id/ivMainMenu"
                 android:layout_width="@dimen/action_bar_height"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
                 android:background="@color/colorTranslate"
                 android:src="@drawable/btn_menu"/>
 

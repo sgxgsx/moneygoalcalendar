@@ -29,28 +29,27 @@
         android:icon="@mipmap/ic_l_two"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.AuthActivity">
+        <activity android:name=".activity.AuthActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.ScheduleDetailActivity" />
-        <activity android:name=".activity.AddEventSetActivity" />
-        <activity android:name=".activity.MoneyActivity" />
-        <activity android:name=".activity.AddEventActivity" />
-        <activity android:name=".activity.SettingsActivity" />
-        <activity android:name=".activity.DetailEventActivity" />
-        <activity android:name=".activity.GoalActivity" />
-        <activity android:name=".activity.DetailGoalActivity" />
-        <activity android:name=".activity.EditGoalActivity" />
-        <activity android:name=".activity.AddGoalActivity" />
-        <activity android:name=".activity.DetailAimActivity" />
-        <activity android:name=".activity.ProgressBarExample" />
-        <activity android:name=".activity.ChooseDateActivity" />
-        <activity android:name=".activity.MenuSampleActivity"/>
+        <activity android:name=".activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.ScheduleDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.AddEventSetActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.MoneyActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.AddEventActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.DetailEventActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.GoalActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.DetailGoalActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.EditGoalActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.AddGoalActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.DetailAimActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.ProgressBarExample" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.ChooseDateActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.MenuSampleActivity" android:screenOrientation="portrait"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -60,9 +59,9 @@
              You can define the keys for the debug and release targets in src/debug/ and src/release/. 
         -->
 
-        <activity android:name=".activity.AddAimActivity" />
-        <activity android:name=".activity.EditAimActivity" />
-        <activity android:name=".activity.NoteActivity"></activity>
+        <activity android:name=".activity.AddAimActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.EditAimActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.NoteActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

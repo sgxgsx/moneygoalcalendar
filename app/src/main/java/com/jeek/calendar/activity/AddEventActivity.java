@@ -24,7 +24,6 @@ import android.widget.TimePicker;
 import com.jeek.calendar.R;
 import com.jeek.calendar.adapter.ScheduleAdapter;
 import com.jeek.calendar.dialog.InputLocationDialog;
-import com.jeek.calendar.dialog.MyDatePickerDialog;
 import com.jeek.calendar.dialog.SelectDateDialog;
 import com.jeek.calendar.task.schedule.AddEventTask;
 import com.jimmy.common.CalendarSystemDatabase.Schedule;
