@@ -147,7 +147,7 @@ protected void bindView() {}
 
 
     public void onClickFillProgressBarD(View view) {
-        showSelectCalendarDialog();
+        showAddEventDialog();
     }
 
 
@@ -160,7 +160,7 @@ protected void bindView() {}
         mSelectCalendarDialog.show();
     }
 
-    private void showInputLocationDialog() {
+    private void showAddEventDialog() {
         if (mAddEventDialog == null) {
             mAddEventDialog = new AddEventDialog(this, this,saved);
         }

@@ -332,8 +332,6 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
     };
 
 
-
-
     @Override
     public void onLocationBack(String text) {
         mSchedule.setLocation(text);
