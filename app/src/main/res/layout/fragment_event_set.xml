@@ -29,6 +29,6 @@
 
     </RelativeLayout>
 
-    <include layout="@layout/main_input" />
+    <!--<include layout="@layout/main_input" />-->
 
 </RelativeLayout>

@@ -13,10 +13,8 @@ import com.jimmy.common.bean.EventSet;
 import com.jimmy.common.CalendarSystemDatabase.Schedule;
 import com.jeek.calendar.dialog.InputLocationDialog;
 import com.jeek.calendar.dialog.SelectDateDialog;
-import com.jeek.calendar.dialog.SelectEventSetDialog;
 import com.jeek.calendar.task.schedule.UpdateScheduleTask;
 import com.jeek.calendar.utils.DateUtils;
-import com.jeek.calendar.utils.JeekUtils;
 import com.jimmy.common.base.app.BaseActivity;
 import com.jimmy.common.listener.OnTaskFinishedListener;
 import com.jimmy.common.util.ToastUtils;
@@ -24,7 +22,7 @@ import com.jimmy.common.util.ToastUtils;
 /**
  * Created by Jimmy on 2016/10/15 0015.
  */
-public class ScheduleDetailActivity extends BaseActivity implements View.OnClickListener, /*OnTaskFinishedListener<Map<Integer, EventSet>>, */ SelectDateDialog.OnSelectDateListener, InputLocationDialog.OnLocationBackListener, SelectEventSetDialog.OnSelectEventSetListener {
+public class ScheduleDetailActivity extends BaseActivity implements View.OnClickListener, /*OnTaskFinishedListener<Map<Integer, EventSet>>, */ SelectDateDialog.OnSelectDateListener, InputLocationDialog.OnLocationBackListener {
 
     public static int UPDATE_SCHEDULE_CANCEL = 1;
     public static int UPDATE_SCHEDULE_FINISH = 2;
@@ -35,7 +33,6 @@ public class ScheduleDetailActivity extends BaseActivity implements View.OnClick
     private EditText etScheduleTitle, etScheduleDesc;
     private ImageView ivScheduleEventSetIcon;
     private TextView tvScheduleEventSet, tvScheduleTime, tvScheduleLocation;
-    private SelectEventSetDialog mSelectEventSetDialog;
     private SelectDateDialog mSelectDateDialog;
     private InputLocationDialog mInputLocationDialog;
 
@@ -117,13 +114,6 @@ public class ScheduleDetailActivity extends BaseActivity implements View.OnClick
         }
     }
 
-    private void showSelectEventSetDialog() {
-        if (mSelectEventSetDialog == null) {
-            mSelectEventSetDialog = new SelectEventSetDialog(this, this, mSchedule.getEventSetId());
-        }
-        mSelectEventSetDialog.show();
-    }
-
     private void showSelectDateDialog() {
         if (mSelectDateDialog == null) {
             mSelectDateDialog = new SelectDateDialog(this, this, mSchedule.getYear(), mSchedule.getMonth(), mSchedule.getDay(), mPosition);
@@ -139,7 +129,7 @@ public class ScheduleDetailActivity extends BaseActivity implements View.OnClick
     }
 
     private void setScheduleData() {
-        vScheduleColor.setBackgroundResource(JeekUtils.getEventSetColor(mSchedule.getColor()));
+        //vScheduleColor.setBackgroundResource((mSchedule.getColor()));
 //        ivScheduleEventSetIcon.setImageResource(mSchedule.getEventSetId() == 0 ? R.mipmap.ic_detail_category : R.mipmap.ic_detail_icon);
         etScheduleTitle.setText(mSchedule.getTitle());
         etScheduleDesc.setText(mSchedule.getDesc());
@@ -157,32 +147,6 @@ public class ScheduleDetailActivity extends BaseActivity implements View.OnClick
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == SelectEventSetDialog.ADD_EVENT_SET_CODE) {
-            if (resultCode == AddEventSetActivity.ADD_EVENT_SET_FINISH) {
-                EventSet eventSet = (EventSet) data.getSerializableExtra(AddEventSetActivity.EVENT_SET_OBJ);
-                if (eventSet != null) {
-                    mSelectEventSetDialog.addEventSet(eventSet);
-                    sendBroadcast(new Intent(MainActivity.ADD_EVENT_SET_ACTION).putExtra(AddEventSetActivity.EVENT_SET_OBJ, eventSet));
-                }
-            }
-        }
-    }
-/*
-    @Override
-    public void onTaskFinished(Map<Integer, EventSet> data) {
-        mEventSetsMap = data;
-        EventSet eventSet = new EventSet();
-        eventSet.setName(getString(R.string.menu_no_category));
-        mEventSetsMap.put(eventSet.getId(), eventSet);
-        EventSet current = mEventSetsMap.get(mSchedule.getEventSetId());
-        if (current != null) {
-            tvScheduleEventSet.setText(current.getName());
-        }
-    }
-*/
     @Override
     public void onSelectDate(int year, int month, int day, long time, int position) {
         mSchedule.setYear(year);
@@ -215,12 +179,4 @@ public class ScheduleDetailActivity extends BaseActivity implements View.OnClick
         }
     }
 
-    @Override
-    public void onSelectEventSet(EventSet eventSet) {
-        mSchedule.setColor(eventSet.getColor());
-        mSchedule.setEventSetId(eventSet.getId());
-        vScheduleColor.setBackgroundResource(JeekUtils.getEventSetColor(mSchedule.getColor()));
-        tvScheduleEventSet.setText(eventSet.getName());
-        ivScheduleEventSetIcon.setImageResource(mSchedule.getEventSetId() == 0 ? R.mipmap.ic_detail_category : R.mipmap.ic_detail_icon);
-    }
 }

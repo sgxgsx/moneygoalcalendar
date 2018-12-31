@@ -42,8 +42,6 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import static com.jeek.calendar.activity.AddEventSetActivity.EVENT_SET_OBJ;
-
 public class AddEventActivity extends BaseActivity implements View.OnClickListener,SelectDateDialog.OnSelectDateListener
         , InputLocationDialog.OnLocationBackListener, OnTaskFinishedListener<Schedule>{
 
@@ -61,7 +59,7 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
 
 
 
-
+    public static String EVENT_SET_OBJ = "event.set.obj";
     private static final String TAG = "Sample";
 
     private static final String TAG_DATETIME_FRAGMENT = "TAG_DATETIME_FRAGMENT";

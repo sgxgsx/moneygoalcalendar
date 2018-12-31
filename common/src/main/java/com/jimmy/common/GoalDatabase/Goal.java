@@ -18,6 +18,7 @@ public class  Goal implements Serializable{
     private int id;
     private int doneschedules;
     private int inprogress;
+    private boolean state;
     private String goal_name;
     private String description;
     private String image_path;
@@ -36,6 +37,7 @@ public class  Goal implements Serializable{
         this.description = description;
         this.noteList = noteList;
         this.image_path = image_path;
+        this.state = true;
     }
 
     public Goal(int id, String goal_name, long date_to, String description, String image_path, List<Aim> aims, List<GoalSchedule> schedules, List<Note> noteList) {
@@ -49,6 +51,7 @@ public class  Goal implements Serializable{
         this.doneschedules = 0;
         this.noteList = noteList;
         this.image_path = image_path;
+        this.state = true;
     }
 
     public void addAim(Aim aim){
@@ -90,6 +93,14 @@ public class  Goal implements Serializable{
                 noteList.get(i).setId(i);
             }
         }
+    }
+
+    public boolean isState() {
+        return state;
+    }
+
+    public void setState(boolean state) {
+        this.state = state;
     }
 
     public String getImage_path() {

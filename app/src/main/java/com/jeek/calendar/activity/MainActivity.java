@@ -42,10 +42,9 @@ import java.util.Calendar;
 
 import me.tangke.slidemenu.SlideMenu;
 
-import static com.jeek.calendar.activity.AddEventSetActivity.EVENT_SET_OBJ;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener,OnTaskFinishedListener<Integer> {
-
+    public static String EVENT_SET_OBJ = "event.set.obj";
     public static int ADD_EVENT_SET_CODE = 1;
     public static String ADD_EVENT_SET_ACTION = "action.add.event.set";
 

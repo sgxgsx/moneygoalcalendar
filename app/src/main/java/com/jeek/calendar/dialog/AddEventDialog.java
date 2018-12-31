@@ -39,10 +39,10 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import static com.jeek.calendar.activity.AddEventSetActivity.EVENT_SET_OBJ;
 
 
 public class AddEventDialog extends Dialog implements View.OnClickListener, OnTaskFinishedListener<Schedule> {
+
     private static final String TAG = "Sample";
 
     public Activity mActivity;

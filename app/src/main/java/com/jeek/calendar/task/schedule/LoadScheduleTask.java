@@ -32,7 +32,7 @@ public class  LoadScheduleTask extends BaseAsyncTask<List<Schedule>> {
     protected List<Schedule> doInBackground(Void... params) {
         ScheduleDao dao = ScheduleDao.getInstance(mContext);
         String account;
-        if (mAccount == null) {
+        if  (mAccount == null) {
             return dao.getScheduleByDate(mYear, mMonth, mDay, "ANONYMOUS");
         }else{
             return dao.getScheduleByDate(mYear, mMonth,mDay, mAccount.getDisplayName());

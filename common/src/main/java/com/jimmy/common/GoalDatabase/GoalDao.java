@@ -18,6 +18,15 @@ public interface  GoalDao {
     @Query("SELECT * FROM GoalsTable ORDER BY id")
     LiveData<List<Goal>> loadGoals();
 
+    @Query("SELECT * FROM GoalsTable WHERE state=1 ORDER BY id")
+    LiveData<List<Goal>> loadDoingGoals();
+
+    @Query("SELECT * FROM GoalsTable WHERE state=0 ORDER BY id")
+    LiveData<List<Goal>> loadDoneGoals();
+
+    @Query("SELECT * FROM GoalsTable WHERE state=0 AND state=1")
+    LiveData<List<Goal>> loadNothing();
+
     @Insert
     void insertSettingsCalendar(Goal goal);
 

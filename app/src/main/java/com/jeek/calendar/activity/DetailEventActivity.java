@@ -29,10 +29,10 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static com.jeek.calendar.activity.AddEventSetActivity.EVENT_SET_OBJ;
+
 
 public class DetailEventActivity extends AppCompatActivity implements View.OnClickListener, OnTaskFinishedListener<Schedule> {
-
+    public static String EVENT_SET_OBJ = "event.set.obj";
     public static final String SCHEDULE_OBJ = "Schedule.Event";
 
 

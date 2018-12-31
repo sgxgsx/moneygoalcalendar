@@ -43,8 +43,6 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
 
 
     public static final int errorCode = 200;
-
-    private Toolbar mToolbar;
     private Context mContext;
     private Goal mGoal;
     private RecyclerView rvDetail;
@@ -79,22 +77,7 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_detail_goal);
         mContext = getApplicationContext();
         rvDetail = findViewById(R.id.rvAimsEventsGoalDetailActivity);
-        mToolbar = findViewById(R.id.tbDetailGoalActivity);
-        mToolbar.inflateMenu(R.menu.menu_detail_goal);
-        mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.MenuDeleteGoal:
-                        deleteGoal();
-                        break;
-                    case R.id.MenuUpdateGoal:
-                        updateGoal();
-                        break;
-                }
-                return false;
-            }
-        });
+
         findViewById(R.id.llCancel).setOnClickListener(this);
         if (getIntent().hasExtra(GOAL_OBJ)) {
             mGoal = (Goal) getIntent().getSerializableExtra(GOAL_OBJ);
@@ -121,7 +104,7 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         AddAim = findViewById(R.id.fabAddAimGoal);
         AddNote = findViewById(R.id.fabAddNoteGoal);
         MenuButtonBackground = findViewById(R.id.chooseMenuButtonBackground2);
-        //detailImage = findViewById(R.id.ivImageDetailGoal);
+
 
         noteImage = findViewById(R.id.iNoteImage);
         goalName.setText(mGoal.getGoal_name());
@@ -162,6 +145,15 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         switch (v.getId()){
             case R.id.llCancel:
                 finish();
+                break;
+            case R.id.llEdit:
+                updateGoal();
+                break;
+            case R.id.llDelete:
+                deleteGoal();
+                break;
+            case R.id.llSave:
+                archiveGoal();
                 break;
             case R.id.fabAddAimGoal:
                 if(buttonNotShowen){
@@ -207,6 +199,10 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         Toast.makeText(mContext, "Text", Toast.LENGTH_LONG).show();
         new DeleteGoalTask(mContext, mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         finish();
+    }
+
+    private void archiveGoal(){
+        ;
     }
 
     private void updateGoal(){

@@ -73,6 +73,16 @@
     <string name="add_location">Add spot</string>
     <string name="select_event_set">Choose events</string>
 
+
+
+
+
+
+
+
+
+
+
     <!--Auth-->
     <string name="try_with_out_auth">Try it anonymously</string>
 
@@ -103,8 +113,11 @@
     
     
     
-    
-    
+
+
+    <!--  Goal -->
+    <string name="state_doing">Doing</string>
+    <string name="state_done">Done</string>
     
     
     
@@ -133,6 +146,10 @@
     
     
     
+    <!-- shared preferences -->
+    <string name="shared_preferences_name">User Info</string>
+    <string name="shared_doing_goals">Doing Goals</string>
+    <string name="shared_done_goals">Done Goals</string>
 
 
 </resources>
