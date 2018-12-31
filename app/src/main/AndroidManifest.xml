@@ -36,7 +36,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MainActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.ScheduleDetailActivity" android:screenOrientation="portrait"/>
         <activity android:name=".activity.MoneyActivity" android:screenOrientation="portrait"/>
         <activity android:name=".activity.AddEventActivity" android:screenOrientation="portrait"/>
         <activity android:name=".activity.SettingsActivity" android:screenOrientation="portrait"/>
@@ -48,7 +47,6 @@
         <activity android:name=".activity.DetailAimActivity" android:screenOrientation="portrait"/>
         <activity android:name=".activity.ProgressBarExample" android:screenOrientation="portrait"/>
         <activity android:name=".activity.ChooseDateActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.MenuSampleActivity" android:screenOrientation="portrait"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

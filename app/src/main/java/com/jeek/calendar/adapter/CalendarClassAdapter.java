@@ -1,10 +1,7 @@
 package com.jeek.calendar.adapter;
 
-import android.Manifest;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.os.AsyncTask;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,7 +15,6 @@ import com.jeek.calendar.R;
 import com.jeek.calendar.task.CalendarSettingsEntry.ChangeCalendarSettingsEntryValueTask;
 import com.jimmy.common.SettingsDatabase.CalendarSettingsEntry;
 import com.jimmy.common.bean.EventSet;
-import com.jeek.calendar.dialog.ConfirmDialog;
 import com.jeek.calendar.task.eventset.RemoveEventSetTask;
 import com.jeek.calendar.widget.SlideDeleteView;
 import com.jimmy.common.listener.OnTaskFinishedListener;
@@ -64,62 +60,22 @@ public class CalendarClassAdapter extends RecyclerView.Adapter<CalendarClassAdap
                 notifyDataSetChanged();
             }
         });
-        /*
-        holder.sdvEventSet.setOnContentClickListener(new SlideDeleteView.OnContentClickListener() {
-            @Override
-            public void onContentClick() {
-                gotoEventSetFragment(eventSet);
-            }
-        });
-        */
     }
 
     private void changeTrueOrFalse(CalendarSettingsEntry calendarClass){
         Log.wtf("Change", "changed");
         new ChangeCalendarSettingsEntryValueTask(mContext, calendarClass).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
-
-    private void showDeleteEventSetDialog(final EventSet eventSet, final int position) {
-        new ConfirmDialog(mContext, R.string.event_set_delete_this_event_set, new ConfirmDialog.OnClickListener() {
-            @Override
-            public void onCancel() {
-
-            }
-
-            @Override
-            public void onConfirm() {
-                new RemoveEventSetTask(mContext, new OnTaskFinishedListener<Boolean>() {
-                    @Override
-                    public void onTaskFinished(Boolean data) {
-                        if (data) {
-                            removeItem(position);
-                        }
-                    }
-                }, eventSet.getId()).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-            }
-        }).show();
-    }
-    /*
-    private void gotoEventSetFragment(EventSet eventSet) {
-        if (mContext instanceof MainActivity) {
-            ((MainActivity) mContext).gotoEventSetFragment(eventSet);
-        }
-    }
-    */
     protected class CalendarClassViewHolder extends RecyclerView.ViewHolder {
         private LinearLayout llItem;
         private SlideDeleteView sdvEventSet;
         private TextView tvEventSetName;
-        private View vEventSetColor;
-        private ImageButton ibEventSetDelete;
 
         public CalendarClassViewHolder(View itemView) {
             super(itemView);
             llItem = itemView.findViewById(R.id.llItem);
             sdvEventSet = (SlideDeleteView) itemView.findViewById(R.id.sdvEventSet);
-            vEventSetColor = itemView.findViewById(R.id.vEventSetColor);
             tvEventSetName = (TextView) itemView.findViewById(R.id.tvEventSetName);
-            ibEventSetDelete = (ImageButton) itemView.findViewById(R.id.ibEventSetDelete);
 
         }
     }
@@ -128,24 +84,5 @@ public class CalendarClassAdapter extends RecyclerView.Adapter<CalendarClassAdap
         mCalendarClasses.clear();
         mCalendarClasses.addAll(calendarClasses);
         notifyDataSetChanged();
-    }
-
-    public void insertItem(CalendarSettingsEntry calendarClass) {
-        mCalendarClasses.add(calendarClass);
-        notifyItemInserted(mCalendarClasses.size() - 1);
-    }
-
-    public void removeItem(int position) {
-        mCalendarClasses.remove(position);
-        notifyDataSetChanged();
-    }
-
-    public void createDefaultCalendar(){
-
-
-            Log.wtf("create acc","started main act1");
-
-
-
     }
 }

@@ -136,7 +136,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         LayoutInflater content = getLayoutInflater();
         View contentView = content.inflate(R.layout.activity_main, null);
         // Setup the content
-        //View contentView = new View(this);
+
         slideMenu.addView(contentView, new SlideMenu.LayoutParams(
                 SlideMenu.LayoutParams.MATCH_PARENT, SlideMenu.LayoutParams.MATCH_PARENT,
                 SlideMenu.LayoutParams.ROLE_CONTENT));
@@ -151,7 +151,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
 
 
 
-        //dlMain = searchViewById(R.id.dlMain);
         llTitleDate = searchViewById(R.id.llTitleDate);
         tvTitleMonth = searchViewById(R.id.tvTitleMonth);
         tvTitleDay = searchViewById(R.id.tvTitleDay);
@@ -178,35 +177,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         searchViewById(R.id.gotoMoneyButton).setOnClickListener(this);
         searchViewById(R.id.ChooseModuleButtonTime).setOnClickListener(this);
         initUi();
-        //initCalendarClassesList();
         gotoScheduleFragment();
-        //initBroadcastReceiver();
 
 
     }
-/*
-    private void initBroadcastReceiver() {
-        if (mAddEventSetBroadcastReceiver == null) {
-            mAddEventSetBroadcastReceiver = new AddEventSetBroadcastReceiver();
-            IntentFilter filter = new IntentFilter();
-            filter.addAction(ADD_EVENT_SET_ACTION);
-            registerReceiver(mAddEventSetBroadcastReceiver, filter);
-        }
-    }
-    private void initCalendarClassesList() {
-        mCalendarClasses = new ArrayList<>();
-        LinearLayoutManager manager = new LinearLayoutManager(this);
-        manager.setOrientation(LinearLayoutManager.VERTICAL);
-        rvMenuCalendarClassList.setLayoutManager(manager);
-        DefaultItemAnimator itemAnimator = new DefaultItemAnimator();
-        itemAnimator.setSupportsChangeAnimations(false);
-        rvMenuCalendarClassList.setItemAnimator(itemAnimator);
-        mCalendarClassAdapter = new CalendarClassAdapter(this, mCalendarClasses);
-        rvMenuCalendarClassList.setAdapter(mCalendarClassAdapter);
-    }
-*/
     private void initUi() {
-        //dlMain.setScrimColor(Color.TRANSPARENT);
         mMonthText = getResources().getStringArray(R.array.calendar_month);
         llTitleDate.setVisibility(View.VISIBLE);
         tvTitle.setVisibility(View.GONE);
@@ -223,9 +198,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
     protected void initData() {
         super.initData();
         resetMainTitleDate(mCurrentSelectYear, mCurrentSelectMonth, mCurrentSelectDay);
-        /*
-        new LoadCalendarClassesTask(this, this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-        */
+
     }
 
     public void resetMainTitleDate(int year, int month, int day) {
@@ -270,16 +243,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
             case R.id.llMenuSchedule:
                 gotoScheduleFragment();
                 break;
-            /*
-            case R.id.llMenuNoCategory:
-                mCurrentEventSet = new EventSet();
-                mCurrentEventSet.setName(getString(R.string.menu_no_category));
-                gotoEventSetFragment(mCurrentEventSet);
-                break;
-            case R.id.tvMenuAddEventSet:
-                gotoAddEventSetActivity();
-                break;
-            */
             case R.id.llMenuGoMoney:
                 gotoMoney();
                 break;
@@ -397,14 +360,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         ChooseMenuButtonBackground.setVisibility(View.INVISIBLE);
         gotoGoalFromMenu();
     }
-    private void gotoProgressBar() {
-        //Intent intent = new Intent(this, MenuSampleActivity.class);
-        Intent intent = new Intent(this, ProgressBarExample.class);
-        startActivity(intent);
-    }
 
-    private void gotoChooseDateActivity() {
-        Intent intent = new Intent(this, ChooseDateActivity.class);
+    private void gotoProgressBar() {
+        Intent intent = new Intent(this, ProgressBarExample.class);
         startActivity(intent);
     }
 
@@ -415,94 +373,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
             mScheduleFragment = ScheduleFragment.getInstance();
             ft.add(R.id.flMainContainer, mScheduleFragment);
         }
-        /*
-        if (mEventSetFragment != null)
-            ft.hide(mEventSetFragment);
-        */
+
         ft.show(mScheduleFragment);
         ft.commit();
         llTitleDate.setVisibility(View.VISIBLE);
         tvTitle.setVisibility(View.GONE);
-        //dlMain.closeDrawer(Gravity.START);
-    }
-/*
-    public void gotoEventSetFragment(EventSet eventSet) {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.setTransition(FragmentTransaction.TRANSIT_NONE);
-        if (mCurrentEventSet != eventSet || eventSet.getId() == 0) {
-            if (mEventSetFragment != null)
-                ft.remove(mEventSetFragment);
-            mEventSetFragment = EventSetFragment.getInstance(eventSet);
-            ft.add(R.id.flMainContainer, mEventSetFragment);
-        }
-        ft.hide(mScheduleFragment);
-        ft.show(mEventSetFragment);
-        ft.commit();
-        resetTitleText(eventSet.getName());
-        dlMain.closeDrawer(Gravity.START);
-        mCurrentEventSet = eventSet;
-    }
 
-    private void gotoAddEventSetActivity() {
-        startActivityForResult(new Intent(this, AddEventSetActivity.class), ADD_EVENT_SET_CODE);
     }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ADD_EVENT_SET_CODE) {
-            if (resultCode == AddEventSetActivity.ADD_EVENT_SET_FINISH) {
-                EventSet eventSet = (EventSet) data.getSerializableExtra(AddEventSetActivity.EVENT_SET_OBJ);
-                if (eventSet != null)
-                    mEventSetAdapter.insertItem(eventSet);
-            }
-        }
-    }
-*/
-    /*@Override
-    public void onBackPressed() {
-        if (dlMain.isDrawerOpen(Gravity.START)) {
-            dlMain.closeDrawer(Gravity.START);
-        } else {
-            System.arraycopy(mNotes, 1, mNotes, 0, mNotes.length - 1);
-            mNotes[mNotes.length - 1] = SystemClock.uptimeMillis();
-            if (SystemClock.uptimeMillis() - mNotes[0] < 1000) {
-                finish();
-            } else {
-                Toast.makeText(this, getString(R.string.exit_app_hint), Toast.LENGTH_SHORT).show();
-            }
-        }
-    }*/
     @Override
     protected void onDestroy() {
-        /*
-        if (mAddEventSetBroadcastReceiver != null) {
-            unregisterReceiver(mAddEventSetBroadcastReceiver);
-            mAddEventSetBroadcastReceiver = null;
-        }
-        */
         super.onDestroy();
     }
-    /*
-    @Override
-    public void onTaskFinished(List<CalendarClass> data) {
-        mCalendarClassAdapter.changeAllData(data);
-    }
-    */
-/*
-    private class AddEventSetBroadcastReceiver extends BroadcastReceiver {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (ADD_EVENT_SET_ACTION.equals(intent.getAction())) {
-                EventSet eventSet = (EventSet) intent.getSerializableExtra(AddEventSetActivity.EVENT_SET_OBJ);
-                if (eventSet != null)
-                    mEventSetAdapter.insertItem(eventSet);
-            }
-        }
-    }
-*/
     @Override
     public void onTaskFinished(Integer data) {
         setResult(1, new Intent().putExtra(EVENT_SET_OBJ, data));

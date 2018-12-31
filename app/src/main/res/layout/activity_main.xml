@@ -11,7 +11,7 @@
 
     <!--<include layout="@layout/main_menu"/>-->
 
-    <include layout="@layout/halph_transp_background"/>
+    <include layout="@layout/halph_transp_background" android:visibility="gone"/>
 
     <FrameLayout
         android:id="@+id/flMainContainer"

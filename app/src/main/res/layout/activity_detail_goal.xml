@@ -156,7 +156,8 @@
                         android:layout_marginStart="@dimen/space_20dp"
                         android:layout_marginTop="@dimen/space_18dp"
                         android:layout_marginBottom="18dp"
-                        android:src="@drawable/ic_flag_black"
+                        android:src="@drawable/ic_flag"
+                        android:tint="@color/colorPrimary"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />

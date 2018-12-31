@@ -78,7 +78,13 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         mContext = getApplicationContext();
         rvDetail = findViewById(R.id.rvAimsEventsGoalDetailActivity);
 
+
+
         findViewById(R.id.llCancel).setOnClickListener(this);
+        findViewById(R.id.llDelete).setOnClickListener(this);
+        findViewById(R.id.llSave).setOnClickListener(this);
+        findViewById(R.id.llEdit).setOnClickListener(this);
+        
         if (getIntent().hasExtra(GOAL_OBJ)) {
             mGoal = (Goal) getIntent().getSerializableExtra(GOAL_OBJ);
             LinearLayoutManager manager = new LinearLayoutManager(this);
