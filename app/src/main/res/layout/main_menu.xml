@@ -65,10 +65,11 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/space_20dp"
-                        android:src="@mipmap/ic_menu_schedule"/>
+                        android:layout_width="@dimen/icon_width"
+                        android:layout_height="@dimen/icon_width"
+                        android:layout_marginStart="@dimen/space_20dp"
+                        android:tint="@color/colorMagenta"
+                        android:src="@drawable/ic_calendar"/>
 
                     <TextView
                         android:layout_width="0dp"
@@ -76,7 +77,7 @@
                         android:layout_marginLeft="@dimen/space_10dp"
                         android:layout_weight="1"
                         android:text="@string/menu_schedule"
-                        android:textColor="#BD00FB"
+                        android:textColor="@color/colorMagenta"
                         android:textSize="@dimen/text_size_18sp"/>
 
                     <ImageView
@@ -102,10 +103,10 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/icon_width"
+                            android:layout_height="@dimen/icon_width"
                             android:layout_marginStart="@dimen/space_20dp"
-                            android:src="@mipmap/ic_menu_event_set"/>
+                            android:src="@drawable/ic_dollar"/>
 
                         <TextView
                             android:layout_width="0dp"
@@ -113,7 +114,7 @@
                             android:layout_marginStart="@dimen/space_10dp"
                             android:layout_weight="1"
                             android:text="@string/menu_money"
-                            android:textColor="#00C382"
+                            android:textColor="@color/colorLime"
                             android:textSize="@dimen/text_size_18sp"/>
 
                     </LinearLayout>
@@ -136,10 +137,11 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/icon_width"
+                            android:layout_height="@dimen/icon_width"
                             android:layout_marginStart="@dimen/space_20dp"
-                            android:src="@mipmap/ic_menu_event_set"/>
+                            android:tint="@color/colorSoftYellow"
+                            android:src="@drawable/ic_flag"/>
 
                         <TextView
                             android:layout_width="0dp"
@@ -147,7 +149,7 @@
                             android:layout_marginStart="@dimen/space_10dp"
                             android:layout_weight="1"
                             android:text="@string/menu_goal_tracker"
-                            android:textColor="#FAD951"
+                            android:textColor="@color/colorSoftYellow"
                             android:textSize="@dimen/text_size_18sp"/>
 
                     </LinearLayout>
