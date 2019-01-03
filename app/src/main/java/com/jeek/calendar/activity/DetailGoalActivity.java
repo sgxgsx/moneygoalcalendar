@@ -50,21 +50,9 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     private TextView goalName, time, description;
     private ConstraintLayout dateLayout;
     private ImageView noteImage;
-    //private ImageView detailImage;
+    private Toolbar mToolbar;
     private boolean buttonNotShowen = true;
     private View AddNote,AddAim, MenuButtonBackground;
-    // completed VLAD сделать DetailGoalActivity
-    // completed VLAD удаление Goal
-    // completed VLAD модифицирование Goal -> Создать GoalEditActivity
-    // completed VLAD решить проблему прокрутки
-    // completed VLAD добавление Goal -> Создать GoalAddActivity
-    // completed VLAD поиграться с лейаутом (UI)
-    // completed VLAD refactor GoalDatabase добавить общее, выполненое, невыполненое кол-во (3 int поля) ивентов в Goal, Aim
-    // completed VLAD refactor GoalDatabase сделать в GoalSchedule время необязательным
-    // completed VLAD сделать addAimActivity
-    // completed VLAD сделать editAimActivity
-    // completed VLAD сделать detailAimActivity
-    // completed VLAD сделать deleteAim
     // TODO VLAD сделать addScheduleActivity            ( LEHA )
     // TODO VLAD сделать editScheduleActivity           ( LEHA )
     // TODO VLAD сделать deleteSchedule                 ( LEHA )
@@ -78,12 +66,26 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         mContext = getApplicationContext();
         rvDetail = findViewById(R.id.rvAimsEventsGoalDetailActivity);
 
-
-
         findViewById(R.id.llCancel).setOnClickListener(this);
-        findViewById(R.id.llDelete).setOnClickListener(this);
-        findViewById(R.id.llSave).setOnClickListener(this);
-        findViewById(R.id.llEdit).setOnClickListener(this);
+        mToolbar = findViewById(R.id.tbDetailGoalActivity);
+        mToolbar.inflateMenu(R.menu.menu_detail_goal);
+        mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.MenuDeleteGoal:
+                        deleteGoal();
+                        break;
+                    case R.id.MenuUpdateGoal:
+                        updateGoal();
+                        break;
+                    case R.id.MenuSaveGoal:
+                        archiveGoal();
+                        break;
+                }
+                return false;
+            }
+        });
         
         if (getIntent().hasExtra(GOAL_OBJ)) {
             mGoal = (Goal) getIntent().getSerializableExtra(GOAL_OBJ);
@@ -151,15 +153,6 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         switch (v.getId()){
             case R.id.llCancel:
                 finish();
-                break;
-            case R.id.llEdit:
-                updateGoal();
-                break;
-            case R.id.llDelete:
-                deleteGoal();
-                break;
-            case R.id.llSave:
-                archiveGoal();
                 break;
             case R.id.fabAddAimGoal:
                 if(buttonNotShowen){

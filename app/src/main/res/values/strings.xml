@@ -47,10 +47,12 @@
     <string name="menu_settings">Settings</string>
     <!--zaloopa_datepicker-->
     <string name="clean">Clean</string>
+
     <!--event menu-->
     <string name="menu_delete_event">Delete</string>
     <string name="menu_duplicate_event">Duplicate</string>
     <string name="menu_update_goal">Change</string>
+    <string name="menu_save_goal">Done</string>
 
     <!--event.set-->
     <string name="pref_changed_value_calendars">Calendar Changed</string>

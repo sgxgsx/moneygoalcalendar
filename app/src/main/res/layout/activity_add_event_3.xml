@@ -87,6 +87,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="70dp"
                         android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:maxLength="20"
                         android:hint="Event Title"
                         android:textColor="@color/colorICWhite"
                         android:textColorHint="@color/colorICGrey"

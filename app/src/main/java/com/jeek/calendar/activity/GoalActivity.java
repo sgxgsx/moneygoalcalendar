@@ -156,7 +156,6 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
                     mGoalsAdapter.changeAllData(goals);
                 }
             });
-            // TODO на потом - проверить как можно изменить добавление на лейаут сделаных/не сделаных гоалов, что б не было фризов.
         }
     }
 

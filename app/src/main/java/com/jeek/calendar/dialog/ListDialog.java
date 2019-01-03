@@ -23,6 +23,8 @@ public class ListDialog extends Dialog{
         super(context, R.style.DialogFullScreen);
         mOnListListener = onListListener;
         setContentView(R.layout.dialog_list);
+
+
         cbDoing = findViewById(R.id.cbDoing);
         cbDone = findViewById(R.id.cbDone);
         mResources = context.getResources();
@@ -30,7 +32,6 @@ public class ListDialog extends Dialog{
         SHARED_DONE  = mResources.getString(R.string.shared_done_goals);
 
         sharedPreferences = context.getSharedPreferences(mResources.getString(R.string.shared_preferences_name), Context.MODE_PRIVATE);
-        start();
     }
 
     @Override

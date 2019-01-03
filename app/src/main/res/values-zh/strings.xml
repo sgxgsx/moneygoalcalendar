@@ -36,7 +36,6 @@
 
     <!--menu-->
     <string name="menu_schedule">日程</string>
-    <string name="menu_event_set">事件集</string>
     <string name="menu_add_event_set">添加事件清单</string>
     <string name="menu_no_category">未分类</string>
 

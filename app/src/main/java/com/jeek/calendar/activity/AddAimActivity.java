@@ -123,7 +123,6 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void changeColor(){
-        // TODO add changeColor
         if (mColorDialog == null) {
             mColorDialog = new SelectColorDialog(this, this);
         }

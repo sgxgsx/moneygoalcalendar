@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/MenuDeleteGoal" android:title="@string/menu_delete_event"/>
+    <item android:id="@+id/MenuSaveGoal" android:title="@string/menu_save_goal"/>
     <item android:id="@+id/MenuUpdateGoal" android:title="@string/menu_update_goal"/>
+    <item android:id="@+id/MenuDeleteGoal" android:title="@string/menu_delete_event"/>
 </menu>
