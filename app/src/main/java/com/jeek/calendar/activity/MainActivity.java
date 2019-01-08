@@ -54,7 +54,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
     private View gotoMoneyButton,gotoGoalButton,ChooseMenuButtonBackground;
     private View ChooseModuleButtonTime;
     //private RecyclerView rvMenuCalendarClassList;   //rvMenuEventSetist       CALENDARS
-
+    private SlideMenu slideMenu;
     //private CalendarClassAdapter mCalendarClassAdapter;                       CALENDARS
     //private List<CalendarClass> mCalendarClasses;  // mEventSets              CALENDARS
     private BaseFragment mScheduleFragment;
@@ -131,7 +131,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         //setContentView(R.layout.activity_main);
 
 
-        SlideMenu slideMenu = new SlideMenu(this);
+        slideMenu = new SlideMenu(this);
+        slideMenu.setEdgeSlideEnable(true);
+
         setContentView(slideMenu);
         LayoutInflater content = getLayoutInflater();
         View contentView = content.inflate(R.layout.activity_main, null);
@@ -156,7 +158,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         tvTitleDay = searchViewById(R.id.tvTitleDay);
         tvTitle = searchViewById(R.id.tvTitle);
         ChooseModuleButtonTime=searchViewById(R.id.ChooseModuleButtonTime);
-        ChooseMenuButtonBackground=searchViewById(R.id.chooseMenuButtonBackground2);
+        ChooseMenuButtonBackground=searchViewById(R.id.BackGroundWhenChoice);
         ChooseMenuButtonBackground.setVisibility(View.INVISIBLE);
         gotoMoneyButton=searchViewById(R.id.gotoMoneyButton);
         gotoGoalButton=searchViewById(R.id.gotoGoalButton);
@@ -238,7 +240,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ivMainMenu:
-                //dlMain.openDrawer(Gravity.START);
+                slideMenu.open(false,true);
+                Log.wtf("SlideMenu","   OpenButton");
                 break;
             case R.id.llMenuSchedule:
                 gotoScheduleFragment();

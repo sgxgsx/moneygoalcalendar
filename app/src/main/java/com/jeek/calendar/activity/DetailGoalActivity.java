@@ -66,6 +66,8 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         mContext = getApplicationContext();
         rvDetail = findViewById(R.id.rvAimsEventsGoalDetailActivity);
 
+
+
         findViewById(R.id.llCancel).setOnClickListener(this);
         mToolbar = findViewById(R.id.tbDetailGoalActivity);
         mToolbar.inflateMenu(R.menu.menu_detail_goal);

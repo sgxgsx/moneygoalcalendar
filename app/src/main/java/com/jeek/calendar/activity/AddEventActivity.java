@@ -82,8 +82,7 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
 
     public  int timeDialogId=0;
     public TextView v;
-    private TextView
-            tvScheduleTime, tvScheduleLocation;
+    private TextView tvDateStart,tvDateEnd,tvTimeStart,tvTimeEnd;
 
     Calendar dateAndTime=Calendar.getInstance();
 
@@ -106,8 +105,8 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
        /* TextView tvTitle = searchViewById(R.id.tvTitle);
         tvTitle.setText(getString(R.string.schedule_event_detail_setting));*/
         searchViewById(R.id.llCancel).setOnClickListener(this);
-        searchViewById(R.id.llSaveGoal).setOnClickListener(this);
-        searchViewById(R.id.iNoteImage).setOnClickListener(this);
+        //searchViewById(R.id.llSaveGoal).setOnClickListener(this);
+        searchViewById(R.id.llAddEvent).setOnClickListener(this);
         //searchViewById(R.id.llScheduleTime).setOnClickListener(this);
         //searchViewById(R.id.llScheduleLocation).setOnClickListener(this);
         //searchViewById(R.id.tvScheduleTime3).setOnClickListener(this);
@@ -115,7 +114,10 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
         /*vScheduleColor = searchViewById(R.id.vScheduleColor);*/
         etScheduleTitle = searchViewById(R.id.etScheduleTitle);
         etScheduleDesc = searchViewById(R.id.etScheduleDesc);
-        tvScheduleTime = searchViewById(R.id.tvDateStart);
+        tvDateStart = searchViewById(R.id.tvDateStart);
+        tvDateEnd = searchViewById(R.id.tvDateEnd);
+        tvTimeStart = searchViewById(R.id.tvTimeStart);
+        tvTimeEnd = searchViewById(R.id.tvTimeEnd);
         //tvScheduleLocation = searchViewById(R.id.tvScheduleLocation);
 
     }
@@ -132,7 +134,11 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
 
 
     private void resetDateTimeUi() {
-        tvScheduleTime.setText(String.format(getString(R.string.date_format_no_time), mCurrentSelectYear, mCurrentSelectMonth + 1, mCurrentSelectDay));
+        tvDateStart.setText(String.format(getString(R.string.date_format_no_time), mCurrentSelectYear, mCurrentSelectMonth + 1, mCurrentSelectDay));
+        tvDateEnd.setText(String.format(getString(R.string.date_format_no_time), mCurrentSelectYear, mCurrentSelectMonth + 1, mCurrentSelectDay));
+        tvTimeStart.setText("00 : 00");
+        tvTimeEnd.setText("00 : 00");
+
     }
 
     @Override
@@ -150,7 +156,7 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
                 setResult(CREATE_SCHEDULE_CANCEL);
                 finish();
                 break;
-            case R.id.iNoteImage:
+            case R.id.llAddEvent:
                 addEvent();
                 break;
             /*case R.id.llScheduleTime:
@@ -249,7 +255,6 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
                 dateAndTime.get(Calendar.DAY_OF_MONTH))
                 .show();
     }
-
     public void setTimeStart(View v) {
         new TimePickerDialog(this, tstart,
                 dateAndTime.get(Calendar.HOUR_OF_DAY),

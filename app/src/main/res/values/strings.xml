@@ -68,6 +68,7 @@
     <string name="remarks">Reminders</string>
     <string name="please_input_desc">Input the reminders</string>
     <string name="date_format">yyyy-MM-dd HH:mm</string>
+    <string name="time_format">HH:mm</string>
     <string name="date_format_no_time">%1$s-%2$s-%3$s</string>
     <string name="click_here_select_date">Click to choose time</string>
     <string name="click_here_select_location">Click to select location</string>

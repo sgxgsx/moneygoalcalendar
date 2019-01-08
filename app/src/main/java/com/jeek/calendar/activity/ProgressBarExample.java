@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.github.ag.floatingactionmenu.OptionsFabLayout;
 import com.jeek.calendar.R;
 import com.jeek.calendar.dialog.AddEventDialog;
 import com.jeek.calendar.dialog.SelectCalendarDialog;
@@ -27,23 +28,29 @@ public class ProgressBarExample extends BaseActivity implements  AddEventDialog.
 Bundle saved;
     private AddEventDialog mAddEventDialog;
 private SelectCalendarDialog mSelectCalendarDialog;
-
+    OptionsFabLayout fabWithOptions;
     int numberOfLines=50;
     double percentCompleted=0.6;
     int marginInDp=6;
     int marginInPixels;/*=(int)pxFromDp(ProgressBarExample.this,marginInDp);*/
     int NumberOfLines_completed=(int)(numberOfLines*percentCompleted);
     View[] ProgressBar_Lines=new View[numberOfLines];
-
+    Context mContext;
 
 @Override
 protected void bindView() {}
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.progress_bar);
 
+        fabWithOptions = (OptionsFabLayout) findViewById(R.id.fab_l);
+        fabWithOptions.setMainFabOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, "Main fab clicked!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }

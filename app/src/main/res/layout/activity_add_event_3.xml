@@ -36,7 +36,7 @@
                     android:src="@drawable/ic_chevron_left" />
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/llSaveGoal"
+                android:id="@+id/llAddEvent"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="16dp"
@@ -179,14 +179,15 @@
                                 android:id="@+id/tvDateStart"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginBottom="13dp"
                                 android:layout_marginStart="@dimen/margin_start_detail_30dp"
                                 android:layout_marginTop="13dp"
-                                android:layout_marginBottom="13dp"
+                                android:onClick="setDateStart"
                                 android:text="Saturday, August 3"
-                                android:textSize="@dimen/text_size_14sp"
                                 android:textColor="@color/colorICWhite"
-                                app:layout_constraintStart_toEndOf="@+id/ivDate"
+                                android:textSize="@dimen/text_size_14sp"
                                 app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/ivDate"
                                 app:layout_constraintTop_toTopOf="parent" />
                         </android.support.constraint.ConstraintLayout>
 
@@ -197,16 +198,19 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
+
                             <TextView
                                 android:id="@+id/tvTimeStart"
                                 android:layout_width="wrap_content"
                                 android:layout_height="18dp"
                                 android:layout_gravity="center"
                                 android:layout_marginStart="10dp"
+                                android:onClick="setTimeStart"
+                                android:padding="1dp"
                                 android:text="00:00"
                                 android:textAlignment="center"
-                                android:textSize="@dimen/text_size_14sp"
-                                android:textColor="@color/colorICWhite"/>
+                                android:textColor="@color/colorICWhite"
+                                android:textSize="@dimen/text_size_14sp" />
                         </LinearLayout>
                     </android.support.constraint.ConstraintLayout>
 
@@ -224,14 +228,15 @@
                             android:id="@+id/tvDateEnd"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="13dp"
                             android:layout_marginStart="70dp"
                             android:layout_marginTop="13dp"
-                            android:layout_marginBottom="13dp"
+                            android:onClick="setDateEnd"
                             android:text="Saturday, August 3"
-                            android:textSize="@dimen/text_size_14sp"
                             android:textColor="@color/colorICWhite"
-                            app:layout_constraintStart_toStartOf="parent"
+                            android:textSize="@dimen/text_size_14sp"
                             app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <LinearLayout
@@ -241,16 +246,19 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
+
                             <TextView
                                 android:id="@+id/tvTimeEnd"
                                 android:layout_width="wrap_content"
                                 android:layout_height="18dp"
-                                android:textAlignment="center"
                                 android:layout_gravity="center"
                                 android:layout_marginStart="10dp"
+                                android:onClick="setTimeEnd"
+                                android:padding="1dp"
                                 android:text="00:00"
-                                android:textSize="@dimen/text_size_14sp"
-                                android:textColor="@color/colorICWhite" />
+                                android:textAlignment="center"
+                                android:textColor="@color/colorICWhite"
+                                android:textSize="@dimen/text_size_14sp" />
                         </LinearLayout>
                     </android.support.constraint.ConstraintLayout>
 
