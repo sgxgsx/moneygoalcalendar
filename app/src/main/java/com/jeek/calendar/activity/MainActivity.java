@@ -14,10 +14,12 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.webkit.JavascriptInterface;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -40,6 +42,7 @@ import com.jimmy.common.listener.OnTaskFinishedListener;
 
 import java.util.Calendar;
 
+import butterknife.BindView;
 import me.tangke.slidemenu.SlideMenu;
 
 
@@ -125,7 +128,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
 */
 
     }
-
     @Override
     protected void bindView() {
         //setContentView(R.layout.activity_main);
@@ -168,6 +170,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         searchViewById(R.id.llMenuSchedule).setOnClickListener(this);
         //searchViewById(R.id.llMenuNoCategory).setOnClickListener(this);
         searchViewById(R.id.llMenuGoMoney).setOnClickListener(this);
+
         searchViewById(R.id.llMenuGoGoal).setOnClickListener(this);
         //searchViewById(R.id.tvMenuAddEventSet).setOnClickListener(this);
         searchViewById(R.id.tvMenuSignOut).setOnClickListener(this);

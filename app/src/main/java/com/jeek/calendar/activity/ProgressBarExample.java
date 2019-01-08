@@ -4,11 +4,14 @@ package com.jeek.calendar.activity;
 import android.app.Activity;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.res.ResourcesCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -20,9 +23,10 @@ import com.jeek.calendar.R;
 import com.jeek.calendar.dialog.AddEventDialog;
 import com.jeek.calendar.dialog.SelectCalendarDialog;
 import com.jimmy.common.base.app.BaseActivity;
+import com.jimmy.common.listener.BooVariable;
 
 
-public class ProgressBarExample extends BaseActivity implements  AddEventDialog.OnAddEventListener, SelectCalendarDialog.OnSelectCalendarListener {
+public class ProgressBarExample extends BaseActivity implements  View.OnClickListener,AddEventDialog.OnAddEventListener, SelectCalendarDialog.OnSelectCalendarListener {
     Context context;
     Handler handler = new Handler();
 Bundle saved;
@@ -32,31 +36,99 @@ private SelectCalendarDialog mSelectCalendarDialog;
     int numberOfLines=50;
     double percentCompleted=0.6;
     int marginInDp=6;
+    boolean isFABOpen=false;
     int marginInPixels;/*=(int)pxFromDp(ProgressBarExample.this,marginInDp);*/
     int NumberOfLines_completed=(int)(numberOfLines*percentCompleted);
     View[] ProgressBar_Lines=new View[numberOfLines];
     Context mContext;
-
+    FloatingActionButton fab1,fab2,fab3;
 @Override
-protected void bindView() {}
+protected void bindView() {
+    setContentView(R.layout.progress_bar);
+
+    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+    fab1 = (FloatingActionButton) findViewById(R.id.fab1);
+    fab2 = (FloatingActionButton) findViewById(R.id.fab2);
+    fab3 = (FloatingActionButton) findViewById(R.id.fab3);
+    fab.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if(!isFABOpen){
+                showFABMenu();
+            }else{
+                closeFABMenu();
+            }
+        }
+    });
+    //findViewById(R.id.fab_l).setOnClickListener(this);
+    /*fabWithOptions = (OptionsFabLayout) findViewById(R.id.fab_l);
+    fabWithOptions.setLayoutParams(new ViewGroup.LayoutParams());
+
+
+
+    BooVariable d =new BooVariable(); d.setBoo(fabWithOptions.isOptionsMenuOpened());
+    d.setListener(new BooVariable.ChangeListener() {
+        @Override
+        public void onChange() {
+
+        }
+    });
+    fabWithOptions.setMainFabOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            makeToast(1);
+        }
+    });
+    fabWithOptions.setMiniFabSelectedListener(new OptionsFabLayout.OnMiniFabSelectedListener() {
+        @Override
+        public void onMiniFabSelected(MenuItem fabItem) {
+            switch (fabItem.getItemId()) {
+                case R.id.fab_add:
+                    Toast.makeText(
+                            getApplicationContext(),
+                            fabItem.getTitle() + " clicked!",
+                            Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.fab_link:
+                    Toast.makeText(getApplicationContext(),
+                            fabItem.getTitle() + " clicked!",
+                            Toast.LENGTH_SHORT).show();
+                default:
+                    break;
+            }
+        }
+    });
+*/
+
+
+}
+
+
+    private void showFABMenu(){
+        isFABOpen=true;
+        fab1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
+        fab2.animate().translationY(-getResources().getDimension(R.dimen.standard_105));
+        fab3.animate().translationY(-getResources().getDimension(R.dimen.standard_155));
+    }
+
+    private void closeFABMenu(){
+        isFABOpen=false;
+        fab1.animate().translationY(0);
+        fab2.animate().translationY(0);
+        fab3.animate().translationY(0);
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.progress_bar);
-
-        fabWithOptions = (OptionsFabLayout) findViewById(R.id.fab_l);
-        fabWithOptions.setMainFabOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(mContext, "Main fab clicked!", Toast.LENGTH_SHORT).show();
-            }
-        });
-
 
     }
 
 
-
+    public void makeToast(int i){                if(i==1)Toast.makeText(this, "Main fab clicked!", Toast.LENGTH_SHORT).show();
+    else Toast.makeText(this, "Sup fab clicked!", Toast.LENGTH_SHORT).show();
+}
 
     public void initProgressBar() {
 
@@ -192,5 +264,15 @@ protected void bindView() {}
 
     @Override
     public void onSelectCalendar(int id,String name) {
+    }
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            /*case R.id.fab_l:
+                break;*/
+
+            default:
+                break;
+        }
     }
 }

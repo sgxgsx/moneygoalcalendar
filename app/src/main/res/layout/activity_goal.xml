@@ -39,16 +39,17 @@
                 android:layout_height="20dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
-                android:src="@drawable/ic_menu_4"/>
+                android:src="@drawable/ic_menu_4" />
 
             <LinearLayout
                 android:id="@+id/llListStateGoals"
                 android:layout_width="@dimen/action_bar_height"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
+                android:layout_marginEnd="5dp"
                 android:clickable="true"
-                android:focusable="true"
-                android:layout_marginEnd="5dp">
+                android:focusable="true">
+
                 <ImageView
                     android:layout_width="@dimen/icon_width"
                     android:layout_height="@dimen/icon_width"
@@ -61,31 +62,52 @@
 
     </android.support.v7.widget.Toolbar>
 
+
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabGoal"
-        android:layout_width="67dp"
-        android:layout_height="67dp"
+        android:id="@+id/fab1"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_gravity="bottom|end"
-        android:layout_margin="25dp"
-        android:clickable="true"
+        android:layout_margin="8dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:backgroundTint="@color/colorAccent"
-        app:srcCompat="@drawable/btn_dialog_add_event_set" />
+        app:srcCompat="@android:drawable/ic_dialog_map" />
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab2"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
 
     <ScrollView
         android:id="@+id/svGoals"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/GoalsTitleBar"
         app:layout_constraintBottom_toBottomOf="parent"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/GoalsTitleBar">
+
         <com.jeek.calendar.widget.AbsoluteRecyclerView
             android:id="@+id/rvGoalsGoalActivity"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
     </ScrollView>
 

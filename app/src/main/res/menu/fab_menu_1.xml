@@ -3,10 +3,10 @@
     <item
         android:id="@+id/fab_link"
         android:icon="@drawable/btn_ok"
-        android:title="" />
+        android:title="@string/subfab_goal_add_moneygoal" />
 
     <item
         android:id="@+id/fab_add"
         android:icon="@drawable/btn_ok"
-        android:title="@string/fab_1" />
+        android:title="@string/subfab_goal_add_goal" />
 </menu>

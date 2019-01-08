@@ -9,9 +9,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.opengl.Visibility;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -36,7 +38,7 @@ import me.tangke.slidemenu.SlideMenu;
 
 public class GoalActivity extends BaseActivity implements View.OnClickListener, ListDialog.OnListListener{
     private String SHARED_DONE, SHARED_DOING;
-
+    private boolean isFABOpen=false;
     private Toolbar mToolbar;
     private RecyclerView rvGoals;
     private GoalsAdapter mGoalsAdapter;
@@ -46,7 +48,7 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
     private ListDialog mListDialog;
     private boolean mDoing, mDone;
     private LiveData<List<Goal>> goals;
-
+    FloatingActionButton fab,fab1,fab2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,17 +77,65 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
 
         mSharedPreferences = getSharedPreferences(getResources().getString(R.string.shared_preferences_name), MODE_PRIVATE);
         SHARED_DOING = getResources().getString(R.string.shared_doing_goals);
-        SHARED_DONE  = getResources().getString(R.string.shared_done_goals);
+        SHARED_DONE = getResources().getString(R.string.shared_done_goals);
         mDoing = mSharedPreferences.getBoolean(SHARED_DOING, true);
-        mDone  = mSharedPreferences.getBoolean(SHARED_DONE, true);
+        mDone = mSharedPreferences.getBoolean(SHARED_DONE, true);
         mToolbar = findViewById(R.id.GoalsTitleBar);
         rvGoals = findViewById(R.id.rvGoalsGoalActivity);
         findViewById(R.id.ivMenuInGoal).setOnClickListener(this);
         findViewById(R.id.llListStateGoals).setOnClickListener(this);
-        findViewById(R.id.fabGoal).setOnClickListener(this);
         initGoalsList();
+        initFab();
+    }
+    private void initFab(){
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab1 = (FloatingActionButton) findViewById(R.id.fab1);
+        fab2 = findViewById(R.id.fab2);
+        fab2.setVisibility(View.INVISIBLE);
+        fab1.setVisibility(View.INVISIBLE);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //add Goal
+                addGoal();
+                closeFABMenu();
+            }
+        });
+        fab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //add MoneyGoal
+                closeFABMenu();
+            }
+        });
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!isFABOpen){
+                    showFABMenu();
+                }
 
-       }
+
+            }
+        });
+    }
+    private void showFABMenu(){
+        isFABOpen=true;
+        fab1.setVisibility(View.VISIBLE);
+
+        fab1.animate().translationY(-getResources().getDimension(R.dimen.standard_55)).alpha(255);
+        fab2.setVisibility(View.VISIBLE);
+        fab.setVisibility(View.INVISIBLE);
+
+    }
+
+    private void closeFABMenu(){
+        isFABOpen=false;
+        fab1.animate().alpha(0);
+        fab1.animate().translationY(0);
+        fab2.setVisibility(View.INVISIBLE);
+        fab.setVisibility(View.VISIBLE);
+    }
 
     private void initGoalsList() {
         mGoals = new ArrayList<>();
@@ -134,9 +184,10 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
             case R.id.ivMenuInGoal:
                 showMenu();
                 break;
-            case R.id.fabGoal:
+            /*case R.id.fabGoal:
+
                 addGoal();
-                break;
+                break;*/
             case R.id.llListStateGoals:
                 showListDialog();
                 break;
