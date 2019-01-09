@@ -30,6 +30,7 @@ import com.jimmy.common.listener.OnTaskFinishedListener;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -82,6 +83,7 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
 
         if (getIntent().hasExtra(SCHEDULE_OBJ)) {
             mSchedule = (Schedule) getIntent().getSerializableExtra(SCHEDULE_OBJ);
+
             initUI();
         }
 
@@ -91,11 +93,30 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
 
     private void initUI() {
 
-        Log.wtf("COlor", String.valueOf(mSchedule.getColor()));
+        Log.wtf("Color", String.valueOf(mSchedule.getColor()));
 
 
         Date date = new Date(mSchedule.getTime());
         Date date_end = new Date(mSchedule.getTime_end());
+        Calendar cal1 = Calendar.getInstance();
+        Calendar cal2 = Calendar.getInstance();
+        cal1.setTime(date);
+
+        cal2.setTime(date_end);
+        mSchedule.setMinute(cal1.get(Calendar.MINUTE));
+        mSchedule.setYear(cal1.get(Calendar.YEAR));
+        mSchedule.setHour(cal1.get(Calendar.HOUR_OF_DAY));
+        mSchedule.setDay(cal1.get(Calendar.DAY_OF_MONTH));
+        mSchedule.setMonth(cal1.get(Calendar.MONTH));
+        mSchedule.setMinuteend(cal2.get(Calendar.MINUTE));
+        mSchedule.setYearend(cal2.get(Calendar.YEAR));
+        mSchedule.setHourend(cal2.get(Calendar.HOUR_OF_DAY));
+        mSchedule.setDayend(cal2.get(Calendar.DAY_OF_MONTH));
+        mSchedule.setMonthend(cal2.get(Calendar.MONTH));
+
+
+
+
         String repeat = mSchedule.getRepeat();
         String location = mSchedule.getLocation();
         String description = mSchedule.getDesc();
@@ -156,6 +177,31 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
 
     private void editEvent() {
         Intent intent = new Intent(this, EditEventActivity.class);
+        Bundle b = new Bundle();
+        try {
+            b.putString("Title", mSchedule.getTitle());
+            b.putString("Description", mSchedule.getDesc());
+            b.putString("Account", mSchedule.getAccount());
+            b.putString("Account_name", mSchedule.getAccount_name());
+            b.putString("Location", mSchedule.getLocation());
+            b.putString("Repeat", mSchedule.getRepeat());
+            b.putInt("Month",mSchedule.getMonth());
+            b.putInt("Monthend",mSchedule.getMonthend());
+            b.putInt("Minute",mSchedule.getMinute());
+            b.putInt("Hour",mSchedule.getHour());
+            b.putInt("Day",mSchedule.getDay());
+            b.putInt("Id",mSchedule.getId());
+            b.putInt("Color",mSchedule.getColor());
+            b.putInt("Dayend",mSchedule.getDayend());
+            b.putInt("Hourend",mSchedule.getHourend());
+            b.putInt("Minuteend",mSchedule.getMinuteend());
+            b.putInt("State",mSchedule.getState());
+            b.putInt("Year",mSchedule.getYear());
+            b.putInt("Yearend",mSchedule.getYearend());
+            b.putLong("Time",mSchedule.getTime());
+            b.putLong("Timeend",mSchedule.getTime_end());
+        }catch (Exception e) {Log.wtf("Bundle putstring"," Exeption");}
+        intent.putExtras(b);
         startActivityForResult(intent, 1);
     }
 
