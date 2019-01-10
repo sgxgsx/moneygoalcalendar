@@ -256,7 +256,7 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
                 .show();
     }
     public void setTimeStart(View v) {
-        new TimePickerDialog(this, tstart,
+        new TimePickerDialog(this,R.style.myTimePickerStyle, tstart,
                 dateAndTime.get(Calendar.HOUR_OF_DAY),
                 dateAndTime.get(Calendar.MINUTE), true)
                 .show();

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:layout_editor_absoluteY="25dp"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimaryDark">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -81,19 +81,20 @@
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="0dp"
                     android:background="@color/colorPrimaryDark">
+
                     <EditText
                         android:id="@+id/etScheduleTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="70dp"
                         android:layout_gravity="center"
-                        android:maxLines="1"
-                        android:maxLength="20"
+                        android:layout_marginStart="70dp"
+                        android:background="@android:color/transparent"
                         android:hint="Event Title"
+                        android:maxLength="20"
+                        android:maxLines="1"
                         android:textColor="@color/colorICWhite"
                         android:textColorHint="@color/colorICGrey"
-                        android:textSize="24sp"
-                        android:background="@android:color/transparent"/>
+                        android:textSize="24sp" />
 
                 </LinearLayout>
 
@@ -114,6 +115,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
 
                     <TextView
                         android:id="@+id/tvCalendarNameTextView"
@@ -178,10 +180,10 @@
                             <TextView
                                 android:id="@+id/tvDateStart"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="13dp"
-                                android:layout_marginStart="@dimen/margin_start_detail_30dp"
-                                android:layout_marginTop="13dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="30dp"
+                                android:layout_marginBottom="0dp"
+                                android:gravity="center_vertical"
                                 android:onClick="setDateStart"
                                 android:text="Saturday, August 3"
                                 android:textColor="@color/colorICWhite"
@@ -191,27 +193,20 @@
                                 app:layout_constraintTop_toTopOf="parent" />
                         </android.support.constraint.ConstraintLayout>
 
-                        <LinearLayout
-                            android:id="@+id/llPickTimeFrom"
+                        <TextView
+                            android:id="@+id/tvTimeStart"
                             android:layout_width="80dp"
                             android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:onClick="setTimeStart"
+                            android:padding="1dp"
+                            android:text="00:00"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorICWhite"
+                            android:textSize="@dimen/text_size_14sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <TextView
-                                android:id="@+id/tvTimeStart"
-                                android:layout_width="wrap_content"
-                                android:layout_height="18dp"
-                                android:layout_gravity="center"
-                                android:layout_marginStart="10dp"
-                                android:onClick="setTimeStart"
-                                android:padding="1dp"
-                                android:text="00:00"
-                                android:textAlignment="center"
-                                android:textColor="@color/colorICWhite"
-                                android:textSize="@dimen/text_size_14sp" />
-                        </LinearLayout>
+                            app:layout_constraintTop_toTopOf="parent"/>
                     </android.support.constraint.ConstraintLayout>
 
                     <android.support.constraint.ConstraintLayout
@@ -227,10 +222,9 @@
                         <TextView
                             android:id="@+id/tvDateEnd"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="13dp"
+                            android:layout_height="match_parent"
                             android:layout_marginStart="70dp"
-                            android:layout_marginTop="13dp"
+                            android:gravity="center_vertical"
                             android:onClick="setDateEnd"
                             android:text="Saturday, August 3"
                             android:textColor="@color/colorICWhite"
@@ -239,27 +233,20 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <LinearLayout
-                            android:id="@+id/llPickTimeTo"
+                        <TextView
+                            android:id="@+id/tvTimeEnd"
                             android:layout_width="80dp"
                             android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:onClick="setTimeEnd"
+                            android:padding="1dp"
+                            android:text="00:00"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorICWhite"
+                            android:textSize="@dimen/text_size_14sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <TextView
-                                android:id="@+id/tvTimeEnd"
-                                android:layout_width="wrap_content"
-                                android:layout_height="18dp"
-                                android:layout_gravity="center"
-                                android:layout_marginStart="10dp"
-                                android:onClick="setTimeEnd"
-                                android:padding="1dp"
-                                android:text="00:00"
-                                android:textAlignment="center"
-                                android:textColor="@color/colorICWhite"
-                                android:textSize="@dimen/text_size_14sp" />
-                        </LinearLayout>
+                            app:layout_constraintTop_toTopOf="parent"/>
                     </android.support.constraint.ConstraintLayout>
 
                 </android.support.constraint.ConstraintLayout>
