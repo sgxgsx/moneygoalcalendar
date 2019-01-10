@@ -85,13 +85,14 @@
                     <EditText
                         android:id="@+id/etScheduleTitle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:layout_marginStart="70dp"
                         android:background="@android:color/transparent"
                         android:hint="Event Title"
                         android:maxLength="20"
                         android:maxLines="1"
+                        android:inputType="text"
                         android:textColor="@color/colorICWhite"
                         android:textColorHint="@color/colorICGrey"
                         android:textSize="24sp" />
@@ -150,48 +151,42 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp">
 
-                    <android.support.constraint.ConstraintLayout
+                    <LinearLayout
                         android:id="@+id/clFirstDate"
                         android:layout_width="match_parent"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5dp"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:layout_height="40dp">
+                        android:layout_height="40dp"
+                        android:weightSum="20">
 
-                        <android.support.constraint.ConstraintLayout
-                            android:id="@+id/clPickDateFrom"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="0dp"
-                            app:layout_constraintTop_toTopOf="parent"
+                        <ImageView
+                            android:id="@+id/ivDate"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:src="@drawable/ic_clock_with_white_face"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toStartOf="@id/llPickTimeFrom">
-                            <ImageView
-                                android:id="@+id/ivDate"
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="8dp"
-                                android:src="@drawable/ic_clock_with_white_face"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_weight="0"/>
 
-                            <TextView
-                                android:id="@+id/tvDateStart"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="30dp"
-                                android:layout_marginBottom="0dp"
-                                android:gravity="center_vertical"
-                                android:onClick="setDateStart"
-                                android:text="Saturday, August 3"
-                                android:textColor="@color/colorICWhite"
-                                android:textSize="@dimen/text_size_14sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/ivDate"
-                                app:layout_constraintTop_toTopOf="parent" />
-                        </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/tvDateStart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginBottom="0dp"
+                            android:gravity="center_vertical"
+                            android:onClick="setDateStart"
+                            android:text="Saturday, August 3"
+                            android:textColor="@color/colorICWhite"
+                            android:textSize="@dimen/text_size_14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/ivDate"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_weight="20"/>
 
                         <TextView
                             android:id="@+id/tvTimeStart"
@@ -206,10 +201,11 @@
                             android:textSize="@dimen/text_size_14sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"/>
-                    </android.support.constraint.ConstraintLayout>
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
 
-                    <android.support.constraint.ConstraintLayout
+                    <LinearLayout
                         android:id="@+id/clSecondDate"
                         android:layout_width="match_parent"
                         android:layout_marginEnd="5dp"
@@ -217,7 +213,8 @@
                         app:layout_constraintTop_toBottomOf="@id/clFirstDate"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        android:layout_height="40dp">
+                        android:layout_height="40dp"
+                        android:weightSum="20">
 
                         <TextView
                             android:id="@+id/tvDateEnd"
@@ -231,7 +228,8 @@
                             android:textSize="@dimen/text_size_14sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_weight="20"/>
 
                         <TextView
                             android:id="@+id/tvTimeEnd"
@@ -239,15 +237,15 @@
                             android:layout_height="match_parent"
                             android:gravity="center_vertical"
                             android:onClick="setTimeEnd"
-                            android:padding="1dp"
                             android:text="00:00"
                             android:textAlignment="center"
                             android:textColor="@color/colorICWhite"
                             android:textSize="@dimen/text_size_14sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"/>
-                    </android.support.constraint.ConstraintLayout>
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
 
                 </android.support.constraint.ConstraintLayout>
 

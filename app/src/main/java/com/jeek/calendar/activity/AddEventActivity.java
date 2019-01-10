@@ -46,17 +46,6 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
         , InputLocationDialog.OnLocationBackListener, OnTaskFinishedListener<Schedule>{
 
 
-    //костыль ебаный если чо
-    /*public static int endORstartDatePicker=0;
-    public static String info="null";
-    public static int yearStart;
-    public static int monthStart;
-    public static int dayStart;
-    public static int yearEnd;
-    public static int monthEnd;
-    public static int dayEnd;*/
-
-
 
 
     public static String EVENT_SET_OBJ = "event.set.obj";
@@ -65,9 +54,6 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
     private static final String TAG_DATETIME_FRAGMENT = "TAG_DATETIME_FRAGMENT";
 
     private static final String STATE_TEXTVIEW = "STATE_TEXTVIEW";
-    private TextView textView;
-
-    private SwitchDateTimeDialogFragment dateTimeFragment;
     //
 
 
@@ -96,6 +82,19 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
 
     private Schedule mSchedule = new Schedule();
     private int mPosition = -1, MY_CAL_WRITE_REQ=1;
+
+
+
+    private int startDate, endDate, startTime, endTime;
+    //   TODO ПРОВЕРКИ
+    /*
+            1. При создании активити ставить startDate & endDate - текущую дату, startTime текущее время + недостающее кол-во секунд
+               для того что бы приравнять время к целому ( Например мы получили 3500 секунд, то нужно сделать 3600), endTime - на 1 час больше от startTime
+            2. При смене даты startDate проверять является ли стартДейт больше чем endDate если да то поставить такую же дату и ЭндДейту
+            3. При смене времени делать такую же проверку как и в 2 только на время, и если стартТайм больше ЭндТайм (если Даты одинаковы) то присвоить ЭндТайм такое же
+                время как и СтартТайм + 1 час
+            4. .....
+     */
 
 
 
@@ -256,13 +255,13 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
                 .show();
     }
     public void setTimeStart(View v) {
-        new TimePickerDialog(this,R.style.myTimePickerStyle, tstart,
+        new TimePickerDialog(this, R.style.myTimePickerStyle, tstart,
                 dateAndTime.get(Calendar.HOUR_OF_DAY),
                 dateAndTime.get(Calendar.MINUTE), true)
                 .show();
     }
     public void setTimeEnd(View v) {
-        new TimePickerDialog(this, tend,
+        new TimePickerDialog(this, R.style.myTimePickerStyle, tend,
                 dateAndTime.get(Calendar.HOUR_OF_DAY),
                 dateAndTime.get(Calendar.MINUTE), true)
                 .show();
