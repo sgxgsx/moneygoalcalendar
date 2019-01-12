@@ -29,40 +29,47 @@
                 android:layout_marginTop="13dp"
                 android:src="@drawable/ic_chevron_left" />
         </LinearLayout>
-        <LinearLayout
+
+        <android.support.constraint.ConstraintLayout
             android:id="@+id/llSaveGoal"
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_save_button"
+            android:backgroundTint="@color/colorBlue"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/purple_schedule_left_block"
-            android:backgroundTint="#76DAFE">
+            app:layout_constraintEnd_toEndOf="parent">
+
             <TextView
                 android:id="@+id/tvSaveGoal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="  SAVE  "
-                android:textAlignment="center"
-                android:layout_gravity="center"
-                android:textStyle="italic|bold"
-                android:textSize="@dimen/text_size_14sp"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="5dp"
+                android:text="SAVE"
                 android:textColor="@color/colorPrimaryDark"
-                />
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/ivChangeColor"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_photo"
+                android:textSize="@dimen/text_size_14sp"
+                android:textStyle="italic|bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginEnd="16dp"
             android:layout_marginTop="70dp"
             android:layout_marginBottom="40dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="@color/colorPrimaryDark"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent">
+            <ImageView
+                android:id="@+id/ivChangeColor"
+                android:layout_margin="5dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_color_palette" />
+        </LinearLayout>
     </android.support.constraint.ConstraintLayout>
 
     <LinearLayout

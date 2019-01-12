@@ -35,7 +35,7 @@ import java.util.Date;
 
 
 
-public class DetailEventActivity extends AppCompatActivity implements View.OnClickListener, OnTaskFinishedListener<Schedule> {
+public class DetailEventActivity extends AppCompatActivity implements View.OnClickListener {
     public static String EVENT_SET_OBJ = "event.set.obj";
     public static final String SCHEDULE_OBJ = "Schedule.Event";
 
@@ -44,6 +44,7 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
     private ConstraintLayout mclTextTitle, mclDateLayout, mclNotificationLayout, mclLocationLayout, mclNoteLayout, mclOwnerLayout;
     private ScrollView mScrollView;
     private ImageView mImageColor;
+    private Toolbar mToolbar;
 
 
 
@@ -73,10 +74,26 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
         mclNotificationLayout = findViewById(R.id.NotificationLayout);
 
         mScrollView = findViewById(R.id.svEventDetail);
+
+        mToolbar = findViewById(R.id.tbDetailActivity);
+        mToolbar.inflateMenu(R.menu.detail_event_menu);
+        mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.MenuDeleteEvent:
+                        deleteEvent();
+                        break;
+                    case R.id.MenuDuplicateEvent:
+                        duplicateEvent();
+                        break;
+                    case R.id.MenuUpdateEvent:
+                        editEvent();
+                }
+                return false;
+            }
+        });
         findViewById(R.id.llCancel).setOnClickListener(this);
-        findViewById(R.id.llEdit).setOnClickListener(this);
-        findViewById(R.id.llDelete).setOnClickListener(this);
-        findViewById(R.id.llDuplicate).setOnClickListener(this);
 
 
         // TODO доработать с меню в тулбаре с разными ивентами
@@ -160,49 +177,15 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View v) {
         int id = v.getId();
         switch (id){
-            case R.id.llDelete:
-                deleteEvent();
-                break;
             case R.id.llCancel:
                 finish();
-                break;
-            case R.id.llDuplicate:
-                duplicateEvent();
-                break;
-            case R.id.llEdit:
-                editEvent();
                 break;
         }
     }
 
     private void editEvent() {
-        Intent intent = new Intent(this, EditEventActivity.class);
-        Bundle b = new Bundle();
-        try {
-            b.putString("Title", mSchedule.getTitle());
-            b.putString("Description", mSchedule.getDesc());
-            b.putString("Account", mSchedule.getAccount());
-            b.putString("Account_name", mSchedule.getAccount_name());
-            b.putString("Location", mSchedule.getLocation());
-            b.putString("Repeat", mSchedule.getRepeat());
-            b.putInt("Month",mSchedule.getMonth());
-            b.putInt("Monthend",mSchedule.getMonthend());
-            b.putInt("Minute",mSchedule.getMinute());
-            b.putInt("Hour",mSchedule.getHour());
-            b.putInt("Day",mSchedule.getDay());
-            b.putInt("Id",mSchedule.getId());
-            b.putInt("Color",mSchedule.getColor());
-            b.putInt("Dayend",mSchedule.getDayend());
-            b.putInt("Hourend",mSchedule.getHourend());
-            b.putInt("Minuteend",mSchedule.getMinuteend());
-            b.putInt("State",mSchedule.getState());
-            b.putInt("Year",mSchedule.getYear());
-            b.putInt("Yearend",mSchedule.getYearend());
-            b.putLong("Time",mSchedule.getTime());
-            b.putLong("Timeend",mSchedule.getTime_end());
-        }catch (Exception e) {Log.wtf("Bundle putstring"," Exeption");}
-        intent.putExtras(b);
-        startActivityForResult(intent, 1);
+        // TODO перенаправить на эдитИвентАктивити
+        ;
     }
 
     public void deleteEvent(){
@@ -210,18 +193,13 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_CALENDAR}, 999);
         }
-        new DeleteEventTask(this, this, mSchedule).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        new DeleteEventTask(this, mSchedule).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        finish();
     }
 
     private void duplicateEvent(){
         // TODO функцию создания дубликата ивента
         ;
-    }
-
-    @Override
-    public void onTaskFinished(Schedule data) {
-        setResult(1, new Intent().putExtra(EVENT_SET_OBJ, data));
-        finish();
     }
 
 

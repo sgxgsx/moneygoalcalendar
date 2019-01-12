@@ -18,6 +18,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.jeek.calendar.R;
 import com.jeek.calendar.activity.DetailGoalActivity;
+import com.jeek.calendar.dialog.GoalDialog;
+import com.jeek.calendar.dialog.ListDialog;
 import com.jimmy.common.GoalDatabase.Goal;
 
 import java.io.File;
@@ -47,7 +49,7 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
     }
 
     @Override
-    public void onBindViewHolder(GoalsAdapter.GoalsViewHolder holder, final int position) {
+    public void onBindViewHolder(final GoalsAdapter.GoalsViewHolder holder, final int position) {
         final Goal goal = mGoals.get(position);
         if(!goal.getImage_path().equals("")){
             Glide.with(mContext).load(new File(goal.getImage_path())).into(holder.imageGoal);
@@ -62,15 +64,33 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
                 Log.wtf(TAG, "click go to detail");
             }
         });
+        holder.clGoal.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int a = v.getId();
+                Log.wtf("sss", String.valueOf(a));
+                gotoGoalDialog();
+
+                if (holder.mGoalDialog == null) {
+                    holder.mGoalDialog = new GoalDialog(mContext);
+                }
+                holder.mGoalDialog.show();
+                return false;
+            }
+        });
 
     }
 
+    private void gotoGoalDialog(){
+
+    }
 
     private void gotoDetail(Goal goal){
         mContext.startActivity(new Intent(mContext, DetailGoalActivity.class).putExtra(DetailGoalActivity.GOAL_OBJ, goal));
     }
 
     protected class GoalsViewHolder extends RecyclerView.ViewHolder {
+        private GoalDialog mGoalDialog;
         private ConstraintLayout clGoal;
         private TextView tvGoalName;
         private TextView tvGoalPlannedProgress;
