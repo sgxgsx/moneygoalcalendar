@@ -185,7 +185,33 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
 
     private void editEvent() {
         // TODO перенаправить на эдитИвентАктивити
-        ;
+        Intent intent = new Intent(this, EditEventActivity.class);
+
+        intent.putExtra("Title",mSchedule.getTitle());
+        intent.putExtra("Description",mSchedule.getDesc());
+        intent.putExtra("Account",mSchedule.getAccount());
+        intent.putExtra("Account_name",mSchedule.getAccount_name());
+        intent.putExtra("Location",mSchedule.getLocation());
+        intent.putExtra("Repeat",mSchedule.getRepeat());
+
+        intent.putExtra("State",mSchedule.getState());
+        intent.putExtra("Id",mSchedule.getId());
+        intent.putExtra("Color",mSchedule.getColor());
+        intent.putExtra("Month",mSchedule.getMonth());
+        intent.putExtra("Monthend",mSchedule.getMonthend());
+        intent.putExtra("Minute",mSchedule.getMinute());
+        intent.putExtra("Hour",mSchedule.getHour());
+        intent.putExtra("Day",mSchedule.getDay());
+        intent.putExtra("Dayend",mSchedule.getDayend());
+        intent.putExtra("Hourend",mSchedule.getHourend());
+        intent.putExtra("Minuteend",mSchedule.getMinuteend());
+        intent.putExtra("Year",mSchedule.getYear());
+        intent.putExtra("Yearend",mSchedule.getYearend());
+
+        intent.putExtra("Time",mSchedule.getTime());
+        intent.putExtra("Timeend",mSchedule.getTime_end());
+
+        startActivity(intent);
     }
 
     public void deleteEvent(){

@@ -28,55 +28,44 @@ import java.util.List;
 import java.util.ListIterator;
 
 
-public class SelectCalendarDialog extends Dialog implements OnTaskFinishedListener<String[][]> {
-    ScheduleDao mScheduleDao;
+public class SelectCalendarDialog extends Dialog {
     Context mContext;
     private OnSelectCalendarListener mOnSelectCalendarListener;
 
-    public String[][] calendars = new String[100][100];
-/*
-    private String[][] calendars={{"1","da"},{"2","db"},{"3","dc"}};
-*/
+    String[][] calendars=new String[50][50];
 
 
-    public SelectCalendarDialog(Context context, SelectCalendarDialog.OnSelectCalendarListener OnSelectCalendarListener) {
+    public SelectCalendarDialog(Context context, SelectCalendarDialog.OnSelectCalendarListener OnSelectCalendarListener,String[][] cals) {
 
         super(context, R.style.DialogFullScreen);
 
         mOnSelectCalendarListener=OnSelectCalendarListener;
         setContentView(R.layout.dialog_select_calendar);
         mContext=context;
-        new GetCalendarInfoTask(mContext,this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        //new GetCalendarInfoTask(mContext,this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         initView();
+        this.calendars=cals;
     }
-    /*public void onAddField(View v) {
-        LayoutInflater inflater = getLayoutInflater();
-        final View rowView = inflater.inflate(R.layout.field, null);
-        // Add the new row before the add field button.
-        parentLinearLayout.addView(rowView, parentLinearLayout.getChildCount() - 1);
-    }*/
     private void initView() {
-
+        Log.wtf("HEH",""+calendars[0][0]+" "+calendars[0][1]);
         ScrollView MainCont = new ScrollView(mContext);
         MainCont.setLayoutParams(new ScrollView.LayoutParams(120,600));
 
 
-        setContentView(/*R.layout.dialog_select_calendar*/MainCont);
+
         LinearLayout Main = new LinearLayout(mContext);
         Main.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         Main.setOrientation(LinearLayout.VERTICAL);
         MainCont.addView(Main);
-        //todo ya hz ono ne uspevaet zakonchit' task pered vivodom
-        new GetCalendarInfoTask(mContext,this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
         TextView[] tv =new TextView[20];
         int idd=0;
         for(String[] S:calendars) {
-            Log.wtf("Calendar"+idd,calendars[idd][0]+" "+calendars[idd][1]);
+            Log.wtf("Calendar"+idd,S[idd]);
 
             tv[idd]= new TextView(mContext);
-            tv[idd].setText("id:"+calendars[idd][0]+" name:"+calendars[idd][1]);
-            Log.wtf("TDTDTDTD",calendars[idd][0]+" "+calendars[idd][1]);
+            tv[idd].setText("name:"+S[idd]);
+            Log.wtf("TDTDTDTD",S[idd]);
             tv[idd].setBackgroundColor(Color.BLACK);
             tv[idd].setTextColor(Color.WHITE);
             tv[idd].setGravity(Gravity.CENTER);
@@ -99,17 +88,13 @@ public class SelectCalendarDialog extends Dialog implements OnTaskFinishedListen
             if(calendars[idd][0] == null) break;
         }
         Log.wtf("FFF",calendars.toString());
+        setContentView(MainCont);
     }
 
 
 
     public interface OnSelectCalendarListener {
         void onSelectCalendar(int id,String name);
-    }
-
-    @Override
-    public void onTaskFinished(String[][] data) {
-        this.calendars=data;
     }
 
 

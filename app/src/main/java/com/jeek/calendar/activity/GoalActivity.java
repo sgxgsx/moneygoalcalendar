@@ -33,6 +33,7 @@ import com.jimmy.common.base.app.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import me.tangke.slidemenu.SlideMenu;
 
@@ -47,15 +48,13 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
     private SharedPreferences mSharedPreferences;
     private ListDialog mListDialog;
     private boolean mDoing, mDone;
+    private View llBackground,llBackgroundBack;
     private LiveData<List<Goal>> goals;
     FloatingActionButton fab,fab1,fab2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //TODO поместить проверку в другое место, что бы пользователь согласился дать разрешение, а только потом уже запускался GoalActivity
-        if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1000);
-        }
+
     }
 
     @Override
@@ -84,6 +83,18 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
         rvGoals = findViewById(R.id.rvGoalsGoalActivity);
         findViewById(R.id.ivMenuInGoal).setOnClickListener(this);
         findViewById(R.id.llListStateGoals).setOnClickListener(this);
+
+        llBackground=findViewById(R.id.chooseMenuButtonBackground2);
+        llBackgroundBack=findViewById(R.id.BackGroundWhenChoice);
+        findViewById(R.id.chooseMenuButtonBackground2).setOnClickListener(this);
+        findViewById(R.id.BackGroundWhenChoice).setOnClickListener(this);
+        /*llBackground.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.wtf("llBackground.onClick","triggered onClick");
+                closeFABMenu();
+            }
+        });*/
         initGoalsList();
         initFab();
     }
@@ -96,6 +107,7 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.wtf("fab2.onClick","triggered onClick");
                 //add Goal
                 addGoal();
                 closeFABMenu();
@@ -104,7 +116,9 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
         fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.wtf("fab1.onClick","triggered onClick");
                 //add MoneyGoal
+
                 closeFABMenu();
             }
         });
@@ -112,10 +126,9 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
             @Override
             public void onClick(View view) {
                 if(!isFABOpen){
+                    Log.wtf("fab.onClick","triggered onClick");
                     showFABMenu();
                 }
-
-
             }
         });
     }
@@ -126,6 +139,10 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
         fab1.animate().translationY(-getResources().getDimension(R.dimen.standard_55)).alpha(255);
         fab2.setVisibility(View.VISIBLE);
         fab.setVisibility(View.INVISIBLE);
+        llBackground.setVisibility(View.VISIBLE);
+        llBackgroundBack.setVisibility(View.VISIBLE);
+
+
 
     }
 
@@ -135,6 +152,9 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
         fab1.animate().translationY(0);
         fab2.setVisibility(View.INVISIBLE);
         fab.setVisibility(View.VISIBLE);
+        llBackground.setVisibility(View.INVISIBLE);
+        llBackgroundBack.setVisibility(View.INVISIBLE);
+
     }
 
     private void initGoalsList() {
@@ -184,13 +204,16 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
             case R.id.ivMenuInGoal:
                 showMenu();
                 break;
-            /*case R.id.fabGoal:
-
-                addGoal();
-                break;*/
             case R.id.llListStateGoals:
                 showListDialog();
                 break;
+            case R.id.chooseMenuButtonBackground2:
+                Log.wtf("llBackground.onClick","triggered onClick");
+                if(isFABOpen)closeFABMenu();
+
+                break;
+
+
         }
     }
 
@@ -211,6 +234,7 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
     }
 
     private void showListDialog(){
+        Log.wtf("showListDialog","dialog show");
         if (mListDialog == null) {
             mListDialog = new ListDialog(this, this);
         }
@@ -219,7 +243,7 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
 
 
     private void showMenu(){
-        ;
+        Log.wtf("showMenu","SlideMenu Open");
     }
 
 
