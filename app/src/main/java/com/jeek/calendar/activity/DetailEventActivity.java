@@ -195,7 +195,7 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
         intent.putExtra("Repeat",mSchedule.getRepeat());
 
         intent.putExtra("State",mSchedule.getState());
-        intent.putExtra("Id",mSchedule.getId());
+        intent.putExtra("Id",mSchedule.getCalID());
         intent.putExtra("Color",mSchedule.getColor());
         intent.putExtra("Month",mSchedule.getMonth());
         intent.putExtra("Monthend",mSchedule.getMonthend());

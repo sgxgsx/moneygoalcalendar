@@ -39,6 +39,7 @@ public class  ScheduleDao{
     private Context mContext;
     private Activity mActivity;
     private CalendarClassDao mCalendarClassDao;
+    Uri CALENDAR_URI = Uri.parse("content://calendar/events");
 
     private ScheduleDao(Context context) {
         mHelper = new JeekSQLiteHelper(context);
@@ -160,13 +161,17 @@ public class  ScheduleDao{
 
     public void deleteEvent(Schedule mSchedule) {
         //todo сделать синхронизацию с гуглом(если надр будет)
-        Log.wtf("suka","dao");
-        Uri uri = CalendarContract.Events.CONTENT_URI;
+        Log.wtf("DAO","DELETE EVENT ID:"+mSchedule.getCalID());
+        /*Uri uri = CalendarContract.Events.CONTENT_URI;
 
         String mSelectionClause = CalendarContract.Events._ID+ " = ?";
-        String[] mSelectionArgs = {Integer.toString(mSchedule.getId())};
 
-        int updCount = mContext.getContentResolver().delete(uri,mSelectionClause,mSelectionArgs);
+        String[] mSelectionArgs = {Integer.toString(mSchedule.getCalID())};
+
+        int updCount = mContext.getContentResolver().delete(uri,mSelectionClause,mSelectionArgs);*/
+        Uri uri=ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI,mSchedule.getCalID());
+
+        int dd =mContext.getContentResolver().delete(uri, null, null);
     }
 
     public boolean removeSchedule(long id) {
@@ -268,19 +273,20 @@ public class  ScheduleDao{
             return schedules;
         }*/
         String[] INSTANCE_PROJECTION = new String[]{
-                CalendarContract.Instances.CALENDAR_ID,      // 0
-                CalendarContract.Instances.TITLE,         // 1
-                CalendarContract.Instances.DESCRIPTION,
-                CalendarContract.Instances.DTSTART,
-                CalendarContract.Instances.DTEND,
-                CalendarContract.Instances.DISPLAY_COLOR,
-                CalendarContract.Instances.EVENT_COLOR,
-                CalendarContract.Instances.EVENT_COLOR_KEY,
-                CalendarContract.Instances.ALL_DAY,
-                CalendarContract.Instances.EVENT_LOCATION,
-                CalendarContract.Instances.OWNER_ACCOUNT,
-                CalendarContract.Instances.RRULE,
-                CalendarContract.Instances.ORIGINAL_INSTANCE_TIME
+                CalendarContract.Instances.CALENDAR_ID,             //0
+                CalendarContract.Instances.TITLE,                   //1
+                CalendarContract.Instances.DESCRIPTION,             //2
+                CalendarContract.Instances.DTSTART,                 //3
+                CalendarContract.Instances.DTEND,                   //4
+                CalendarContract.Instances.DISPLAY_COLOR,           //5
+                CalendarContract.Instances.EVENT_COLOR,             //6
+                CalendarContract.Instances.EVENT_COLOR_KEY,         //7
+                CalendarContract.Instances.ALL_DAY,                 //8
+                CalendarContract.Instances.EVENT_LOCATION,          //9
+                CalendarContract.Instances.OWNER_ACCOUNT,           //10
+                CalendarContract.Instances.RRULE,                   //11
+                CalendarContract.Instances.ORIGINAL_INSTANCE_TIME,  //12
+                CalendarContract.Instances.EVENT_ID                 //13
         };
         Calendar startTime = Calendar.getInstance();
         startTime.set(year, month, day, 0, 0, 0);
@@ -313,6 +319,8 @@ public class  ScheduleDao{
             while (cursor.moveToNext()){
                 Log.wtf("1", "1");
                 Schedule schedule = new Schedule();
+                schedule.setId(cursor.getInt(0));
+                schedule.setCalID(cursor.getInt(13));
                 schedule.setTitle(cursor.getString(1));
                 schedule.setDesc(cursor.getString(2));
                 schedule.setTime(cursor.getLong(3));
@@ -322,6 +330,8 @@ public class  ScheduleDao{
                 schedule.setAccount(cursor.getString(10));
                 schedule.setRepeat(cursor.getString(11));
                 schedules.add(schedule);
+                Log.wtf("Title",""+schedule.getTitle());
+                Log.wtf("ID",""+schedule.getCalID());
             }
             cursor.close();
         }

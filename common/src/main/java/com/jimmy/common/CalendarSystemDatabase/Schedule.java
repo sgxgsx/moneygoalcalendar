@@ -7,7 +7,8 @@ import java.io.Serializable;
  */
 public class  Schedule implements Serializable {
 
-    private int id;
+    private int id; //CALENDAR ID
+    private int CalID; //the realonew ID in calendar NOT CALENDAR ID
     private int color;
     private String title;
     private String desc;
@@ -16,6 +17,14 @@ public class  Schedule implements Serializable {
     private long time;
     private long time_end;
     private int year;
+
+    public int getCalID() {
+        return CalID;
+    }
+
+    public void setCalID(int calID) {
+        CalID = calID;
+    }
 
     public int getYearend() {
         return yearend;

@@ -79,7 +79,7 @@ public class EditEventActivity extends BaseActivity {
         mSchedule.setLocation(extras.getString("Location"));
         mSchedule.setRepeat(extras.getString("Repeat"));
         mSchedule.setState(extras.getInt("State"));
-        mSchedule.setId(extras.getInt("Id"));
+        mSchedule.setCalID(extras.getInt("Id"));
         mSchedule.setColor(extras.getInt("Color"));
         mSchedule.setMonth(extras.getInt("Month"));
         mSchedule.setMonthend(extras.getInt("Monthend"));
