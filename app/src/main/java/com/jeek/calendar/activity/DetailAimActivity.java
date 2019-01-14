@@ -11,6 +11,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -26,6 +27,8 @@ import com.jimmy.common.GoalDatabase.Goal;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import me.tangke.slidemenu.SlideMenu;
 
 public class DetailAimActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String GOAL_OBJ = "GOAL.Obj.Detail.Aim";
@@ -45,12 +48,18 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
     private ConstraintLayout dateLayout;
     private View AddNote,AddEvent, MenuButtonBackground;
     private boolean buttonNotShowen;
-
+    SlideMenu slideMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setSlideMenu();
         setContentView(R.layout.activity_detail_aim);
+
+
+
+
         mContext = getApplicationContext();
         rvDetail = findViewById(R.id.rvAimsEventsAimsDetailActivity);
         mToolbar = findViewById(R.id.tbDetailAimActivity);
@@ -86,7 +95,23 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
 
 
     }
+    private void setSlideMenu(){
+        slideMenu = new SlideMenu(this);
+        slideMenu.setEdgeSlideEnable(true);
+        setContentView(slideMenu);
+        LayoutInflater content = getLayoutInflater();
+        View contentView = content.inflate(R.layout.activity_detail_goal, null);
+        slideMenu.addView(contentView, new SlideMenu.LayoutParams(
+                SlideMenu.LayoutParams.MATCH_PARENT, SlideMenu.LayoutParams.MATCH_PARENT,
+                SlideMenu.LayoutParams.ROLE_CONTENT));
 
+
+        LayoutInflater contentMenu = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentMenuView = contentMenu.inflate(R.layout.detail_aim_right_slide_menu, null);
+
+        slideMenu.addView(contentMenuView, new SlideMenu.LayoutParams(800,
+                SlideMenu.LayoutParams.MATCH_PARENT, SlideMenu.LayoutParams.ROLE_SECONDARY_MENU));
+    }
 
     private void initUI(){
         aimName = findViewById(R.id.tvAimName);

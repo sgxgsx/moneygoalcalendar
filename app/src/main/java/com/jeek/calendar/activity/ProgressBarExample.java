@@ -5,6 +5,7 @@ import android.app.Activity;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
@@ -22,11 +23,13 @@ import com.github.ag.floatingactionmenu.OptionsFabLayout;
 import com.jeek.calendar.R;
 import com.jeek.calendar.dialog.AddEventDialog;
 import com.jeek.calendar.dialog.SelectCalendarDialog;
+import com.jeek.calendar.task.schedule.GetCalendarInfoTask;
 import com.jimmy.common.base.app.BaseActivity;
 import com.jimmy.common.listener.BooVariable;
+import com.jimmy.common.listener.OnTaskFinishedListener;
 
 
-public class ProgressBarExample extends BaseActivity implements  View.OnClickListener,AddEventDialog.OnAddEventListener, SelectCalendarDialog.OnSelectCalendarListener {
+public class ProgressBarExample extends BaseActivity implements OnTaskFinishedListener<String[][]>,View.OnClickListener,AddEventDialog.OnAddEventListener, SelectCalendarDialog.OnSelectCalendarListener {
     Context context;
     Handler handler = new Handler();
 Bundle saved;
@@ -37,6 +40,7 @@ private SelectCalendarDialog mSelectCalendarDialog;
     double percentCompleted=0.6;
     int marginInDp=6;
     boolean isFABOpen=false;
+    String[][] cals;
     int marginInPixels;/*=(int)pxFromDp(ProgressBarExample.this,marginInDp);*/
     int NumberOfLines_completed=(int)(numberOfLines*percentCompleted);
     View[] ProgressBar_Lines=new View[numberOfLines];
@@ -60,46 +64,16 @@ protected void bindView() {
             }
         }
     });
-    //findViewById(R.id.fab_l).setOnClickListener(this);
-    /*fabWithOptions = (OptionsFabLayout) findViewById(R.id.fab_l);
-    fabWithOptions.setLayoutParams(new ViewGroup.LayoutParams());
 
 
 
-    BooVariable d =new BooVariable(); d.setBoo(fabWithOptions.isOptionsMenuOpened());
-    d.setListener(new BooVariable.ChangeListener() {
-        @Override
-        public void onChange() {
+    //calendarsDialogsetup
 
-        }
-    });
-    fabWithOptions.setMainFabOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            makeToast(1);
-        }
-    });
-    fabWithOptions.setMiniFabSelectedListener(new OptionsFabLayout.OnMiniFabSelectedListener() {
-        @Override
-        public void onMiniFabSelected(MenuItem fabItem) {
-            switch (fabItem.getItemId()) {
-                case R.id.fab_add:
-                    Toast.makeText(
-                            getApplicationContext(),
-                            fabItem.getTitle() + " clicked!",
-                            Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.fab_link:
-                    Toast.makeText(getApplicationContext(),
-                            fabItem.getTitle() + " clicked!",
-                            Toast.LENGTH_SHORT).show();
-                default:
-                    break;
-            }
-        }
-    });
-*/
 
+
+    new GetCalendarInfoTask(this,this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+
+    //calendarsdialogsetupEND
 
 }
 
@@ -226,16 +200,17 @@ protected void bindView() {
 
 
     public void onClickFillProgressBarD(View view) {
-        showAddEventDialog();
+        showSelectCalendarDialog();
     }
 
 
 
     private void showSelectCalendarDialog(){
         if (mSelectCalendarDialog==null){
-            mSelectCalendarDialog = new SelectCalendarDialog(this,this);
+            mSelectCalendarDialog = new SelectCalendarDialog(this,this,cals);
 
         }
+        Log.wtf("CAL",""+cals[0][0]+cals[0][1]);
         mSelectCalendarDialog.show();
     }
 
@@ -274,5 +249,10 @@ protected void bindView() {
             default:
                 break;
         }
+    }
+
+    @Override
+    public void onTaskFinished(String[][] data) {
+        this.cals=data;
     }
 }

@@ -108,8 +108,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         //TODO проверить ошибку при которой приложуха закрывается и крашится при условии что календарь уже создан
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_CALENDAR}, 16);
-        } else Log.wtf("Permission","Write garandted");
-
+        } else Log.wtf("Permission","Write Calgarandted");
+        if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1000);
+        } else Log.wtf("Permission","Read Storage garanted");
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CALENDAR}, 16);
@@ -319,13 +321,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
     }
 
     private void showFloatingChoiceMenu() {
-        Log.wtf("log", "show menu");
+        Log.wtf("showFloatingChoiceMenu", "show menu");
         gotoMoneyButton.setVisibility(View.VISIBLE);
         gotoGoalButton.setVisibility(View.VISIBLE);
         ChooseMenuButtonBackground.setVisibility(View.VISIBLE);
     }
     private void hideFloatingChoiceMenu() {
-        Log.wtf("log", "hide menu");
+        Log.wtf("hideFloatingChoiceMenu", "hide menu");
         gotoMoneyButton.setVisibility(View.INVISIBLE);
         gotoGoalButton.setVisibility(View.INVISIBLE);
         ChooseMenuButtonBackground.setVisibility(View.INVISIBLE);

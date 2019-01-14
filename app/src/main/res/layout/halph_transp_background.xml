@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:background="#33000000"
         android:clickable="true"
-        android:focusable="true"/>
+        android:focusable="true"
+        android:visibility="invisible"/>
 
 </android.support.constraint.ConstraintLayout>
