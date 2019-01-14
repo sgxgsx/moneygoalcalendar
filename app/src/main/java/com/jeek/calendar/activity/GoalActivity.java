@@ -50,6 +50,7 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
     private boolean mDoing, mDone;
     private View llBackground,llBackgroundBack;
     private LiveData<List<Goal>> goals;
+    SlideMenu slideMenu;
     FloatingActionButton fab,fab1,fab2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +60,8 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
 
     @Override
     protected void bindView() {
-        SlideMenu slideMenu = new SlideMenu(this);
+        slideMenu = new SlideMenu(this);
+        slideMenu.setEdgeSlideEnable(true);
         setContentView(slideMenu);
         LayoutInflater content = getLayoutInflater();
         View contentView = content.inflate(R.layout.activity_goal, null);
@@ -244,6 +246,7 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
 
     private void showMenu(){
         Log.wtf("showMenu","SlideMenu Open");
+        slideMenu.open(false,true);
     }
 
 

@@ -15,6 +15,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -33,6 +34,8 @@ import com.jimmy.common.GoalDatabase.Goal;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import me.tangke.slidemenu.SlideMenu;
 
 public class DetailGoalActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String GOAL_OBJ = "GOAL.Obj";
@@ -53,6 +56,7 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     private Toolbar mToolbar;
     private boolean buttonNotShowen = true;
     private View AddNote,AddAim, MenuButtonBackground;
+    private SlideMenu slideMenu;
     // TODO VLAD сделать addScheduleActivity            ( LEHA )
     // TODO VLAD сделать editScheduleActivity           ( LEHA )
     // TODO VLAD сделать deleteSchedule                 ( LEHA )
@@ -62,7 +66,13 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_goal);
+        //setContentView(R.layout.activity_detail_goal);
+
+        setSlideMenu();
+
+
+
+
         mContext = getApplicationContext();
         rvDetail = findViewById(R.id.rvAimsEventsGoalDetailActivity);
 
@@ -105,6 +115,23 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
 
     }
 
+    private void setSlideMenu(){
+        slideMenu = new SlideMenu(this);
+        slideMenu.setEdgeSlideEnable(true);
+        setContentView(slideMenu);
+        LayoutInflater content = getLayoutInflater();
+        View contentView = content.inflate(R.layout.activity_detail_goal, null);
+        slideMenu.addView(contentView, new SlideMenu.LayoutParams(
+                SlideMenu.LayoutParams.MATCH_PARENT, SlideMenu.LayoutParams.MATCH_PARENT,
+                SlideMenu.LayoutParams.ROLE_CONTENT));
+
+
+        LayoutInflater contentMenu = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentMenuView = contentMenu.inflate(R.layout.detail_goal_right_slide_menu, null);
+
+        slideMenu.addView(contentMenuView, new SlideMenu.LayoutParams(800,
+                SlideMenu.LayoutParams.MATCH_PARENT, SlideMenu.LayoutParams.ROLE_SECONDARY_MENU));
+    }
 
     private void initUI(){
         goalName = findViewById(R.id.tvGoalName);

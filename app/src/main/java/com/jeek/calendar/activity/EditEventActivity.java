@@ -158,6 +158,7 @@ public class EditEventActivity extends BaseActivity {
         tvv.setText(DateUtils.formatDateTime(this,
                 dateAndTime.getTimeInMillis(),
                 DateUtils.FORMAT_SHOW_TIME));
+
     }
 
 

@@ -115,7 +115,8 @@
 
     <include
         android:id="@+id/BackGroundWhenChoice"
-        layout="@layout/halph_transp_background" />
+        layout="@layout/halph_transp_background"
+        android:visibility="invisible"/>
 
 
 </android.support.constraint.ConstraintLayout>
