@@ -96,8 +96,6 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
         findViewById(R.id.llCancel).setOnClickListener(this);
 
 
-        // TODO доработать с меню в тулбаре с разными ивентами
-
         if (getIntent().hasExtra(SCHEDULE_OBJ)) {
             mSchedule = (Schedule) getIntent().getSerializableExtra(SCHEDULE_OBJ);
 

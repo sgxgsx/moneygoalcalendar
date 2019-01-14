@@ -28,10 +28,11 @@
                 android:id="@+id/ChooseModuleButtonTime"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:visibility="invisible"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="5dp"
                 android:clickable="true"
-                android:src="@drawable/ic_v6logo" />
+                android:src="@drawable/ic_v7logo" />
         </LinearLayout>
 
         <ImageView

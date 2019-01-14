@@ -54,6 +54,7 @@ public class  Goal implements Serializable{
         this.state = true;
     }
 
+
     public void addAim(Aim aim){
         if(aim != null){
             aims.add(aim);

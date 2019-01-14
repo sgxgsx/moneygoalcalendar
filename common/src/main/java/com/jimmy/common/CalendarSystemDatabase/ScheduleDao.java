@@ -165,8 +165,8 @@ public class  ScheduleDao{
 
         String mSelectionClause = CalendarContract.Events._ID+ " = ?";
         String[] mSelectionArgs = {Integer.toString(mSchedule.getId())};
-
         int updCount = mContext.getContentResolver().delete(uri,mSelectionClause,mSelectionArgs);
+
     }
 
     public boolean removeSchedule(long id) {

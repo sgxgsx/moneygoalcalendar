@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -57,6 +58,13 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
         holder.tvGoalName.setText(goal.getGoal_name());
         holder.tvGoalPlannedProgress.setText(String.valueOf(goal.getInprogress()));
         holder.tvGoalDoneProgress.setText(String.valueOf(goal.getDoneschedules()));
+
+        if(!goal.isState()){
+            holder.llDone.setVisibility(View.VISIBLE);
+        } else {
+            holder.llDone.setVisibility(View.INVISIBLE);
+        }
+
         holder.clGoal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,10 +77,11 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
             public boolean onLongClick(View v) {
                 int a = v.getId();
                 Log.wtf("sss", String.valueOf(a));
+                Log.wtf("sss", String.valueOf(goal.getId()));
                 gotoGoalDialog();
 
                 if (holder.mGoalDialog == null) {
-                    holder.mGoalDialog = new GoalDialog(mContext);
+                    holder.mGoalDialog = new GoalDialog(mContext, goal);
                 }
                 holder.mGoalDialog.show();
                 return false;
@@ -92,6 +101,7 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
     protected class GoalsViewHolder extends RecyclerView.ViewHolder {
         private GoalDialog mGoalDialog;
         private ConstraintLayout clGoal;
+        private LinearLayout llDone;
         private TextView tvGoalName;
         private TextView tvGoalPlannedProgress;
         private TextView tvGoalDoneProgress;
@@ -100,6 +110,7 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
         public GoalsViewHolder(View itemView) {
             super(itemView);
             clGoal = itemView.findViewById(R.id.clGoal);
+            llDone = itemView.findViewById(R.id.llGoalDoneCheck);
             tvGoalName = itemView.findViewById(R.id.tvGoalName);
             tvGoalPlannedProgress = itemView.findViewById(R.id.tvGoalAllEvents);
             tvGoalDoneProgress = itemView.findViewById(R.id.tvGoalDoneEvents);

@@ -77,15 +77,6 @@
     <string name="select_event_set">Choose events</string>
 
 
-
-
-
-
-
-
-
-
-
     <!--Auth-->
     <string name="try_with_out_auth">Try it anonymously</string>
 
@@ -99,9 +90,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">Map</string>
 
-    
-    
-    
+
     <!-- Money -->
     <string name="money_daily">Daily</string>
     <string name="money_weekly">Weekly</string>
@@ -111,11 +100,6 @@
     <string name="money_statistics">Statistics</string>
     <string name="money_accounts">Accounts</string>
     <string name="money_settings">Settings</string>
-    
-    
-    
-    
-    
 
 
     <!--  Goal -->
@@ -128,17 +112,7 @@
     <string name="goal_dialog_members">Members</string>
     <string name="goal_dialog_settings">Settings</string>
     <string name="goal_dialog_share">Share</string>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
 
     <!-- colors -->
     <string name="tomato">Tomato</string>
@@ -153,9 +127,8 @@
     <string name="flamingo">Flamingo</string>
     <string name="graphite">Graphite</string>
     <string name="default_color">Default color</string>
-    
-    
-    
+
+
     <!-- shared preferences -->
     <string name="shared_preferences_name">User Info</string>
     <string name="shared_doing_goals">Doing Goals</string>

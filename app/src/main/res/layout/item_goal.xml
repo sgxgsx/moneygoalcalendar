@@ -13,17 +13,6 @@
     android:backgroundTint="@color/colorPrimaryDark">
 
     <!-- max 20chars text for tvGoalName !-->
-    <LinearLayout
-        android:id="@+id/llGoalDoneCheck"
-        android:layout_width="50dp"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
-    </LinearLayout>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -88,6 +77,25 @@
 
     </LinearLayout>
     !-->
+    <LinearLayout
+        android:id="@+id/llGoalDoneCheck"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_flag_3"
+            />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/llGoalAllEvents"

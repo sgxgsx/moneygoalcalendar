@@ -53,9 +53,9 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     private Toolbar mToolbar;
     private boolean buttonNotShowen = true;
     private View AddNote,AddAim, MenuButtonBackground;
-    // TODO VLAD сделать addScheduleActivity            ( LEHA )
-    // TODO VLAD сделать editScheduleActivity           ( LEHA )
-    // TODO VLAD сделать deleteSchedule                 ( LEHA )
+    // TODO сделать addScheduleActivity            ( LEHA )
+    // TODO сделать editScheduleActivity           ( LEHA )
+    // TODO сделать deleteSchedule                 ( LEHA )
 
 
 
@@ -197,7 +197,7 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void deleteGoal(){
-        Toast.makeText(mContext, "Text", Toast.LENGTH_LONG).show();
+        Log.wtf("DetailGoalActivity", "delete");
         new DeleteGoalTask(mContext, mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         finish();
     }
@@ -251,4 +251,10 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
             }
         }
     }
+
+    // TODO goal activity - prototype: !!!!!!!!!!!!!!!!!!!!!!!!!!
+    /*
+       слайд меню в детейл гоал и в детейл эйм - для того что б менеджить команды, настройки, статистику смотреть и т.п.
+
+    * */
 }

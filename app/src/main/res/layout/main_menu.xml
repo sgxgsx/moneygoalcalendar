@@ -15,25 +15,43 @@
         android:layout_height="@dimen/action_bar_height"
         android:paddingStart="@dimen/space_20dp"
         android:layout_marginTop="25dp"
-        android:paddingEnd="@dimen/space_20dp"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:weightSum="25">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="21">
+            <TextView
+                android:id="@+id/tvMenuTitle"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/colorWrite"
+                android:textSize="@dimen/text_size_20sp"/>
 
-        <TextView
-            android:id="@+id/tvMenuTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textColor="@color/colorWrite"
-            android:textSize="@dimen/text_size_20sp" />
+            <TextView
 
-        <TextView
+                android:id="@+id/tvMenuTitleAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="1dp"
+                android:text="@string/account_name"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/text_size_16sp" />
+        </LinearLayout>
 
-            android:id="@+id/tvMenuTitleAccount"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/account_name"
-            android:textColor="@color/colorAccent"
-            android:textSize="@dimen/text_size_16sp" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="4">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_v7logo"/>
+        </LinearLayout>
     </LinearLayout>
 
 
@@ -79,12 +97,6 @@
                         android:text="@string/menu_schedule"
                         android:textColor="@color/colorMagenta"
                         android:textSize="@dimen/text_size_18sp"/>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/space_10dp"
-                        android:src="@mipmap/ic_menu_go"/>
 
                 </LinearLayout>
                 <LinearLayout
@@ -150,6 +162,40 @@
                             android:layout_weight="1"
                             android:text="@string/menu_goal_tracker"
                             android:textColor="@color/colorSoftYellow"
+                            android:textSize="@dimen/text_size_18sp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/llMenuGoSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_marginTop="1dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/menu_item_second_height"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_width"
+                            android:layout_height="@dimen/icon_width"
+                            android:layout_marginStart="@dimen/space_20dp"
+                            android:tint="@color/colorICGrey"
+                            android:src="@drawable/ic_settings"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/space_10dp"
+                            android:layout_weight="1"
+                            android:text="@string/menu_settings"
+                            android:textColor="@color/colorICGrey"
                             android:textSize="@dimen/text_size_18sp"/>
 
                     </LinearLayout>
@@ -235,22 +281,6 @@
                     android:textColor="@color/menu_item_text_color"
                     android:background="@color/colorPrimaryDark"
                     android:layout_marginTop="1dp"/>
-
-                <TextView
-                    android:id="@+id/tvMenuSettings"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:drawablePadding="@dimen/space_16dp"
-                    android:paddingBottom="@dimen/space_16dp"
-                    android:paddingStart="@dimen/space_30dp"
-                    android:paddingTop="@dimen/space_16dp"
-                    android:text="@string/menu_settings"
-                    android:textColor="@color/menu_item_text_color"
-                    android:background="@color/colorPrimaryDark"
-                    android:layout_marginTop="1dp"
-                    android:layout_marginBottom="1dp"/>
 
             </LinearLayout>
 

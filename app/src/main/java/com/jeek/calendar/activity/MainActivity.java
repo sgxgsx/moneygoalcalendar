@@ -175,7 +175,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         //searchViewById(R.id.tvMenuAddEventSet).setOnClickListener(this);
         searchViewById(R.id.tvMenuSignOut).setOnClickListener(this);
         //searchViewById(R.id.tvMenuDeleteAccount).setOnClickListener(this);
-        searchViewById(R.id.tvMenuSettings).setOnClickListener(this);
+        searchViewById(R.id.llMenuGoSettings).setOnClickListener(this);
         searchViewById(R.id.floatingActionButton).setOnClickListener(this);
         searchViewById(R.id.chooseMenuButtonBackground2).setOnClickListener(this);
         searchViewById(R.id.gotoGoalButton).setOnClickListener(this);
@@ -279,7 +279,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
                 }
                 break;
             */
-            case R.id.tvMenuSettings:
+            case R.id.llMenuGoSettings:
                 gotoSettings();
                 break;
             case R.id.ChooseModuleButtonTime:
