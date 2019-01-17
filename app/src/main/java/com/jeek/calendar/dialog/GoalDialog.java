@@ -27,10 +27,9 @@ public class GoalDialog extends Dialog implements View.OnClickListener {
         findViewById(R.id.dsc_edit).setOnClickListener(this);
         findViewById(R.id.dsc_delete).setOnClickListener(this);
         findViewById(R.id.dsc_settings).setOnClickListener(this);
-        findViewById(R.id.dsc_members).setOnClickListener(this);
+        //findViewById(R.id.dsc_members).setOnClickListener(this);
         findViewById(R.id.dsc_share).setOnClickListener(this);
     }
-
 
     @Override
     public void onClick(View v){
@@ -47,9 +46,11 @@ public class GoalDialog extends Dialog implements View.OnClickListener {
             case R.id.dsc_settings:
                 gotoSettings();
                 break;
+            /*
             case R.id.dsc_members:
                 gotoMembers();
                 break;
+            */
             case R.id.dsc_share:
                 share();
                 break;
@@ -62,11 +63,11 @@ public class GoalDialog extends Dialog implements View.OnClickListener {
         mContext.startActivity(intent);
         dismiss();
     }
-
+    /*
     private void gotoMembers(){
         ;
         dismiss();
-    }
+    }*/
 
     private void delete(){
         new DeleteGoalTask(mContext, mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);

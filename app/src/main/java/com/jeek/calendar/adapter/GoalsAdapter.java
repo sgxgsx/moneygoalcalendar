@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -52,18 +53,22 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
     @Override
     public void onBindViewHolder(final GoalsAdapter.GoalsViewHolder holder, final int position) {
         final Goal goal = mGoals.get(position);
+        int inprogress = goal.getInprogress();
+        int done       = goal.getDoneschedules();
+
         if(!goal.getImage_path().equals("")){
             Glide.with(mContext).load(new File(goal.getImage_path())).into(holder.imageGoal);
         }
         holder.tvGoalName.setText(goal.getGoal_name());
-        holder.tvGoalPlannedProgress.setText(String.valueOf(goal.getInprogress()));
-        holder.tvGoalDoneProgress.setText(String.valueOf(goal.getDoneschedules()));
+        holder.tvGoalPlannedProgress.setText(String.valueOf(inprogress));
+        holder.tvGoalDoneProgress.setText(String.valueOf(done));
 
-        if(!goal.isState()){
-            holder.llDone.setVisibility(View.VISIBLE);
-        } else {
-            holder.llDone.setVisibility(View.INVISIBLE);
-        }
+        if(!goal.isState()) holder.llDone.setVisibility(View.VISIBLE);
+        else holder.llDone.setVisibility(View.INVISIBLE);
+
+        holder.mProgressBar.setMax(inprogress + done);
+        holder.mProgressBar.setProgress(done);
+
 
         holder.clGoal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,10 +80,6 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
         holder.clGoal.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                int a = v.getId();
-                Log.wtf("sss", String.valueOf(a));
-                Log.wtf("sss", String.valueOf(goal.getId()));
-                gotoGoalDialog();
 
                 if (holder.mGoalDialog == null) {
                     holder.mGoalDialog = new GoalDialog(mContext, goal);
@@ -87,11 +88,6 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
                 return false;
             }
         });
-
-    }
-
-    private void gotoGoalDialog(){
-
     }
 
     private void gotoDetail(Goal goal){
@@ -106,6 +102,7 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
         private TextView tvGoalPlannedProgress;
         private TextView tvGoalDoneProgress;
         private ImageView imageGoal;
+        private ProgressBar mProgressBar;
 
         public GoalsViewHolder(View itemView) {
             super(itemView);
@@ -115,6 +112,7 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
             tvGoalPlannedProgress = itemView.findViewById(R.id.tvGoalAllEvents);
             tvGoalDoneProgress = itemView.findViewById(R.id.tvGoalDoneEvents);
             imageGoal = itemView.findViewById(R.id.ivImageGoal);
+            mProgressBar = itemView.findViewById(R.id.progressBar);
         }
     }
 

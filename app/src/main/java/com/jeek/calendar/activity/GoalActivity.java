@@ -39,24 +39,23 @@ import me.tangke.slidemenu.SlideMenu;
 
 public class GoalActivity extends BaseActivity implements View.OnClickListener, ListDialog.OnListListener{
     private String SHARED_DONE, SHARED_DOING;
+
     private boolean isFABOpen=false;
+    private boolean mDoing, mDone;
+
     private Toolbar mToolbar;
     private RecyclerView rvGoals;
     private GoalsAdapter mGoalsAdapter;
     private List<Goal> mGoals;
+
     private GoalDatabase mGoalDatabase;
     private SharedPreferences mSharedPreferences;
     private ListDialog mListDialog;
-    private boolean mDoing, mDone;
     private View llBackground,llBackgroundBack;
     private LiveData<List<Goal>> goals;
     SlideMenu slideMenu;
     FloatingActionButton fab,fab1,fab2;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
-    }
 
     @Override
     protected void bindView() {
@@ -80,7 +79,9 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
         SHARED_DOING = getResources().getString(R.string.shared_doing_goals);
         SHARED_DONE = getResources().getString(R.string.shared_done_goals);
         mDoing = mSharedPreferences.getBoolean(SHARED_DOING, true);
-        mDone = mSharedPreferences.getBoolean(SHARED_DONE, true);
+        mDone  = mSharedPreferences.getBoolean(SHARED_DONE, true);
+        //mDoing = mSharedPreferences.getBoolean(SHARED_DOING, true);
+        //mDone = mSharedPreferences.getBoolean(SHARED_DONE, true);
         mToolbar = findViewById(R.id.GoalsTitleBar);
         rvGoals = findViewById(R.id.rvGoalsGoalActivity);
         findViewById(R.id.ivMenuInGoal).setOnClickListener(this);
@@ -219,11 +220,19 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
         }
     }
 
+    public void changeSharedPref(){
+        SharedPreferences.Editor ed = mSharedPreferences.edit();
+        ed.putBoolean(SHARED_DONE, mDone);
+        ed.putBoolean(SHARED_DOING, mDoing);
+        ed.apply();
+    }
+
     @Override
     public void onList(boolean changed, boolean doing, boolean done) {
         if(changed){
             mDoing = doing;
             mDone  = done;
+            changeSharedPref();
             changeData();
             goals.observe(this, new Observer<List<Goal>>() {
                 @Override

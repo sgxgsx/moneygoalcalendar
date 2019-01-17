@@ -1,7 +1,6 @@
 <resources>
 
     <dimen name="action_bar_height">50dp</dimen>
-    <dimen name="bottom_bar_height">50dp</dimen>
     <dimen name="line_height">0.5dp</dimen>
 
     <dimen name="week_bar_height">36dp</dimen>
@@ -20,10 +19,6 @@
     <dimen name="schedule_item_size">50dp</dimen>
     <dimen name="schedule_radius_size">4dp</dimen>
     <dimen name="schedule_hint_dash_line_width">1dp</dimen>
-    <dimen name="schedule_hint_dash_width">4dp</dimen>
-    <dimen name="schedule_hint_dash_gap_width">2dp</dimen>
-    <dimen name="schedule_button_radius_size">3dp</dimen>
-    <dimen name="schedule_item_center_size">50dp</dimen>
 
     <dimen name="space_3dp">3dp</dimen>
     <dimen name="space_6dp">6dp</dimen>
@@ -36,17 +31,10 @@
     <dimen name="space_20dp">20dp</dimen>
     <dimen name="space_30dp">30dp</dimen>
 
-    <dimen name="menu_item_border_width">1dp</dimen>
     <dimen name="menu_item_height">50dp</dimen>
     <dimen name="menu_item_second_height">46dp</dimen>
 
     <dimen name="add_event_set_radius">2dp</dimen>
-    <dimen name="add_event_set_circle_size">16dp</dimen>
-
-    <dimen name="select_color_item_width">60dp</dimen>
-    <dimen name="select_color_item_height">36dp</dimen>
-    <dimen name="select_color_item_child_width">54dp</dimen>
-    <dimen name="select_color_item_child_height">30dp</dimen>
 
     <integer name="small_calendar_text_size">10</integer>
     <dimen name="small_week_bar_height">28dp</dimen>

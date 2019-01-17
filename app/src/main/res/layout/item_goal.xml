@@ -104,9 +104,9 @@
         android:background="@drawable/circle_red"
         android:backgroundTint="#FF5C5A"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
         >
         <TextView
             android:id="@+id/tvGoalAllEvents"
@@ -115,7 +115,7 @@
             android:textColor="@color/colorPrimary"
             android:gravity="center"
             android:textStyle="bold"
-            android:text="28"
+            android:text="0"
             android:textSize="@dimen/text_size_12sp"
             />
     </LinearLayout>
@@ -127,21 +127,33 @@
         android:background="@drawable/circle_green"
         android:backgroundTint="#00C382"
         app:layout_constraintEnd_toStartOf="@id/llGoalAllEvents"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="12dp"
-        >
+        android:layout_marginTop="12dp">
         <TextView
             android:id="@+id/tvGoalDoneEvents"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
+            android:text="0"
             android:textColor="@color/colorPrimary"
-            android:textStyle="bold"
-            android:text="18"
             android:textSize="@dimen/text_size_12sp"
-            />
+            android:textStyle="bold" />
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="324dp"
+        android:layout_height="3dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="24dp"
+        android:progress="0"
+        android:progressTint="@color/colorLime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

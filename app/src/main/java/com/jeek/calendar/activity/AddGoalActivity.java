@@ -39,7 +39,8 @@ public class AddGoalActivity extends AppCompatActivity implements View.OnClickLi
     private EditText title, description;
     private ImageView ivGoal;
     private TextView time;
-    private CheckBox aimsevents, cbtime;
+    private CheckBox cbtime;
+    //private CheckBox aimsevents;
     private String image_path = "";
 
     // TODO LEHA добавь выбор времени в этот файл. (который будет вовзращать long)?
@@ -51,7 +52,7 @@ public class AddGoalActivity extends AppCompatActivity implements View.OnClickLi
         ivGoal = findViewById(R.id.ivAddGoal);
         title = findViewById(R.id.etNameGoal);
         description = findViewById(R.id.etDescription);
-        aimsevents = findViewById(R.id.cbAimEvent);
+        //aimsevents = findViewById(R.id.cbAimEvent);
         time = findViewById(R.id.tvDeadlineGoal);
         cbtime = findViewById(R.id.cbTime);
 
@@ -95,7 +96,7 @@ public class AddGoalActivity extends AppCompatActivity implements View.OnClickLi
         String name = title.getText().toString();
         String desc = description.getText().toString();
         //TODO LEHA тут возвращаешь время. сюда. Мб просто Toast.
-        boolean aimandevents = aimsevents.isChecked();
+        //boolean aimandevents = aimsevents.isChecked();
         long date_to = 0;
         if(!cbtime.isChecked()){
             date_to = 2040200100;

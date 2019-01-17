@@ -29,56 +29,48 @@
                 android:src="@drawable/btn_menu"/>
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>
-    <LinearLayout
-        android:id="@+id/clMoneyPickListMenu"
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tlMoneyPickListMenu"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
         app:layout_constraintTop_toBottomOf="@+id/clMoneyToolBar"
-        app:layout_constraintStart_toStartOf="parent"
-        android:weightSum="4">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/money_daily"
             android:textSize="@dimen/money_pick_bar_text_size"
             android:textStyle="bold"
-            android:textColor="@color/colorICWhite"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
+            android:textColor="@color/colorICWhite" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/money_weekly"
             android:textSize="@dimen/money_pick_bar_text_size"
             android:textStyle="bold"
-            android:textColor="@color/colorICGrey"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
+            android:textColor="@color/colorICGrey"/>
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/money_monthly"
             android:textSize="@dimen/money_pick_bar_text_size"
             android:textStyle="bold"
-            android:textColor="@color/colorICGrey"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
+            android:textColor="@color/colorICGrey" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
             android:text="@string/money_total"
             android:textSize="@dimen/money_pick_bar_text_size"
             android:textStyle="bold"
-            android:textColor="@color/colorICGrey"
-            android:layout_weight="1"/>
-    </LinearLayout>
-
-
-
-
+            android:textColor="@color/colorICGrey" />
+    </android.support.design.widget.TabLayout>
 
 
 
@@ -177,4 +169,5 @@
                 android:textColor="@color/colorICGrey"/>
         </LinearLayout>
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

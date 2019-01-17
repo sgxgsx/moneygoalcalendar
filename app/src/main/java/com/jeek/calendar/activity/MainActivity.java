@@ -84,6 +84,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //mUser = FirebaseAuth.getInstance().getCurrentUser();
+        // TODO проверить default_web_client_id
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -105,6 +106,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         //mAuth = FirebaseAuth.getInstance();
 
         //create default calendar
+
         //TODO проверить ошибку при которой приложуха закрывается и крашится при условии что календарь уже создан
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_CALENDAR}, 16);
@@ -134,15 +136,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
     protected void bindView() {
         //setContentView(R.layout.activity_main);
 
-
         slideMenu = new SlideMenu(this);
         slideMenu.setEdgeSlideEnable(true);
-
         setContentView(slideMenu);
         LayoutInflater content = getLayoutInflater();
         View contentView = content.inflate(R.layout.activity_main, null);
-        // Setup the content
-
         slideMenu.addView(contentView, new SlideMenu.LayoutParams(
                 SlideMenu.LayoutParams.MATCH_PARENT, SlideMenu.LayoutParams.MATCH_PARENT,
                 SlideMenu.LayoutParams.ROLE_CONTENT));
@@ -153,7 +151,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
 
         slideMenu.addView(contentMenuView, new SlideMenu.LayoutParams(800,
                 SlideMenu.LayoutParams.MATCH_PARENT, SlideMenu.LayoutParams.ROLE_PRIMARY_MENU));
-
 
 
 
@@ -168,6 +165,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         gotoGoalButton=searchViewById(R.id.gotoGoalButton);
         //rvMenuCalendarClassList = searchViewById(R.id.rvMenuEventSetList);
         mUserNameTextView = searchViewById(R.id.tvMenuTitleAccount);
+
         searchViewById(R.id.ivMainMenu).setOnClickListener(this);
         searchViewById(R.id.llMenuSchedule).setOnClickListener(this);
         //searchViewById(R.id.llMenuNoCategory).setOnClickListener(this);
@@ -194,11 +192,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         tvTitle.setVisibility(View.GONE);
         tvTitleMonth.setText(mMonthText[Calendar.getInstance().get(Calendar.MONTH)]);
         tvTitleDay.setText(getString(R.string.calendar_today));
-// User name
-        if (Build.VERSION.SDK_INT < 19) {
-            TextView tvMenuTitle = searchViewById(R.id.tvMenuTitle);
-            tvMenuTitle.setGravity(Gravity.CENTER_VERTICAL);
-        }
     }
 
     @Override

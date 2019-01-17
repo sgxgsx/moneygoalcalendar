@@ -35,7 +35,8 @@ public class EditGoalActivity extends AppCompatActivity implements View.OnClickL
     private Goal mGoal;
     private EditText title, description;
     private TextView time;
-    private CheckBox aimsevents, cbtime;
+    private CheckBox cbtime;
+    //private CheckBox aimsevents;
     private ImageView ivGoal;
     private String image_path;
 
@@ -54,7 +55,7 @@ public class EditGoalActivity extends AppCompatActivity implements View.OnClickL
     private void initUI(){
         title = findViewById(R.id.etNameGoal);
         description = findViewById(R.id.etDescription);
-        aimsevents = findViewById(R.id.cbAimEvent);
+        //aimsevents = findViewById(R.id.cbAimEvent);
         time = findViewById(R.id.tvDeadlineGoal);
         cbtime = findViewById(R.id.cbTime);
         ivGoal = findViewById(R.id.ivAddGoal);
@@ -75,7 +76,7 @@ public class EditGoalActivity extends AppCompatActivity implements View.OnClickL
 
         description.setText(mGoal.getDescription());
         title.setText(mGoal.getGoal_name());
-        aimsevents.setChecked(true);
+        //aimsevents.setChecked(true);
     }
 
     @Override

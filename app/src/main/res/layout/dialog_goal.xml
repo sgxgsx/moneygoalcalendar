@@ -149,40 +149,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/dsc_members"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:weightSum="14">
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2.5"
-                >
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="13dp"
-                    android:background="@drawable/ic_group"
-                    android:backgroundTint="@color/colorMagenta"/>
-            </LinearLayout>
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"/>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/goal_dialog_members"
-                android:textSize="@dimen/text_size_16sp"
-                android:textColor="@color/colorPrimaryDark"
-                android:layout_weight="11"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/dsc_share"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -198,7 +164,8 @@
                     android:layout_height="24dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="13dp"
-                    android:background="@drawable/ic_share"/>
+                    android:background="@drawable/ic_share"
+                    android:backgroundTint="@color/colorMagenta"/>
             </LinearLayout>
             <View
                 android:layout_width="0dp"
