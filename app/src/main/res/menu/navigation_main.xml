@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/group_members">
+        <item
+            android:id="@+id/menu_screen_1"
+            android:title="Members"
+            android:icon="@drawable/ic_group"
+            android:iconTint="@color/colorICWhite"/>
+        <item
+            android:id="@+id/menu_screen_2"
+            android:title="Activity"
+            android:icon="@drawable/ic_graph"/>
+    </group>
+
+    <group
+        android:id="@+id/group_addons">
+        <item
+            android:id="@+id/menu_screen_3"
+            android:title="Addons"
+            android:icon="@drawable/ic_flag"/>
+    </group>
+
+    <group
+        android:id="@+id/group_archived">
+        <item
+            android:id="@+id/archived_tasks"
+            android:title="Archived Tasks"
+            android:icon="@drawable/ic_done"/>
+        <item
+            android:id="@+id/archived_lists"
+            android:title="Archived Lists"
+            android:icon="@drawable/ic_note"/>
+
+        <item
+            android:id="@+id/goal_settings"
+            android:title="Goal Settings"
+            android:icon="@drawable/ic_settings"/>
+    </group>
+
+    <item
+        android:id="@+id/menu_follow"
+        android:title="Follow"
+        android:icon="@drawable/ic_location"/>
+
+    <item
+        android:id="@+id/menu_copy"
+        android:title="Copy"
+        android:icon="@drawable/ic_dollar"/>
+
+    <item
+        android:id="@+id/menu_share"
+        android:title="Share"
+        android:icon="@drawable/ic_share"/>
+
+</menu>

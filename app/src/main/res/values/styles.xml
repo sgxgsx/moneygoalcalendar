@@ -12,6 +12,7 @@
     <style name="AppTheme" parent="BaseAppTheme">
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
         <item name="android:textColorSecondary">@color/colorICWhite</item>
+        <item name="android:listDivider">@color/colorMagenta</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
@@ -24,7 +25,7 @@
         <item name="android:windowBackground">@color/colorPrimary</item>
     </style>
 
-    <style name="DialogFullScreen" parent="DialogStyle"/>
+    <style name="DialogFullScreen" parent="DialogStyle" />
 
     <style name="DialogStyle" parent="Base.Theme.AppCompat.Light.Dialog">
         <item name="windowActionBar">false</item>
@@ -60,7 +61,20 @@
         <item name="colorControlNormal">@color/colorSoftYellow</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 
 
+    <style name="NavigationView" >
+        <item name="android:listDivider">@color/colorPrimary</item>
+        <item name="android:backgroundTint">@color/colorPrimaryDark</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="itemTextColor">@color/colorICGrey</item>
+        <item name="android:textColorSecondary">@color/colorICWhite</item>
+        <item name="android:iconTint">@color/colorICWhite</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
 
 </resources>
