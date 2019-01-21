@@ -97,7 +97,6 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
         llBackgroundBack=findViewById(R.id.BackGroundWhenChoice);
         findViewById(R.id.chooseMenuButtonBackground2).setOnClickListener(this);
         findViewById(R.id.BackGroundWhenChoice).setOnClickListener(this);
-        searchViewById(R.id.llMenuGoMoney).setOnClickListener(this);
 
 
         /*llBackground.setOnClickListener(new View.OnClickListener() {
@@ -224,9 +223,6 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
                 if(isFABOpen)closeFABMenu();
 
                 break;
-            case R.id.llMenuGoMoney:
-                Intent intent = new Intent(this, GoalNavDrawer.class);
-                startActivity(intent);
 
 
         }

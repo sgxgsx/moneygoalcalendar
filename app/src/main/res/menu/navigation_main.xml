@@ -4,54 +4,54 @@
     <group
         android:id="@+id/group_members">
         <item
-            android:id="@+id/menu_screen_1"
-            android:title="Members"
+            android:id="@+id/menu_members"
+            android:title="@string/menu_members"
             android:icon="@drawable/ic_group"
             android:iconTint="@color/colorICWhite"/>
         <item
-            android:id="@+id/menu_screen_2"
-            android:title="Activity"
+            android:id="@+id/menu_activity"
+            android:title="@string/menu_activity"
             android:icon="@drawable/ic_graph"/>
     </group>
 
     <group
         android:id="@+id/group_addons">
         <item
-            android:id="@+id/menu_screen_3"
-            android:title="Addons"
+            android:id="@+id/menu_addons"
+            android:title="@string/menu_addons"
             android:icon="@drawable/ic_flag"/>
     </group>
 
     <group
         android:id="@+id/group_archived">
         <item
-            android:id="@+id/archived_tasks"
-            android:title="Archived Tasks"
+            android:id="@+id/menu_archived_tasks"
+            android:title="@string/menu_archived_tasks"
             android:icon="@drawable/ic_done"/>
         <item
-            android:id="@+id/archived_lists"
-            android:title="Archived Lists"
+            android:id="@+id/menu_archived_lists"
+            android:title="@string/menu_archived_lists"
             android:icon="@drawable/ic_note"/>
 
         <item
-            android:id="@+id/goal_settings"
-            android:title="Goal Settings"
+            android:id="@+id/menu_goal_settings"
+            android:title="@string/menu_goal_settings"
             android:icon="@drawable/ic_settings"/>
     </group>
 
     <item
-        android:id="@+id/menu_follow"
-        android:title="Follow"
+        android:id="@+id/menu_watch"
+        android:title="@string/menu_watch"
         android:icon="@drawable/ic_location"/>
 
     <item
         android:id="@+id/menu_copy"
-        android:title="Copy"
+        android:title="@string/menu_copy"
         android:icon="@drawable/ic_dollar"/>
 
     <item
         android:id="@+id/menu_share"
-        android:title="Share"
+        android:title="@string/menu_share"
         android:icon="@drawable/ic_share"/>
 
 </menu>

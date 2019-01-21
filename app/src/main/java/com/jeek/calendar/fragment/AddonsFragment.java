@@ -12,15 +12,13 @@ import android.widget.TextView;
 
 import com.jeek.calendar.R;
 
-
-public class MembersFragment extends Fragment implements View.OnClickListener {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+public class AddonsFragment extends Fragment implements View.OnClickListener {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
     // The request codes
     private static final int GO_BACK_CALL_BACK = 1;
+
 
     private String mParam1;
     private String mParam2;
@@ -29,9 +27,10 @@ public class MembersFragment extends Fragment implements View.OnClickListener {
 
     private OnFragmentInteractionListener mListener;
 
-    public MembersFragment() { }
-    public static MembersFragment newInstance(String param1, String param2) {
-        MembersFragment fragment = new MembersFragment();
+    public AddonsFragment() { }
+
+    public static AddonsFragment newInstance(String param1, String param2) {
+        AddonsFragment fragment = new AddonsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -51,7 +50,7 @@ public class MembersFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_members, container, false);
+        View view = inflater.inflate(R.layout.fragment_addons, container, false);
 
         llGoBack = view.findViewById(R.id.llGoBack);
         llGoBack.setOnClickListener(this);
@@ -74,6 +73,7 @@ public class MembersFragment extends Fragment implements View.OnClickListener {
     public void onResume() {
         super.onResume();
     }
+
     public void onAction(int callback){
         if (mListener != null) {
             mListener.onFragmentInteraction(callback);
@@ -96,6 +96,4 @@ public class MembersFragment extends Fragment implements View.OnClickListener {
         super.onDetach();
         mListener = null;
     }
-
-
 }

@@ -31,6 +31,7 @@ import com.jeek.calendar.R;
 import com.jeek.calendar.adapter.DetailAimAdapter;
 import com.jeek.calendar.adapter.DetailGoalAdapter;
 import com.jeek.calendar.fragment.MembersFragment;
+import com.jeek.calendar.fragment.OnFragmentInteractionListener;
 import com.jeek.calendar.task.goal.DeleteGoalTask;
 import com.jeek.calendar.task.goal.UpdateGoalAsyncTask;
 import com.jimmy.common.GoalDatabase.Aim;
@@ -40,7 +41,7 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class DetailGoalActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener, MembersFragment.OnFragmentInteractionListener, DrawerLayout.DrawerListener{
+public class DetailGoalActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener, OnFragmentInteractionListener, DrawerLayout.DrawerListener{
     public static final String GOAL_OBJ = "GOAL.Obj";
     public static final String GOAL_OBJW = "GOAL.Objw";
     public static final String GOAL_OBJ_AIM = "GOAL.Obj.Add.Aim";
@@ -53,7 +54,7 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
 
     private DrawerLayout drawerLayout;
     private DoubleDrawerView doubleDrawerView;
-    private NavigationView mainNavigationView, settingsNavigationView, secondNavigationView;
+    private NavigationView mainNavigationView;
     private Fragment fragment;
 
     private Context mContext;
@@ -109,9 +110,6 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         doubleDrawerView = (DoubleDrawerView) findViewById(R.id.double_drawer_view);
         mainNavigationView = (NavigationView) findViewById(R.id.main_navigation_view);
-        settingsNavigationView = (NavigationView) findViewById(R.id.settings_navigation_view);
-        secondNavigationView   = findViewById(R.id.second_navigation_view);
-
         goalName.setText(mGoal.getGoal_name());
         description.setText(mGoal.getDescription());
 
@@ -119,8 +117,6 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         AddNote.setOnClickListener(this);
         MenuButtonBackground.setOnClickListener(this);
         mainNavigationView.setNavigationItemSelectedListener(this);
-        settingsNavigationView.setNavigationItemSelectedListener(this);
-        secondNavigationView.setNavigationItemSelectedListener(this);
         drawerLayout.setDrawerListener(this);
         //TODO на потом : нужно при создании и эдите Гоала добавить поле с чекбоксом "Показывать ли картинку в бэкграунде" а здесь делать проверку - нужно ли показывать
         //TODO на потом : если да, то переделать item_aim!
@@ -273,7 +269,7 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     public void onFragmentInteraction(int callback) {
         Log.wtf("callback", "callback");
         if(callback == GO_BACK_CALL_BACK){
-            doubleDrawerView.closeThirdDrawer();
+            doubleDrawerView.closeFragment();
         }
     }
 
@@ -281,32 +277,36 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     public boolean onNavigationItemSelected(MenuItem item) {
         Log.wtf("menu", "onNavigationItem");
         switch (item.getItemId()) {
-            case R.id.menu_follow:
-                doubleDrawerView.openInnerDrawer();
+            case R.id.menu_members:
+                doubleDrawerView.openMembers();
+                break;
+            case R.id.menu_activity:
+                doubleDrawerView.openActivity();
+                break;
+            case R.id.menu_addons:
+                doubleDrawerView.openAddons();
+                break;
+            case R.id.menu_archived_tasks:
+                doubleDrawerView.openArchivedTasks();
+                break;
+            case R.id.menu_archived_lists:
+                doubleDrawerView.openArchivedLists();
+                break;
+            case R.id.menu_goal_settings:
+                doubleDrawerView.openGoalSettings();
                 break;
 
-            case R.id.menu_close_settings:
-                doubleDrawerView.closeInnerDrawer();
+            case R.id.menu_watch:
+                Log.wtf("menu", "watch");
                 break;
 
-            case R.id.menu_screen_3:
-                Log.wtf("menu", "open");
-                doubleDrawerView.openSecondDrawer();
+            case R.id.menu_copy:
+                Log.wtf("menu", "copy");
                 break;
 
-            case R.id.menu_screen_1:
-                doubleDrawerView.openThirdDrawer();
+            case R.id.menu_share:
+                Log.wtf("menu", "watch");
                 break;
-
-            case R.id.fab_add:
-                doubleDrawerView.closeSecondDrawer();
-                break;
-
-            // Additional cases as needed
-            // This example simply Toasts the title for the extra sample items
-
-            default:
-                Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
         }
         return true;
     }

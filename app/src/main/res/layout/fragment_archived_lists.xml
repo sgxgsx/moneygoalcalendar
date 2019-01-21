@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -27,27 +28,35 @@
         <TextView
             android:layout_width="200dp"
             android:layout_height="match_parent"
-            android:text="Members"
+            android:text="@string/menu_archived_lists"
             android:layout_marginStart="25dp"
             android:textSize="16sp"
             android:textColor="@color/colorICWhite"
             android:gravity="center_vertical|start" />
     </LinearLayout>
     <View
+        android:id="@+id/borderView"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tbToolbar"/>
 
-    <View
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/circle"
-        android:backgroundTint="@color/colorAccent"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/borderView"
+        app:layout_constraintStart_toStartOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.jeek.calendar.widget.AbsoluteRecyclerView
+                android:id="@+id/rvArchivedLists"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

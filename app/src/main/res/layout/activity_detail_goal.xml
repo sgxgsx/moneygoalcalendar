@@ -93,7 +93,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="0dp"
-            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/llDetailGoalToolBar"
             app:layout_constraintBottom_toBottomOf="parent">
@@ -219,21 +218,39 @@
             android:layout_height="match_parent"
             app:menu="@menu/navigation_main" />
 
-        <android.support.design.widget.NavigationView
-            android:id="@+id/settings_navigation_view"
+        <fragment
+            android:id="@+id/membersFragment"
+            android:name="com.jeek.calendar.fragment.MembersFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:menu="@menu/navigation_settings" />
-
-        <android.support.design.widget.NavigationView
-            android:id="@+id/second_navigation_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:menu="@menu/fab_menu_1"/>
+            android:layout_height="match_parent"/>
 
         <fragment
-            android:id="@+id/fragment"
-            android:name="com.jeek.calendar.fragment.MembersFragment"
+            android:id="@+id/activityFragment"
+            android:name="com.jeek.calendar.fragment.ActivityFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <fragment
+            android:id="@+id/addonsFragment"
+            android:name="com.jeek.calendar.fragment.AddonsFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <fragment
+            android:id="@+id/archivedTasksFragment"
+            android:name="com.jeek.calendar.fragment.ArchivedTasksFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <fragment
+            android:id="@+id/archivedListsFragment"
+            android:name="com.jeek.calendar.fragment.ArchivedListsFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <fragment
+            android:id="@+id/goalSettingsFragment"
+            android:name="com.jeek.calendar.fragment.GoalSettingsFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </com.jeek.calendar.activity.DoubleDrawerView>

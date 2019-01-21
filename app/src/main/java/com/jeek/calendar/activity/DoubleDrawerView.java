@@ -16,9 +16,12 @@ import com.jeek.calendar.R;
 public class DoubleDrawerView extends ViewFlipper {
     private static final int NONE = -1;
     private static final int MAIN_VIEW_INDEX = 0;
-    private static final int DRAWER_VIEW_INDEX = 1;
-    private static final int DRAWER_VIEW_SECOND_INDEX = 2;
-    private static final int DRAWER_MEMBERS = 3;
+    private static final int DRAWER_MEMBERS = 1;
+    private static final int DRAWER_ACTIVITY = 2;
+    private static final int DRAWER_ADDONS = 3;
+    private static final int DRAWER_ARCHIVED_TASKS = 4;
+    private static final int DRAWER_ARCHIVED_LISTS = 5;
+    private static final int DRAWER_GOAL_SETTINGS = 6;
 
     private Animation slideInAnimation, slideOutAnimation, noAnimation;
     private boolean animating = false;
@@ -51,48 +54,53 @@ public class DoubleDrawerView extends ViewFlipper {
         noAnimation.setAnimationListener(listener);
     }
 
-    public void openInnerDrawer() {
-        if (getDisplayedChild() != DRAWER_VIEW_INDEX) {
-            setChildAndAnimate(DRAWER_VIEW_INDEX, true);
-        }
-    }
-
-    public void openSecondDrawer(){
-        if (getDisplayedChild() != DRAWER_VIEW_SECOND_INDEX){
-            Log.wtf("openSecondDrawer", "go");
-            setChildAndAnimate(DRAWER_VIEW_SECOND_INDEX, true);
-        }
-    }
-
-    public void openThirdDrawer(){
-        if (getDisplayedChild() != DRAWER_MEMBERS){
-            Log.wtf("openThirdDrawer", "3");
+    public void openMembers() {
+        if (getDisplayedChild() != DRAWER_MEMBERS) {
             setChildAndAnimate(DRAWER_MEMBERS, true);
         }
     }
 
+    public void openActivity(){
+        if (getDisplayedChild() != DRAWER_ACTIVITY){
+            setChildAndAnimate(DRAWER_ACTIVITY, true);
+        }
+    }
+
+    public void openAddons(){
+        if (getDisplayedChild() != DRAWER_ADDONS){
+            setChildAndAnimate(DRAWER_ADDONS, true);
+        }
+    }
+
+    public void openArchivedTasks(){
+        if (getDisplayedChild() != DRAWER_ARCHIVED_TASKS){
+            setChildAndAnimate(DRAWER_ARCHIVED_TASKS, true);
+        }
+    }
+
+    public void openArchivedLists(){
+        if (getDisplayedChild() != DRAWER_ARCHIVED_LISTS){
+            setChildAndAnimate(DRAWER_ARCHIVED_LISTS, true);
+        }
+    }
+
+    public void openGoalSettings(){
+        if (getDisplayedChild() != DRAWER_GOAL_SETTINGS){
+            setChildAndAnimate(DRAWER_GOAL_SETTINGS, true);
+        }
+    }
 
 
-    public void closeThirdDrawer(){
+
+    public void closeFragment(){
         Log.wtf("closeThirdDrawer", "drawer");
-        if (getDisplayedChild() != MAIN_VIEW_INDEX || getDisplayedChild() != DRAWER_VIEW_INDEX || getDisplayedChild() != DRAWER_MEMBERS){
-            setChildAndAnimate(MAIN_VIEW_INDEX, true);
-        }
-    }
-    public void closeSecondDrawer(){
-        if (getDisplayedChild() != MAIN_VIEW_INDEX || getDisplayedChild() != DRAWER_VIEW_INDEX){
-            setChildAndAnimate(MAIN_VIEW_INDEX, true);
-        }
+        setChildAndAnimate(MAIN_VIEW_INDEX, true);
     }
 
-    public void closeInnerDrawer() {
-        if (getDisplayedChild() != MAIN_VIEW_INDEX || getDisplayedChild() != DRAWER_VIEW_SECOND_INDEX) {
-            setChildAndAnimate(MAIN_VIEW_INDEX, true);
-        }
-    }
 
     public boolean isInnerDrawerOpen() {
-        return getDisplayedChild() == DRAWER_VIEW_INDEX;
+        // shitty method, maybe will be deleted. idk
+        return getDisplayedChild() == DRAWER_MEMBERS;
     }
 
     private void setChildAndAnimate(int whichChild, boolean doAnimate) {
@@ -109,7 +117,7 @@ public class DoubleDrawerView extends ViewFlipper {
     }
 
     private void setAnimationForChild(int whichChild) {
-        if (whichChild == DRAWER_VIEW_INDEX || whichChild == DRAWER_VIEW_SECOND_INDEX || whichChild == DRAWER_MEMBERS) {
+        if (whichChild == DRAWER_MEMBERS || whichChild == DRAWER_ACTIVITY || whichChild == DRAWER_ADDONS || whichChild == DRAWER_ARCHIVED_TASKS || whichChild == DRAWER_ARCHIVED_LISTS || whichChild == DRAWER_GOAL_SETTINGS) {
             setInAnimation(slideInAnimation);
             setOutAnimation(noAnimation);
         } else if (whichChild == MAIN_VIEW_INDEX) {
@@ -134,55 +142,4 @@ public class DoubleDrawerView extends ViewFlipper {
         }
     }
 
-
-    /*
-    @Override
-    protected Parcelable onSaveInstanceState() {
-        Log.wtf("Save Instance", "save");
-        Parcelable superState = super.onSaveInstanceState();
-        SavedState ss = new SavedState(superState);
-        ss.whichChild = getDisplayedChild();
-        return ss;
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Parcelable state) {
-        Log.wtf("Restore", "restore");
-        SavedState ss = (SavedState) state;
-        super.onRestoreInstanceState(ss.getSuperState());
-        Log.wtf("Which", String.valueOf(ss.whichChild));
-        setChildAndAnimate(ss.whichChild, false);
-    }
-
-    private static class SavedState extends BaseSavedState {
-        int whichChild;
-
-        SavedState(Parcelable superState) {
-            super(superState);
-        }
-
-        private SavedState(Parcel in) {
-            super(in);
-            whichChild = in.readInt();
-        }
-
-        @Override
-        public void writeToParcel(Parcel out, int flags) {
-            super.writeToParcel(out, flags);
-            out.writeInt(whichChild);
-        }
-
-        public static final Parcelable.Creator<SavedState>
-                CREATOR = new Parcelable.Creator<SavedState>() {
-
-            public SavedState createFromParcel(Parcel in) {
-                return new SavedState(in);
-            }
-
-            public SavedState[] newArray(int size) {
-                return new SavedState[size];
-            }
-        };
-    }
-    */
 }
