@@ -1,11 +1,15 @@
 package com.jimmy.common.CalendarSystemDatabase;
 
+import com.jimmy.common.GoalDatabase.Note;
+import com.jimmy.common.ItemWrapper;
+
 import java.io.Serializable;
 
 /**
  * Created by Jimmy on 2016/10/8 0008.
  */
-public class  Schedule implements Serializable {
+public class  Schedule implements Serializable, ItemWrapper {
+    public static int VIEW_TYPE = 2;
 
     private int id; //CALENDAR ID
     private int CalID; //the realonew ID in calendar NOT CALENDAR ID
@@ -112,8 +116,10 @@ public class  Schedule implements Serializable {
     }
 
 
-
-
+    @Override
+    public int getViewType(){
+        return VIEW_TYPE;
+    }
 
     public String getAccount_name() {
         return account_name;
@@ -232,5 +238,31 @@ public class  Schedule implements Serializable {
 
     public void setEventSetId(int eventSetId) {
         this.eventSetId = eventSetId;
+    }
+
+    public void setName(String n){
+        ;
+    }
+    public void setDescription(String d){
+        ;
+    }
+
+    public void setColor(String c){
+        ;
+    }
+
+    public void changeNote(String k, String p, long l){
+        ;
+    }
+
+    public void changeNote(int i,String k, String p, long l){
+        ;
+    }
+
+    public void addNote(Note n){
+        ;
+    }
+    public void deleteNote(int i){
+        ;
     }
 }

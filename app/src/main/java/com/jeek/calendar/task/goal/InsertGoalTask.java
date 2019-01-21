@@ -2,6 +2,7 @@ package com.jeek.calendar.task.goal;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.jimmy.common.GoalDatabase.Goal;
 import com.jimmy.common.GoalDatabase.GoalDatabase;
@@ -20,7 +21,8 @@ public class InsertGoalTask extends AsyncTask<Goal, Void, Void> {
 
     @Override
     protected Void doInBackground(Goal... goals) {
-        GoalDatabase.getInstance(mContext).goalDao().insertSettingsCalendar(goal);
+        Log.wtf("inserted", "insert");
+        GoalDatabase.getInstance(mContext).goalDao().insertGoal(goal);
         return null;
     }
 }

@@ -1,10 +1,12 @@
 package com.jimmy.common.GoalDatabase;
 
+import com.jimmy.common.ItemWrapper;
+
 import java.io.Serializable;
 
-public class  GoalSchedule implements Serializable{
+public class  GoalSchedule implements Serializable, ItemWrapper {
     private final String CALENDAR_NAME = "GoalCalendar";
-
+    public static int VIEW_TYPE = 2;
 
     private int id;
     private int color;
@@ -16,6 +18,10 @@ public class  GoalSchedule implements Serializable{
     private long time_end;
     private String account;
 
+    public GoalSchedule(){
+
+    }
+
     public GoalSchedule(int id, int color, String title, String desc, String location, boolean state, long time, long time_end, String account) {
         this.id = id;
         this.color = color;
@@ -26,6 +32,11 @@ public class  GoalSchedule implements Serializable{
         this.time = time;
         this.time_end = time_end;
         this.account = account;
+    }
+
+
+    public int getViewType() {
+        return VIEW_TYPE;
     }
 
     public String getCALENDAR_NAME() {
@@ -102,5 +113,30 @@ public class  GoalSchedule implements Serializable{
 
     public void setAccount(String account) {
         this.account = account;
+    }
+
+    public void setName(String n){
+        ;
+    }
+    public void setDescription(String d){
+        ;
+    }
+
+    public void setColor(String c){
+        ;
+    }
+
+    public void changeNote(String k, String p, long l){
+        ;
+    }
+
+    public void changeNote(int i,String k, String p, long l){
+        ;
+    }
+    public void addNote(Note n){
+        ;
+    }
+    public void deleteNote(int i){
+        ;
     }
 }

@@ -4,13 +4,16 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.constraint.ConstraintLayout;
+import android.support.constraint.ConstraintSet;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +29,7 @@ import com.jimmy.common.GoalDatabase.Aim;
 import com.jimmy.common.GoalDatabase.Goal;
 import com.jimmy.common.GoalDatabase.GoalSchedule;
 import com.jimmy.common.GoalDatabase.Note;
+import com.jimmy.common.ItemWrapper;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,80 +37,43 @@ import java.util.List;
 
 public class DetailGoalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private Context mContext;
+    private Resources mResources;
     private Activity mActivity;
     private Goal mGoal;
-    private List<Aim> aims;
-    private List<GoalSchedule> goalSchedules;
-    private List<Note> noteList;
-
+    private List<ItemWrapper> items;
 
     public DetailGoalAdapter(Context context, Goal goal) {
         mContext = context;
         mActivity = (Activity) mContext;
         mGoal = goal;
-        aims = mGoal.getAims();
-        goalSchedules = mGoal.getSchedules();
-        noteList = mGoal.getNoteList();
+        items = goal.getItems();
+        mResources = context.getResources();
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Log.wtf("view type", String.valueOf(viewType));
         if (viewType == 1) {
             return new AimsViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_aim, parent, false));
         } else if (viewType == 2){
             return new ScheduleViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_goal_scheduler, parent, false));
         } else if (viewType == 3){
-            Log.wtf("www", "3");
             return new NoteViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_note, parent, false));
-        } else if (viewType == 4){
-            Log.wtf("www", "4");
-        } else if (viewType == 5){
-            Log.wtf("www", "5");
-        } else if (viewType == 6){
-            Log.wtf("www", "6");
-        } else if (viewType == 7){
-            Log.wtf("www", "7");
         }
-
         return new DetailGoalAdapter.AimsViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_aim, parent, false));
     }
 
     @Override
     public int getItemViewType(int position) {
-        if(aims != null || goalSchedules != null || noteList != null){
-            if (aims == null){
-                if (goalSchedules == null) return 2;
-                if (noteList == null) return 3;
-                if (position < goalSchedules.size()) return 2;
-                return 3;
-            }
-            if (goalSchedules == null){
-                if (aims == null || aims.size() == 0) return 3;
-                if (noteList == null) return 1;
-                if (position < aims.size()) return 1;
-                return 3;
-            }
-            if (noteList == null){
-                if (aims == null || aims.size() == 0) return 2;
-                if (goalSchedules == null || goalSchedules.size() == 0) return 1;
-                if (position < aims.size()) return 1;
-                return 2;
-            }
-            if (position < aims.size()) return 1;
-            if (position < aims.size() + goalSchedules.size()) return 2;
-            if (position < aims.size() + goalSchedules.size() + noteList.size()) return 3;
-        }
-        return 0;
+        return items.get(position).getViewType();
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof DetailGoalAdapter.ScheduleViewHolder) {
-            Log.wtf("ID: Schedule", String.valueOf(position) + " and " + String.valueOf(goalSchedules.size()) + " position " + String.valueOf(position - aims.size()));
-            final GoalSchedule schedule = goalSchedules.get(position - aims.size() );
+            final GoalSchedule schedule = (GoalSchedule) items.get(position);
             final DetailGoalAdapter.ScheduleViewHolder viewHolder = (DetailGoalAdapter.ScheduleViewHolder) holder;
 
-            //viewHolder.vScheduleHintBlock.setBackgroundColor();
             viewHolder.tvScheduleTitle.setText(schedule.getTitle());
             if (schedule.getTime() != 0) {
                 String time_to_display = JeekUtils.timeStamp2Time(schedule.getTime()) + " - " + JeekUtils.timeStamp2Time(schedule.getTime_end());
@@ -121,13 +88,9 @@ public class DetailGoalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 }
             });
         } else if (holder instanceof  DetailGoalAdapter.AimsViewHolder){
-            Log.wtf("ID: Aim", String.valueOf(position) + " and " + String.valueOf(aims.size()));
-            final Aim aim = aims.get(position);
-            Log.wtf("tag", "ta" + aim.getColor());
-            Log.wtf("tag", "ta" + String.valueOf(Color.parseColor(aim.getColor())));
+            final Aim aim = (Aim) items.get(position);
             final DetailGoalAdapter.AimsViewHolder viewHolder = (DetailGoalAdapter.AimsViewHolder) holder;
             viewHolder.tvGoalName.setText(aim.getName());
-            Log.wtf("tag", aim.getColor());
             ColorStateList list = ColorStateList.valueOf(Color.parseColor(aim.getColor()));
             viewHolder.clGoal.setBackgroundTintList(list);
             viewHolder.vChange1.setBackgroundTintList(list);
@@ -149,21 +112,14 @@ public class DetailGoalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     mActivity.startActivityForResult(intent, 3);
                 }
             });
-            /*
-            viewHolder.vChange.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.wtf("goto", "Update");
-                }
-            });
-            */
         } else if (holder instanceof NoteViewHolder){
-            Log.wtf("vieww holdeeer", "noooooooooooottttttteeeeeeeeeee");
-            Note note = null;
-            note = noteList.get(position - goalSchedules.size() - aims.size()); // Mogut bit problemi
+            Note note = (Note) items.get(position);
 
             final Note NoteFinal = new Note(note.getId(), note.getTitle(), note.getText(), note.getTime());
             final NoteViewHolder viewHolder = (NoteViewHolder) holder;
+            ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            layoutParams.setMargins(getInPx(8),     getInPx(10), getInPx(8), getInPx(4));
+            viewHolder.clNote.setLayoutParams(layoutParams);
 
             if(!note.getTitle().equals("")){
                 viewHolder.tvTitle.setVisibility(View.VISIBLE);
@@ -187,8 +143,11 @@ public class DetailGoalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
     }
 
+    private int getInPx(int value){
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, mResources.getDisplayMetrics());
+    }
 
-    protected class AimsViewHolder extends RecyclerView.ViewHolder {
+    public class AimsViewHolder extends RecyclerView.ViewHolder {
         private ConstraintLayout clGoal;
         private TextView tvGoalName, tvGoalPlannedProgress, tvGoalDoneProgress, tvDateTo;
         private View vChange1, vChange2;
@@ -208,24 +167,24 @@ public class DetailGoalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
     }
 
-    protected class ScheduleViewHolder extends RecyclerView.ViewHolder {
-        protected ConstraintLayout vScheduleHintBlock;
-        protected LinearLayout llScheduleState;
-        protected TextView tvScheduleTitle;
-        protected TextView tvScheduleTime;
+    public class ScheduleViewHolder extends RecyclerView.ViewHolder {
+        public ConstraintLayout vScheduleHintBlock;
+        public LinearLayout llScheduleState;
+        public TextView tvScheduleTitle;
+        public TextView tvScheduleTime;
 
         public ScheduleViewHolder(View itemView) {
             super(itemView);
-            vScheduleHintBlock = (ConstraintLayout) itemView.findViewById(R.id.vScheduleHintBlock);
+            vScheduleHintBlock = itemView.findViewById(R.id.vScheduleHintBlock);
             llScheduleState = itemView.findViewById(R.id.llScheduleStateGoalScheduler);
-            tvScheduleTitle = (TextView) itemView.findViewById(R.id.tvScheduleTitle);
-            tvScheduleTime = (TextView) itemView.findViewById(R.id.tvScheduleTime);
+            tvScheduleTitle = itemView.findViewById(R.id.tvScheduleTitle);
+            tvScheduleTime = itemView.findViewById(R.id.tvScheduleTime);
         }
     }
 
-    protected class NoteViewHolder extends RecyclerView.ViewHolder {
-        protected ConstraintLayout clNote;
-        protected TextView tvTitle, tvText, tvTime;
+    public class NoteViewHolder extends RecyclerView.ViewHolder {
+        public ConstraintLayout clNote;
+        public TextView tvTitle, tvText, tvTime;
 
         public NoteViewHolder(View itemView) {
             super(itemView);
@@ -238,20 +197,13 @@ public class DetailGoalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     @Override
     public int getItemCount() {
-        int size = 0;
-        if (aims != null) size += aims.size();
-        if (goalSchedules != null) size += goalSchedules.size();
-        if (noteList != null) size += noteList.size();
-        return size;
+        return items.size();
     }
 
     public void changeAllData(Goal goal) {
         mGoal = goal;
-        Log.wtf("wwsad", mGoal.getGoal_name());
-        aims = mGoal.getAims();
-        goalSchedules = mGoal.getSchedules();
-        noteList = mGoal.getNoteList();
-        Log.wtf("wwsad", "here");
+        items = goal.getItems();
+        Log.wtf("repeat", "repeat");
         notifyDataSetChanged();
     }
 

@@ -26,6 +26,7 @@ import com.jimmy.common.GoalDatabase.Aim;
 import com.jimmy.common.GoalDatabase.Goal;
 import com.jimmy.common.GoalDatabase.GoalSchedule;
 import com.jimmy.common.GoalDatabase.Note;
+import com.jimmy.common.ItemWrapper;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -109,8 +110,8 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
         if(!cbtime.isChecked()){
             date_to = 2040200150;
         }
-        List<GoalSchedule> goalScheduleList = new ArrayList<>();
-        Aim aim = new Aim(mGoal.getAims().size(), name, false, desc, mColor, goalScheduleList, new ArrayList<Note>());
+        List<ItemWrapper> items = new ArrayList<>();
+        Aim aim = new Aim(mGoal.getItems().size(), name, false, desc, mColor, items);
         mGoal.addAim(aim);
         new UpdateGoalAsyncTask(getApplicationContext(), mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         finishOkResult();

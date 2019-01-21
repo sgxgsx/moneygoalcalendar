@@ -27,6 +27,7 @@ import com.jimmy.common.GoalDatabase.Aim;
 import com.jimmy.common.GoalDatabase.Goal;
 import com.jimmy.common.GoalDatabase.GoalSchedule;
 import com.jimmy.common.GoalDatabase.Note;
+import com.jimmy.common.ItemWrapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -101,9 +102,9 @@ public class AddGoalActivity extends AppCompatActivity implements View.OnClickLi
         if(!cbtime.isChecked()){
             date_to = 2040200100;
         }
-        List<Aim> aimList = new ArrayList<>();
-        List<GoalSchedule> goalSchedules = new ArrayList<>();
-        Goal goal = new Goal(name, date_to, desc, image_path, aimList, goalSchedules, new ArrayList<Note>());
+        List<ItemWrapper> itemWrappers = new ArrayList<>();
+        Goal goal = new Goal(name, date_to, desc, image_path);
+        goal.setItems(itemWrappers);
         new InsertGoalTask(getApplicationContext(), goal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         finish();
     }

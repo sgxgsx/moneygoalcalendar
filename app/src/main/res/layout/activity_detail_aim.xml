@@ -61,22 +61,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:backgroundTint="@color/colorAccent"
         app:srcCompat="@drawable/btn_dialog_add_event_set" />
-
-    <ScrollView
-        android:id="@+id/svEventDetail"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="0dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tbDetailAimActivity"
-        app:layout_constraintBottom_toBottomOf="parent">
-
+        <!--
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
+            android:id="@+id/linear"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tbDetailAimActivity"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+            !-->
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tbDetailAimActivity"
+                app:layout_constraintBottom_toBottomOf="parent">
+                <com.jeek.calendar.widget.AbsoluteRecyclerView
+                    android:id="@+id/rvAimsEventsAimsDetailActivity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                </com.jeek.calendar.widget.AbsoluteRecyclerView>
+            </HorizontalScrollView>
+            <!---
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -167,15 +176,9 @@
                         app:layout_constraintTop_toTopOf="parent" />
                 </android.support.constraint.ConstraintLayout>
             </LinearLayout>
-
-            <com.jeek.calendar.widget.AbsoluteRecyclerView
-                android:id="@+id/rvAimsEventsAimsDetailActivity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
+            !-->
+    <!--
         </LinearLayout>
-
-    </ScrollView>
-
+        !-->
 
 </android.support.constraint.ConstraintLayout>

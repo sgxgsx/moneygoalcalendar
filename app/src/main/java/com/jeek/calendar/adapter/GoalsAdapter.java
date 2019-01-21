@@ -47,6 +47,7 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
 
     @Override
     public int getItemCount() {
+        Log.wtf("size", String.valueOf(mGoals.size()));
         return mGoals.size();
     }
 
@@ -63,7 +64,7 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
         holder.tvGoalPlannedProgress.setText(String.valueOf(inprogress));
         holder.tvGoalDoneProgress.setText(String.valueOf(done));
 
-        if(!goal.isState()) holder.llDone.setVisibility(View.VISIBLE);
+        if(!goal.isDone()) holder.llDone.setVisibility(View.VISIBLE);
         else holder.llDone.setVisibility(View.INVISIBLE);
 
         holder.mProgressBar.setMax(inprogress + done);

@@ -1,107 +1,191 @@
 package com.jimmy.common.GoalDatabase;
 
 
-import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.util.Log;
 
 import com.jimmy.common.CalendarSystemDatabase.Schedule;
+import com.jimmy.common.ItemWrapper;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(tableName = "GoalsTable")
 public class  Goal implements Serializable{
+    public static int VIEW_TYPE = 0;
     @PrimaryKey(autoGenerate = true)
     private int id;
     private int doneschedules;
     private int inprogress;
-    private boolean state;
+    private boolean done;
     private String goal_name;
     private String description;
     private String image_path;
     private long date_to;
-    private List<Aim> aims;
-    private List<GoalSchedule> schedules;
-    private List<Note> noteList;
-
+    private List<ItemWrapper> items;
+    private List<Integer> aim_ids;
+    private List<Integer> note_ids;
+    private List<Integer> schedule_ids;
 
     @Ignore
-    public Goal(String goal_name, long date_to, String description, String image_path, List<Aim> aims, List<GoalSchedule> schedules, List<Note> noteList) {
-        this.goal_name = goal_name;
-        this.date_to = date_to;
-        this.aims = aims;
-        this.schedules = schedules;
-        this.description = description;
-        this.noteList = noteList;
-        this.image_path = image_path;
-        this.state = true;
+    public Goal(){
+
     }
 
-    public Goal(int id, String goal_name, long date_to, String description, String image_path, List<Aim> aims, List<GoalSchedule> schedules, List<Note> noteList) {
+    @Ignore
+    public Goal(String goal_name, long date_to, String description, String image_path) {
+        this.goal_name = goal_name;
+        this.date_to = date_to;
+        this.description = description;
+        this.image_path = image_path;
+        this.done = true;
+        aim_ids = new ArrayList<>();
+        note_ids = new ArrayList<>();
+        schedule_ids = new ArrayList<>();
+    }
+
+    public Goal(int id, String goal_name, long date_to, String description, String image_path) {
         this.id = id;
         this.goal_name = goal_name;
         this.date_to = date_to;
-        this.aims = aims;
         this.description = description;
-        this.schedules = schedules;
         this.inprogress = 0;
         this.doneschedules = 0;
-        this.noteList = noteList;
         this.image_path = image_path;
-        this.state = true;
+        this.done = true;
+        aim_ids = new ArrayList<>();
+        note_ids = new ArrayList<>();
+        schedule_ids = new ArrayList<>();
     }
 
+    public int getViewType(){
+        return VIEW_TYPE;
+    }
 
     public void addAim(Aim aim){
         if(aim != null){
-            aims.add(aim);
+            aim_ids.add(items.size());
+            items.add(aim);
             inprogress++;
         }
     }
 
-    public void deleteAimById(int id){
-        for(int i=0; i < aims.size(); ++i){
-            if(aims.get(i).getId() == id){
-                Log.wtf("Goal", "delete aim " + String.valueOf(id) + " i " + String.valueOf(i) + " i id " + String.valueOf(aims.get(i).getId()));
-                if(aims.get(i).isDone()){
-                    //TODO ЕСЛИ УДАЛЯЕТСЯ AIM ПРОВЕРЯТЬ КОЛ-ВО SHEDULE В НЕМ И УБИВАТЬ НЕНУЖНОЕ КОЛ-ВО
-                    doneschedules--;
-                } else{
-                    inprogress--;
-                }
-                aims.remove(i);
-                for(int j=i; j< aims.size(); ++j){
-                    aims.get(j).setId(j);
-                }
+    public void deleteById(int id, int view_type){
+        switch (view_type){
+            case 1:
+                deleteAim(id);
+                break;
+            case 2:
+                deleteSchedule(id);
+                break;
+            case 3:
+                deleteNote(id);
+                break;
+        }
+    }
+
+    public void addNote(Note note){
+        if(note != null){
+            note_ids.add(items.size());
+            items.add(note);
+        }
+    }
+
+    public void addSchedule(Schedule schedule){
+        if(schedule != null){
+            schedule_ids.add(items.size());
+            items.add(schedule);
+            inprogress++;
+        }
+    }
+
+    public void deleteAim(int id){
+        for(int i = 0; i < aim_ids.size(); ++i){
+            if(aim_ids.get(i) == id){
+                int position = aim_ids.get(i);
+                aim_ids.remove(i);
+                items.remove(position);
+                recalculateIds(position);
                 break;
             }
         }
     }
 
-    public void addNote(Note note){
-        noteList.add(note);
-    }
-
     public void deleteNote(int id){
-        if(id == noteList.size() - 1){
-            noteList.remove(id);
-        } else{
-            noteList.remove(id);
-            for(int i=id; i<noteList.size(); i++){
-                noteList.get(i).setId(i);
+        for(int i = 0; i < note_ids.size(); ++i){
+            if(note_ids.get(i) == id){
+                int position = note_ids.get(i);
+                note_ids.remove(i);
+                items.remove(position);
+                recalculateIds(position);
+                break;
             }
         }
     }
 
-    public boolean isState() {
-        return state;
+    public void deleteSchedule(int id){
+        for(int i = 0; i < schedule_ids.size(); ++i){
+            if(schedule_ids.get(i) == id){
+                int position = schedule_ids.get(i);
+                schedule_ids.remove(i);
+                items.remove(position);
+                recalculateIds(position);
+                break;
+            }
+        }
     }
 
-    public void setState(boolean state) {
-        this.state = state;
+    public void recalculateIds(int position){
+        for(int i = position; i < items.size(); ++i){
+            items.get(i).setId(i);
+        }
+        for(int i = 0; i < aim_ids.size(); ++i){
+            if(aim_ids.get(i) > position){
+                aim_ids.set(i, aim_ids.get(i) - 1);
+            }
+        }
+        for(int i = 0; i < note_ids.size(); ++i){
+            if(note_ids.get(i) > position){
+                note_ids.set(i, note_ids.get(i) - 1);
+            }
+        }
+        for(int i = 0; i < schedule_ids.size(); ++i){
+            if(schedule_ids.get(i) > position){
+                schedule_ids.set(i, schedule_ids.get(i) - 1);
+            }
+        }
+    }
+
+    public void reasign(){
+        for(int i = 0; i < items.size(); ++i){
+            items.get(i).setId(i);
+            switch (items.get(i).getViewType()){
+                case 1:
+                    aim_ids.add(i);
+                    break;
+                case 2:
+                    schedule_ids.add(i);
+                    break;
+                case 3:
+                    note_ids.add(i);
+                    break;
+            }
+        }
+    }
+
+    public static void setViewType(int viewType) {
+        VIEW_TYPE = viewType;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
     }
 
     public String getImage_path() {
@@ -110,14 +194,6 @@ public class  Goal implements Serializable{
 
     public void setImage_path(String image_path) {
         this.image_path = image_path;
-    }
-
-    public List<Note> getNoteList() {
-        return noteList;
-    }
-
-    public void setNoteList(List<Note> noteList) {
-        this.noteList = noteList;
     }
 
     public String getDescription() {
@@ -148,6 +224,7 @@ public class  Goal implements Serializable{
         return id;
     }
 
+
     public void setId(int id) {
         this.id = id;
     }
@@ -168,19 +245,53 @@ public class  Goal implements Serializable{
         this.date_to = date_to;
     }
 
-    public List<Aim> getAims() {
-        return aims;
+    public List<ItemWrapper> getItems() {
+        return items;
     }
 
-    public void setAims(List<Aim> aims) {
-        this.aims = aims;
+    public void setItems(List<ItemWrapper> items) {
+        this.items = items;
+        reasign();
     }
 
-    public List<GoalSchedule> getSchedules() {
-        return schedules;
+    public List<Integer> getAim_ids() {
+        return aim_ids;
     }
 
-    public void setSchedules(List<GoalSchedule> schedules) {
-        this.schedules = schedules;
+    public void setAim_ids(List<Integer> aim_ids) {
+        this.aim_ids = aim_ids;
+    }
+
+    public List<Integer> getNote_ids() {
+        return note_ids;
+    }
+
+    public void setNote_ids(List<Integer> note_ids) {
+        this.note_ids = note_ids;
+    }
+
+    public List<Integer> getSchedule_ids() {
+        return schedule_ids;
+    }
+
+    public void setSchedule_ids(List<Integer> schedule_ids) {
+        this.schedule_ids = schedule_ids;
+    }
+
+    public void setName(String s){
+        ;
+    }
+
+    public void setColor(String c){
+        ;
+    }
+
+    public void changeNote(String k, String p, long l){
+        ;
+    }
+
+    public void changeNote(int i,String k, String p, long l){
+        ;
     }
 }
+

@@ -43,6 +43,8 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
     private boolean isFABOpen=false;
     private boolean mDoing, mDone;
 
+    private LayoutInflater contentMenu;
+
     private Toolbar mToolbar;
     private RecyclerView rvGoals;
     private GoalsAdapter mGoalsAdapter;
@@ -69,11 +71,12 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
                 SlideMenu.LayoutParams.ROLE_CONTENT));
 
 
-        LayoutInflater contentMenu = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        contentMenu = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View contentMenuView = contentMenu.inflate(R.layout.main_menu, null);
 
         slideMenu.addView(contentMenuView, new SlideMenu.LayoutParams(800,
                 SlideMenu.LayoutParams.MATCH_PARENT, SlideMenu.LayoutParams.ROLE_PRIMARY_MENU));
+
 
         mSharedPreferences = getSharedPreferences(getResources().getString(R.string.shared_preferences_name), MODE_PRIVATE);
         SHARED_DOING = getResources().getString(R.string.shared_doing_goals);
@@ -84,6 +87,9 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
         //mDone = mSharedPreferences.getBoolean(SHARED_DONE, true);
         mToolbar = findViewById(R.id.GoalsTitleBar);
         rvGoals = findViewById(R.id.rvGoalsGoalActivity);
+
+
+
         findViewById(R.id.ivMenuInGoal).setOnClickListener(this);
         findViewById(R.id.llListStateGoals).setOnClickListener(this);
 
@@ -91,6 +97,9 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
         llBackgroundBack=findViewById(R.id.BackGroundWhenChoice);
         findViewById(R.id.chooseMenuButtonBackground2).setOnClickListener(this);
         findViewById(R.id.BackGroundWhenChoice).setOnClickListener(this);
+        searchViewById(R.id.llMenuGoMoney).setOnClickListener(this);
+
+
         /*llBackground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -215,6 +224,9 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
                 if(isFABOpen)closeFABMenu();
 
                 break;
+            case R.id.llMenuGoMoney:
+                Intent intent = new Intent(this, GoalNavDrawer.class);
+                startActivity(intent);
 
 
         }

@@ -27,7 +27,6 @@ public class GoalDialog extends Dialog implements View.OnClickListener {
         findViewById(R.id.dsc_edit).setOnClickListener(this);
         findViewById(R.id.dsc_delete).setOnClickListener(this);
         findViewById(R.id.dsc_settings).setOnClickListener(this);
-        //findViewById(R.id.dsc_members).setOnClickListener(this);
         findViewById(R.id.dsc_share).setOnClickListener(this);
     }
 
@@ -82,7 +81,7 @@ public class GoalDialog extends Dialog implements View.OnClickListener {
 
     private void archive(){
         // Archive or UnArchive
-        mGoal.setState(!mGoal.isState());
+        mGoal.setDone(!mGoal.isDone());
         new UpdateGoalAsyncTask(mContext, mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         dismiss();
     }

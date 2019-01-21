@@ -4,15 +4,23 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
+import com.jimmy.common.ItemWrapper;
+
 import java.io.Serializable;
 
 @Entity
-public class Note implements Serializable {
+public class Note implements Serializable, ItemWrapper {
+    public static int VIEW_TYPE = 3;
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String title;
     private String text;
     private long time;
+
+    @Ignore
+    public Note(){
+
+    }
 
     @Ignore
     public Note(String title, String text, long time) {
@@ -28,11 +36,18 @@ public class Note implements Serializable {
         this.time = time;
     }
 
+    @Override
+    public int getViewType(){
+        return VIEW_TYPE;
+    }
+
     public void changeNote(String title, String text, long time){
         setText(text);
         setTitle(title);
         setTime(time);
     }
+
+
     public long getTime() {
         return time;
     }
@@ -63,5 +78,27 @@ public class Note implements Serializable {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public void setName(String n){
+        ;
+    }
+    public void setDescription(String d){
+        ;
+    }
+
+    public void setColor(String c){
+        ;
+    }
+
+    public void changeNote(int i,String k, String p, long l){
+        ;
+    }
+
+    public void deleteNote(int i){
+        ;
+    }
+    public void addNote(Note n){
+        ;
     }
 }

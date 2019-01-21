@@ -94,10 +94,10 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
 
             if(mAim != null){
                 mAim.changeNote(mNote.getId(), title, text, time);
-                mGoal.getAims().get(mAim.getId()).changeNote(mNote.getId(), title, text, time);
+                mGoal.getItems().get(mAim.getId()).changeNote(mNote.getId(), title, text, time);
                 returnIntent.putExtra(AIM_OBJ, mAim);
             } else{
-                mGoal.getNoteList().get(mNote.getId()).changeNote(title, text, time);
+                mGoal.getItems().get(mNote.getId()).changeNote(title, text, time);
 
             }
             returnIntent.putExtra(GOAL_OBJ, mGoal);
@@ -120,11 +120,11 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             mNote = new Note(mTitle.getText().toString(), mText.getText().toString(), time);
             if (mAim != null){
                 Log.wtf("aim", "ww");
-                mNote.setId(mAim.getNoteList().size());
+                mNote.setId(mAim.getItems().size());
                 mAim.addNote(mNote);
-                mGoal.getAims().get(mAim.getId()).addNote(mNote);
+                mGoal.getItems().get(mAim.getId()).addNote(mNote);
             } else{
-                mNote.setId(mGoal.getNoteList().size());
+                mNote.setId(mGoal.getItems().size());
                 mGoal.addNote(mNote);
             }
 
@@ -144,7 +144,7 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
 
         if(mAim != null){
             mAim.deleteNote(mNote.getId());
-            mGoal.getAims().get(mAim.getId()).deleteNote(mNote.getId());
+            mGoal.getItems().get(mAim.getId()).deleteNote(mNote.getId());
             returnIntent.putExtra(AIM_OBJ, mAim);
         } else{
             mGoal.deleteNote(mNote.getId());

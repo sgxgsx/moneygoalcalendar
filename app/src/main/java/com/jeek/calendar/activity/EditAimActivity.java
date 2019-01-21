@@ -100,9 +100,9 @@ public class EditAimActivity extends AppCompatActivity implements View.OnClickLi
         Log.wtf("ckick", "click click change");
         String aim_title = title.getText().toString();
         String aim_descr = description.getText().toString();
-        mGoal.getAims().get(id).setName(aim_title); //setGoal_name(title.getText().toString());
-        mGoal.getAims().get(id).setDescription(aim_descr);
-        mGoal.getAims().get(id).setColor(mColor);
+        mGoal.getItems().get(id).setName(aim_title); //setGoal_name(title.getText().toString());
+        mGoal.getItems().get(id).setDescription(aim_descr);
+        mGoal.getItems().get(id).setColor(mColor);
         mAim.setName(aim_title);
         mAim.setDescription(aim_descr);
         mAim.setColor(mColor);
