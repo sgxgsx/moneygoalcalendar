@@ -57,6 +57,10 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     private NavigationView mainNavigationView;
     private Fragment fragment;
 
+    private boolean isFABOpen=false;
+    private ImageView fab,fab1,fab2;
+    private View llBackground,llBackgroundBack;
+
     private Context mContext;
     private Goal mGoal;
     private RecyclerView rvDetail;
@@ -91,6 +95,7 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
             mDetailGoalAdapter = new DetailGoalAdapter(this, mGoal);
             rvDetail.setAdapter(mDetailGoalAdapter);
             initUI();
+            initFab();
         }
 
 
@@ -103,8 +108,8 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         time = findViewById(R.id.tvDeadlineGoal);
         dateLayout = findViewById(R.id.DateLayout);
         description = findViewById(R.id.tvNoteTextView);
-        AddAim = findViewById(R.id.fabAddAimGoal);
-        AddNote = findViewById(R.id.fabAddNoteGoal);
+        //AddAim = findViewById(R.id.fabAddAimGoal);
+        //AddNote = findViewById(R.id.fabAddNoteGoal);
         MenuButtonBackground = findViewById(R.id.chooseMenuButtonBackground2);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -113,8 +118,8 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         goalName.setText(mGoal.getGoal_name());
         description.setText(mGoal.getDescription());
 
-        AddAim.setOnClickListener(this);
-        AddNote.setOnClickListener(this);
+        //AddAim.setOnClickListener(this);
+        //AddNote.setOnClickListener(this);
         MenuButtonBackground.setOnClickListener(this);
         mainNavigationView.setNavigationItemSelectedListener(this);
         drawerLayout.setDrawerListener(this);
@@ -126,7 +131,79 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
             detailImage.setImageDrawable(background);
         }
         */
+
+
+
     }
+    private void initFab(){
+        llBackground=findViewById(R.id.chooseMenuButtonBackground2);
+        llBackgroundBack=findViewById(R.id.BackGroundWhenChoice);
+        findViewById(R.id.chooseMenuButtonBackground2).setOnClickListener(this);
+        findViewById(R.id.BackGroundWhenChoice).setOnClickListener(this);
+        fab =  findViewById(R.id.FabMain);
+        fab1 =  findViewById(R.id.FabSub);
+        fab2 = findViewById(R.id.FabMain_Sub);
+        fab2.setVisibility(View.INVISIBLE);
+        fab1.setVisibility(View.INVISIBLE);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.wtf("fab2.onClick","triggered onClick");
+                //do smth
+                closeFABMenu();
+            }
+        });
+        fab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.wtf("fab1.onClick","triggered onClick");
+                //do smth
+                closeFABMenu();
+            }
+        });
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!isFABOpen){
+                    Log.wtf("fab.onClick","triggered onClick");
+                    showFABMenu();
+                }
+            }
+        });
+    }
+    private void showFABMenu(){
+        isFABOpen=true;
+        fab1.setVisibility(View.VISIBLE);
+        fab1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
+        fab1.animate().alpha(255);
+        fab2.setVisibility(View.VISIBLE);
+        fab.setVisibility(View.INVISIBLE);
+        llBackground.setVisibility(View.VISIBLE);
+        llBackgroundBack.setVisibility(View.VISIBLE);
+    }
+
+    private void closeFABMenu(){
+        isFABOpen=false;
+        fab1.animate().alpha(0);
+        fab1.animate().translationY(0);
+        fab2.setVisibility(View.INVISIBLE);
+        fab.setVisibility(View.VISIBLE);
+        llBackground.setVisibility(View.INVISIBLE);
+        llBackgroundBack.setVisibility(View.INVISIBLE);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
     private BitmapDrawable setImage(String path){
@@ -144,7 +221,7 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
             case R.id.llGoMenu:
                 openMenu();
                 break;
-            case R.id.fabAddAimGoal:
+            /*case R.id.fabAddAimGoal:
                 if(buttonNotShowen){
                     showFloatingChoiceMenu();
                     Log.wtf("Not", "shown");
@@ -152,12 +229,12 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
                     gotoAddAimActivity();
                     Log.wtf("go", " to Add Event");
                 }
-                break;
-            case R.id.fabAddNoteGoal:
+                break;*/
+            /*case R.id.fabAddNoteGoal:
                 gotoNote();
-                break;
+                break;*/
             case R.id.chooseMenuButtonBackground2:
-                hideFloatingChoiceMenu();
+                closeFABMenu();
                 break;
         }
     }

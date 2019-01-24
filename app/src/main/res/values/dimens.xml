@@ -48,6 +48,11 @@
 
     <!--fab-->
     <dimen name="standard_55">55dp</dimen>
+    <dimen name="fab_main">50dp</dimen>
+    <dimen name="fab_main_radius">50dp</dimen>
+    <dimen name="fab_sub">36dp</dimen>
+    <dimen name="fab_sub_radius">30dp</dimen>
+
     <dimen name="standard_105">105dp</dimen>
     <dimen name="standard_155">155dp</dimen>
 

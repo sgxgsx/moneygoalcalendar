@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.jeek.calendar.R;
 import com.jeek.calendar.adapter.GoalsAdapter;
@@ -56,7 +57,7 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
     private View llBackground,llBackgroundBack;
     private LiveData<List<Goal>> goals;
     SlideMenu slideMenu;
-    FloatingActionButton fab,fab1,fab2;
+    ImageView fab,fab1,fab2;
 
 
     @Override
@@ -93,10 +94,7 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
         findViewById(R.id.ivMenuInGoal).setOnClickListener(this);
         findViewById(R.id.llListStateGoals).setOnClickListener(this);
 
-        llBackground=findViewById(R.id.chooseMenuButtonBackground2);
-        llBackgroundBack=findViewById(R.id.BackGroundWhenChoice);
-        findViewById(R.id.chooseMenuButtonBackground2).setOnClickListener(this);
-        findViewById(R.id.BackGroundWhenChoice).setOnClickListener(this);
+
 
 
         /*llBackground.setOnClickListener(new View.OnClickListener() {
@@ -110,9 +108,13 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
         initFab();
     }
     private void initFab(){
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab1 = (FloatingActionButton) findViewById(R.id.fab1);
-        fab2 = findViewById(R.id.fab2);
+        llBackground=findViewById(R.id.chooseMenuButtonBackground2);
+        llBackgroundBack=findViewById(R.id.BackGroundWhenChoice);
+        findViewById(R.id.chooseMenuButtonBackground2).setOnClickListener(this);
+        findViewById(R.id.BackGroundWhenChoice).setOnClickListener(this);
+        fab =  findViewById(R.id.FabMain);
+        fab1 =  findViewById(R.id.FabSub);
+        fab2 = findViewById(R.id.FabMain_Sub);
         fab2.setVisibility(View.INVISIBLE);
         fab1.setVisibility(View.INVISIBLE);
         fab2.setOnClickListener(new View.OnClickListener() {
@@ -146,15 +148,12 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
     private void showFABMenu(){
         isFABOpen=true;
         fab1.setVisibility(View.VISIBLE);
-
-        fab1.animate().translationY(-getResources().getDimension(R.dimen.standard_55)).alpha(255);
+        fab1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
+        fab1.animate().alpha(255);
         fab2.setVisibility(View.VISIBLE);
         fab.setVisibility(View.INVISIBLE);
         llBackground.setVisibility(View.VISIBLE);
         llBackgroundBack.setVisibility(View.VISIBLE);
-
-
-
     }
 
     private void closeFABMenu(){

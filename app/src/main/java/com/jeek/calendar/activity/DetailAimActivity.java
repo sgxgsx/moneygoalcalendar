@@ -19,6 +19,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,7 +44,10 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
     public static final String NOTE_OBJ = "Note.Obj";
     public static final int errorCode = 200;
     private static final int GO_BACK_CALL_BACK = 1;
+    private boolean isFABOpen=false;
+    ImageView fab,fab1,fab2;
 
+    private View llBackground,llBackgroundBack;
     private DrawerLayout drawerLayout;
     private DoubleDrawerView doubleDrawerView;
     private NavigationView mainNavigationView, settingsNavigationView, secondNavigationView;
@@ -93,8 +97,66 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
             rvDetail.setAdapter(mDetailAimAdapter);
             initUI();
         }
+        initFab();
+    }
+    private void initFab(){
+        llBackground=findViewById(R.id.chooseMenuButtonBackground2);
+        llBackgroundBack=findViewById(R.id.BackGroundWhenChoice);
+        findViewById(R.id.chooseMenuButtonBackground2).setOnClickListener(this);
+        findViewById(R.id.BackGroundWhenChoice).setOnClickListener(this);
+        fab =  findViewById(R.id.FabMain);
+        fab1 =  findViewById(R.id.FabSub);
+        fab2 = findViewById(R.id.FabMain_Sub);
+        fab2.setVisibility(View.INVISIBLE);
+        fab1.setVisibility(View.INVISIBLE);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.wtf("fab2.onClick","triggered onClick");
+                //add Goal
+                closeFABMenu();
+            }
+        });
+        fab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.wtf("fab1.onClick","triggered onClick");
+                //add MoneyGoal
+
+                closeFABMenu();
+            }
+        });
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!isFABOpen){
+                    Log.wtf("fab.onClick","triggered onClick");
+                    showFABMenu();
+                }
+            }
+        });
+    }
+    private void showFABMenu(){
+        isFABOpen=true;
+        fab1.setVisibility(View.VISIBLE);
+        fab1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
+        fab1.animate().alpha(255);
+        fab2.setVisibility(View.VISIBLE);
+        fab.setVisibility(View.INVISIBLE);
+        llBackground.setVisibility(View.VISIBLE);
+        llBackgroundBack.setVisibility(View.VISIBLE);
     }
 
+    private void closeFABMenu(){
+        isFABOpen=false;
+        fab1.animate().alpha(0);
+        fab1.animate().translationY(0);
+        fab2.setVisibility(View.INVISIBLE);
+        fab.setVisibility(View.VISIBLE);
+        llBackground.setVisibility(View.INVISIBLE);
+        llBackgroundBack.setVisibility(View.INVISIBLE);
+
+    }
     private void initUI(){
         //////****aimName = findViewById(R.id.tvAimName);
         //////****time = findViewById(R.id.tvDeadlineAim);
@@ -114,8 +176,8 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
         drawerLayout.setDrawerListener(this);
         */
 
-        AddNote = findViewById(R.id.fabAddNoteAim);
-        AddEvent = findViewById(R.id.fabAddAimGoal);
+        //AddNote = findViewById(R.id.fabAddNoteAim);
+        //AddEvent = findViewById(R.id.fabAddAimGoal);
         MenuButtonBackground = (View) findViewById(R.id.chooseMenuButtonBackground2);
         MenuButtonBackground.setVisibility(View.INVISIBLE);
         //////****aimName.setText(mAim.getName());
@@ -132,8 +194,8 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
             //////****time.setText(format.format(date));
         }
         buttonNotShowen = true;
-        findViewById(R.id.fabAddAimGoal).setOnClickListener(this);
-        findViewById(R.id.fabAddNoteAim).setOnClickListener(this);
+        //findViewById(R.id.fabAddAimGoal).setOnClickListener(this);
+       // findViewById(R.id.fabAddNoteAim).setOnClickListener(this);
         findViewById(R.id.chooseMenuButtonBackground2).setOnClickListener(this);
     }
 
@@ -153,7 +215,7 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
                 openMenu();
                 break;
             */
-            case R.id.fabAddAimGoal:
+            /*case R.id.fabAddAimGoal:
                 if(buttonNotShowen){
                     showFloatingChoiceMenu();
                     Log.wtf("Not", "shown");
@@ -161,13 +223,13 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
                     gotoAddEvent();
                     Log.wtf("go", " to Add Event");
                 }
-                break;
-            case R.id.fabAddNoteAim:
+                break;*/
+            /*case R.id.fabAddNoteAim:
                 gotoNote();
                 Log.wtf("go", "to add note");
-                break;
+                break;*/
             case R.id.chooseMenuButtonBackground2:
-                hideFloatingChoiceMenu();
+                closeFABMenu();
                 break;//TODO исправить то что оно не вызвается.
         }
     }

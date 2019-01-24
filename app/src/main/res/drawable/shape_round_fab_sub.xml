@@ -1,0 +1,18 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <solid android:color="#df1d1d" />
+
+    <!--<stroke
+        android:width="2dp"
+        android:color="#000000" />
+-->
+    <!--<padding
+        android:bottom="@dimen/fab_sub"
+        android:left="@dimen/fab_sub"
+        android:right="@dimen/fab_sub"
+        android:top="@dimen/fab_sub" />-->
+
+    <corners android:radius="@dimen/fab_sub_radius"/>
+
+</shape>

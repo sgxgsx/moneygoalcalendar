@@ -35,7 +35,48 @@
             android:src="@drawable/ic_chevron_left" />
     </LinearLayout>
 
-    <android.support.design.widget.FloatingActionButton
+
+    <include
+        android:id="@+id/BackGroundWhenChoice"
+        layout="@layout/halph_transp_background"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/FabMain_Sub"
+        android:layout_width="@dimen/fab_main"
+        android:layout_height="@dimen/fab_main"
+        android:layout_margin="20dp"
+        android:background="@drawable/shape_round_fab_main"
+        android:src="@mipmap/ic_event_set_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/FabSub"
+        android:layout_width="@dimen/fab_sub"
+        android:layout_height="@dimen/fab_sub"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="27dp"
+
+        android:background="@drawable/shape_round_fab_main"
+        android:src="@mipmap/ic_menu_go"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/FabMain"
+        android:layout_width="@dimen/fab_main"
+        android:layout_height="@dimen/fab_main"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        android:background="@drawable/shape_round_fab_main"
+        android:src="@mipmap/ic_menu_go"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <!--<android.support.design.widget.FloatingActionButton
         android:id="@+id/fabAddNoteAim"
         android:layout_width="57dp"
         android:layout_height="57dp"
@@ -60,7 +101,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:backgroundTint="@color/colorAccent"
-        app:srcCompat="@drawable/btn_dialog_add_event_set" />
+        app:srcCompat="@drawable/btn_dialog_add_event_set" />-->
         <!--
         <LinearLayout
             android:id="@+id/linear"

@@ -15,8 +15,6 @@
         android:background="@color/colorPrimary"
         tools:context="com.jeek.calendar.activity.DetailGoalActivity">
 
-        <include layout="@layout/halph_transp_background" android:visibility="gone"/>
-
         <android.support.constraint.ConstraintLayout
             android:id="@+id/llDetailGoalToolBar"
             android:layout_width="match_parent"
@@ -53,32 +51,6 @@
                     android:src="@drawable/ic_menu_4" />
             </LinearLayout>
         </android.support.constraint.ConstraintLayout>
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fabAddNoteGoal"
-            android:layout_width="57dp"
-            android:layout_height="57dp"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="5dp"
-            android:clickable="true"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@id/fabAddAimGoal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:backgroundTint="@color/colorAccent"
-            app:srcCompat="@drawable/btn_dialog_add_event_set" />
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fabAddAimGoal"
-            android:layout_width="67dp"
-            android:layout_height="67dp"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="25dp"
-            android:clickable="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:backgroundTint="@color/colorAccent"
-            app:srcCompat="@drawable/btn_dialog_add_event_set" />
 
 
         <ImageView
@@ -202,7 +174,44 @@
 
         </ScrollView>
 
+        <include
+            android:id="@+id/BackGroundWhenChoice"
+            layout="@layout/halph_transp_background"
+            android:visibility="invisible" />
 
+        <ImageView
+            android:id="@+id/FabMain_Sub"
+            android:layout_width="@dimen/fab_main"
+            android:layout_height="@dimen/fab_main"
+            android:layout_margin="20dp"
+            android:background="@drawable/shape_round_fab_main"
+            android:src="@mipmap/ic_event_set_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/FabSub"
+            android:layout_width="@dimen/fab_sub"
+            android:layout_height="@dimen/fab_sub"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="27dp"
+
+            android:background="@drawable/shape_round_fab_main"
+            android:src="@mipmap/ic_menu_go"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:id="@+id/FabMain"
+            android:layout_width="@dimen/fab_main"
+            android:layout_height="@dimen/fab_main"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="20dp"
+            android:background="@drawable/shape_round_fab_main"
+            android:src="@mipmap/ic_menu_go"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
     </android.support.constraint.ConstraintLayout>
 
     <com.jeek.calendar.activity.DoubleDrawerView
@@ -254,4 +263,5 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </com.jeek.calendar.activity.DoubleDrawerView>
+
 </android.support.v4.widget.DrawerLayout>
