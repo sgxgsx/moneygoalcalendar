@@ -343,6 +343,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
     }
     private void gotoEventCreator(){
         Intent intent = new Intent(this, AddEventActivity.class);
+
+        intent.putExtra("Day",mCurrentSelectDay);
+        intent.putExtra("Month",mCurrentSelectMonth);
+        intent.putExtra("Year",mCurrentSelectYear);
         startActivity(intent);
     }
 

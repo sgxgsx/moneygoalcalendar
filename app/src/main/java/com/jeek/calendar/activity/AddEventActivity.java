@@ -8,7 +8,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.Log;
@@ -42,7 +44,7 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
-public class AddEventActivity extends BaseActivity implements View.OnClickListener,SelectDateDialog.OnSelectDateListener
+public class AddEventActivity extends AppCompatActivity implements View.OnClickListener,SelectDateDialog.OnSelectDateListener
         , InputLocationDialog.OnLocationBackListener, OnTaskFinishedListener<Schedule>{
 
 
@@ -75,7 +77,7 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
     private SelectDateDialog mSelectDateDialog;
     private InputLocationDialog mInputLocationDialog;
 
-    private int mCurrentSelectYear, mCurrentSelectMonth, mCurrentSelectDay;
+    private int mCurrentSelectYear, mCurrentSelectMonth, mCurrentSelectDay, mCurrentSelectHour, mCurrentSelectMinute;
     private long mTime;
 
     protected Activity mActivity;
@@ -88,10 +90,10 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
     private int startDate, endDate, startTime, endTime;
     //   TODO ПРОВЕРКИ
     /*
-            1. При создании активити ставить startDate & endDate - текущую дату, startTime текущее время + недостающее кол-во секунд
+            1. (done)При создании активити ставить startDate & endDate - текущую дату, startTime текущее время + недостающее кол-во секунд
                для того что бы приравнять время к целому ( Например мы получили 3500 секунд, то нужно сделать 3600), endTime - на 1 час больше от startTime
-            2. При смене даты startDate проверять является ли стартДейт больше чем endDate если да то поставить такую же дату и ЭндДейту
-            3. При смене времени делать такую же проверку как и в 2 только на время, и если стартТайм больше ЭндТайм (если Даты одинаковы) то присвоить ЭндТайм такое же
+            2. (done)При смене даты startDate проверять является ли стартДейт больше чем endDate если да то поставить такую же дату и ЭндДейту
+            3. (done)При смене времени делать такую же проверку как и в 2 только на время, и если стартТайм больше ЭндТайм (если Даты одинаковы) то присвоить ЭндТайм такое же
                 время как и СтартТайм + 1 час
             4. .....
      */
@@ -99,54 +101,68 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
 
 
     @Override
-    protected void bindView() {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Bundle extras = getIntent().getExtras();
+        mCurrentSelectYear=extras.getInt("Year");
+        mCurrentSelectMonth=extras.getInt("Month");
+        mCurrentSelectDay=extras.getInt("Day");
         setContentView(R.layout.activity_add_event_3);
-       /* TextView tvTitle = searchViewById(R.id.tvTitle);
-        tvTitle.setText(getString(R.string.schedule_event_detail_setting));*/
-        searchViewById(R.id.llCancel).setOnClickListener(this);
-        //searchViewById(R.id.llSaveGoal).setOnClickListener(this);
-        searchViewById(R.id.llAddEvent).setOnClickListener(this);
-        //searchViewById(R.id.llScheduleTime).setOnClickListener(this);
-        //searchViewById(R.id.llScheduleLocation).setOnClickListener(this);
-        //searchViewById(R.id.tvScheduleTime3).setOnClickListener(this);
+        findViewById(R.id.llCancel).setOnClickListener(this);
+        findViewById(R.id.llAddEvent).setOnClickListener(this);
 
-        /*vScheduleColor = searchViewById(R.id.vScheduleColor);*/
-        etScheduleTitle = searchViewById(R.id.etScheduleTitle);
-        etScheduleDesc = searchViewById(R.id.etScheduleDesc);
-        tvDateStart = searchViewById(R.id.tvDateStart);
-        tvDateEnd = searchViewById(R.id.tvDateEnd);
-        tvTimeStart = searchViewById(R.id.tvTimeStart);
-        tvTimeEnd = searchViewById(R.id.tvTimeEnd);
-        //tvScheduleLocation = searchViewById(R.id.tvScheduleLocation);
+        etScheduleTitle = findViewById(R.id.etScheduleTitle);
+        etScheduleDesc  = findViewById(R.id.etScheduleDesc);
+        tvDateStart     = findViewById(R.id.tvDateStart);
+        tvDateEnd       = findViewById(R.id.tvDateEnd);
+        tvTimeStart     = findViewById(R.id.tvTimeStart);
+        tvTimeEnd       = findViewById(R.id.tvTimeEnd);
 
+
+        setCurrentDate();
+        resetDateTimeUi();
     }
-
 
 
 
     private  void setCurrentDate() {
         Calendar calendar = Calendar.getInstance();
-        mCurrentSelectYear = calendar.get(Calendar.YEAR);
-        mCurrentSelectMonth = calendar.get(Calendar.MONTH);
-        mCurrentSelectDay = calendar.get(Calendar.DAY_OF_MONTH);
+        //mCurrentSelectYear = calendar.get(Calendar.YEAR);
+        mSchedule.setYear(mCurrentSelectYear);
+        mSchedule.setYearend(mCurrentSelectYear);
+        //mCurrentSelectMonth = calendar.get(Calendar.MONTH);
+        mSchedule.setMonth(mCurrentSelectMonth);
+        mSchedule.setMonthend(mCurrentSelectMonth);
+        //mCurrentSelectDay = calendar.get(Calendar.DAY_OF_MONTH);
+        mSchedule.setDay(mCurrentSelectDay);
+        mCurrentSelectHour = calendar.get(Calendar.HOUR_OF_DAY);
+        mSchedule.setHour(mCurrentSelectHour);
+        if (mCurrentSelectHour != 23) {
+            mSchedule.setHourend(mCurrentSelectHour + 1);
+            mSchedule.setDayend(mCurrentSelectDay);
+        } else {
+            mSchedule.setHourend(0);
+            mSchedule.setDayend(mCurrentSelectDay + 1);
+        }
+        mCurrentSelectMinute = calendar.get(Calendar.MINUTE);
+        mSchedule.setMinute(mCurrentSelectMinute);
+        mSchedule.setMinuteend(mCurrentSelectMinute);
     }
 
 
     private void resetDateTimeUi() {
         tvDateStart.setText(String.format(getString(R.string.date_format_no_time), mCurrentSelectYear, mCurrentSelectMonth + 1, mCurrentSelectDay));
-        tvDateEnd.setText(String.format(getString(R.string.date_format_no_time), mCurrentSelectYear, mCurrentSelectMonth + 1, mCurrentSelectDay));
-        tvTimeStart.setText("00 : 00");
-        tvTimeEnd.setText("00 : 00");
+        tvTimeStart.setText(String.format("%02d", mCurrentSelectHour) + " : " + String.format("%02d", mCurrentSelectMinute));
 
+        if (mCurrentSelectHour != 23) {
+            tvDateEnd.setText(String.format(getString(R.string.date_format_no_time), mCurrentSelectYear, mCurrentSelectMonth + 1, mCurrentSelectDay));
+            tvTimeEnd.setText(String.format("%02d", mCurrentSelectHour+1) + " : " + String.format("%02d", mCurrentSelectMinute));
+        } else {
+            tvDateEnd.setText(String.format(getString(R.string.date_format_no_time), mCurrentSelectYear, mCurrentSelectMonth + 1, mCurrentSelectDay+1));
+            tvTimeEnd.setText(String.format("%02d", 0) + " : " + String.format("%02d", mCurrentSelectMinute));
+        }
     }
 
-    @Override
-    protected void bindData() {
-        super.bindData();
-        /*setScheduleData();*/
-        setCurrentDate();
-        resetDateTimeUi();
-    }
 
     @Override
     public void onClick(View v) {
@@ -158,14 +174,6 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
             case R.id.llAddEvent:
                 addEvent();
                 break;
-            /*case R.id.llScheduleTime:
-                showSelectDateDialog();
-                break;*/
-            /*case R.id.llScheduleLocation:
-                showInputLocationDialog();
-                break;*/
-
-
         }
     }
     private void showInputLocationDialog() {
@@ -229,11 +237,7 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
     }
 
 
-    /*public void showDatePicker(View v) {
-        MyDatePickerDialog newFragment = new MyDatePickerDialog();
-        newFragment.show(getSupportFragmentManager(), "date picker");
-        Log.wtf("onClick  ","");
-    }*/
+
 
 
     public void setDateStart(View v) {
@@ -270,31 +274,71 @@ public class AddEventActivity extends BaseActivity implements View.OnClickListen
     private void setInitialDateTimeDateStart() {
 
         TextView tvv = findViewById(R.id.tvDateStart);
-                tvv.setText(DateUtils.formatDateTime(this,
+        tvv.setText(mSchedule.getYear()+"-"+mSchedule.getMonth()+1+"-"+mSchedule.getDay());
+                /*tvv.setText(DateUtils.formatDateTime(this,
                 dateAndTime.getTimeInMillis(),
-                DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR));
+                DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR));*/
+        if (    (mSchedule.getYear() > mSchedule.getYearend()) ||
+                (mSchedule.getMonth() > mSchedule.getMonthend() && mSchedule.getYear() >= mSchedule.getYearend()) ||
+                (mSchedule.getMonth() >= mSchedule.getMonthend() && mSchedule.getYear() >= mSchedule.getYearend() && mSchedule.getDay() > mSchedule.getDayend())) {
+            TextView tv = findViewById(R.id.tvDateEnd);
+            tv.setText(mSchedule.getYear() + "-" + mSchedule.getMonth()+1 + "-" + mSchedule.getDay());
+            mSchedule.setYearend(mSchedule.getYear());
+            mSchedule.setMonthend(mSchedule.getMonth());
+            mSchedule.setDayend(mSchedule.getDay());
+        }
     }
     private void setInitialDateTimeDateEnd() {
 
         TextView tvv = findViewById(R.id.tvDateEnd);
-
-        tvv.setText(DateUtils.formatDateTime(this,
+        tvv.setText(mSchedule.getYearend() + "-" + mSchedule.getMonthend() + 1 + "-" + mSchedule.getDayend());
+        /*tvv.setText(DateUtils.formatDateTime(this,
                 dateAndTime.getTimeInMillis(),
-                DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR));
+                DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR));*/
+
+        if (    (mSchedule.getYear() > mSchedule.getYearend()) ||
+                (mSchedule.getMonth() > mSchedule.getMonthend() && mSchedule.getYear() >= mSchedule.getYearend()) ||
+                (mSchedule.getMonth() >= mSchedule.getMonthend() && mSchedule.getYear() >= mSchedule.getYearend() && mSchedule.getDay() > mSchedule.getDayend())) {
+            TextView tv = findViewById(R.id.tvDateStart);
+            tv.setText(mSchedule.getYearend() + "-" + mSchedule.getMonthend() + 1 + "-" + mSchedule.getDayend());
+            mSchedule.setYear(mSchedule.getYearend());
+            mSchedule.setMonth(mSchedule.getMonthend());
+            mSchedule.setDay(mSchedule.getDayend());
+        }
+
+
+
+
     }
     private void setInitialDateTimeTimeStart() {
 
         TextView tvv = findViewById(R.id.tvTimeStart);
-        tvv.setText(DateUtils.formatDateTime(this,
+        tvv.setText(String.format("%02d", mSchedule.getHour()) + " : " + String.format("%02d", mSchedule.getMinute()));
+        /*tvv.setText(DateUtils.formatDateTime(this,
                 dateAndTime.getTimeInMillis(),
-                DateUtils.FORMAT_SHOW_TIME));
+                DateUtils.FORMAT_SHOW_TIME));*/
+        if ((mSchedule.getHour() > mSchedule.getHourend() && (mSchedule.getDay() == mSchedule.getDayend() && mSchedule.getMonth() == mSchedule.getMonthend())) ||
+                (mSchedule.getMinute() > mSchedule.getMinuteend() && mSchedule.getHour() >= mSchedule.getHourend() && (mSchedule.getDay() == mSchedule.getDayend() && mSchedule.getMonth() == mSchedule.getMonthend()))) {
+            TextView tv = findViewById(R.id.tvTimeEnd);
+            tv.setText(String.format("%02d", mSchedule.getHour()) + " : " + String.format("%02d", mSchedule.getMinute()));
+            mSchedule.setHourend(mSchedule.getHour());
+            mSchedule.setMinuteend(mSchedule.getMinute());
+        }
     }
     private void setInitialDateTimeTimeEnd() {
 
         TextView tvv = findViewById(R.id.tvTimeEnd);
-        tvv.setText(DateUtils.formatDateTime(this,
+        tvv.setText(String.format("%02d", mSchedule.getHourend()) + " : " + String.format("%02d", mSchedule.getMinuteend()));
+        /*tvv.setText(DateUtils.formatDateTime(this,
                 dateAndTime.getTimeInMillis(),
-                DateUtils.FORMAT_SHOW_TIME));
+                DateUtils.FORMAT_SHOW_TIME));*/
+        if (    (mSchedule.getHour() > mSchedule.getHourend() && (mSchedule.getDay()==mSchedule.getDayend()&&mSchedule.getMonth()==mSchedule.getMonthend())) ||
+                (mSchedule.getMinute() > mSchedule.getMinuteend() && mSchedule.getHour() >= mSchedule.getHourend() && (mSchedule.getDay()==mSchedule.getDayend()&&mSchedule.getMonth()==mSchedule.getMonthend()))) {
+            TextView tv = findViewById(R.id.tvTimeStart);
+            tv.setText(String.format("%02d", mSchedule.getHourend()) + " : " + String.format("%02d", mSchedule.getMinuteend()));
+            mSchedule.setHour(mSchedule.getHourend());
+            mSchedule.setMinute(mSchedule.getMinuteend());
+        }
     }
 
 
