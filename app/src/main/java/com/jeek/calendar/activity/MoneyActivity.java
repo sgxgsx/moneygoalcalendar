@@ -1,8 +1,7 @@
 package com.jeek.calendar.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.jeek.calendar.R;

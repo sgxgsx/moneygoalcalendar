@@ -3,9 +3,6 @@ package com.jeek.calendar.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -21,17 +18,16 @@ import com.bumptech.glide.Glide;
 import com.jeek.calendar.R;
 import com.jeek.calendar.activity.DetailGoalActivity;
 import com.jeek.calendar.dialog.GoalDialog;
-import com.jeek.calendar.dialog.ListDialog;
 import com.jimmy.common.GoalDatabase.Goal;
 
 import java.io.File;
 import java.util.List;
 
-public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHolder> {
+public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHolder> {
+    final String TAG = "GoalsAdapter";
     private Context mContext;
     private Resources mResources;
     private List<Goal> mGoals;
-    final String TAG = "GoalsAdapter";
 
 
     public GoalsAdapter(Context context, List<Goal> goals) {
@@ -55,16 +51,16 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
     public void onBindViewHolder(final GoalsAdapter.GoalsViewHolder holder, final int position) {
         final Goal goal = mGoals.get(position);
         int inprogress = goal.getInprogress();
-        int done       = goal.getDoneschedules();
+        int done = goal.getDoneschedules();
 
-        if(!goal.getImage_path().equals("")){
+        if (!goal.getImage_path().equals("")) {
             Glide.with(mContext).load(new File(goal.getImage_path())).into(holder.imageGoal);
         }
         holder.tvGoalName.setText(goal.getGoal_name());
         holder.tvGoalPlannedProgress.setText(String.valueOf(inprogress));
         holder.tvGoalDoneProgress.setText(String.valueOf(done));
 
-        if(!goal.isDone()) holder.llDone.setVisibility(View.VISIBLE);
+        if (!goal.isDone()) holder.llDone.setVisibility(View.VISIBLE);
         else holder.llDone.setVisibility(View.INVISIBLE);
 
         holder.mProgressBar.setMax(inprogress + done);
@@ -91,8 +87,15 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
         });
     }
 
-    private void gotoDetail(Goal goal){
+    private void gotoDetail(Goal goal) {
         mContext.startActivity(new Intent(mContext, DetailGoalActivity.class).putExtra(DetailGoalActivity.GOAL_OBJ, goal));
+    }
+
+    public void changeAllData(List<Goal> goals) {
+        mGoals.clear();
+
+        mGoals.addAll(goals);
+        notifyDataSetChanged();
     }
 
     protected class GoalsViewHolder extends RecyclerView.ViewHolder {
@@ -115,12 +118,5 @@ public class  GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHo
             imageGoal = itemView.findViewById(R.id.ivImageGoal);
             mProgressBar = itemView.findViewById(R.id.progressBar);
         }
-    }
-
-    public void changeAllData(List<Goal> goals) {
-        mGoals.clear();
-
-        mGoals.addAll(goals);
-        notifyDataSetChanged();
     }
 }

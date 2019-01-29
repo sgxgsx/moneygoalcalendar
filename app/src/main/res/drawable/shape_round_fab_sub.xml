@@ -13,6 +13,6 @@
         android:right="@dimen/fab_sub"
         android:top="@dimen/fab_sub" />-->
 
-    <corners android:radius="@dimen/fab_sub_radius"/>
+    <corners android:radius="@dimen/fab_sub_radius" />
 
 </shape>

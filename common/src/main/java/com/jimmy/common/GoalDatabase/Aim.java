@@ -23,13 +23,12 @@ public class Aim implements Serializable, ItemWrapper {
     String description;
     boolean done;
     private List<ItemWrapper> items;
+    //private List<GoalList> lists;
     private List<Integer> note_ids;
     private List<Integer> schedule_ids;
 
     @Ignore
-    public Aim(){
-
-    }
+    public Aim(){ }
 
     @Ignore
     public Aim(String name, boolean done,String description, String color, List<ItemWrapper> itemWrapper){
@@ -40,6 +39,7 @@ public class Aim implements Serializable, ItemWrapper {
         this.description = description;
         this.color = color;
         this.items = itemWrapper;
+        //this.lists = goalLists;
         initArrayLists();
     }
 
@@ -52,6 +52,7 @@ public class Aim implements Serializable, ItemWrapper {
         this.description = description;
         this.color = color;
         this.items = itemWrapper;
+        //this.lists = goalLists;
         initArrayLists();
     }
 
@@ -60,6 +61,15 @@ public class Aim implements Serializable, ItemWrapper {
         return VIEW_TYPE;
     }
 
+    /*
+    public void deleteListById(int id){
+        Log.wtf("deleteListbyId", "delete");
+    }
+
+    public void addList(GoalList goalList){
+        lists.add(goalList);
+    }
+*/
     public void deleteById(int id, int view_type){
         switch (view_type){
             case 2:
@@ -138,6 +148,16 @@ public class Aim implements Serializable, ItemWrapper {
         note_ids  = new ArrayList<>();
         schedule_ids = new ArrayList<>();
     }
+
+    /*
+    public List<GoalList> getLists() {
+        return lists;
+    }
+
+    public void setLists(List<GoalList> lists) {
+        this.lists = lists;
+    }
+    */
 
     public String getColor() {
         return color;

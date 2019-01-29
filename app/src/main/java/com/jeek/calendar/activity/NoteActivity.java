@@ -1,27 +1,17 @@
 package com.jeek.calendar.activity;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toolbar;
 
 import com.jeek.calendar.R;
-import com.jeek.calendar.adapter.DetailAimAdapter;
-import com.jeek.calendar.task.goal.UpdateGoalAsyncTask;
 import com.jimmy.common.GoalDatabase.Aim;
 import com.jimmy.common.GoalDatabase.Goal;
 import com.jimmy.common.GoalDatabase.Note;
 
-import java.util.Calendar;
-
-public class NoteActivity extends AppCompatActivity implements View.OnClickListener{
+public class NoteActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String GOAL_OBJ = "GOAL.Obj.Detail.Aim";
     public static final String AIM_OBJ = "AIM.Obj.Detail.Aim";
     static final String NOTE_OBJ = "Note.Obj";
@@ -46,36 +36,42 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
         Title = "";
         Text = "";
         mDeleted = false;
+
+        /*
         if (getIntent().hasExtra(GOAL_OBJ)) {
             mGoal = (Goal) getIntent().getSerializableExtra(GOAL_OBJ);
-            if (getIntent().hasExtra(AIM_OBJ)){
+            if (getIntent().hasExtra(AIM_OBJ)) {
                 mAim = (Aim) getIntent().getSerializableExtra(AIM_OBJ);
-            }else mAim = null;
-            if (getIntent().hasExtra(NOTE_OBJ)){
+            } else mAim = null;
+            if (getIntent().hasExtra(NOTE_OBJ)) {
                 mNote = (Note) getIntent().getSerializableExtra(NOTE_OBJ);
                 mText.setText(mNote.getText());
                 Text = mNote.getText();
                 Title = mNote.getTitle();
                 mTitle.setText(mNote.getTitle());
             } else mNote = null;
-
         }
+        */
     }
 
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.llCancel:
-                if (mNote != null){
+                /*
+                if (mNote != null) {
                     change();
-                } else{
+                } else {
                     save();
                 }
                 break;
+                */
+                /*
             case R.id.llDelete:
                 onDelete();
                 break;
+                */
         }
     }
 
@@ -83,8 +79,8 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
     protected void onPause() {
         super.onPause();
     }
-
-    public void change(){
+/*
+    public void change() {
         if (!mDeleted && (!mTitle.getText().toString().equals(Title) || !mText.getText().toString().equals(Text))) {
             Intent returnIntent = new Intent();
             Log.wtf("here", "here");
@@ -92,38 +88,38 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             String title = mTitle.getText().toString();
             String text = mText.getText().toString();
 
-            if(mAim != null){
+            if (mAim != null) {
                 mAim.changeNote(mNote.getId(), title, text, time);
                 mGoal.getItems().get(mAim.getId()).changeNote(mNote.getId(), title, text, time);
                 returnIntent.putExtra(AIM_OBJ, mAim);
-            } else{
+            } else {
                 mGoal.getItems().get(mNote.getId()).changeNote(title, text, time);
 
             }
             returnIntent.putExtra(GOAL_OBJ, mGoal);
             setResult(Activity.RESULT_OK, returnIntent);
             Log.wtf("return", "norm");
-        } else{
+        } else {
             Intent returnIntent = new Intent();
             setResult(Activity.RESULT_CANCELED, returnIntent);
         }
         finish();
     }
 
-    public void save(){
+    public void save() {
         Log.wtf("SS", "-" + mTitle.getText().toString() + "- #" + mText.getText().toString() + "#-" + Text + "---" + Title + "--");
         //if mTitle.getText().toString().equals("")
-        if (!mDeleted && (!mTitle.getText().toString().equals(Title) || !mText.getText().toString().equals(Text))){
+        if (!mDeleted && (!mTitle.getText().toString().equals(Title) || !mText.getText().toString().equals(Text))) {
             Log.wtf("here", "here");
-            long time= Calendar.getInstance().getTimeInMillis();
+            long time = Calendar.getInstance().getTimeInMillis();
 
             mNote = new Note(mTitle.getText().toString(), mText.getText().toString(), time);
-            if (mAim != null){
+            if (mAim != null) {
                 Log.wtf("aim", "ww");
                 mNote.setId(mAim.getItems().size());
                 mAim.addNote(mNote);
                 mGoal.getItems().get(mAim.getId()).addNote(mNote);
-            } else{
+            } else {
                 mNote.setId(mGoal.getItems().size());
                 mGoal.addNote(mNote);
             }
@@ -131,38 +127,40 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             Intent returnIntent = new Intent().putExtra(AIM_OBJ, mAim).putExtra(GOAL_OBJ, mGoal);
             setResult(Activity.RESULT_OK, returnIntent);
             Log.wtf("return", "norm");
-        } else{
+        } else {
             Intent returnIntent = new Intent();
             setResult(Activity.RESULT_CANCELED, returnIntent);
         }
         finish();
     }
 
-    public void onDelete(){
+    public void onDelete() {
         mDeleted = true;
         Intent returnIntent = new Intent();
 
-        if(mAim != null){
+        if (mAim != null) {
             mAim.deleteNote(mNote.getId());
             mGoal.getItems().get(mAim.getId()).deleteNote(mNote.getId());
             returnIntent.putExtra(AIM_OBJ, mAim);
-        } else{
+        } else {
             mGoal.deleteNote(mNote.getId());
         }
         returnIntent.putExtra(GOAL_OBJ, mGoal);
         setResult(Activity.RESULT_OK, returnIntent);
         finish();
     }
+
     @Override
     public void onBackPressed() {
         Log.wtf("aim", "back press");
-        if (mNote != null){
+        if (mNote != null) {
             change();
-        } else{
+        } else {
             save();
         }
         super.onBackPressed();
     }
+    */
 }
 // TODO улучшить дизайн NOTE item
 /*

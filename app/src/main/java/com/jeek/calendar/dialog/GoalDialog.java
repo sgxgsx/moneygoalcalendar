@@ -31,8 +31,8 @@ public class GoalDialog extends Dialog implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View v){
-        switch (v.getId()){
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.dsc_archive:
                 archive();
                 break;
@@ -56,7 +56,7 @@ public class GoalDialog extends Dialog implements View.OnClickListener {
         }
     }
 
-    private void gotoSettings(){
+    private void gotoSettings() {
         //TODO go to DetailGoal -> open slide menu -> open settings.
         Intent intent = new Intent(mContext, DetailGoalActivity.class).putExtra(DetailGoalActivity.GOAL_OBJ, mGoal);
         mContext.startActivity(intent);
@@ -68,25 +68,25 @@ public class GoalDialog extends Dialog implements View.OnClickListener {
         dismiss();
     }*/
 
-    private void delete(){
+    private void delete() {
         new DeleteGoalTask(mContext, mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         dismiss();
     }
 
-    private void edit(){
+    private void edit() {
         Intent intent = new Intent(mContext, EditGoalActivity.class).putExtra(DetailGoalActivity.GOAL_OBJ, mGoal);
         mContext.startActivity(intent);
         dismiss();
     }
 
-    private void archive(){
+    private void archive() {
         // Archive or UnArchive
         mGoal.setDone(!mGoal.isDone());
         new UpdateGoalAsyncTask(mContext, mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         dismiss();
     }
 
-    private void share(){
+    private void share() {
 
         dismiss();
     }

@@ -1,15 +1,12 @@
 package com.jeek.calendar.activity;
 
 import android.content.Context;
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ViewFlipper;
-import android.widget.ViewSwitcher;
 
 import com.jeek.calendar.R;
 
@@ -60,39 +57,38 @@ public class DoubleDrawerView extends ViewFlipper {
         }
     }
 
-    public void openActivity(){
-        if (getDisplayedChild() != DRAWER_ACTIVITY){
+    public void openActivity() {
+        if (getDisplayedChild() != DRAWER_ACTIVITY) {
             setChildAndAnimate(DRAWER_ACTIVITY, true);
         }
     }
 
-    public void openAddons(){
-        if (getDisplayedChild() != DRAWER_ADDONS){
+    public void openAddons() {
+        if (getDisplayedChild() != DRAWER_ADDONS) {
             setChildAndAnimate(DRAWER_ADDONS, true);
         }
     }
 
-    public void openArchivedTasks(){
-        if (getDisplayedChild() != DRAWER_ARCHIVED_TASKS){
+    public void openArchivedTasks() {
+        if (getDisplayedChild() != DRAWER_ARCHIVED_TASKS) {
             setChildAndAnimate(DRAWER_ARCHIVED_TASKS, true);
         }
     }
 
-    public void openArchivedLists(){
-        if (getDisplayedChild() != DRAWER_ARCHIVED_LISTS){
+    public void openArchivedLists() {
+        if (getDisplayedChild() != DRAWER_ARCHIVED_LISTS) {
             setChildAndAnimate(DRAWER_ARCHIVED_LISTS, true);
         }
     }
 
-    public void openGoalSettings(){
-        if (getDisplayedChild() != DRAWER_GOAL_SETTINGS){
+    public void openGoalSettings() {
+        if (getDisplayedChild() != DRAWER_GOAL_SETTINGS) {
             setChildAndAnimate(DRAWER_GOAL_SETTINGS, true);
         }
     }
 
 
-
-    public void closeFragment(){
+    public void closeFragment() {
         Log.wtf("closeThirdDrawer", "drawer");
         setChildAndAnimate(MAIN_VIEW_INDEX, true);
     }
@@ -140,6 +136,11 @@ public class DoubleDrawerView extends ViewFlipper {
             Log.wtf("touch", "event");
             return super.onInterceptTouchEvent(ev);
         }
+    }
+
+
+    public void checkedChanged(boolean checked) {
+        Log.wtf("checked", "checked in doubleDrawerView");
     }
 
 }

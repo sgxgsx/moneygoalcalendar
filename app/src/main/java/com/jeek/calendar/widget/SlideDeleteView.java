@@ -11,7 +11,7 @@ import android.widget.FrameLayout;
 /**
  * Created by Jimmy on 2016/10/12 0012.
  */
-public class  SlideDeleteView extends FrameLayout {
+public class SlideDeleteView extends FrameLayout {
 
     private int mDeleteViewWidth;
     private int mWidth;
@@ -19,6 +19,8 @@ public class  SlideDeleteView extends FrameLayout {
     private boolean mIsOpen = false;
     private OnContentClickListener mOnContentClickListener;
     private boolean mIsMove = false;
+    private float downX, moveX;
+    private long startTime, endTime;
 
     public SlideDeleteView(Context context) {
         this(context, null);
@@ -32,14 +34,10 @@ public class  SlideDeleteView extends FrameLayout {
         super(context, attrs, defStyleAttr);
     }
 
-    private float downX, moveX;
-
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
     }
-
-    private long startTime, endTime;
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -144,23 +142,6 @@ public class  SlideDeleteView extends FrameLayout {
         return mIsOpen;
     }
 
-    private class AutoMoveAnimation extends Animation {
-
-        private AutoMoveAnimation(long duration) {
-            setDuration(Math.max(duration * 10, mDeleteViewWidth / 5));
-        }
-
-        @Override
-        protected void applyTransformation(float interpolatedTime, Transformation t) {
-            super.applyTransformation(interpolatedTime, t);
-            if (isOpen()) {
-                moveChild(-mDeleteViewWidth / 10);
-            } else {
-                moveChild(mDeleteViewWidth / 10);
-            }
-        }
-    }
-
     public void close(boolean anim) {
         if (isOpen()) {
             mIsOpen = false;
@@ -181,6 +162,23 @@ public class  SlideDeleteView extends FrameLayout {
 
     public interface OnContentClickListener {
         void onContentClick();
+    }
+
+    private class AutoMoveAnimation extends Animation {
+
+        private AutoMoveAnimation(long duration) {
+            setDuration(Math.max(duration * 10, mDeleteViewWidth / 5));
+        }
+
+        @Override
+        protected void applyTransformation(float interpolatedTime, Transformation t) {
+            super.applyTransformation(interpolatedTime, t);
+            if (isOpen()) {
+                moveChild(-mDeleteViewWidth / 10);
+            } else {
+                moveChild(mDeleteViewWidth / 10);
+            }
+        }
     }
 
 }

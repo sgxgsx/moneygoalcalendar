@@ -2,9 +2,9 @@ package com.jeek.calendar.activity;
 
 import android.Manifest;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -17,20 +17,21 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.jeek.calendar.R;
+
 //import com.google.firebase.auth.AuthCredential;
 //import com.google.firebase.auth.FirebaseAuth;
 //import com.google.firebase.auth.FirebaseUser;
 //import com.google.firebase.auth.GoogleAuthProvider;
-import com.jeek.calendar.R;
 
-public class AuthActivity extends AppCompatActivity implements View.OnClickListener{
+public class AuthActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private String mUserName;
-    //private FirebaseAuth mAuth;
-    private GoogleSignInClient mGoogleSignInClient;
     //private FirebaseAuth.AuthStateListener mAuthListener;
     private static final int RC_SIGN_IN = 1;
     private static final String ANONYMOUS = "ANONYMOUS";
+    private String mUserName;
+    //private FirebaseAuth mAuth;
+    private GoogleSignInClient mGoogleSignInClient;
     private SignInButton mButton;
     private TextView mButtonTextView;
 
@@ -56,7 +57,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.default_sign_in_button:
                 signIn();
                 break;
@@ -81,7 +82,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
-    private void signAnonymously(){
+    private void signAnonymously() {
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(ANONYMOUS, true);
         startActivity(intent);
@@ -106,9 +107,9 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
             // Signed in successfully, show authenticated UI.
             updateUI(account);
         } catch (ApiException e) {
-            Toast toast = Toast.makeText(getApplicationContext(),"Хуева",Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getApplicationContext(), "Хуева", Toast.LENGTH_SHORT);
             toast.show();
-            Log.wtf("хех","хуева");
+            Log.wtf("хех", "хуева");
             e.printStackTrace();
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
@@ -119,8 +120,8 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void updateUI(GoogleSignInAccount account){
-        if (account != null){
+    private void updateUI(GoogleSignInAccount account) {
+        if (account != null) {
             Toast.makeText(this, "You are signed in ", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
@@ -131,11 +132,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
-
-
     // for firebase: use instead of handleSignInResult
-
 
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {

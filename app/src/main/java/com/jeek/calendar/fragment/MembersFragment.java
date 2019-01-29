@@ -29,7 +29,9 @@ public class MembersFragment extends Fragment implements View.OnClickListener {
 
     private OnFragmentInteractionListener mListener;
 
-    public MembersFragment() { }
+    public MembersFragment() {
+    }
+
     public static MembersFragment newInstance(String param1, String param2) {
         MembersFragment fragment = new MembersFragment();
         Bundle args = new Bundle();
@@ -59,9 +61,9 @@ public class MembersFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View v){
+    public void onClick(View v) {
         Log.wtf("click", "sec");
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.llGoBack:
                 Log.wtf("onclick", "click");
                 onAction(GO_BACK_CALL_BACK);
@@ -74,7 +76,8 @@ public class MembersFragment extends Fragment implements View.OnClickListener {
     public void onResume() {
         super.onResume();
     }
-    public void onAction(int callback){
+
+    public void onAction(int callback) {
         if (mListener != null) {
             mListener.onFragmentInteraction(callback);
         }

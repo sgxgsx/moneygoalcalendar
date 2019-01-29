@@ -20,7 +20,7 @@ import com.jimmy.common.base.app.BaseActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SettingsActivity extends BaseActivity /*implements View.OnClickListener, OnTaskFinishedListener<List<CalendarSettingsEntry>>,  SharedPreferences.OnSharedPreferenceChangeListener */{
+public class SettingsActivity extends BaseActivity /*implements View.OnClickListener, OnTaskFinishedListener<List<CalendarSettingsEntry>>,  SharedPreferences.OnSharedPreferenceChangeListener */ {
 
     private Toolbar mToolBar;
     private TextView mToolBarTextViewTitle;
@@ -33,8 +33,7 @@ public class SettingsActivity extends BaseActivity /*implements View.OnClickList
 
 
     @Override
-    public void onCreate(Bundle onSaved)
-    {
+    public void onCreate(Bundle onSaved) {
         super.onCreate(onSaved);
         //mCalendarSettingsEntry = CalendarClassDao.getInstance(this).getAllCalendars();
     }
@@ -52,6 +51,7 @@ public class SettingsActivity extends BaseActivity /*implements View.OnClickList
         //sharedPreferences.registerOnSharedPreferenceChangeListener(this);
 
     }
+
     private void initCalendarClassesList() {
         mCalendarSettingsEntry = new ArrayList<>();
         LinearLayoutManager manager = new LinearLayoutManager(this);
@@ -63,7 +63,6 @@ public class SettingsActivity extends BaseActivity /*implements View.OnClickList
         mCalendarClassAdapter = new CalendarClassAdapter(this, mCalendarSettingsEntry);
         rvMenuCalendarClassList.setAdapter(mCalendarClassAdapter);
     }
-
 
 
     @Override

@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/dlMoney"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dlMoney"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jeek.calendar.activity.MoneyActivity"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    tools:context="com.jeek.calendar.activity.MoneyActivity">
+
     <android.support.constraint.ConstraintLayout
         android:id="@+id/clMoneyToolBar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/colorPrimaryDark"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
             android:id="@+id/llMenuMain"
             android:layout_width="50dp"
@@ -21,12 +23,13 @@
             android:layout_marginStart="5dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
             <ImageButton
                 android:id="@+id/ivMenuInGoal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/colorTranslate"
-                android:src="@drawable/btn_menu"/>
+                android:src="@drawable/btn_menu" />
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>
 
@@ -35,138 +38,146 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
-        app:layout_constraintTop_toBottomOf="@+id/clMoneyToolBar"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clMoneyToolBar">
 
         <android.support.design.widget.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/money_daily"
+            android:textColor="@color/colorICWhite"
             android:textSize="@dimen/money_pick_bar_text_size"
-            android:textStyle="bold"
-            android:textColor="@color/colorICWhite" />
+            android:textStyle="bold" />
 
         <android.support.design.widget.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/money_weekly"
+            android:textColor="@color/colorICGrey"
             android:textSize="@dimen/money_pick_bar_text_size"
-            android:textStyle="bold"
-            android:textColor="@color/colorICGrey"/>
+            android:textStyle="bold" />
 
         <android.support.design.widget.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/money_monthly"
+            android:textColor="@color/colorICGrey"
             android:textSize="@dimen/money_pick_bar_text_size"
-            android:textStyle="bold"
-            android:textColor="@color/colorICGrey" />
+            android:textStyle="bold" />
 
         <android.support.design.widget.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
             android:text="@string/money_total"
+            android:textColor="@color/colorICGrey"
             android:textSize="@dimen/money_pick_bar_text_size"
-            android:textStyle="bold"
-            android:textColor="@color/colorICGrey" />
+            android:textStyle="bold" />
     </android.support.design.widget.TabLayout>
-
-
-
-
 
 
     <LinearLayout
         android:id="@+id/clMoneyPickListBottomBar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:orientation="horizontal"
         android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal"
+        android:weightSum="4"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:weightSum="4">
+        app:layout_constraintStart_toStartOf="parent">
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
+
             <ImageView
-                android:layout_marginTop="10dp"
                 android:layout_width="@dimen/icon_width"
                 android:layout_height="@dimen/icon_width"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
                 android:src="@drawable/ic_menu"
-                android:tint="@color/colorICWhite"/>
+                android:tint="@color/colorICWhite" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/money_transaction"
+                android:textColor="@color/colorICWhite"
                 android:textSize="@dimen/money_pick_bottom_bar_text_size"
-                android:textStyle="bold"
-                android:textColor="@color/colorICWhite"/>
+                android:textStyle="bold" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
+
             <ImageView
-                android:layout_marginTop="10dp"
                 android:layout_width="@dimen/icon_width"
                 android:layout_height="@dimen/icon_width"
                 android:layout_gravity="center_horizontal"
-                android:tint="@color/colorICGrey"
-                android:src="@drawable/ic_graph"/>
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_graph"
+                android:tint="@color/colorICGrey" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/money_statistics"
+                android:textColor="@color/colorICGrey"
                 android:textSize="@dimen/money_pick_bottom_bar_text_size"
-                android:textStyle="bold"
-                android:textColor="@color/colorICGrey"/>
+                android:textStyle="bold" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
+
             <ImageView
-                android:layout_marginTop="10dp"
                 android:layout_width="@dimen/icon_width"
                 android:layout_height="@dimen/icon_width"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/ic_account"/>
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_account" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/money_accounts"
+                android:textColor="@color/colorICGrey"
                 android:textSize="@dimen/money_pick_bottom_bar_text_size"
-                android:textStyle="bold"
-                android:textColor="@color/colorICGrey"/>
+                android:textStyle="bold" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
+
             <ImageView
-                android:layout_marginTop="10dp"
                 android:layout_width="@dimen/icon_width"
                 android:layout_height="@dimen/icon_width"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/ic_settings"/>
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_settings" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/money_settings"
+                android:textColor="@color/colorICGrey"
                 android:textSize="@dimen/money_pick_bottom_bar_text_size"
-                android:textStyle="bold"
-                android:textColor="@color/colorICGrey"/>
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 

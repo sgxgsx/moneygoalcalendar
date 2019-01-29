@@ -1,4 +1,3 @@
-
 package com.jeek.calendar.adapter;
 
 import android.content.Context;
@@ -14,8 +13,8 @@ import android.widget.TextView;
 
 import com.jeek.calendar.R;
 import com.jeek.calendar.activity.DetailEventActivity;
-import com.jimmy.common.CalendarSystemDatabase.Schedule;
 import com.jeek.calendar.utils.JeekUtils;
+import com.jimmy.common.CalendarSystemDatabase.Schedule;
 import com.jimmy.common.base.app.BaseFragment;
 
 import java.util.ArrayList;
@@ -24,7 +23,7 @@ import java.util.List;
 /**
  * Created by Jimmy on 2016/10/8 0008.
  */
-public class  ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private int SCHEDULE_TYPE = 1;
 
@@ -42,17 +41,18 @@ public class  ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     private void initData() {
         mSchedules = new ArrayList<Schedule>();
         mFinishSchedules = new ArrayList<Schedule>();
-        Log.wtf("SchedAdapt","Inited");
+        Log.wtf("SchedAdapt", "Inited");
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == SCHEDULE_TYPE) {
-            Log.wtf("onCreateViewHolder","Item_schedule inserting");
+            Log.wtf("onCreateViewHolder", "Item_schedule inserting");
             return new ScheduleViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_schedule, parent, false));
         }
         return new ScheduleViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_schedule, parent, false));
     }
+
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ScheduleViewHolder) {
@@ -91,6 +91,41 @@ public class  ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         return mSchedules.size();
     }
 
+    public void changeAllData(List<Schedule> schedules) {
+        distinguishData(schedules);
+        Log.wtf("changeAllData", "end");
+    }
+
+    public void insertItem(Schedule schedule) {
+        Log.wtf("InsertItem", "start");
+        mSchedules.add(schedule);
+        notifyItemInserted(mSchedules.size() - 1);
+    }
+
+    public void removeItem(Schedule schedule) {
+        if (mSchedules.remove(schedule)) {
+            notifyDataSetChanged();
+        } else if (mFinishSchedules.remove(schedule)) {
+            notifyDataSetChanged();
+        }
+    }
+
+    private void distinguishData(List<Schedule> schedules) {
+        mSchedules.clear();
+        mFinishSchedules.clear();
+        for (int i = 0, count = schedules.size(); i < count; i++) {
+            Log.wtf("distinguishData", "iter = " + i);
+
+            Schedule schedule = schedules.get(i);
+            if (schedule.getState() == 2) {
+                mFinishSchedules.add(schedule);
+            } else {
+                mSchedules.add(schedule);
+            }
+        }
+        notifyDataSetChanged();
+    }
+
     protected class ScheduleViewHolder extends RecyclerView.ViewHolder {
 
         protected ConstraintLayout vScheduleHintBlock;
@@ -106,43 +141,6 @@ public class  ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             tvScheduleTime = (TextView) itemView.findViewById(R.id.tvScheduleTime);
         }
 
-    }
-
-
-    public void changeAllData(List<Schedule> schedules) {
-        distinguishData(schedules);
-        Log.wtf("changeAllData","end");
-    }
-
-    public void insertItem(Schedule schedule) {
-        Log.wtf("InsertItem","start");
-        mSchedules.add(schedule);
-        notifyItemInserted(mSchedules.size() - 1);
-    }
-
-    public void removeItem(Schedule schedule) {
-        if (mSchedules.remove(schedule)) {
-            notifyDataSetChanged();
-        } else if (mFinishSchedules.remove(schedule)) {
-            notifyDataSetChanged();
-        }
-    }
-
-
-    private void distinguishData(List<Schedule> schedules) {
-        mSchedules.clear();
-        mFinishSchedules.clear();
-        for (int i = 0, count = schedules.size(); i < count; i++) {
-            Log.wtf("distinguishData","iter = "+i);
-
-            Schedule schedule = schedules.get(i);
-            if (schedule.getState() == 2) {
-                mFinishSchedules.add(schedule);
-            } else {
-                mSchedules.add(schedule);
-            }
-        }
-        notifyDataSetChanged();
     }
 
 }

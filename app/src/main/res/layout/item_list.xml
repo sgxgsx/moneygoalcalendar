@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/clAll"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorTranslate">
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/list_background"
+    android:backgroundTint="@color/color_banana">
+
     <LinearLayout
         android:id="@+id/llToolBar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/list_background_top"
-        android:backgroundTint="@color/colorLime"
         android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-    </LinearLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <!--
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,24 +26,27 @@
         app:layout_constraintTop_toBottomOf="@id/llToolBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvList"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-        </android.support.v7.widget.RecyclerView>
-
     </ScrollView>
+    !-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llToolBar"/>
 
     <LinearLayout
         android:id="@+id/llAddBar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
-        android:background="@drawable/list_background_bottom"
-        android:backgroundTint="@color/colorLime"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
     </LinearLayout>
 

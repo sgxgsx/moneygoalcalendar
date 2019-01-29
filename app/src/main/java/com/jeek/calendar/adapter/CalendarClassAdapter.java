@@ -7,17 +7,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jeek.calendar.R;
 import com.jeek.calendar.task.CalendarSettingsEntry.ChangeCalendarSettingsEntryValueTask;
-import com.jimmy.common.SettingsDatabase.CalendarSettingsEntry;
-import com.jimmy.common.bean.EventSet;
-import com.jeek.calendar.task.eventset.RemoveEventSetTask;
 import com.jeek.calendar.widget.SlideDeleteView;
-import com.jimmy.common.listener.OnTaskFinishedListener;
+import com.jimmy.common.SettingsDatabase.CalendarSettingsEntry;
 
 import java.util.List;
 
@@ -62,10 +58,17 @@ public class CalendarClassAdapter extends RecyclerView.Adapter<CalendarClassAdap
         });
     }
 
-    private void changeTrueOrFalse(CalendarSettingsEntry calendarClass){
+    private void changeTrueOrFalse(CalendarSettingsEntry calendarClass) {
         Log.wtf("Change", "changed");
         new ChangeCalendarSettingsEntryValueTask(mContext, calendarClass).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
+
+    public void changeAllData(List<CalendarSettingsEntry> calendarClasses) {
+        mCalendarClasses.clear();
+        mCalendarClasses.addAll(calendarClasses);
+        notifyDataSetChanged();
+    }
+
     protected class CalendarClassViewHolder extends RecyclerView.ViewHolder {
         private LinearLayout llItem;
         private SlideDeleteView sdvEventSet;
@@ -78,11 +81,5 @@ public class CalendarClassAdapter extends RecyclerView.Adapter<CalendarClassAdap
             tvEventSetName = (TextView) itemView.findViewById(R.id.tvEventSetName);
 
         }
-    }
-
-    public void changeAllData(List<CalendarSettingsEntry> calendarClasses) {
-        mCalendarClasses.clear();
-        mCalendarClasses.addAll(calendarClasses);
-        notifyDataSetChanged();
     }
 }

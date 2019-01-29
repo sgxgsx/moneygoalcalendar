@@ -8,9 +8,9 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -23,16 +23,13 @@ import android.widget.Toast;
 import com.jeek.calendar.R;
 import com.jeek.calendar.adapter.GoalsAdapter;
 import com.jeek.calendar.task.goal.InsertGoalTask;
-import com.jimmy.common.GoalDatabase.Aim;
 import com.jimmy.common.GoalDatabase.Goal;
-import com.jimmy.common.GoalDatabase.GoalSchedule;
-import com.jimmy.common.GoalDatabase.Note;
-import com.jimmy.common.ItemWrapper;
+import com.jimmy.common.GoalDatabase.GoalList;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddGoalActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener{
+public class AddGoalActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
     private static final String TAG = "AddGoalActivity";
     private final int RESULT_LOAD_IMG = 100;
     private GoalsAdapter mGoalsAdapter;
@@ -67,7 +64,7 @@ public class AddGoalActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.llCancel:
                 finish();
                 break;
@@ -86,54 +83,53 @@ public class AddGoalActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         int id = buttonView.getId();
-        switch (id){
+        switch (id) {
             case R.id.cbTime:
                 showTime();
                 break;
         }
     }
 
-    private void saveGoal(){
+    private void saveGoal() {
         String name = title.getText().toString();
         String desc = description.getText().toString();
         //TODO LEHA тут возвращаешь время. сюда. Мб просто Toast.
         //boolean aimandevents = aimsevents.isChecked();
         long date_to = 0;
-        if(!cbtime.isChecked()){
+        if (!cbtime.isChecked()) {
             date_to = 2040200100;
         }
-        List<ItemWrapper> itemWrappers = new ArrayList<>();
+        List<GoalList> itemWrappers = new ArrayList<>();
         Goal goal = new Goal(name, date_to, desc, image_path);
-        goal.setItems(itemWrappers);
+        goal.setLists(itemWrappers);
         new InsertGoalTask(getApplicationContext(), goal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         finish();
     }
 
-    private void changeColor(){
+    private void changeColor() {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType("image/*");
         startActivityForResult(photoPickerIntent, RESULT_LOAD_IMG);
     }
 
 
-
-    private void changeTime(){
-        if(!cbtime.isChecked()){
+    private void changeTime() {
+        if (!cbtime.isChecked()) {
             Toast.makeText(getApplicationContext(), "unchecked", Toast.LENGTH_LONG).show();
             return;
         }
         Toast.makeText(getApplicationContext(), "Change time", Toast.LENGTH_LONG).show();
     }
 
-    private void showTime(){
-        if(cbtime.isChecked()){
+    private void showTime() {
+        if (cbtime.isChecked()) {
             time.setVisibility(View.VISIBLE);
         } else {
             time.setVisibility(View.INVISIBLE);
         }
     }
 
-    private void setImage(String path){
+    private void setImage(String path) {
         Bitmap selectedImage = BitmapFactory.decodeFile(path);
         BitmapDrawable background = new BitmapDrawable(getResources(), selectedImage);
         ivGoal.setImageDrawable(background);
@@ -142,8 +138,8 @@ public class AddGoalActivity extends AppCompatActivity implements View.OnClickLi
     private String getRealPathFromURI(Context context, Uri contentUri) {
         Cursor cursor = null;
         try {
-            String[] proj = { MediaStore.Images.Media.DATA };
-            cursor = context.getContentResolver().query(contentUri,  proj, null, null, null);
+            String[] proj = {MediaStore.Images.Media.DATA};
+            cursor = context.getContentResolver().query(contentUri, proj, null, null, null);
             int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
             cursor.moveToFirst();
             return cursor.getString(column_index);
@@ -166,7 +162,7 @@ public class AddGoalActivity extends AppCompatActivity implements View.OnClickLi
             final Uri imageUri = data.getData();
             image_path = getRealPathFromURI(getApplicationContext(), imageUri);
             setImage(image_path);
-        }else {
+        } else {
             Log.wtf(TAG, "No image picked");
         }
     }

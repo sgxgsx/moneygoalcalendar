@@ -67,7 +67,7 @@
     </style>
 
 
-    <style name="NavigationView" >
+    <style name="NavigationView">
         <item name="android:listDivider">@color/colorPrimary</item>
         <item name="android:backgroundTint">@color/colorPrimaryDark</item>
         <item name="android:textAlignment">textStart</item>

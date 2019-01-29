@@ -8,10 +8,10 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -22,10 +22,7 @@ import android.widget.Toast;
 import com.jeek.calendar.R;
 import com.jeek.calendar.dialog.SelectColorDialog;
 import com.jeek.calendar.task.goal.UpdateGoalAsyncTask;
-import com.jimmy.common.GoalDatabase.Aim;
 import com.jimmy.common.GoalDatabase.Goal;
-import com.jimmy.common.GoalDatabase.GoalSchedule;
-import com.jimmy.common.GoalDatabase.Note;
 import com.jimmy.common.ItemWrapper;
 
 import java.io.FileNotFoundException;
@@ -34,7 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddAimActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener,
-        SelectColorDialog.OnSelectColorListener{
+        SelectColorDialog.OnSelectColorListener {
     public static final String GOAL_OBJ = "GOAL.Obj.Add.Aim";
     public static final int errorCode = 200;
     public static final int GET_FROM_GALLERY = 3;
@@ -63,8 +60,8 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
         time.setOnClickListener(this);
         if (getIntent().hasExtra(GOAL_OBJ)) {
             mGoal = (Goal) getIntent().getSerializableExtra(GOAL_OBJ);
-        } else{
-            if(mGoal == null) throwError();
+        } else {
+            if (mGoal == null) throwError();
         }
 
     }
@@ -73,10 +70,9 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
     // TODO LEHA добавь выбор времени в этот файл. (который будет вовзращать long)?
 
 
-
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.llCancel:
                 cancel();
                 break;
@@ -95,24 +91,26 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         int id = buttonView.getId();
-        switch (id){
+        switch (id) {
             case R.id.cbTime:
                 showTime();
                 break;
         }
     }
 
-    private void saveAim(){
+    private void saveAim() {
         String name = title.getText().toString();
         String desc = description.getText().toString();
         //TODO LEHA тут возвращаешь время. сюда. Мб просто Toast.
         long date_to = 0;
-        if(!cbtime.isChecked()){
+        if (!cbtime.isChecked()) {
             date_to = 2040200150;
         }
         List<ItemWrapper> items = new ArrayList<>();
+        /*
         Aim aim = new Aim(mGoal.getItems().size(), name, false, desc, mColor, items);
         mGoal.addAim(aim);
+        */
         new UpdateGoalAsyncTask(getApplicationContext(), mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         finishOkResult();
     }
@@ -123,7 +121,7 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
         mColor = color;
     }
 
-    private void changeColor(){
+    private void changeColor() {
         if (mColorDialog == null) {
             mColorDialog = new SelectColorDialog(this, this);
         }
@@ -132,37 +130,36 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
     }
 
 
-
-    private void changeTime(){
-        if(!cbtime.isChecked()){
+    private void changeTime() {
+        if (!cbtime.isChecked()) {
             Toast.makeText(getApplicationContext(), "unchecked", Toast.LENGTH_LONG).show();
             return;
         }
         Toast.makeText(getApplicationContext(), "Change time", Toast.LENGTH_LONG).show();
     }
 
-    private void showTime(){
-        if(cbtime.isChecked()){
+    private void showTime() {
+        if (cbtime.isChecked()) {
             time.setVisibility(View.VISIBLE);
         } else {
             time.setVisibility(View.INVISIBLE);
         }
     }
 
-    private void cancel(){
+    private void cancel() {
         Intent returnIntent = new Intent();
         setResult(Activity.RESULT_CANCELED, returnIntent);
         finish();
     }
 
-    private void throwError(){
+    private void throwError() {
         Intent returnIntent = new Intent();
         setResult(errorCode, returnIntent);
     }
 
-    private void finishOkResult(){
+    private void finishOkResult() {
         Intent returnIntent = new Intent().putExtra(GOAL_OBJ, mGoal);
-        setResult(Activity.RESULT_OK,returnIntent);
+        setResult(Activity.RESULT_OK, returnIntent);
         finish();
     }
 
@@ -172,7 +169,7 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
 
 
         //Detects request codes
-        if(requestCode==GET_FROM_GALLERY && resultCode == Activity.RESULT_OK) {
+        if (requestCode == GET_FROM_GALLERY && resultCode == Activity.RESULT_OK) {
             Uri selectedImage = data.getData();
             Bitmap bitmap = null;
             try {
@@ -186,7 +183,6 @@ public class AddAimActivity extends AppCompatActivity implements View.OnClickLis
             }
         }
     }
-
 
 
 }

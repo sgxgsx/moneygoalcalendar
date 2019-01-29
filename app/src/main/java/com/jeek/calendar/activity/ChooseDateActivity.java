@@ -4,9 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-
 
 import com.jeek.calendar.R;
 import com.kunzisoft.switchdatetime.SwitchDateTimeDialogFragment;
@@ -27,7 +25,7 @@ public class ChooseDateActivity extends AppCompatActivity {
 
     private static final String STATE_TEXTVIEW = "STATE_TEXTVIEW";
     private TextView textView;
-    private long timeStart,timeEnd;
+    private long timeStart, timeEnd;
     private SwitchDateTimeDialogFragment dateTimeFragment;
 
     @Override
@@ -43,7 +41,7 @@ public class ChooseDateActivity extends AppCompatActivity {
 
         // Construct SwitchDateTimePicker
         dateTimeFragment = (SwitchDateTimeDialogFragment) getSupportFragmentManager().findFragmentByTag(TAG_DATETIME_FRAGMENT);
-        if(dateTimeFragment == null) {
+        if (dateTimeFragment == null) {
             dateTimeFragment = SwitchDateTimeDialogFragment.newInstance(
                     getString(R.string.label_datetime_dialog),
                     getString(android.R.string.ok),

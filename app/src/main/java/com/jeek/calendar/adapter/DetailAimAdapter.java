@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jeek.calendar.R;
-import com.jeek.calendar.activity.AddAimActivity;
 import com.jeek.calendar.activity.DetailAimActivity;
 import com.jeek.calendar.activity.DetailEventActivity;
-import com.jeek.calendar.activity.EditGoalActivity;
 import com.jeek.calendar.activity.NoteActivity;
 import com.jeek.calendar.utils.JeekUtils;
 import com.jimmy.common.GoalDatabase.Aim;
@@ -25,14 +24,11 @@ import com.jimmy.common.GoalDatabase.GoalSchedule;
 import com.jimmy.common.GoalDatabase.Note;
 import com.jimmy.common.ItemWrapper;
 
-import java.text.Format;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
-public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context mContext;
     private Activity mActivity;
     private Goal mGoal;
@@ -50,13 +46,11 @@ public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == 2) {
-            return new DetailAimAdapter.ScheduleViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_schedule, parent, false));
-        } else if( viewType == 4){
-            Log.wtf("second", "second");
-            return new DetailAimAdapter.ListViewHolder(LayoutInflater.from(mContext).inflate(R.layout.list_item, parent, false));
+            return new ScheduleViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_schedule, parent, false));
+        } else if (viewType == 3) {
+            Log.wtf("second", "note");
         }
-        Log.wtf("WWWWW", "БЛЯТЬ ТУТ ХУЕВО ПИЗДЕЦ");
-        return new DetailAimAdapter.NoteViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_note, parent, false));
+        return new NoteViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_note, parent, false));
     }
 
     @Override
@@ -66,9 +60,9 @@ public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (holder instanceof DetailGoalAdapter.ScheduleViewHolder) {
+        if (holder instanceof ScheduleViewHolder) {
             final GoalSchedule schedule = (GoalSchedule) items.get(position);
-            final DetailGoalAdapter.ScheduleViewHolder viewHolder = (DetailGoalAdapter.ScheduleViewHolder) holder;
+            final ScheduleViewHolder viewHolder = (ScheduleViewHolder) holder;
 
             //viewHolder.vScheduleHintBlock.setBackgroundColor();
             viewHolder.tvScheduleTitle.setText(schedule.getTitle());
@@ -86,19 +80,23 @@ public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     mActivity.startActivityForResult(intent, 3);
                 }
             });
-        } else if (holder instanceof DetailAimAdapter.NoteViewHolder){
+        } else if (holder instanceof NoteViewHolder) {
             Log.wtf("note", "note");
             Note note = (Note) items.get(position);
             final Note NoteFinal = new Note(note.getId(), note.getTitle(), note.getText(), note.getTime());
             final NoteViewHolder viewHolder = (NoteViewHolder) holder;
-            if(!note.getTitle().equals("")){
+            ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            layoutParams.setMargins(getInPx(8), getInPx(10), getInPx(8), getInPx(4));
+            viewHolder.clNote.setLayoutParams(layoutParams);
+            Log.wtf("create", "create");
+            if (!note.getTitle().equals("")) {
                 viewHolder.tvTitle.setVisibility(View.VISIBLE);
                 String text = note.getTitle() + ":";
                 viewHolder.tvTitle.setText(text);
             }
 
             Date currentTime = new Date(note.getTime());
-            SimpleDateFormat sdf = new SimpleDateFormat("MMM d   HH:mm");  // TODO CHANGE LOCALE локализировать
+            SimpleDateFormat sdf = new SimpleDateFormat("MMM d   HH:mm");  // T ODO CHANGE LOCALE локализировать
             String currentDateandTime = sdf.format(currentTime);
             viewHolder.tvTime.setText(currentDateandTime);
             viewHolder.tvText.setText(note.getText());
@@ -109,17 +107,33 @@ public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     mActivity.startActivityForResult(intent, 3);
                 }
             });
-        } else{
+        } else {
             Log.wtf("Bad", "news");
         }
     }
 
+    private int getInPx(int value) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, mContext.getResources().getDisplayMetrics());
+    }
 
-    protected class ScheduleViewHolder extends RecyclerView.ViewHolder {
-        protected ConstraintLayout vScheduleHintBlock;
-        protected LinearLayout llScheduleState;
-        protected TextView tvScheduleTitle;
-        protected TextView tvScheduleTime;
+    @Override
+    public int getItemCount() {
+        return items.size();
+    }
+
+    public void changeAllData(Goal goal, Aim aim) {
+        mGoal = goal;
+        Log.wtf("wwsad", mGoal.getGoal_name());
+        mAim = aim;
+        items = aim.getItems();
+        notifyDataSetChanged();
+    }
+
+    private class ScheduleViewHolder extends RecyclerView.ViewHolder {
+        private ConstraintLayout vScheduleHintBlock;
+        private LinearLayout llScheduleState;
+        private TextView tvScheduleTitle;
+        private TextView tvScheduleTime;
 
         public ScheduleViewHolder(View itemView) {
             super(itemView);
@@ -130,43 +144,17 @@ public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
-    protected class NoteViewHolder extends RecyclerView.ViewHolder {
-        protected ConstraintLayout clNote;
-        protected TextView tvTitle, tvText, tvTime;
+    private class NoteViewHolder extends RecyclerView.ViewHolder {
+        private ConstraintLayout clNote;
+        private TextView tvTitle, tvText, tvTime;
 
         public NoteViewHolder(View itemView) {
             super(itemView);
-            clNote = (ConstraintLayout) itemView.findViewById(R.id.clNote);
-            tvTitle = (TextView) itemView.findViewById(R.id.tvNoteTitle);
-            tvTime = (TextView) itemView.findViewById(R.id.tvNoteTime);
-            tvText = (TextView) itemView.findViewById(R.id.tvNoteText);
+            clNote = itemView.findViewById(R.id.clNote);
+            tvTitle = itemView.findViewById(R.id.tvNoteTitle);
+            tvTime = itemView.findViewById(R.id.tvNoteTime);
+            tvText = itemView.findViewById(R.id.tvNoteText);
         }
-    }
-
-    protected class ListViewHolder extends RecyclerView.ViewHolder{
-        public LinearLayout llToolBar;
-
-        public ListViewHolder(View itemView){
-            super(itemView);
-            llToolBar = itemView.findViewById(R.id.llToolBar);
-        }
-    }
-
-
-
-    @Override
-    public int getItemCount() {
-        return items.size();
-    }
-
-
-
-    public void changeAllData(Goal goal, Aim aim) {
-        mGoal = goal;
-        Log.wtf("wwsad", mGoal.getGoal_name());
-        mAim = aim;
-        items = aim.getItems();
-        notifyDataSetChanged();
     }
 
 }

@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
 /**
  * Created by Jimmy on 2016/10/14 0014.
  */
-public class  SelectDateDialog extends Dialog implements View.OnClickListener, OnCalendarClickListener {
+public class SelectDateDialog extends Dialog implements View.OnClickListener, OnCalendarClickListener {
 
     private OnSelectDateListener mOnSelectDateListener;
     private TextView tvDate;
@@ -32,26 +32,6 @@ public class  SelectDateDialog extends Dialog implements View.OnClickListener, O
 
     private String[] mMonthText;
     private int mCurrentSelectYear, mCurrentSelectMonth, mCurrentSelectDay;
-
-    public SelectDateDialog(Context context, OnSelectDateListener onSelectDateListener, int year, int month, int day, int position) {
-        super(context, R.style.DialogFullScreen);
-        mOnSelectDateListener = onSelectDateListener;
-        initView();
-        initDate(year, month, day, position);
-    }
-
-    private void initView() {
-        setContentView(R.layout.dialog_select_date);
-        mMonthText = getContext().getResources().getStringArray(R.array.calendar_month);
-        findViewById(R.id.tvCancel).setOnClickListener(this);
-        findViewById(R.id.tvConfirm).setOnClickListener(this);
-        tvDate = (TextView) findViewById(R.id.tvDate);
-        mcvCalendar = (MonthCalendarView) findViewById(R.id.mcvCalendar);
-        mcvCalendar.setOnCalendarClickListener(this);
-        etTime = (EditText) findViewById(R.id.etTime);
-        etTime.addTextChangedListener(mTextWatcher);
-    }
-
     private TextWatcher mTextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -104,6 +84,25 @@ public class  SelectDateDialog extends Dialog implements View.OnClickListener, O
             }
         }
     };
+
+    public SelectDateDialog(Context context, OnSelectDateListener onSelectDateListener, int year, int month, int day, int position) {
+        super(context, R.style.DialogFullScreen);
+        mOnSelectDateListener = onSelectDateListener;
+        initView();
+        initDate(year, month, day, position);
+    }
+
+    private void initView() {
+        setContentView(R.layout.dialog_select_date);
+        mMonthText = getContext().getResources().getStringArray(R.array.calendar_month);
+        findViewById(R.id.tvCancel).setOnClickListener(this);
+        findViewById(R.id.tvConfirm).setOnClickListener(this);
+        tvDate = (TextView) findViewById(R.id.tvDate);
+        mcvCalendar = (MonthCalendarView) findViewById(R.id.mcvCalendar);
+        mcvCalendar.setOnCalendarClickListener(this);
+        etTime = (EditText) findViewById(R.id.etTime);
+        etTime.addTextChangedListener(mTextWatcher);
+    }
 
     private void initDate(int year, int month, int day, int position) {
         setCurrentSelectDate(year, month, day);

@@ -3,19 +3,14 @@ package com.jeek.calendar.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -23,55 +18,52 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.jeek.calendar.R;
-import com.jeek.calendar.adapter.DetailAimAdapter;
-import com.jeek.calendar.adapter.DetailGoalAdapter;
-import com.jeek.calendar.fragment.MembersFragment;
+import com.jeek.calendar.adapter.DetailGoalNewAdapter;
 import com.jeek.calendar.fragment.OnFragmentInteractionListener;
+import com.jeek.calendar.fragment.OnGoalSettingsFragmentListner;
 import com.jeek.calendar.task.goal.DeleteGoalTask;
 import com.jeek.calendar.task.goal.UpdateGoalAsyncTask;
-import com.jimmy.common.GoalDatabase.Aim;
 import com.jimmy.common.GoalDatabase.Goal;
+import com.jimmy.common.GoalDatabase.GoalList;
+import com.jimmy.common.ItemWrapper;
 
-import java.text.Format;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
 
-public class DetailGoalActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener, OnFragmentInteractionListener, DrawerLayout.DrawerListener{
+public class DetailGoalActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener, OnFragmentInteractionListener, OnGoalSettingsFragmentListner, DrawerLayout.DrawerListener {
     public static final String GOAL_OBJ = "GOAL.Obj";
     public static final String GOAL_OBJW = "GOAL.Objw";
     public static final String GOAL_OBJ_AIM = "GOAL.Obj.Add.Aim";
     public static final String GOAL_OBJ_AIM_DETAIL = "GOAL.Obj.Detail.Aim";
     public static final String NOTE_OBJ = "Note.Obj";
 
-
     public static final int errorCode = 200;
     private static final int GO_BACK_CALL_BACK = 1;
+    private static final int CHECKED_CALL_BACK = 2;
+    private static final int UNCHECKED_CALL_BACK = 3;
 
     private DrawerLayout drawerLayout;
     private DoubleDrawerView doubleDrawerView;
     private NavigationView mainNavigationView;
     private Fragment fragment;
 
-    private boolean isFABOpen=false;
-    private ImageView fab,fab1,fab2;
-    private View llBackground,llBackgroundBack;
+    private boolean isFABOpen = false;
+    private ImageView fab, fab1, fab2;
+    private View llBackground, llBackgroundBack;
 
     private Context mContext;
     private Goal mGoal;
     private RecyclerView rvDetail;
-    private DetailGoalAdapter mDetailGoalAdapter;
-    private TextView goalName, time, description;
+    private DetailGoalNewAdapter mDetailGoalAdapter;
+    //private TextView goalName, time, description;
     private ConstraintLayout dateLayout;
     private ImageView noteImage;
     private Toolbar mToolbar;
     private boolean buttonNotShowen = true;
-    private View AddNote,AddAim, MenuButtonBackground;
-
+    private View AddNote, AddAim;
 
 
     @Override
@@ -87,12 +79,9 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         if (getIntent().hasExtra(GOAL_OBJ)) {
             mGoal = (Goal) getIntent().getSerializableExtra(GOAL_OBJ);
             LinearLayoutManager manager = new LinearLayoutManager(this);
-            manager.setOrientation(LinearLayoutManager.VERTICAL);
+            manager.setOrientation(LinearLayoutManager.HORIZONTAL);
             rvDetail.setLayoutManager(manager);
-            DefaultItemAnimator itemAnimator = new DefaultItemAnimator();
-            itemAnimator.setSupportsChangeAnimations(false);
-            rvDetail.setItemAnimator(itemAnimator);
-            mDetailGoalAdapter = new DetailGoalAdapter(this, mGoal);
+            mDetailGoalAdapter = new DetailGoalNewAdapter(this, mGoal);
             rvDetail.setAdapter(mDetailGoalAdapter);
             initUI();
             initFab();
@@ -102,25 +91,19 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     }
 
 
-    private void initUI(){
-        noteImage = findViewById(R.id.iNoteImage);
-        goalName = findViewById(R.id.tvGoalName);
-        time = findViewById(R.id.tvDeadlineGoal);
-        dateLayout = findViewById(R.id.DateLayout);
-        description = findViewById(R.id.tvNoteTextView);
-        //AddAim = findViewById(R.id.fabAddAimGoal);
-        //AddNote = findViewById(R.id.fabAddNoteGoal);
-        MenuButtonBackground = findViewById(R.id.chooseMenuButtonBackground2);
+    private void initUI() {
+        //noteImage = findViewById(R.id.iNoteImage);
+        //goalName = findViewById(R.id.tvGoalName);
+        //time = findViewById(R.id.tvDeadlineGoal);
+        //dateLayout = findViewById(R.id.DateLayout);
+        //description = findViewById(R.id.tvNoteTextView);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         doubleDrawerView = (DoubleDrawerView) findViewById(R.id.double_drawer_view);
         mainNavigationView = (NavigationView) findViewById(R.id.main_navigation_view);
-        goalName.setText(mGoal.getGoal_name());
-        description.setText(mGoal.getDescription());
+        //goalName.setText(mGoal.getGoal_name());
+        //description.setText(mGoal.getDescription());
 
-        //AddAim.setOnClickListener(this);
-        //AddNote.setOnClickListener(this);
-        MenuButtonBackground.setOnClickListener(this);
         mainNavigationView.setNavigationItemSelectedListener(this);
         drawerLayout.setDrawerListener(this);
         //TODO на потом : нужно при создании и эдите Гоала добавить поле с чекбоксом "Показывать ли картинку в бэкграунде" а здесь делать проверку - нужно ли показывать
@@ -133,46 +116,49 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         */
 
 
-
     }
-    private void initFab(){
-        llBackground=findViewById(R.id.chooseMenuButtonBackground2);
-        llBackgroundBack=findViewById(R.id.BackGroundWhenChoice);
+
+    private void initFab() {
+        llBackground = findViewById(R.id.chooseMenuButtonBackground2);
+        llBackgroundBack = findViewById(R.id.BackGroundWhenChoice);
         findViewById(R.id.chooseMenuButtonBackground2).setOnClickListener(this);
         findViewById(R.id.BackGroundWhenChoice).setOnClickListener(this);
-        fab =  findViewById(R.id.FabMain);
-        fab1 =  findViewById(R.id.FabSub);
+        fab = findViewById(R.id.FabMain);
+        fab1 = findViewById(R.id.FabSub);
         fab2 = findViewById(R.id.FabMain_Sub);
         fab2.setVisibility(View.INVISIBLE);
         fab1.setVisibility(View.INVISIBLE);
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.wtf("fab2.onClick","triggered onClick");
+                Log.wtf("fab2.onClick", "triggered onClick");
                 //do smth
+                gotoNote();
                 closeFABMenu();
             }
         });
         fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.wtf("fab1.onClick","triggered onClick");
+                Log.wtf("fab1.onClick", "triggered onClick");
                 //do smth
+                gotoAddAimActivity();
                 closeFABMenu();
             }
         });
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!isFABOpen){
-                    Log.wtf("fab.onClick","triggered onClick");
+                if (!isFABOpen) {
+                    Log.wtf("fab.onClick", "triggered onClick");
                     showFABMenu();
                 }
             }
         });
     }
-    private void showFABMenu(){
-        isFABOpen=true;
+
+    private void showFABMenu() {
+        isFABOpen = true;
         fab1.setVisibility(View.VISIBLE);
         fab1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
         fab1.animate().alpha(255);
@@ -182,8 +168,8 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         llBackgroundBack.setVisibility(View.VISIBLE);
     }
 
-    private void closeFABMenu(){
-        isFABOpen=false;
+    private void closeFABMenu() {
+        isFABOpen = false;
         fab1.animate().alpha(0);
         fab1.animate().translationY(0);
         fab2.setVisibility(View.INVISIBLE);
@@ -192,19 +178,6 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         llBackgroundBack.setVisibility(View.INVISIBLE);
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
     private BitmapDrawable setImage(String path){
         Bitmap selectedImage = BitmapFactory.decodeFile(path);
@@ -214,25 +187,13 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.llCancel:
                 finish();
                 break;
             case R.id.llGoMenu:
                 openMenu();
                 break;
-            /*case R.id.fabAddAimGoal:
-                if(buttonNotShowen){
-                    showFloatingChoiceMenu();
-                    Log.wtf("Not", "shown");
-                } else{
-                    gotoAddAimActivity();
-                    Log.wtf("go", " to Add Event");
-                }
-                break;*/
-            /*case R.id.fabAddNoteGoal:
-                gotoNote();
-                break;*/
             case R.id.chooseMenuButtonBackground2:
                 closeFABMenu();
                 break;
@@ -240,39 +201,32 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     }
 
 
-    private void showFloatingChoiceMenu() {
-        MenuButtonBackground.setVisibility(View.VISIBLE);
-        AddNote.setVisibility(View.VISIBLE);
-        buttonNotShowen = false;
-    }
-    private void hideFloatingChoiceMenu() {
-        Log.wtf("www", "hide");
-        AddNote.setVisibility(View.INVISIBLE);
-        MenuButtonBackground.setVisibility(View.INVISIBLE);
-        buttonNotShowen = true;
+    private void gotoNote() {
+        //Intent intent = new Intent(mContext, NoteActivity.class).putExtra(NoteActivity.GOAL_OBJ, mGoal);
+        //startActivityForResult(intent, 3);
+        GoalList goalList = new GoalList(mGoal.getLists().size(), "name", new ArrayList<ItemWrapper>());
+        mGoal.addList(goalList);
+        updateGoalAsyncTask();
+        mDetailGoalAdapter.changeAllData(mGoal);
+        initUI();
     }
 
-    private void gotoNote(){
-        Intent intent = new Intent(mContext, NoteActivity.class).putExtra(NoteActivity.GOAL_OBJ, mGoal);
-        startActivityForResult(intent, 3);
-    }
-
-    private void gotoAddAimActivity(){
+    private void gotoAddAimActivity() {
         Intent intent = new Intent(mContext, AddAimActivity.class).putExtra(AddAimActivity.GOAL_OBJ, mGoal);
         startActivityForResult(intent, 2);
     }
 
-    private void deleteGoal(){
+    private void deleteGoal() {
         Toast.makeText(mContext, "Text", Toast.LENGTH_LONG).show();
         new DeleteGoalTask(mContext, mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         finish();
     }
 
-    private void archiveGoal(){
+    private void archiveGoal() {
         ;
     }
 
-    private void updateGoal(){
+    private void updateGoal() {
         Intent intent = new Intent(mContext, EditGoalActivity.class).putExtra(DetailGoalActivity.GOAL_OBJ, mGoal);
         startActivityForResult(intent, 1);
     }
@@ -281,7 +235,7 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (requestCode == 1) {
-            if(resultCode == Activity.RESULT_OK){
+            if (resultCode == Activity.RESULT_OK) {
                 mGoal = (Goal) data.getSerializableExtra(GOAL_OBJW);
                 mDetailGoalAdapter.changeAllData(mGoal);
                 initUI();
@@ -290,35 +244,39 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
                 ; // nothing
                 Log.wtf("r", "canceled");
             }
-        } else if(requestCode == 2){
-            if(resultCode == RESULT_OK){
+        } else if (requestCode == 2) {
+            if (resultCode == RESULT_OK) {
                 mGoal = (Goal) data.getSerializableExtra(GOAL_OBJ_AIM);
                 mDetailGoalAdapter.changeAllData(mGoal);
                 initUI();
             }
-            if (requestCode == RESULT_CANCELED){
+            if (requestCode == RESULT_CANCELED) {
                 ;
                 Log.wtf("r", "2 canceled");
             }
-            if (resultCode == errorCode){
+            if (resultCode == errorCode) {
                 ;
                 Log.wtf("ERROR", "200");
             }
-        } else if(requestCode == 3){
-            if (resultCode == RESULT_OK){
+        } else if (requestCode == 3) {
+            if (resultCode == RESULT_OK) {
                 //mChanges = true;
                 mGoal = (Goal) data.getSerializableExtra(GOAL_OBJ_AIM_DETAIL);
-                new UpdateGoalAsyncTask(getApplicationContext(), mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                updateGoalAsyncTask();
                 mDetailGoalAdapter.changeAllData(mGoal);
                 initUI();
-            } else if (resultCode == RESULT_CANCELED){
+            } else if (resultCode == RESULT_CANCELED) {
                 //nothhing
                 Log.wtf("r", "canceled");
             }
         }
     }
 
-    public void openMenu(){
+    private void updateGoalAsyncTask() {
+        new UpdateGoalAsyncTask(getApplicationContext(), mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+    }
+
+    public void openMenu() {
         drawerLayout.openDrawer(Gravity.END);
     }
 
@@ -342,10 +300,30 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         Log.wtf("state", String.valueOf(i));
     }
 
+
+    @Override
+    public void onGoalSettingsFragmentListner(int callback) {
+        switch (callback) {
+            case GO_BACK_CALL_BACK:
+                doubleDrawerView.closeFragment();
+                break;
+            case CHECKED_CALL_BACK:
+                Log.wtf("check", "check in detail_goal_activity");
+                mGoal.setMode(true);
+                updateGoalAsyncTask();
+                break;
+            case UNCHECKED_CALL_BACK:
+                Log.wtf("check", "uncheck in detail_goal_activity");
+                mGoal.setMode(false);
+                updateGoalAsyncTask();
+                break;
+        }
+    }
+
     @Override
     public void onFragmentInteraction(int callback) {
         Log.wtf("callback", "callback");
-        if(callback == GO_BACK_CALL_BACK){
+        if (callback == GO_BACK_CALL_BACK) {
             doubleDrawerView.closeFragment();
         }
     }

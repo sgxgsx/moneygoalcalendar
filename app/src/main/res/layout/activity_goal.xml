@@ -133,8 +133,8 @@
         android:id="@+id/FabSub"
         android:layout_width="@dimen/fab_sub"
         android:layout_height="@dimen/fab_sub"
-        android:layout_marginBottom="20dp"
         android:layout_marginEnd="27dp"
+        android:layout_marginBottom="20dp"
 
         android:background="@drawable/shape_round_fab_main"
         android:src="@mipmap/ic_menu_go"

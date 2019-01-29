@@ -1,20 +1,11 @@
 package com.jeek.calendar.activity;
 
-import android.Manifest;
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.opengl.Visibility;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,7 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.jeek.calendar.R;
@@ -34,31 +24,25 @@ import com.jimmy.common.base.app.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import me.tangke.slidemenu.SlideMenu;
 
-public class GoalActivity extends BaseActivity implements View.OnClickListener, ListDialog.OnListListener{
+public class GoalActivity extends BaseActivity implements View.OnClickListener, ListDialog.OnListListener {
+    SlideMenu slideMenu;
+    ImageView fab, fab1, fab2;
     private String SHARED_DONE, SHARED_DOING;
-
-    private boolean isFABOpen=false;
+    private boolean isFABOpen = false;
     private boolean mDoing, mDone;
-
     private LayoutInflater contentMenu;
-
     private Toolbar mToolbar;
     private RecyclerView rvGoals;
     private GoalsAdapter mGoalsAdapter;
     private List<Goal> mGoals;
-
     private GoalDatabase mGoalDatabase;
     private SharedPreferences mSharedPreferences;
     private ListDialog mListDialog;
-    private View llBackground,llBackgroundBack;
+    private View llBackground, llBackgroundBack;
     private LiveData<List<Goal>> goals;
-    SlideMenu slideMenu;
-    ImageView fab,fab1,fab2;
-
 
     @Override
     protected void bindView() {
@@ -83,12 +67,11 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
         SHARED_DOING = getResources().getString(R.string.shared_doing_goals);
         SHARED_DONE = getResources().getString(R.string.shared_done_goals);
         mDoing = mSharedPreferences.getBoolean(SHARED_DOING, true);
-        mDone  = mSharedPreferences.getBoolean(SHARED_DONE, true);
+        mDone = mSharedPreferences.getBoolean(SHARED_DONE, true);
         //mDoing = mSharedPreferences.getBoolean(SHARED_DOING, true);
         //mDone = mSharedPreferences.getBoolean(SHARED_DONE, true);
         mToolbar = findViewById(R.id.GoalsTitleBar);
         rvGoals = findViewById(R.id.rvGoalsGoalActivity);
-
 
 
         findViewById(R.id.ivMenuInGoal).setOnClickListener(this);
@@ -107,20 +90,21 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
         initGoalsList();
         initFab();
     }
-    private void initFab(){
-        llBackground=findViewById(R.id.chooseMenuButtonBackground2);
-        llBackgroundBack=findViewById(R.id.BackGroundWhenChoice);
+
+    private void initFab() {
+        llBackground = findViewById(R.id.chooseMenuButtonBackground2);
+        llBackgroundBack = findViewById(R.id.BackGroundWhenChoice);
         findViewById(R.id.chooseMenuButtonBackground2).setOnClickListener(this);
         findViewById(R.id.BackGroundWhenChoice).setOnClickListener(this);
-        fab =  findViewById(R.id.FabMain);
-        fab1 =  findViewById(R.id.FabSub);
+        fab = findViewById(R.id.FabMain);
+        fab1 = findViewById(R.id.FabSub);
         fab2 = findViewById(R.id.FabMain_Sub);
         fab2.setVisibility(View.INVISIBLE);
         fab1.setVisibility(View.INVISIBLE);
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.wtf("fab2.onClick","triggered onClick");
+                Log.wtf("fab2.onClick", "triggered onClick");
                 //add Goal
                 addGoal();
                 closeFABMenu();
@@ -129,7 +113,7 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
         fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.wtf("fab1.onClick","triggered onClick");
+                Log.wtf("fab1.onClick", "triggered onClick");
                 //add MoneyGoal
 
                 closeFABMenu();
@@ -138,15 +122,16 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!isFABOpen){
-                    Log.wtf("fab.onClick","triggered onClick");
+                if (!isFABOpen) {
+                    Log.wtf("fab.onClick", "triggered onClick");
                     showFABMenu();
                 }
             }
         });
     }
-    private void showFABMenu(){
-        isFABOpen=true;
+
+    private void showFABMenu() {
+        isFABOpen = true;
         fab1.setVisibility(View.VISIBLE);
         fab1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
         fab1.animate().alpha(255);
@@ -156,8 +141,8 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
         llBackgroundBack.setVisibility(View.VISIBLE);
     }
 
-    private void closeFABMenu(){
-        isFABOpen=false;
+    private void closeFABMenu() {
+        isFABOpen = false;
         fab1.animate().alpha(0);
         fab1.animate().translationY(0);
         fab2.setVisibility(View.INVISIBLE);
@@ -189,20 +174,20 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
         goals.observe(this, new Observer<List<Goal>>() {
             @Override
             public void onChanged(@Nullable List<Goal> goals) {
-                Log.wtf("TAG","FROM LIVEDATA");
+                Log.wtf("TAG", "FROM LIVEDATA");
                 mGoalsAdapter.changeAllData(goals);
             }
         });
     }
 
-    private void changeData(){
-        if(mDoing && mDone){
+    private void changeData() {
+        if (mDoing && mDone) {
             goals = mGoalDatabase.goalDao().loadGoals();
-        } else if(mDoing){
+        } else if (mDoing) {
             goals = mGoalDatabase.goalDao().loadDoingGoals();
-        }else if(mDone){
+        } else if (mDone) {
             goals = mGoalDatabase.goalDao().loadDoneGoals();
-        }else{
+        } else {
             goals = mGoalDatabase.goalDao().loadNothing();
         }
     }
@@ -210,7 +195,7 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        switch (id){
+        switch (id) {
             case R.id.ivMenuInGoal:
                 showMenu();
                 break;
@@ -218,8 +203,8 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
                 showListDialog();
                 break;
             case R.id.chooseMenuButtonBackground2:
-                Log.wtf("llBackground.onClick","triggered onClick");
-                if(isFABOpen)closeFABMenu();
+                Log.wtf("llBackground.onClick", "triggered onClick");
+                if (isFABOpen) closeFABMenu();
 
                 break;
 
@@ -227,7 +212,7 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
         }
     }
 
-    public void changeSharedPref(){
+    public void changeSharedPref() {
         SharedPreferences.Editor ed = mSharedPreferences.edit();
         ed.putBoolean(SHARED_DONE, mDone);
         ed.putBoolean(SHARED_DOING, mDoing);
@@ -236,23 +221,23 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
 
     @Override
     public void onList(boolean changed, boolean doing, boolean done) {
-        if(changed){
+        if (changed) {
             mDoing = doing;
-            mDone  = done;
+            mDone = done;
             changeSharedPref();
             changeData();
             goals.observe(this, new Observer<List<Goal>>() {
                 @Override
                 public void onChanged(@Nullable List<Goal> goals) {
-                    Log.wtf("TAG","FROM LIVEDATA");
+                    Log.wtf("TAG", "FROM LIVEDATA");
                     mGoalsAdapter.changeAllData(goals);
                 }
             });
         }
     }
 
-    private void showListDialog(){
-        Log.wtf("showListDialog","dialog show");
+    private void showListDialog() {
+        Log.wtf("showListDialog", "dialog show");
         if (mListDialog == null) {
             mListDialog = new ListDialog(this, this);
         }
@@ -260,13 +245,13 @@ public class GoalActivity extends BaseActivity implements View.OnClickListener, 
     }
 
 
-    private void showMenu(){
-        Log.wtf("showMenu","SlideMenu Open");
-        slideMenu.open(false,true);
+    private void showMenu() {
+        Log.wtf("showMenu", "SlideMenu Open");
+        slideMenu.open(false, true);
     }
 
 
-    private void addGoal(){
+    private void addGoal() {
         Intent intent = new Intent(this, AddGoalActivity.class);
         startActivity(intent);
         mGoalsAdapter.notifyDataSetChanged();

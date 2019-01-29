@@ -20,13 +20,13 @@ import com.jeek.calendar.R;
 import com.jeek.calendar.activity.MainActivity;
 import com.jeek.calendar.adapter.CalendarClassAdapter;
 import com.jeek.calendar.adapter.ScheduleAdapter;
-import com.jimmy.common.CalendarSystemDatabase.Schedule;
 import com.jeek.calendar.dialog.SelectDateDialog;
 import com.jeek.calendar.task.schedule.AddScheduleTask;
 import com.jeek.calendar.task.schedule.LoadScheduleTask;
 import com.jeek.calendar.widget.calendar.OnCalendarClickListener;
 import com.jeek.calendar.widget.calendar.schedule.ScheduleLayout;
 import com.jeek.calendar.widget.calendar.schedule.ScheduleRecyclerView;
+import com.jimmy.common.CalendarSystemDatabase.Schedule;
 import com.jimmy.common.base.app.BaseFragment;
 import com.jimmy.common.listener.OnTaskFinishedListener;
 import com.jimmy.common.util.DeviceUtils;
@@ -38,7 +38,7 @@ import java.util.List;
 /**
  * Created by Jimmy on 2016/10/11 0011.
  */
-public class  ScheduleFragment extends BaseFragment implements OnCalendarClickListener, /*View.OnClickListener,*/
+public class ScheduleFragment extends BaseFragment implements OnCalendarClickListener, /*View.OnClickListener,*/
         OnTaskFinishedListener<List<Schedule>>, SelectDateDialog.OnSelectDateListener {
 
     private ScheduleLayout slSchedule;
@@ -69,7 +69,8 @@ public class  ScheduleFragment extends BaseFragment implements OnCalendarClickLi
         slSchedule.setOnCalendarClickListener(this);
         /*searchViewById(R.id.ibMainClock).setOnClickListener(this);
         searchViewById(R.id.ibMainOk).setOnClickListener(this);
-        */initScheduleList();
+        */
+        initScheduleList();
         //initBottomInputBar();
     }
 
@@ -91,9 +92,9 @@ public class  ScheduleFragment extends BaseFragment implements OnCalendarClickLi
     }
 
     public void resetScheduleList() {
-        Log.wtf("resetScheduleList","start");
+        Log.wtf("resetScheduleList", "start");
         new LoadScheduleTask(mActivity, this, mCurrentSelectYear, mCurrentSelectMonth, mCurrentSelectDay).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-        Log.wtf("resetScheduleList","end");
+        Log.wtf("resetScheduleList", "end");
     }
 
     @Override
@@ -117,7 +118,7 @@ public class  ScheduleFragment extends BaseFragment implements OnCalendarClickLi
         rvScheduleList.setItemAnimator(itemAnimator);
         mScheduleAdapter = new ScheduleAdapter(mActivity, this);
         rvScheduleList.setAdapter(mScheduleAdapter);
-        Log.wtf("initScheduleList","end");
+        Log.wtf("initScheduleList", "end");
     }
 
     private void initBottomInputBar() {
@@ -144,19 +145,20 @@ public class  ScheduleFragment extends BaseFragment implements OnCalendarClickLi
             }
         });
     }
-/*
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.ibMainClock:
-                showSelectDateDialog();
-                break;
-            case R.id.ibMainOk:
-                addSchedule();
-                break;
+
+    /*
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.ibMainClock:
+                    showSelectDateDialog();
+                    break;
+                case R.id.ibMainOk:
+                    addSchedule();
+                    break;
+            }
         }
-    }
-*/
+    */
     private void showSelectDateDialog() {
         new SelectDateDialog(mActivity, this, mCurrentSelectYear, mCurrentSelectMonth, mCurrentSelectDay, slSchedule.getMonthCalendar().getCurrentItem()).show();
     }

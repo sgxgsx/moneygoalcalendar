@@ -27,7 +27,8 @@ public class ArchivedListsFragment extends Fragment implements View.OnClickListe
 
     private OnFragmentInteractionListener mListener;
 
-    public ArchivedListsFragment() { }
+    public ArchivedListsFragment() {
+    }
 
     public static ArchivedListsFragment newInstance(String param1, String param2) {
         ArchivedListsFragment fragment = new ArchivedListsFragment();
@@ -58,9 +59,9 @@ public class ArchivedListsFragment extends Fragment implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View v){
+    public void onClick(View v) {
         Log.wtf("click", "sec");
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.llGoBack:
                 Log.wtf("onclick", "click");
                 onAction(GO_BACK_CALL_BACK);
@@ -74,7 +75,7 @@ public class ArchivedListsFragment extends Fragment implements View.OnClickListe
         super.onResume();
     }
 
-    public void onAction(int callback){
+    public void onAction(int callback) {
         if (mListener != null) {
             mListener.onFragmentInteraction(callback);
         }

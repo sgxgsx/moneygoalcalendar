@@ -4,26 +4,16 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.webkit.JavascriptInterface;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -33,43 +23,38 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.jeek.calendar.R;
 import com.jeek.calendar.fragment.ScheduleFragment;
-import com.jeek.calendar.task.CalendarSettingsEntry.AddCalendarTask;
 import com.jimmy.common.CalendarSystemDatabase.CalendarClassDao;
-import com.jimmy.common.CalendarSystemDatabase.Schedule;
 import com.jimmy.common.base.app.BaseActivity;
 import com.jimmy.common.base.app.BaseFragment;
 import com.jimmy.common.listener.OnTaskFinishedListener;
 
 import java.util.Calendar;
 
-import butterknife.BindView;
 import me.tangke.slidemenu.SlideMenu;
 
 
-public class MainActivity extends BaseActivity implements View.OnClickListener,OnTaskFinishedListener<Integer> {
+public class MainActivity extends BaseActivity implements View.OnClickListener, OnTaskFinishedListener<Integer> {
+    //user name
+    private static final String ANONYMOUS = "ANONYMOUS";
     public static String EVENT_SET_OBJ = "event.set.obj";
     public static int ADD_EVENT_SET_CODE = 1;
     public static String ADD_EVENT_SET_ACTION = "action.add.event.set";
-
     //private DrawerLayout dlMain;
     private LinearLayout llTitleDate;
     private TextView tvTitleMonth, tvTitleDay, tvTitle;
-    private View gotoMoneyButton,gotoGoalButton,ChooseMenuButtonBackground;
+    private View gotoMoneyButton, gotoGoalButton, ChooseMenuButtonBackground;
     private View ChooseModuleButtonTime;
     //private RecyclerView rvMenuCalendarClassList;   //rvMenuEventSetist       CALENDARS
     private SlideMenu slideMenu;
-    //private CalendarClassAdapter mCalendarClassAdapter;                       CALENDARS
-    //private List<CalendarClass> mCalendarClasses;  // mEventSets              CALENDARS
-    private BaseFragment mScheduleFragment;
     //private BaseFragment mEventSetFragment;
     //private EventSet mCurrentEventSet;
     //private AddEventSetBroadcastReceiver mAddEventSetBroadcastReceiver;
-
+    //private CalendarClassAdapter mCalendarClassAdapter;                       CALENDARS
+    //private List<CalendarClass> mCalendarClasses;  // mEventSets              CALENDARS
+    private BaseFragment mScheduleFragment;
     private long[] mNotes = new long[2];
     private String[] mMonthText;
     private int mCurrentSelectYear, mCurrentSelectMonth, mCurrentSelectDay;
-    //user name
-    private static final String ANONYMOUS = "ANONYMOUS";
     private boolean anonym;
     private TextView mUserNameTextView;
     //private FirebaseUser mUser;
@@ -91,12 +76,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
                 .build();
         mGoogleSignInAccount = GoogleSignIn.getLastSignedInAccount(this);
         //check if anonymous
-        if(getIntent().hasExtra(ANONYMOUS)){
+        if (getIntent().hasExtra(ANONYMOUS)) {
             mUserNameTextView.setText(ANONYMOUS);
             anonym = true;
-        } else{
+        } else {
             anonym = false;
-            if (mGoogleSignInAccount != null){
+            if (mGoogleSignInAccount != null) {
                 mUserNameTextView.setText(mGoogleSignInAccount.getEmail());
             }
 
@@ -110,10 +95,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         //TODO проверить ошибку при которой приложуха закрывается и крашится при условии что календарь уже создан
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_CALENDAR}, 16);
-        } else Log.wtf("Permission","Write Calgarandted");
+        } else Log.wtf("Permission", "Write Calgarandted");
         if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1000);
-        } else Log.wtf("Permission","Read Storage garanted");
+        } else Log.wtf("Permission", "Read Storage garanted");
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CALENDAR}, 16);
@@ -132,6 +117,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
 */
 
     }
+
     @Override
     protected void bindView() {
         //setContentView(R.layout.activity_main);
@@ -153,16 +139,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
                 SlideMenu.LayoutParams.MATCH_PARENT, SlideMenu.LayoutParams.ROLE_PRIMARY_MENU));
 
 
-
         llTitleDate = searchViewById(R.id.llTitleDate);
         tvTitleMonth = searchViewById(R.id.tvTitleMonth);
         tvTitleDay = searchViewById(R.id.tvTitleDay);
         tvTitle = searchViewById(R.id.tvTitle);
-        ChooseModuleButtonTime=searchViewById(R.id.ChooseModuleButtonTime);
-        ChooseMenuButtonBackground=searchViewById(R.id.BackGroundWhenChoice);
+        ChooseModuleButtonTime = searchViewById(R.id.ChooseModuleButtonTime);
+        ChooseMenuButtonBackground = searchViewById(R.id.BackGroundWhenChoice);
         ChooseMenuButtonBackground.setVisibility(View.INVISIBLE);
-        gotoMoneyButton=searchViewById(R.id.gotoMoneyButton);
-        gotoGoalButton=searchViewById(R.id.gotoGoalButton);
+        gotoMoneyButton = searchViewById(R.id.gotoMoneyButton);
+        gotoGoalButton = searchViewById(R.id.gotoGoalButton);
         //rvMenuCalendarClassList = searchViewById(R.id.rvMenuEventSetList);
         mUserNameTextView = searchViewById(R.id.tvMenuTitleAccount);
 
@@ -186,6 +171,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
 
 
     }
+
     private void initUi() {
         mMonthText = getResources().getStringArray(R.array.calendar_month);
         llTitleDate.setVisibility(View.VISIBLE);
@@ -238,8 +224,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ivMainMenu:
-                slideMenu.open(false,true);
-                Log.wtf("SlideMenu","   OpenButton");
+                slideMenu.open(false, true);
+                Log.wtf("SlideMenu", "   OpenButton");
                 break;
             case R.id.llMenuSchedule:
                 gotoScheduleFragment();
@@ -295,20 +281,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
                 break;
         }
     }
+
     private void signOut() {
         // Firebase sign out
-        if(!anonym){
+        if (!anonym) {
             //mAuth.signOut();
 
             // Google sign out
             mGoogleSignInClient.signOut().addOnCompleteListener(this,
-                new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        gotoAuth();
-                    }
-                });
-        } else{
+                    new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            gotoAuth();
+                        }
+                    });
+        } else {
             gotoAuth();
         }
     }
@@ -319,6 +306,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         gotoGoalButton.setVisibility(View.VISIBLE);
         ChooseMenuButtonBackground.setVisibility(View.VISIBLE);
     }
+
     private void hideFloatingChoiceMenu() {
         Log.wtf("hideFloatingChoiceMenu", "hide menu");
         gotoMoneyButton.setVisibility(View.INVISIBLE);
@@ -327,26 +315,28 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
 
     }
 
-    private void gotoGoalFromMenu(){
+    private void gotoGoalFromMenu() {
         Intent intent = new Intent(this, GoalActivity.class);
         startActivity(intent);
     }
 
-    private void gotoSettings(){
+    private void gotoSettings() {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
-    private void gotoAuth(){
+
+    private void gotoAuth() {
         Intent intent = new Intent(this, AuthActivity.class);
         startActivity(intent);
         finish();
     }
-    private void gotoEventCreator(){
+
+    private void gotoEventCreator() {
         Intent intent = new Intent(this, AddEventActivity.class);
         startActivity(intent);
     }
 
-    private void gotoMoney(){
+    private void gotoMoney() {
         Intent intent = new Intent(this, MoneyActivity.class);
         startActivity(intent);
         gotoMoneyButton.setVisibility(View.INVISIBLE);
@@ -381,10 +371,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         tvTitle.setVisibility(View.GONE);
 
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
     }
+
     @Override
     public void onTaskFinished(Integer data) {
         setResult(1, new Intent().putExtra(EVENT_SET_OBJ, data));

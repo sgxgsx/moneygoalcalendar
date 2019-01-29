@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -25,6 +25,7 @@ public class EditAimActivity extends AppCompatActivity implements View.OnClickLi
         SelectColorDialog.OnSelectColorListener {
     public static final String GOAL_OBJ = "GOAL.Obj.Edit.Aim";
     public static final String AIM_OBJ_ID = "GOAL.Obj.Edit.Aim.Id";
+    public String mColor;
     private ConstraintLayout mToolBar;
     private Goal mGoal;
     private Aim mAim;
@@ -32,7 +33,6 @@ public class EditAimActivity extends AppCompatActivity implements View.OnClickLi
     private EditText title, description;
     private TextView time;
     private CheckBox cbtime;
-    public String mColor;
     private SelectColorDialog mColorDialog;
 
     @Override
@@ -52,7 +52,7 @@ public class EditAimActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
-    private void initUI(){
+    private void initUI() {
         title = findViewById(R.id.etNameGoal);
         description = findViewById(R.id.etDescription);
         time = findViewById(R.id.tvDeadlineGoal);
@@ -70,7 +70,7 @@ public class EditAimActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.tvSaveGoal:
                 Log.wtf("ckick", "click click");
                 changeAim();
@@ -89,50 +89,50 @@ public class EditAimActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        switch (buttonView.getId()){
+        switch (buttonView.getId()) {
             case R.id.cbTime:
                 checkTime();
                 break;
         }
     }
 
-    private void changeAim(){
+    private void changeAim() {
         Log.wtf("ckick", "click click change");
         String aim_title = title.getText().toString();
         String aim_descr = description.getText().toString();
-        mGoal.getItems().get(id).setName(aim_title); //setGoal_name(title.getText().toString());
-        mGoal.getItems().get(id).setDescription(aim_descr);
-        mGoal.getItems().get(id).setColor(mColor);
+        //mGoal.getItems().get(id).setName(aim_title); //setGoal_name(title.getText().toString());
+        //mGoal.getItems().get(id).setDescription(aim_descr);
+        //mGoal.getItems().get(id).setColor(mColor);
         mAim.setName(aim_title);
         mAim.setDescription(aim_descr);
         mAim.setColor(mColor);
-        if(cbtime.isChecked()){
+        if (cbtime.isChecked()) {
             //mGoal.setDate_to(0);
             Log.wtf("AIM", "set date");
         }
         new UpdateGoalAsyncTask(getApplicationContext(), mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         Intent returnIntent = new Intent().putExtra(DetailAimActivity.AIM_OBJ, mAim).putExtra(DetailAimActivity.GOAL_OBJ, mGoal);
-        setResult(Activity.RESULT_OK,returnIntent);
+        setResult(Activity.RESULT_OK, returnIntent);
         Log.wtf("Sent", "sent");
         finish();
     }
 
-    private void cancel(){
+    private void cancel() {
         Intent returnIntent = new Intent();
         setResult(Activity.RESULT_CANCELED, returnIntent);
         finish();
     }
 
-    private void checkTime(){
-        if(cbtime.isChecked()){
+    private void checkTime() {
+        if (cbtime.isChecked()) {
             time.setVisibility(View.GONE);
-        } else{
+        } else {
             time.setVisibility(View.VISIBLE);
         }
     }
 
-    private void changeTime(){
-        if(!cbtime.isChecked()){
+    private void changeTime() {
+        if (!cbtime.isChecked()) {
             Toast.makeText(getApplicationContext(), "unchecked", Toast.LENGTH_LONG).show();
             return;
         }
@@ -145,7 +145,7 @@ public class EditAimActivity extends AppCompatActivity implements View.OnClickLi
         mColor = color;
     }
 
-    private void changeColor(){
+    private void changeColor() {
         if (mColorDialog == null) {
             mColorDialog = new SelectColorDialog(this, this);
         }

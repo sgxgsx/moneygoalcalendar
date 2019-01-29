@@ -5,8 +5,7 @@
         android:id="@+id/menu_close_settings"
         android:title="Back to Main" />
 
-    <group
-        android:id="@+id/group_settings">
+    <group android:id="@+id/group_settings">
         <item
             android:id="@+id/menu_setting_1"
             android:title="Setting 1" />

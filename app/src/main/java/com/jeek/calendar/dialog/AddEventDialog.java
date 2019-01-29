@@ -6,61 +6,88 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.jeek.calendar.R;
 import com.jeek.calendar.task.schedule.AddEventTask;
 import com.jimmy.common.CalendarSystemDatabase.Schedule;
-import com.jimmy.common.base.app.BaseActivity;
 import com.jimmy.common.listener.OnTaskFinishedListener;
 import com.jimmy.common.util.ToastUtils;
 import com.kunzisoft.switchdatetime.SwitchDateTimeDialogFragment;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.Locale;
-import java.util.TimeZone;
-
 
 
 public class AddEventDialog extends Dialog implements View.OnClickListener, OnTaskFinishedListener<Schedule> {
 
     private static final String TAG = "Sample";
-
-    public Activity mActivity;
     private static final String TAG_DATETIME_FRAGMENT = "TAG_DATETIME_FRAGMENT";
-    Calendar dateAndTime=Calendar.getInstance();
     private static final String STATE_TEXTVIEW = "STATE_TEXTVIEW";
-    Context mContext1 =this.getContext();
+    public Activity mActivity;
+    Calendar dateAndTime = Calendar.getInstance();
+    Context mContext1 = this.getContext();
     Context mContext;
+    Schedule mSchedule = new Schedule();
+    EditText EventDesc, EventTitle;
+    TextView EventLocation, Title;
+    TimePickerDialog.OnTimeSetListener tstart = new TimePickerDialog.OnTimeSetListener() {
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            dateAndTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
+            mSchedule.setHour(hourOfDay);
+            dateAndTime.set(Calendar.MINUTE, minute);
+            mSchedule.setMinute(minute);
+            setInitialDateTimeTimeStart();
+        }
+    };
+    TimePickerDialog.OnTimeSetListener tend = new TimePickerDialog.OnTimeSetListener() {
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            dateAndTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
+            mSchedule.setHourend(hourOfDay);
+            dateAndTime.set(Calendar.MINUTE, minute);
+            mSchedule.setMinuteend(minute);
+            setInitialDateTimeTimeEnd();
+        }
+    };
+    DatePickerDialog.OnDateSetListener dstart = new DatePickerDialog.OnDateSetListener() {
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            dateAndTime.set(Calendar.YEAR, year);
+            mSchedule.setYear(year);
+            dateAndTime.set(Calendar.MONTH, monthOfYear);
+            mSchedule.setMonth(monthOfYear);
+            dateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            mSchedule.setDay(dayOfMonth);
+            setInitialDateTimeDateStart();
+        }
+    };
+    DatePickerDialog.OnDateSetListener dend = new DatePickerDialog.OnDateSetListener() {
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            dateAndTime.set(Calendar.YEAR, year);
+            mSchedule.setYearend(year);
+            dateAndTime.set(Calendar.MONTH, monthOfYear);
+            mSchedule.setMonthend(monthOfYear);
+            dateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            mSchedule.setDayend(dayOfMonth);
+            setInitialDateTimeDateEnd();
+        }
+    };
     private OnAddEventListener mOnAddEventListener;
     private String mColor;
-    Schedule mSchedule=new Schedule();
-    EditText EventDesc,EventTitle;
-    TextView EventLocation,Title;
     private TextView textView;
     private SwitchDateTimeDialogFragment dateTimeFragment;
-    public AddEventDialog(Context context, OnAddEventListener OnAddEventListener,Bundle savedInstanceState) {
+
+    public AddEventDialog(Context context, OnAddEventListener OnAddEventListener, Bundle savedInstanceState) {
         super(context, R.style.DialogFullScreen);
-        mContext=context;
+        mContext = context;
         mOnAddEventListener = OnAddEventListener;
         setContentView(R.layout.dialog_add_event);
         initView();
@@ -79,8 +106,6 @@ public class AddEventDialog extends Dialog implements View.OnClickListener, OnTa
         findViewById(R.id.tvTimeStart).setOnClickListener(this);
         findViewById(R.id.tvTimeEnd).setOnClickListener(this);
     }
-
-
 
     @Override
     public void onClick(View v) {
@@ -112,7 +137,7 @@ public class AddEventDialog extends Dialog implements View.OnClickListener, OnTa
         }
     }
 
-    public void createEvent(){
+    public void createEvent() {
         if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.WRITE_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.WRITE_CALENDAR}, 999);
         }
@@ -148,6 +173,7 @@ public class AddEventDialog extends Dialog implements View.OnClickListener, OnTa
                 dateAndTime.get(Calendar.DAY_OF_MONTH))
                 .show();
     }
+
     public void setDateEndD() {
         new DatePickerDialog(mContext1,
                 R.style.MyDatePickerDialogStyle,
@@ -164,12 +190,14 @@ public class AddEventDialog extends Dialog implements View.OnClickListener, OnTa
                 dateAndTime.get(Calendar.MINUTE), true)
                 .show();
     }
+
     public void setTimeEnd() {
         new TimePickerDialog(mContext1, tend,
                 dateAndTime.get(Calendar.HOUR_OF_DAY),
                 dateAndTime.get(Calendar.MINUTE), true)
                 .show();
     }
+
     private void setInitialDateTimeDateStart() {
 
         TextView tvv = findViewById(R.id.tvDateStart);
@@ -177,6 +205,7 @@ public class AddEventDialog extends Dialog implements View.OnClickListener, OnTa
                 dateAndTime.getTimeInMillis(),
                 DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR));
     }
+
     private void setInitialDateTimeDateEnd() {
 
         TextView tvv = findViewById(R.id.tvDateEnd);
@@ -185,6 +214,7 @@ public class AddEventDialog extends Dialog implements View.OnClickListener, OnTa
                 dateAndTime.getTimeInMillis(),
                 DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR));
     }
+
     private void setInitialDateTimeTimeStart() {
 
         TextView tvv = findViewById(R.id.tvTimeStart);
@@ -192,6 +222,7 @@ public class AddEventDialog extends Dialog implements View.OnClickListener, OnTa
                 dateAndTime.getTimeInMillis(),
                 DateUtils.FORMAT_SHOW_TIME));
     }
+
     private void setInitialDateTimeTimeEnd() {
 
         TextView tvv = findViewById(R.id.tvTimeEnd);
@@ -200,49 +231,14 @@ public class AddEventDialog extends Dialog implements View.OnClickListener, OnTa
                 DateUtils.FORMAT_SHOW_TIME));
     }
 
-
-
-
-    TimePickerDialog.OnTimeSetListener tstart=new TimePickerDialog.OnTimeSetListener() {
-        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            dateAndTime.set(Calendar.HOUR_OF_DAY, hourOfDay);mSchedule.setHour(hourOfDay);
-            dateAndTime.set(Calendar.MINUTE, minute);mSchedule.setMinute(minute);
-            setInitialDateTimeTimeStart();
-        }
-    };
-    TimePickerDialog.OnTimeSetListener tend=new TimePickerDialog.OnTimeSetListener() {
-        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            dateAndTime.set(Calendar.HOUR_OF_DAY, hourOfDay);mSchedule.setHourend(hourOfDay);
-            dateAndTime.set(Calendar.MINUTE, minute);mSchedule.setMinuteend(minute);
-            setInitialDateTimeTimeEnd();
-        }
-    };
-
-    DatePickerDialog.OnDateSetListener dstart=new DatePickerDialog.OnDateSetListener() {
-        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            dateAndTime.set(Calendar.YEAR, year);mSchedule.setYear(year);
-            dateAndTime.set(Calendar.MONTH, monthOfYear);mSchedule.setMonth(monthOfYear);
-            dateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);mSchedule.setDay(dayOfMonth);
-            setInitialDateTimeDateStart();
-        }
-    };
-    DatePickerDialog.OnDateSetListener dend=new DatePickerDialog.OnDateSetListener() {
-        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            dateAndTime.set(Calendar.YEAR, year);mSchedule.setYearend(year);
-            dateAndTime.set(Calendar.MONTH, monthOfYear);mSchedule.setMonthend(monthOfYear);
-            dateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);mSchedule.setDayend(dayOfMonth);
-            setInitialDateTimeDateEnd();
-        }
-    };
-
-    public interface OnAddEventListener {
-        void OnAddEvent(String color);
-    }
-
     public void onTaskFinished(Schedule data) {
         //mActivity.setResult(1, new Intent().putExtra(EVENT_SET_OBJ, data));
         //finish();
         this.dismiss();
+    }
+
+    public interface OnAddEventListener {
+        void OnAddEvent(String color);
     }
 
 }

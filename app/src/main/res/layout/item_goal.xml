@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/clGoal"
     android:layout_width="match_parent"
     android:layout_height="110dp"
+    android:layout_marginStart="@dimen/space_8dp"
     android:layout_marginTop="10dp"
     android:layout_marginEnd="@dimen/space_8dp"
-    android:layout_marginStart="@dimen/space_8dp"
     android:layout_marginBottom="4dp"
     android:background="@drawable/goal_block"
     android:backgroundTint="@color/colorPrimaryDark">
@@ -20,33 +19,35 @@
         android:background="@drawable/goal_photo"
         android:backgroundTint="@color/colorPrimaryDark"
         app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:id="@+id/ivImageGoal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             android:background="@drawable/goal_photo"
-            android:backgroundTint="@color/colorPrimaryDark"/>
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:scaleType="centerCrop" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="11dp"
             android:background="@drawable/note_block"
             android:backgroundTint="#802C2A32"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/tvGoalName"
                 android:layout_width="wrap_content"
                 android:layout_height="26dp"
-                android:maxLines="1"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
                 android:layout_marginTop="2dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginBottom="3dp"
+                android:maxLines="1"
                 android:text="My real goal name we"
                 android:textAlignment="center"
                 android:textColor="#fff"
@@ -81,55 +82,54 @@
         android:id="@+id/llGoalDoneCheck"
         android:layout_width="50dp"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
+        android:orientation="vertical"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/ic_flag_3"
-            />
+            android:background="@drawable/ic_flag_3" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/llGoalAllEvents"
         android:layout_width="26dp"
         android:layout_height="26dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/circle_red"
         android:backgroundTint="#FF5C5A"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="12dp"
-        >
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:id="@+id/tvGoalAllEvents"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="@color/colorPrimary"
             android:gravity="center"
-            android:textStyle="bold"
             android:text="0"
+            android:textColor="@color/colorPrimary"
             android:textSize="@dimen/text_size_12sp"
-            />
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/llGoalDoneEvents"
         android:layout_width="26dp"
         android:layout_height="26dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="5dp"
         android:background="@drawable/circle_green"
         android:backgroundTint="#00C382"
         app:layout_constraintEnd_toStartOf="@id/llGoalAllEvents"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginEnd="5dp"
-        android:layout_marginTop="12dp">
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:id="@+id/tvGoalDoneEvents"
             android:layout_width="match_parent"
@@ -147,12 +147,12 @@
         android:layout_width="324dp"
         android:layout_height="3dp"
         android:layout_marginStart="24dp"
-        android:layout_marginBottom="16dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
         android:progress="0"
         android:progressTint="@color/colorLime"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 
