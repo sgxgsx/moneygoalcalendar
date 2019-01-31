@@ -1,14 +1,11 @@
 package com.jeek.calendar.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,8 +15,6 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.jeek.calendar.R;
 import com.jeek.calendar.adapter.DetailGoalNewAdapter;
@@ -35,12 +30,6 @@ import java.util.ArrayList;
 
 public class DetailGoalActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener, OnFragmentInteractionListener, OnGoalSettingsFragmentListner, DrawerLayout.DrawerListener {
     public static final String GOAL_OBJ = "GOAL.Obj";
-    public static final String GOAL_OBJW = "GOAL.Objw";
-    public static final String GOAL_OBJ_AIM = "GOAL.Obj.Add.Aim";
-    public static final String GOAL_OBJ_AIM_DETAIL = "GOAL.Obj.Detail.Aim";
-    public static final String NOTE_OBJ = "Note.Obj";
-
-    public static final int errorCode = 200;
     private static final int GO_BACK_CALL_BACK = 1;
     private static final int CHECKED_CALL_BACK = 2;
     private static final int UNCHECKED_CALL_BACK = 3;
@@ -48,8 +37,6 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     private DrawerLayout drawerLayout;
     private DoubleDrawerView doubleDrawerView;
     private NavigationView mainNavigationView;
-    private Fragment fragment;
-
     private boolean isFABOpen = false;
     private ImageView fab, fab1, fab2;
     private View llBackground, llBackgroundBack;
@@ -58,12 +45,6 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     private Goal mGoal;
     private RecyclerView rvDetail;
     private DetailGoalNewAdapter mDetailGoalAdapter;
-    //private TextView goalName, time, description;
-    private ConstraintLayout dateLayout;
-    private ImageView noteImage;
-    private Toolbar mToolbar;
-    private boolean buttonNotShowen = true;
-    private View AddNote, AddAim;
 
 
     @Override
@@ -72,7 +53,6 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_detail_goal);
         mContext = getApplicationContext();
         rvDetail = findViewById(R.id.rvAimsEventsGoalDetailActivity);
-
         findViewById(R.id.llCancel).setOnClickListener(this);
         findViewById(R.id.llGoMenu).setOnClickListener(this);
 
@@ -81,7 +61,11 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
             LinearLayoutManager manager = new LinearLayoutManager(this);
             manager.setOrientation(LinearLayoutManager.HORIZONTAL);
             rvDetail.setLayoutManager(manager);
+            rvDetail.setItemViewCacheSize(20);
+            rvDetail.setDrawingCacheEnabled(true);
+            rvDetail.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
             mDetailGoalAdapter = new DetailGoalNewAdapter(this, mGoal);
+            mDetailGoalAdapter.setHasStableIds(true);
             rvDetail.setAdapter(mDetailGoalAdapter);
             initUI();
             initFab();
@@ -92,22 +76,13 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
 
 
     private void initUI() {
-        //noteImage = findViewById(R.id.iNoteImage);
-        //goalName = findViewById(R.id.tvGoalName);
-        //time = findViewById(R.id.tvDeadlineGoal);
-        //dateLayout = findViewById(R.id.DateLayout);
-        //description = findViewById(R.id.tvNoteTextView);
-
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         doubleDrawerView = (DoubleDrawerView) findViewById(R.id.double_drawer_view);
         mainNavigationView = (NavigationView) findViewById(R.id.main_navigation_view);
-        //goalName.setText(mGoal.getGoal_name());
-        //description.setText(mGoal.getDescription());
 
         mainNavigationView.setNavigationItemSelectedListener(this);
         drawerLayout.setDrawerListener(this);
-        //TODO на потом : нужно при создании и эдите Гоала добавить поле с чекбоксом "Показывать ли картинку в бэкграунде" а здесь делать проверку - нужно ли показывать
-        //TODO на потом : если да, то переделать item_aim!
+
         /*
         if(!mGoal.getImage_path().equals("")){
             BitmapDrawable background = setImage(mGoal.getImage_path());
@@ -128,20 +103,17 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         fab2 = findViewById(R.id.FabMain_Sub);
         fab2.setVisibility(View.INVISIBLE);
         fab1.setVisibility(View.INVISIBLE);
+
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.wtf("fab2.onClick", "triggered onClick");
-                //do smth
-                gotoNote();
+                gotoTask();
                 closeFABMenu();
             }
         });
         fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.wtf("fab1.onClick", "triggered onClick");
-                //do smth
                 gotoAddAimActivity();
                 closeFABMenu();
             }
@@ -150,7 +122,6 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
             @Override
             public void onClick(View view) {
                 if (!isFABOpen) {
-                    Log.wtf("fab.onClick", "triggered onClick");
                     showFABMenu();
                 }
             }
@@ -201,9 +172,7 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     }
 
 
-    private void gotoNote() {
-        //Intent intent = new Intent(mContext, NoteActivity.class).putExtra(NoteActivity.GOAL_OBJ, mGoal);
-        //startActivityForResult(intent, 3);
+    private void gotoTask() {
         GoalList goalList = new GoalList(mGoal.getLists().size(), "name", new ArrayList<ItemWrapper>());
         mGoal.addList(goalList);
         updateGoalAsyncTask();
@@ -217,7 +186,6 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void deleteGoal() {
-        Toast.makeText(mContext, "Text", Toast.LENGTH_LONG).show();
         new DeleteGoalTask(mContext, mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         finish();
     }
@@ -233,42 +201,16 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if (requestCode == 1) {
-            if (resultCode == Activity.RESULT_OK) {
-                mGoal = (Goal) data.getSerializableExtra(GOAL_OBJW);
-                mDetailGoalAdapter.changeAllData(mGoal);
-                initUI();
-            }
-            if (resultCode == Activity.RESULT_CANCELED) {
-                ; // nothing
-                Log.wtf("r", "canceled");
-            }
-        } else if (requestCode == 2) {
-            if (resultCode == RESULT_OK) {
-                mGoal = (Goal) data.getSerializableExtra(GOAL_OBJ_AIM);
-                mDetailGoalAdapter.changeAllData(mGoal);
-                initUI();
-            }
-            if (requestCode == RESULT_CANCELED) {
-                ;
-                Log.wtf("r", "2 canceled");
-            }
-            if (resultCode == errorCode) {
-                ;
-                Log.wtf("ERROR", "200");
-            }
-        } else if (requestCode == 3) {
-            if (resultCode == RESULT_OK) {
-                //mChanges = true;
-                mGoal = (Goal) data.getSerializableExtra(GOAL_OBJ_AIM_DETAIL);
-                updateGoalAsyncTask();
-                mDetailGoalAdapter.changeAllData(mGoal);
-                initUI();
-            } else if (resultCode == RESULT_CANCELED) {
-                //nothhing
-                Log.wtf("r", "canceled");
-            }
+        if (requestCode == 4 && resultCode == RESULT_OK){
+            /*
+            mGoal = (Goal) data.getSerializableExtra(GOAL_OBJ);
+            int pos = (int) data.getSerializableExtra("int");
+            mDetailGoalAdapter.changeAllData(pos);
+            */
+        } else if (resultCode == RESULT_OK) {
+            mGoal = (Goal) data.getSerializableExtra(GOAL_OBJ);
+            mDetailGoalAdapter.changeAllData(mGoal);
+            initUI();
         }
     }
 
@@ -286,7 +228,12 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onDrawerOpened(@NonNull View view) {
+        ;
+    }
 
+    @Override
+    public void onDrawerStateChanged(int i) {
+        ;
     }
 
     @Override
@@ -294,12 +241,6 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         Log.wtf("closed", "closed");
         doubleDrawerView.setDisplayedChild(0);
     }
-
-    @Override
-    public void onDrawerStateChanged(int i) {
-        Log.wtf("state", String.valueOf(i));
-    }
-
 
     @Override
     public void onGoalSettingsFragmentListner(int callback) {

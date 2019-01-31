@@ -3,11 +3,9 @@ package com.jeek.calendar.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +15,6 @@ import android.widget.LinearLayout;
 import com.jeek.calendar.R;
 import com.jeek.calendar.dialog.AddTaskDialog;
 import com.jeek.calendar.task.goal.UpdateGoalAsyncTask;
-import com.jimmy.common.GoalDatabase.Aim;
 import com.jimmy.common.GoalDatabase.Goal;
 import com.jimmy.common.GoalDatabase.GoalList;
 
@@ -27,20 +24,23 @@ public class DetailGoalNewAdapter extends RecyclerView.Adapter<RecyclerView.View
     private Context mContext;
     private Activity mActivity;
     private Goal mGoal;
-    private Aim mAim;
     private List<GoalList> lists;
-    private int mWidth, margin_left, margin_top;
+    private LinearLayout.LayoutParams mParams;
+    private int mWidth, margin_left, margin_top, set_70_percent_width;
 
     public DetailGoalNewAdapter(Context context, Goal goal) {
         mContext = context;
         mActivity = (Activity) mContext;
         mGoal = goal;
         lists = goal.getLists();
+
         DisplayMetrics displayMetrics = new DisplayMetrics();
         mActivity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        mWidth = (int) (displayMetrics.widthPixels * 0.75);
+        set_70_percent_width = (int) (displayMetrics.widthPixels * 0.7);
         margin_left = getInPx(20);
         margin_top = getInPx(10);
+        mParams = new LinearLayout.LayoutParams( set_70_percent_width, ViewGroup.LayoutParams.WRAP_CONTENT);
+        mParams.setMargins(margin_left, margin_top, 0, margin_top);
     }
 
     @Override
@@ -58,13 +58,13 @@ public class DetailGoalNewAdapter extends RecyclerView.Adapter<RecyclerView.View
         if (holder instanceof ListViewHolder) {
             final ListViewHolder viewHolder = (ListViewHolder) holder;
             viewHolder.mGoalList = lists.get(position);
-            LinearLayoutManager manager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
-
-            ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams( mWidth, ViewGroup.LayoutParams.WRAP_CONTENT);
-            params.setMargins(margin_left, margin_top, 0, 0);
-            viewHolder.clAll.setLayoutParams(params);
-            viewHolder.rvList.setLayoutManager(manager);
-            viewHolder.mListAdapter = new ListAdapter(mContext, viewHolder.mGoalList);
+            viewHolder.rvList.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
+            viewHolder.clAll.setLayoutParams(mParams);
+            viewHolder.mListAdapter = new ListAdapter(mContext, viewHolder.mGoalList, mGoal);
+            viewHolder.mListAdapter.setHasStableIds(true);
+            viewHolder.rvList.setItemViewCacheSize(20);
+            viewHolder.rvList.setDrawingCacheEnabled(true);
+            viewHolder.rvList.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
             viewHolder.rvList.setAdapter(viewHolder.mListAdapter);
             viewHolder.llAddBar.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -72,8 +72,6 @@ public class DetailGoalNewAdapter extends RecyclerView.Adapter<RecyclerView.View
                     viewHolder.addTask();
                 }
             });
-        } else {
-            Log.wtf("Bad", "news");
         }
     }
 
@@ -82,9 +80,18 @@ public class DetailGoalNewAdapter extends RecyclerView.Adapter<RecyclerView.View
     }
 
     @Override
+    public long getItemId(int position) {
+        GoalList gl = lists.get(position);
+        return gl.getId();
+    }
+
+    @Override
     public int getItemCount() {
-        Log.wtf("size", String.valueOf(lists.size()));
         return lists.size();
+    }
+
+    public void changeAllData(int position) {
+        notifyItemChanged(position);
     }
 
     public void changeAllData(Goal goal) {
@@ -93,18 +100,14 @@ public class DetailGoalNewAdapter extends RecyclerView.Adapter<RecyclerView.View
         notifyDataSetChanged();
     }
 
-    public void changeList(GoalList goalList){
-        ;
-    }
+
 
     private class ListViewHolder extends RecyclerView.ViewHolder implements AddTaskDialog.OnAddTaskListner {
-        private ConstraintLayout clAll;
+        private LinearLayout clAll;
         private RecyclerView rvList;
         private LinearLayout llAddBar;
         private ListAdapter mListAdapter;
-        private AddTaskDialog mAddTaskDialog;
         private GoalList mGoalList;
-        private int position;
 
         public ListViewHolder(View itemView) {
             super(itemView);
@@ -115,19 +118,40 @@ public class DetailGoalNewAdapter extends RecyclerView.Adapter<RecyclerView.View
 
         @Override
         public void onAddTask(GoalList goalList) {
-            goalList.setId(getAdapterPosition());
-            lists.set(goalList.getId(), goalList);
-            mGoal.setLists(lists);
-            new UpdateGoalAsyncTask(mContext, mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-            changeAllData(mGoal);
+            new AddTaskAsyncTask(mContext, goalList).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }
 
         private void addTask() {
-            if (mAddTaskDialog == null) {
-                mAddTaskDialog = new AddTaskDialog(mContext, mGoalList,this);
+            AddTaskDialog dialog = new AddTaskDialog(mContext, mGoalList,this);
+            dialog.getWindow().setLayout(set_70_percent_width, ViewGroup.LayoutParams.WRAP_CONTENT);
+            dialog.show();
+
+        }
+
+        private class AddTaskAsyncTask extends AsyncTask<Void, Void, Void> {
+
+            protected Context mContext;
+            private GoalList goalList;
+
+            private AddTaskAsyncTask(Context context, GoalList goalList) {
+                mContext = context;
+                this.goalList = goalList;
             }
-            mAddTaskDialog.show();
-            //startActivityForResult(new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI), GET_FROM_GALLERY);
+
+            @Override
+            protected Void doInBackground(Void...voids) {
+                goalList.setId(getAdapterPosition());
+                lists.set(goalList.getId(), goalList);
+                mGoal.setLists(lists);
+                new UpdateGoalAsyncTask(mContext, mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                changeAllData(goalList.getId());
+            }
         }
     }
 

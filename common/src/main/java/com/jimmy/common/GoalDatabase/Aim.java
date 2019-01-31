@@ -76,12 +76,12 @@ public class Aim implements Serializable, ItemWrapper {
                 deleteSchedule(id);
                 break;
             case 3:
-                deleteNote(id);
+                deleteTask(id);
                 break;
         }
     }
 
-    public void addNote(Note note){
+    public void addTask(Task note){
         if(note != null){
             note_ids.add(items.size());
             items.add(note);
@@ -96,7 +96,7 @@ public class Aim implements Serializable, ItemWrapper {
         }
     }
 
-    public void deleteNote(int id){
+    public void deleteTask(int id){
         for(int i = 0; i < note_ids.size(); ++i){
             if(note_ids.get(i) == id){
                 int position = note_ids.get(i);
@@ -137,11 +137,13 @@ public class Aim implements Serializable, ItemWrapper {
     }
 
 
-    public void changeNote(int id, String title, String text, long time){
-        Note mNote = (Note) items.get(id);
-        deleteNote(id);
-        mNote.changeNote(title, text, time);
-        addNote(mNote);
+    public void changeTask(int id, String title, String text, long time){
+        /*
+        Task mTask = (Task) items.get(id);
+        deleteTask(id);
+        mTask.changeTask(title, text, time);
+        addTask(mTask);
+        */
     }
 
     private void initArrayLists(){
@@ -223,11 +225,11 @@ public class Aim implements Serializable, ItemWrapper {
         this.items = items;
     }
 
-    public List<Integer> getNote_ids() {
+    public List<Integer> getTask_ids() {
         return note_ids;
     }
 
-    public void setNote_ids(List<Integer> note_ids) {
+    public void setTask_ids(List<Integer> note_ids) {
         this.note_ids = note_ids;
     }
 
@@ -238,7 +240,7 @@ public class Aim implements Serializable, ItemWrapper {
     public void setSchedule_ids(List<Integer> schedule_ids) {
         this.schedule_ids = schedule_ids;
     }
-    public void changeNote(String k, String p, long l){
+    public void changeTask(String k, String p, long l){
         ;
     }
 

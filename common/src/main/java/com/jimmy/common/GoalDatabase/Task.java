@@ -9,7 +9,7 @@ import com.jimmy.common.ItemWrapper;
 import java.io.Serializable;
 
 @Entity
-public class Note implements Serializable, ItemWrapper {
+public class Task implements Serializable, ItemWrapper {
     public static int VIEW_TYPE = 3;
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -18,18 +18,18 @@ public class Note implements Serializable, ItemWrapper {
     private long time;
 
     @Ignore
-    public Note(){
+    public Task(){
 
     }
 
     @Ignore
-    public Note(String title, String text, long time) {
+    public Task(String title, String text, long time) {
         this.title = title;
         this.text = text;
         this.time = time;
     }
 
-    public Note(int id, String title, String text, long time) {
+    public Task(int id, String title, String text, long time) {
         this.id = id;
         this.title = title;
         this.text = text;
@@ -41,7 +41,7 @@ public class Note implements Serializable, ItemWrapper {
         return VIEW_TYPE;
     }
 
-    public void changeNote(String title, String text, long time){
+    public void changeTask(String title, String text, long time){
         setText(text);
         setTitle(title);
         setTime(time);
@@ -91,14 +91,14 @@ public class Note implements Serializable, ItemWrapper {
         ;
     }
 
-    public void changeNote(int i,String k, String p, long l){
+    public void changeTask(int i,String k, String p, long l){
         ;
     }
 
-    public void deleteNote(int i){
+    public void deleteTask(int i){
         ;
     }
-    public void addNote(Note n){
+    public void addTask(Task n){
         ;
     }
 }

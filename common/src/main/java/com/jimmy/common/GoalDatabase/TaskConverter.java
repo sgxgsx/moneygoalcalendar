@@ -8,28 +8,28 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.List;
 
-public class NoteConverter {
+public class TaskConverter {
     @TypeConverter
-    public String fromNoteList(List<Note> NoteList) {
-        if (NoteList == null) {
+    public String fromTaskList(List<Task> TaskList) {
+        if (TaskList == null) {
             return (null);
         }
         Gson gson = new Gson();
-        Type type = new TypeToken<List<Note>>() {
+        Type type = new TypeToken<List<Task>>() {
         }.getType();
-        String json = gson.toJson(NoteList, type);
+        String json = gson.toJson(TaskList, type);
         return json;
     }
 
     @TypeConverter
-    public List<Note> toNoteList(String NoteString) {
-        if (NoteString == null) {
+    public List<Task> toTaskList(String TaskString) {
+        if (TaskString == null) {
             return (null);
         }
         Gson gson = new Gson();
-        Type type = new TypeToken<List<Note>>() {
+        Type type = new TypeToken<List<Task>>() {
         }.getType();
-        List<Note> NoteList = gson.fromJson(NoteString, type);
-        return NoteList;
+        List<Task> TaskList = gson.fromJson(TaskString, type);
+        return TaskList;
     }
 }

@@ -183,7 +183,7 @@
             android:layout_marginTop="5dp">
 
             <ImageView
-                android:id="@+id/iNoteImage"
+                android:id="@+id/iTaskImage"
                 android:layout_width="@dimen/icon_width"
                 android:layout_height="@dimen/icon_width"
                 android:layout_marginStart="16dp"
@@ -209,7 +209,7 @@
                 android:textColorHint="#737078"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/iNoteImage"
+                app:layout_constraintStart_toEndOf="@+id/iTaskImage"
                 app:layout_constraintTop_toTopOf="parent" />
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>

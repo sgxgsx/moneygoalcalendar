@@ -31,8 +31,8 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
     public static final String SCHEDULE_OBJ = "Schedule.Event";
     public static String EVENT_SET_OBJ = "event.set.obj";
     private TextView mtbTextView, mtvEventTitle, mtvStartTime, mtvEndTime, mtvRepeat;
-    private TextView mtvNote, mtvLocation, mtvCalendarOwner, mtvNotification;
-    private ConstraintLayout mclTextTitle, mclDateLayout, mclNotificationLayout, mclLocationLayout, mclNoteLayout, mclOwnerLayout;
+    private TextView mtvTask, mtvLocation, mtvCalendarOwner, mtvNotification;
+    private ConstraintLayout mclTextTitle, mclDateLayout, mclNotificationLayout, mclLocationLayout, mclTaskLayout, mclOwnerLayout;
     private ScrollView mScrollView;
     private ImageView mImageColor;
     private Toolbar mToolbar;
@@ -50,7 +50,7 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
         mtvStartTime = findViewById(R.id.tvStartTime);
         mtvEndTime = findViewById(R.id.tvEndTime);
         mtvRepeat = findViewById(R.id.tvRepeat);
-        mtvNote = findViewById(R.id.tvNoteTextView);
+        mtvTask = findViewById(R.id.tvTaskTextView);
         mtvLocation = findViewById(R.id.tvLocationTextView);
         mtvCalendarOwner = findViewById(R.id.tvCalendarOwnerTextView);
         mtvNotification = findViewById(R.id.tvNotificationTextView);
@@ -58,7 +58,7 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
         mImageColor = findViewById(R.id.ivName);
         mclTextTitle = findViewById(R.id.EventTitleLayout);
         mclLocationLayout = findViewById(R.id.LocationLayout);
-        mclNoteLayout = findViewById(R.id.DescriptionLayout);
+        mclTaskLayout = findViewById(R.id.DescriptionLayout);
         mclOwnerLayout = findViewById(R.id.AccountLayout);
         mclDateLayout = findViewById(R.id.DateLayout);
         mclNotificationLayout = findViewById(R.id.NotificationLayout);
@@ -139,7 +139,7 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
 
         ifHideLayout(repeat, null, mtvRepeat);
         ifHideLayout(location, mclLocationLayout, mtvLocation);
-        ifHideLayout(description, mclNoteLayout, mtvNote);
+        ifHideLayout(description, mclTaskLayout, mtvTask);
         ifHideLayout(owner, mclOwnerLayout, mtvCalendarOwner);
         ifHideLayout(notification, mclNotificationLayout, mtvNotification);
     }

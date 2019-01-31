@@ -8,11 +8,11 @@ import android.content.Context;
 import android.util.Log;
 
 @Database(entities = {Goal.class}, version = 1, exportSchema = false)
-@TypeConverters({GoalScheduleConverter.class, AimConverter.class, NoteConverter.class, ItemWrapperConverter.class, IdsConverter.class, GoalListConverter.class})
+@TypeConverters({GoalScheduleConverter.class, AimConverter.class, TaskConverter.class, ItemWrapperConverter.class, IdsConverter.class, GoalListConverter.class})
 public abstract class  GoalDatabase extends RoomDatabase {
     private static final String LOG_TAG = GoalDatabase.class.getSimpleName();
     private static final Object LOCK = new Object();
-    private static final String DATABASE_NAME = "GoalDatabwawerwrwrwwr";
+    private static final String DATABASE_NAME = "GoalDatabwawerwwrwrwwkr";
     private static GoalDatabase GoalDatabase;
 
     public static GoalDatabase getInstance(Context context){

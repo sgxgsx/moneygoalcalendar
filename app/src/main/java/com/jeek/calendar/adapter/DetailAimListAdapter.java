@@ -90,16 +90,16 @@ public class DetailAimListAdapter extends RecyclerView.Adapter<RecyclerView.View
         }
     }
 
-    private class NoteViewHolder extends RecyclerView.ViewHolder {
-        private ConstraintLayout clNote;
+    private class TaskViewHolder extends RecyclerView.ViewHolder {
+        private ConstraintLayout clTask;
         private TextView tvTitle, tvText, tvTime;
 
-        public NoteViewHolder(View itemView) {
+        public TaskViewHolder(View itemView) {
             super(itemView);
-            clNote = (ConstraintLayout) itemView.findViewById(R.id.clNote);
-            tvTitle = (TextView) itemView.findViewById(R.id.tvNoteTitle);
-            tvTime = (TextView) itemView.findViewById(R.id.tvNoteTime);
-            tvText = (TextView) itemView.findViewById(R.id.tvNoteText);
+            clTask = (ConstraintLayout) itemView.findViewById(R.id.clTask);
+            tvTitle = (TextView) itemView.findViewById(R.id.tvTaskTitle);
+            tvTime = (TextView) itemView.findViewById(R.id.tvTaskTime);
+            tvText = (TextView) itemView.findViewById(R.id.tvTaskText);
         }
     }
 }

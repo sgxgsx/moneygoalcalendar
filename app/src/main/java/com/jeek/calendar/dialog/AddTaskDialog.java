@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.jeek.calendar.R;
 import com.jimmy.common.GoalDatabase.GoalList;
-import com.jimmy.common.GoalDatabase.Note;
+import com.jimmy.common.GoalDatabase.Task;
 
 public class AddTaskDialog extends Dialog implements View.OnClickListener {
     private OnAddTaskListner onAddTaskListner;
@@ -40,11 +40,10 @@ public class AddTaskDialog extends Dialog implements View.OnClickListener {
     }
 
     private void save() {
-        Note note = new Note(null,editText.getText().toString(), 2000000);
-        mGoalList.addItem(note);
+        Task task = new Task(null,editText.getText().toString(), 2000000);
+        mGoalList.addItem(task);
         Log.wtf("size", String.valueOf(mGoalList.getItems().size()));
         onAddTaskListner.onAddTask(mGoalList);
-        //setResult(Activity.RESULT_OK, returnIntent);
     }
 
     public interface OnAddTaskListner {

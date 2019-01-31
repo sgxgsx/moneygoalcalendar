@@ -106,12 +106,12 @@ public class  Goal implements Serializable{
                     deleteSchedule(id);
                     break;
                 case 3:
-                    deleteNote(id);
+                    deleteTask(id);
                     break;
             }
         }
 
-        public void addNote(Note note){
+        public void addTask(Task note){
             if(note != null){
                 note_ids.add(items.size());
                 items.add(note);
@@ -138,7 +138,7 @@ public class  Goal implements Serializable{
             }
         }
 
-        public void deleteNote(int id){
+        public void deleteTask(int id){
             for(int i = 0; i < note_ids.size(); ++i){
                 if(note_ids.get(i) == id){
                     int position = note_ids.get(i);
@@ -303,11 +303,11 @@ public class  Goal implements Serializable{
         this.aim_ids = aim_ids;
     }
 
-    public List<Integer> getNote_ids() {
+    public List<Integer> getTask_ids() {
         return note_ids;
     }
 
-    public void setNote_ids(List<Integer> note_ids) {
+    public void setTask_ids(List<Integer> note_ids) {
         this.note_ids = note_ids;
     }
 
@@ -327,11 +327,11 @@ public class  Goal implements Serializable{
         ;
     }
 
-    public void changeNote(String k, String p, long l){
+    public void changeTask(String k, String p, long l){
         ;
     }
 
-    public void changeNote(int i,String k, String p, long l){
+    public void changeTask(int i,String k, String p, long l){
         ;
     }
 }

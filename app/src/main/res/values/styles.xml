@@ -7,6 +7,7 @@
         <item name="android:actionBarSize">@dimen/action_bar_height</item>
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
         <item name="android:textColorSecondary">@color/colorICWhite</item>
+        <item name="android:windowSoftInputMode">adjustNothing</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme">
@@ -36,6 +37,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColorPrimary">@color/colorICWhite</item>
         <item name="android:actionBarSize">@dimen/action_bar_height</item>
+        <item name="android:windowSoftInputMode">adjustNothing</item>
     </style>
 
     <style name="MyDatePickerDialogStyle" parent="DialogStyle">
@@ -44,6 +46,7 @@
         <item name="android:textColorSecondary">@color/colorWeekBlue</item>
         <item name="colorControlActivated">@color/colorAccent</item>
         <item name="colorControlHighlight">@color/colorAccent</item>
+        <item name="android:windowSoftInputMode">adjustNothing</item>
 
     </style>
 
@@ -59,6 +62,7 @@
         <item name="android:textColorPrimary">@color/colorPrimaryDark</item>
         <item name="android:textColorSecondary">@color/colorPrimary</item>
         <item name="colorControlNormal">@color/colorSoftYellow</item>
+        <item name="android:windowSoftInputMode">adjustNothing</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -75,6 +79,7 @@
         <item name="android:textColorSecondary">@color/colorICWhite</item>
         <item name="android:iconTint">@color/colorICWhite</item>
         <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:windowSoftInputMode">adjustNothing</item>
     </style>
 
 </resources>

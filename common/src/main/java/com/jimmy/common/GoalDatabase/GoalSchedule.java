@@ -126,17 +126,17 @@ public class  GoalSchedule implements Serializable, ItemWrapper {
         ;
     }
 
-    public void changeNote(String k, String p, long l){
+    public void changeTask(String k, String p, long l){
         ;
     }
 
-    public void changeNote(int i,String k, String p, long l){
+    public void changeTask(int i,String k, String p, long l){
         ;
     }
-    public void addNote(Note n){
+    public void addTask(Task n){
         ;
     }
-    public void deleteNote(int i){
+    public void deleteTask(int i){
         ;
     }
 }

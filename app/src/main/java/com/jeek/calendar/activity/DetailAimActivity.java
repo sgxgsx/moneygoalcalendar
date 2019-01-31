@@ -28,7 +28,7 @@ import me.tangke.slidemenu.SlideMenu;
 public class DetailAimActivity extends AppCompatActivity implements View.OnClickListener/*, NavigationView.OnNavigationItemSelectedListener, MembersFragment.OnFragmentInteractionListener, DrawerLayout.DrawerListener*/ {
     public static final String GOAL_OBJ = "GOAL.Obj.Detail.Aim";
     public static final String AIM_OBJ = "AIM.Obj.Detail.Aim";
-    public static final String NOTE_OBJ = "Note.Obj";
+    public static final String NOTE_OBJ = "Task.Obj";
     public static final int errorCode = 200;
     private static final int GO_BACK_CALL_BACK = 1;
     ImageView fab, fab1, fab2;
@@ -47,7 +47,7 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
     private RecyclerView rvDetail;
     private DetailAimAdapter mDetailAimAdapter;
     private DetailAimListAdapter mDetailAimListAdapter;
-    private View AddNote, AddEvent, MenuButtonBackground;
+    private View AddTask, AddEvent, MenuButtonBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +113,7 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
             public void onClick(View view) {
                 Log.wtf("fab1.onClick", "triggered onClick");
                 //add MoneyGoal
-                gotoNote();
+                gotoTask();
                 closeFABMenu();
             }
         });
@@ -164,8 +164,8 @@ public class DetailAimActivity extends AppCompatActivity implements View.OnClick
         llBackgroundBack.setVisibility(View.INVISIBLE);
     }
 
-    private void gotoNote() {
-        Intent intent = new Intent(mContext, NoteActivity.class).putExtra(GOAL_OBJ, mGoal)
+    private void gotoTask() {
+        Intent intent = new Intent(mContext, TaskActivity.class).putExtra(GOAL_OBJ, mGoal)
                 .putExtra(AIM_OBJ, mAim);
         startActivityForResult(intent, 6);
     }

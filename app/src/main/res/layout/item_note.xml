@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/clNote"
+    android:id="@+id/clTask"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginStart="8dp"
@@ -12,7 +12,7 @@
     android:backgroundTint="@color/colorGrey">
 
     <TextView
-        android:id="@+id/tvNoteTitle"
+        android:id="@+id/tvTaskTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -25,12 +25,12 @@
         android:textSize="@dimen/text_size_18sp"
         android:textStyle="bold"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/tvNoteText"
+        app:layout_constraintBottom_toTopOf="@id/tvTaskText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvNoteText"
+        android:id="@+id/tvTaskText"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -41,12 +41,12 @@
         android:text="rqafafsafsafsafsaffasfasfasfsa"
         android:textColor="@color/colorICWhite"
         android:textSize="@dimen/text_size_16sp"
-        app:layout_constraintBottom_toTopOf="@+id/tvNoteTime"
+        app:layout_constraintBottom_toTopOf="@+id/tvTaskTime"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvNoteTitle" />
+        app:layout_constraintTop_toBottomOf="@id/tvTaskTitle" />
 
     <TextView
-        android:id="@+id/tvNoteTime"
+        android:id="@+id/tvTaskTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -56,7 +56,7 @@
         android:textSize="@dimen/text_size_12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvNoteText" />
+        app:layout_constraintTop_toBottomOf="@id/tvTaskText" />
 
 
 </android.support.constraint.ConstraintLayout>

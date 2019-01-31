@@ -113,7 +113,7 @@ public class EditGoalActivity extends AppCompatActivity implements View.OnClickL
         if (!image_path.equals(mGoal.getImage_path())) mGoal.setImage_path(image_path);
 
         new UpdateGoalAsyncTask(getApplicationContext(), mGoal).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-        Intent returnIntent = new Intent().putExtra(DetailGoalActivity.GOAL_OBJW, mGoal);
+        Intent returnIntent = new Intent().putExtra(GOAL_OBJ, mGoal);
         setResult(Activity.RESULT_OK, returnIntent);
         Log.wtf(TAG, mGoal.getGoal_name());
         Log.wtf(TAG, title.getText().toString());

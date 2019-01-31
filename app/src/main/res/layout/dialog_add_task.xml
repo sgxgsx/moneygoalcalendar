@@ -3,33 +3,85 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginStart="50dp"
-    android:layout_marginEnd="50dp">
+    android:layout_marginStart="0dp"
+    android:layout_marginEnd="0dp">
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:orientation="vertical"
         android:background="@drawable/dialog_background"
-        android:backgroundTint="@color/colorPrimaryDark">
-            <EditText
-                android:id="@+id/editText"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:theme="@style/DialogStyle">
 
-        <TextView
-            android:id="@+id/llSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SAVE"
-            android:padding="10dp"
-            android:textColor="@color/colorICWhite"
-            android:layout_marginTop="60dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-    </android.support.constraint.ConstraintLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="230dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="0dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/task_title"/>
+                <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:paddingBottom="20dp"
+                    android:hint="Title"
+                    android:textColorHint="@color/colorGrey"
+                    android:background="@color/colorTranslate"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/task_description"/>
+
+                <EditText
+                    android:id="@+id/descriptionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:paddingBottom="70dp"
+                    android:background="@color/colorTranslate"
+                    android:gravity="start"
+                    android:hint="Description"
+                    android:textColorHint="@color/colorGrey" />
+            </LinearLayout>
+        </ScrollView>
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/llSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SAVE"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:textColor="@color/colorBlue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
 </LinearLayout>

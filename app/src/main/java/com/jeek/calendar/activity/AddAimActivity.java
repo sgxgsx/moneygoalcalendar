@@ -32,7 +32,7 @@ import java.util.List;
 
 public class AddAimActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener,
         SelectColorDialog.OnSelectColorListener {
-    public static final String GOAL_OBJ = "GOAL.Obj.Add.Aim";
+    public static final String GOAL_OBJ = "GOAL.Obj";
     public static final int errorCode = 200;
     public static final int GET_FROM_GALLERY = 3;
     private ConstraintLayout mToolBar;

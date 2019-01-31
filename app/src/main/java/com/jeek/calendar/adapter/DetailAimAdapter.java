@@ -16,12 +16,12 @@ import android.widget.TextView;
 import com.jeek.calendar.R;
 import com.jeek.calendar.activity.DetailAimActivity;
 import com.jeek.calendar.activity.DetailEventActivity;
-import com.jeek.calendar.activity.NoteActivity;
+import com.jeek.calendar.activity.TaskActivity;
 import com.jeek.calendar.utils.JeekUtils;
 import com.jimmy.common.GoalDatabase.Aim;
 import com.jimmy.common.GoalDatabase.Goal;
 import com.jimmy.common.GoalDatabase.GoalSchedule;
-import com.jimmy.common.GoalDatabase.Note;
+import com.jimmy.common.GoalDatabase.Task;
 import com.jimmy.common.ItemWrapper;
 
 import java.text.SimpleDateFormat;
@@ -50,7 +50,7 @@ public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         } else if (viewType == 3) {
             Log.wtf("second", "note");
         }
-        return new NoteViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_note, parent, false));
+        return new TaskViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_note, parent, false));
     }
 
     @Override
@@ -80,14 +80,14 @@ public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     mActivity.startActivityForResult(intent, 3);
                 }
             });
-        } else if (holder instanceof NoteViewHolder) {
+        } else if (holder instanceof TaskViewHolder) {
             Log.wtf("note", "note");
-            Note note = (Note) items.get(position);
-            final Note NoteFinal = new Note(note.getId(), note.getTitle(), note.getText(), note.getTime());
-            final NoteViewHolder viewHolder = (NoteViewHolder) holder;
+            Task note = (Task) items.get(position);
+            final Task TaskFinal = new Task(note.getId(), note.getTitle(), note.getText(), note.getTime());
+            final TaskViewHolder viewHolder = (TaskViewHolder) holder;
             ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             layoutParams.setMargins(getInPx(8), getInPx(10), getInPx(8), getInPx(4));
-            viewHolder.clNote.setLayoutParams(layoutParams);
+            viewHolder.clTask.setLayoutParams(layoutParams);
             Log.wtf("create", "create");
             if (!note.getTitle().equals("")) {
                 viewHolder.tvTitle.setVisibility(View.VISIBLE);
@@ -100,10 +100,10 @@ public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             String currentDateandTime = sdf.format(currentTime);
             viewHolder.tvTime.setText(currentDateandTime);
             viewHolder.tvText.setText(note.getText());
-            viewHolder.clNote.setOnClickListener(new View.OnClickListener() {
+            viewHolder.clTask.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(mContext, NoteActivity.class).putExtra(DetailAimActivity.GOAL_OBJ, mGoal).putExtra(DetailAimActivity.AIM_OBJ, mAim).putExtra(DetailAimActivity.NOTE_OBJ, NoteFinal);
+                    Intent intent = new Intent(mContext, TaskActivity.class).putExtra(DetailAimActivity.GOAL_OBJ, mGoal).putExtra(DetailAimActivity.AIM_OBJ, mAim).putExtra(DetailAimActivity.NOTE_OBJ, TaskFinal);
                     mActivity.startActivityForResult(intent, 3);
                 }
             });
@@ -144,16 +144,16 @@ public class DetailAimAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
-    private class NoteViewHolder extends RecyclerView.ViewHolder {
-        private ConstraintLayout clNote;
+    private class TaskViewHolder extends RecyclerView.ViewHolder {
+        private ConstraintLayout clTask;
         private TextView tvTitle, tvText, tvTime;
 
-        public NoteViewHolder(View itemView) {
+        public TaskViewHolder(View itemView) {
             super(itemView);
-            clNote = itemView.findViewById(R.id.clNote);
-            tvTitle = itemView.findViewById(R.id.tvNoteTitle);
-            tvTime = itemView.findViewById(R.id.tvNoteTime);
-            tvText = itemView.findViewById(R.id.tvNoteText);
+            clTask = itemView.findViewById(R.id.clTask);
+            tvTitle = itemView.findViewById(R.id.tvTaskTitle);
+            tvTime = itemView.findViewById(R.id.tvTaskTime);
+            tvText = itemView.findViewById(R.id.tvTaskText);
         }
     }
 

@@ -52,7 +52,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     //private CalendarClassAdapter mCalendarClassAdapter;                       CALENDARS
     //private List<CalendarClass> mCalendarClasses;  // mEventSets              CALENDARS
     private BaseFragment mScheduleFragment;
-    private long[] mNotes = new long[2];
+    private long[] mTasks = new long[2];
     private String[] mMonthText;
     private int mCurrentSelectYear, mCurrentSelectMonth, mCurrentSelectDay;
     private boolean anonym;

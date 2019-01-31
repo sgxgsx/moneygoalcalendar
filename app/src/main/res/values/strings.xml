@@ -94,6 +94,11 @@
     <string name="goal_dialog_share">Share</string>
 
 
+    <!-- Task -->
+    <string name="task_title">Task title:</string>
+    <string name="task_description">Task description:</string>
+
+
     <!-- colors -->
     <string name="tomato">Tomato</string>
     <string name="tangerine">Tangerine</string>
