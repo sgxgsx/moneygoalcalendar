@@ -201,15 +201,20 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 4 && resultCode == RESULT_OK){
-            /*
-            mGoal = (Goal) data.getSerializableExtra(GOAL_OBJ);
-            int pos = (int) data.getSerializableExtra("int");
-            mDetailGoalAdapter.changeAllData(pos);
-            */
-        } else if (resultCode == RESULT_OK) {
-            mGoal = (Goal) data.getSerializableExtra(GOAL_OBJ);
-            mDetailGoalAdapter.changeAllData(mGoal);
+        Log.wtf("ON ACTIVITY", "RESULT");
+        if (resultCode == RESULT_OK){
+            if(requestCode == 4 ){
+                Log.wtf("detail", "detail");
+                mGoal = (Goal) data.getSerializableExtra(GOAL_OBJ);
+                int position = data.getIntExtra("int", -10);
+                int pos      = data.getIntExtra("int2", -10);
+                updateGoalAsyncTask();
+                if(pos != -10 && position != -10) mDetailGoalAdapter.changeAllData(position, pos, mGoal);
+            } else{
+                mGoal = (Goal) data.getSerializableExtra(GOAL_OBJ);
+                updateGoalAsyncTask();
+                mDetailGoalAdapter.changeAllData(mGoal);
+            }
             initUI();
         }
     }

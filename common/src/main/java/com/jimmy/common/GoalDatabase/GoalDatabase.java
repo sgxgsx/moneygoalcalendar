@@ -12,7 +12,7 @@ import android.util.Log;
 public abstract class  GoalDatabase extends RoomDatabase {
     private static final String LOG_TAG = GoalDatabase.class.getSimpleName();
     private static final Object LOCK = new Object();
-    private static final String DATABASE_NAME = "GoalDatabwawerwwrwrwwkr";
+    private static final String DATABASE_NAME = "GoalDatabwawerwwdrwrwwkr";
     private static GoalDatabase GoalDatabase;
 
     public static GoalDatabase getInstance(Context context){

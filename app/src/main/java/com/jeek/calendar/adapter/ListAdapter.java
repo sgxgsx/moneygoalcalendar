@@ -22,6 +22,8 @@ import com.jimmy.common.ItemWrapper;
 import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    public static final String GOAL_OBJ = "GOAL.Obj";
+    public static final String GOALLIST_OBJ = "GOALLIST.Obj";
     private Goal mGoal;
     private GoalList mGoalList;
     private List<ItemWrapper> mItems;
@@ -53,20 +55,25 @@ public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         if(viewHolder instanceof TaskViewHolder){
             final TaskViewHolder holder = (TaskViewHolder) viewHolder;
             Task note = (Task) mItems.get(position);
-            holder.tvText.setText(note.getText());
+            holder.tvText.setText(note.getTitle());
             holder.clTask.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    openDetails();
+                    openDetails(position);
                 }
             });
         }
     }
 
-    public void openDetails(){
+    public void openDetails(int position){
         Intent intent = new Intent(mContext, TaskActivity.class);
+        intent.putExtra(GOAL_OBJ, mGoal);
+        intent.putExtra(GOALLIST_OBJ, mGoalList);
+        intent.putExtra("int", position);
         ((Activity) mContext).startActivityForResult(intent, 4);
     }
+
+
 
     public void changeAllData(final List<ItemWrapper> items) {
         new Thread(new Runnable() {
@@ -77,7 +84,10 @@ public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 notifyDataSetChanged();
             }
         }).start();
+    }
 
+    public void changeAllData(final int pos){
+        notifyItemChanged(pos);
     }
 
     @Override

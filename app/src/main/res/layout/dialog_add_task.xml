@@ -34,12 +34,15 @@
                     android:textColor="@color/colorAccent"
                     android:text="@string/task_title"/>
                 <EditText
-                    android:id="@+id/editText"
+                    android:id="@+id/etTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
                     android:paddingBottom="20dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:clickable="true"
                     android:hint="Title"
                     android:textColorHint="@color/colorGrey"
                     android:background="@color/colorTranslate"/>
@@ -57,7 +60,7 @@
                     android:text="@string/task_description"/>
 
                 <EditText
-                    android:id="@+id/descriptionText"
+                    android:id="@+id/etDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"

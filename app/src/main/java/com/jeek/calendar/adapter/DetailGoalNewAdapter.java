@@ -25,6 +25,8 @@ public class DetailGoalNewAdapter extends RecyclerView.Adapter<RecyclerView.View
     private Activity mActivity;
     private Goal mGoal;
     private List<GoalList> lists;
+    //private List<ListAdapter> mAdapters;
+
     private LinearLayout.LayoutParams mParams;
     private int mWidth, margin_left, margin_top, set_70_percent_width;
 
@@ -33,6 +35,7 @@ public class DetailGoalNewAdapter extends RecyclerView.Adapter<RecyclerView.View
         mActivity = (Activity) mContext;
         mGoal = goal;
         lists = goal.getLists();
+        //mAdapters = new ArrayList<>();
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         mActivity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -72,6 +75,7 @@ public class DetailGoalNewAdapter extends RecyclerView.Adapter<RecyclerView.View
                     viewHolder.addTask();
                 }
             });
+            //mAdapters.add(viewHolder.mListAdapter);
         }
     }
 
@@ -92,6 +96,14 @@ public class DetailGoalNewAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     public void changeAllData(int position) {
         notifyItemChanged(position);
+    }
+
+    public void changeAllData(int position, int pos, Goal goal){
+        // change data in ListAdapter
+        mGoal = goal;
+        lists = mGoal.getLists();
+        //mAdapters.get(position).changeAllData(pos);
+        changeAllData(position);
     }
 
     public void changeAllData(Goal goal) {
@@ -127,6 +139,7 @@ public class DetailGoalNewAdapter extends RecyclerView.Adapter<RecyclerView.View
             dialog.show();
 
         }
+
 
         private class AddTaskAsyncTask extends AsyncTask<Void, Void, Void> {
 

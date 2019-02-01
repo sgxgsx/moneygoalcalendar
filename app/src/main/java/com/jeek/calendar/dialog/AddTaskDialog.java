@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -15,7 +16,7 @@ public class AddTaskDialog extends Dialog implements View.OnClickListener {
     private OnAddTaskListner onAddTaskListner;
     private GoalList mGoalList;
     private Context mContext;
-    private EditText editText;
+    private EditText etDescription, etTitle;
     private TextView textView;
 
     public AddTaskDialog(Context context, GoalList goalList, OnAddTaskListner listner) {
@@ -24,9 +25,19 @@ public class AddTaskDialog extends Dialog implements View.OnClickListener {
         onAddTaskListner = listner;
         mGoalList = goalList;
         mContext = context;
-        editText = findViewById(R.id.editText);
+        etDescription = findViewById(R.id.etDescription);
+        etTitle       = findViewById(R.id.etTitle);
+
         textView = findViewById(R.id.llSave);
         textView.setOnClickListener(this);
+        if(etTitle.requestFocus()) {
+            try{
+                getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+            } catch (NullPointerException s){
+                Log.wtf("Null pointer:", "print");
+                s.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -40,7 +51,7 @@ public class AddTaskDialog extends Dialog implements View.OnClickListener {
     }
 
     private void save() {
-        Task task = new Task(null,editText.getText().toString(), 2000000);
+        Task task = new Task(etTitle.getText().toString(),etDescription.getText().toString(), 2000000);
         mGoalList.addItem(task);
         Log.wtf("size", String.valueOf(mGoalList.getItems().size()));
         onAddTaskListner.onAddTask(mGoalList);
