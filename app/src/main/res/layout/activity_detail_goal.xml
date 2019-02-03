@@ -12,7 +12,7 @@
         android:id="@id/main_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         tools:context="com.jeek.calendar.activity.DetailGoalActivity">
 
         <android.support.constraint.ConstraintLayout
@@ -43,14 +43,15 @@
                 app:layout_constraintTop_toTopOf="parent"/>
         </android.support.constraint.ConstraintLayout>
 
-        <!--
+
         <ImageView
             android:id="@+id/ivImageDetailGoal"
+            android:layout_marginTop="50dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop" />
-        !-->
+
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rvAimsEventsGoalDetailActivity"
@@ -72,8 +73,9 @@
             android:layout_width="@dimen/fab_main"
             android:layout_height="@dimen/fab_main"
             android:layout_margin="20dp"
+            android:padding="20dp"
             android:background="@drawable/shape_round_fab_main"
-            android:src="@mipmap/ic_event_set_icon"
+            android:src="@drawable/ic_flag"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -97,7 +99,7 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="20dp"
             android:background="@drawable/shape_round_fab_main"
-            android:src="@mipmap/ic_menu_go"
+            android:backgroundTint="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
     </android.support.constraint.ConstraintLayout>

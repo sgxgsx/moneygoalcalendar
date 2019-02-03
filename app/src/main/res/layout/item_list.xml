@@ -6,18 +6,36 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@drawable/list_background"
-    android:backgroundTint="@color/color_banana">
+    android:backgroundTint="#35333d">
 
     <LinearLayout
         android:id="@+id/llToolBar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:minHeight="50dp"
-        android:orientation="horizontal"/>
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/etToolBarText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:maxLength="30"
+            android:textSize="18sp"
+            android:textStyle="italic|bold"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="50dp"
+            android:textColor="@color/colorICWhite"
+            android:text="Marketing"
+            android:focusable="false"
+            android:editable="true"
+            android:focusableInTouchMode="true"
+            android:background="@color/colorTranslate"
+            android:layout_gravity="center"/>
+    </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:background="@color/color_basil"/>
+        android:background="@color/colorPrimaryLight"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -26,18 +44,28 @@
             android:id="@+id/rvList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/color_basil"
+            android:background="@color/colorPrimaryLight"
             android:orientation="vertical"/>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:background="@color/color_basil"/>
+        android:background="@color/colorPrimaryLight"/>
     <LinearLayout
         android:id="@+id/llAddBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:minHeight="50dp"
-        android:orientation="horizontal"/>
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:layout_gravity="center"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="Add Task"
+            android:textColor="@color/colorAccent"/>
+    </LinearLayout>
 
 </LinearLayout>

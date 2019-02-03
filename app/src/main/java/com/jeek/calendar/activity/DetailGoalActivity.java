@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.jeek.calendar.R;
 import com.jeek.calendar.adapter.DetailGoalNewAdapter;
 import com.jeek.calendar.fragment.OnFragmentInteractionListener;
@@ -40,6 +41,7 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
     private boolean isFABOpen = false;
     private ImageView fab, fab1, fab2;
     private View llBackground, llBackgroundBack;
+    private ImageView clMainImageView;
 
     private Context mContext;
     private Goal mGoal;
@@ -80,15 +82,17 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         doubleDrawerView = (DoubleDrawerView) findViewById(R.id.double_drawer_view);
         mainNavigationView = (NavigationView) findViewById(R.id.main_navigation_view);
 
+        clMainImageView = findViewById(R.id.ivImageDetailGoal);
+
         mainNavigationView.setNavigationItemSelectedListener(this);
         drawerLayout.setDrawerListener(this);
 
-        /*
+
         if(!mGoal.getImage_path().equals("")){
-            BitmapDrawable background = setImage(mGoal.getImage_path());
-            detailImage.setImageDrawable(background);
+            Glide.with(this).load(mGoal.getImage_path()).into(clMainImageView);
         }
-        */
+
+
 
 
     }
@@ -149,12 +153,6 @@ public class DetailGoalActivity extends AppCompatActivity implements View.OnClic
         llBackgroundBack.setVisibility(View.INVISIBLE);
 
     }
-/*
-    private BitmapDrawable setImage(String path){
-        Bitmap selectedImage = BitmapFactory.decodeFile(path);
-        return new BitmapDrawable(getResources(), selectedImage);
-    }
-*/
 
     @Override
     public void onClick(View v) {

@@ -10,6 +10,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.jeek.calendar.R;
@@ -61,6 +62,7 @@ public class DetailGoalNewAdapter extends RecyclerView.Adapter<RecyclerView.View
         if (holder instanceof ListViewHolder) {
             final ListViewHolder viewHolder = (ListViewHolder) holder;
             viewHolder.mGoalList = lists.get(position);
+            viewHolder.mTitle.setText(viewHolder.mGoalList.getName());
             viewHolder.rvList.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
             viewHolder.clAll.setLayoutParams(mParams);
             viewHolder.mListAdapter = new ListAdapter(mContext, viewHolder.mGoalList, mGoal);
@@ -120,12 +122,14 @@ public class DetailGoalNewAdapter extends RecyclerView.Adapter<RecyclerView.View
         private LinearLayout llAddBar;
         private ListAdapter mListAdapter;
         private GoalList mGoalList;
+        private EditText mTitle;
 
         public ListViewHolder(View itemView) {
             super(itemView);
             rvList = itemView.findViewById(R.id.rvList);
             llAddBar = itemView.findViewById(R.id.llAddBar);
             clAll = itemView.findViewById(R.id.clAll);
+            mTitle = itemView.findViewById(R.id.etToolBarText);
         }
 
         @Override

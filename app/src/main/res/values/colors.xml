@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- main colors   -->
-    <color name="colorPrimary">#37343F</color>
-    <color name="colorPrimaryDark">#2C2A32</color>
+    <color name="colorPrimary">#2C2A32</color>
+    <color name="colorPrimaryDark">#232127</color>
+    <color name="colorPrimaryLight">#524E5D</color>
     <color name="colorAccent">#FF5C5A</color>
     <color name="colorLime">#00C382</color>
     <color name="colorSoftYellow">#FAD951</color>

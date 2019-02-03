@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimaryDark"
     tools:context="com.jeek.calendar.activity.TaskActivity">
 
     <android.support.constraint.ConstraintLayout
@@ -41,8 +41,6 @@
         android:paddingBottom="5dp"
         android:background="@android:color/transparent"
         android:hint="Title"
-        android:maxLength="20"
-        android:maxLines="1"
         android:textColor="@color/colorTextWhite"
         android:textColorHint="#737078"
         android:textSize="20sp"
