@@ -21,7 +21,7 @@ public class DeleteEventTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void...voids) {
-        Log.wtf("suka","task2");
+        Log.wtf("DeleteEventTask","ID:"+mSchedule.getCalID());
         if (mSchedule != null) {
             ScheduleDao dao = ScheduleDao.getInstance(mContext);
             dao.deleteEvent(mSchedule);
