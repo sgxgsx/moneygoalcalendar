@@ -144,7 +144,7 @@ public class  ScheduleDao{
         values.put(CalendarContract.Events.DESCRIPTION, mSchedule.getDesc());
         values.put(CalendarContract.Events.CALENDAR_ID, 3);
         TimeZone tz = TimeZone.getDefault();
-        values.put(CalendarContract.Events.EVENT_TIMEZONE, tz.getDisplayName(Locale.getDefault(Locale.Category.DISPLAY)));
+        values.put(CalendarContract.Events.EVENT_TIMEZONE, tz.getDisplayName());
         values.put(CalendarContract.Events.EVENT_LOCATION, mSchedule.getLocation());
         values.put(CalendarContract.Events.EVENT_COLOR, -552015);
 
@@ -208,10 +208,10 @@ public class  ScheduleDao{
         contentValues.put(CalendarContract.Events.DTEND, endTime.getTimeInMillis());
         contentValues.put(CalendarContract.Events.TITLE, mSchedule.getTitle());
         contentValues.put(CalendarContract.Events.DESCRIPTION, mSchedule.getDesc());
-        contentValues.put(CalendarContract.Events.CALENDAR_ID, 3);
+        contentValues.put(CalendarContract.Events.CALENDAR_ID, mSchedule.getId());
         contentValues.put(CalendarContract.Events._ID, mSchedule.getCalID());
         TimeZone tz = TimeZone.getDefault();
-        contentValues.put(CalendarContract.Events.EVENT_TIMEZONE, tz.getDisplayName(Locale.getDefault(Locale.Category.DISPLAY)));
+        contentValues.put(CalendarContract.Events.EVENT_TIMEZONE, tz.getDisplayName());
         contentValues.put(CalendarContract.Events.EVENT_LOCATION, mSchedule.getLocation());
         /*values.put(CalendarContract.Events.GUESTS_CAN_INVITE_OTHERS, "1");
         values.put(CalendarContract.Events.GUESTS_CAN_SEE_GUESTS, "1");*/

@@ -2,6 +2,7 @@ package com.jeek.calendar.activity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -70,14 +71,14 @@ public class EditEventActivity extends BaseActivity implements View.OnClickListe
         etScheduleTitle.setText(extras.getString("Title"));
         etScheduleDesc.setText(extras.getString("Description"));
         tvDateStart.setText(mSchedule.getYear() + " " + calStart.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH) + " " + mSchedule.getDay());
-        tvDateEnd.setText(mSchedule.getYearend() + " " + calEnd.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH) + " " + mSchedule.getDayend());
-        tvTimeStart.setText(DateUtils.formatDateTime(this,
+        //tvDateEnd.setText(mSchedule.getYearend() + " " + calEnd.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH) + " " + mSchedule.getDayend());
+        /*tvTimeStart.setText(DateUtils.formatDateTime(this,
                 calStart.getTimeInMillis(),
                 DateUtils.FORMAT_SHOW_TIME));
         tvTimeEnd.setText(DateUtils.formatDateTime(this,
                 calEnd.getTimeInMillis(),
                 DateUtils.FORMAT_SHOW_TIME));
-
+*/      resetDateTimeUi();
     }
 
 
@@ -95,14 +96,26 @@ public class EditEventActivity extends BaseActivity implements View.OnClickListe
                 break;
         }
     }
+    private void resetDateTimeUi() {
+        tvDateStart.setText(String.format(getString(R.string.date_format_no_time), mSchedule.getYear(), mSchedule.getMonth()+ 1, mSchedule.getDay()));
+        tvTimeStart.setText(String.format("%02d", mSchedule.getHour()) + " : " + String.format("%02d", mSchedule.getMinute()));
 
+        if (mSchedule.getHour() != 23) {
+            tvDateEnd.setText(String.format(getString(R.string.date_format_no_time), mSchedule.getYear(), mSchedule.getMonth()+ 1, mSchedule.getDay()));
+            tvTimeEnd.setText(String.format("%02d", mSchedule.getHour()+1) + " : " + String.format("%02d", mSchedule.getMinute()));
+        } else {
+            tvDateEnd.setText(String.format(getString(R.string.date_format_no_time), mSchedule.getYear(), mSchedule.getMonth()+ 1, mSchedule.getDay()+1));
+            tvTimeEnd.setText(String.format("%02d", 0) + " : " + String.format("%02d", mSchedule.getMinute()));
+        }
+    }
 
     public void editEvent() {
         mSchedule.setTitle(etScheduleTitle.getText().toString());
         mSchedule.setDesc(etScheduleDesc.getText().toString());
 
         new EditEventTask(this, mSchedule).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-        finish();
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     private void setScheduleObjData(Bundle extras) {
