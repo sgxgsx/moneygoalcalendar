@@ -26,6 +26,7 @@ import android.widget.TimePicker;
 import com.jeek.calendar.R;
 import com.jeek.calendar.adapter.ScheduleAdapter;
 import com.jeek.calendar.dialog.InputLocationDialog;
+import com.jeek.calendar.dialog.SelectCalendarDialog;
 import com.jeek.calendar.dialog.SelectDateDialog;
 import com.jeek.calendar.task.schedule.AddEventTask;
 import com.jimmy.common.CalendarSystemDatabase.Schedule;
@@ -52,7 +53,8 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
 
     public static String EVENT_SET_OBJ = "event.set.obj";
     private static final String TAG = "Sample";
-
+    private SelectCalendarDialog mSelectCalendarDialog;
+    private String[][] cals;
     private static final String TAG_DATETIME_FRAGMENT = "TAG_DATETIME_FRAGMENT";
 
     private static final String STATE_TEXTVIEW = "STATE_TEXTVIEW";
@@ -70,7 +72,7 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
 
     public  int timeDialogId=0;
     public TextView v;
-    private TextView tvDateStart,tvDateEnd,tvTimeStart,tvTimeEnd;
+    private TextView tvDateStart,tvDateEnd,tvTimeStart,tvTimeEnd,tvCalendarOwnerTextView;
 
     Calendar dateAndTime=Calendar.getInstance();
 
@@ -117,8 +119,8 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
         tvDateEnd       = findViewById(R.id.tvDateEnd);
         tvTimeStart     = findViewById(R.id.tvTimeStart);
         tvTimeEnd       = findViewById(R.id.tvTimeEnd);
-
-
+        tvCalendarOwnerTextView = findViewById(R.id.tvCalendarOwnerTextView);
+        findViewById(R.id.tvCalendarOwnerTextView).setOnClickListener(this);
         setCurrentDate();
         resetDateTimeUi();
     }
@@ -174,7 +176,14 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
             case R.id.llAddEvent:
                 addEvent();
                 break;
+            case R.id.tvCalendarOwnerTextView:
+                showSelectCalendarDialog();
+                break;
         }
+    }
+
+    private void showSelectCalendarDialog(){
+        
     }
     private void showInputLocationDialog() {
         if (mInputLocationDialog == null) {

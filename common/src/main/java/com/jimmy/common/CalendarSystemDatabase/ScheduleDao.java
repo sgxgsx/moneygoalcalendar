@@ -208,8 +208,8 @@ public class  ScheduleDao{
         contentValues.put(CalendarContract.Events.DTEND, endTime.getTimeInMillis());
         contentValues.put(CalendarContract.Events.TITLE, mSchedule.getTitle());
         contentValues.put(CalendarContract.Events.DESCRIPTION, mSchedule.getDesc());
-        contentValues.put(CalendarContract.Events.CALENDAR_ID, 1);
-        contentValues.put(CalendarContract.Events._ID, mSchedule.getId());
+        contentValues.put(CalendarContract.Events.CALENDAR_ID, 3);
+        contentValues.put(CalendarContract.Events._ID, mSchedule.getCalID());
         TimeZone tz = TimeZone.getDefault();
         contentValues.put(CalendarContract.Events.EVENT_TIMEZONE, tz.getDisplayName(Locale.getDefault(Locale.Category.DISPLAY)));
         contentValues.put(CalendarContract.Events.EVENT_LOCATION, mSchedule.getLocation());
@@ -220,7 +220,7 @@ public class  ScheduleDao{
         Uri uri = CalendarContract.Events.CONTENT_URI;
 
         String mSelectionClause = CalendarContract.Events._ID+ " = ?";
-        String[] mSelectionArgs = {Integer.toString(mSchedule.getId())};
+        String[] mSelectionArgs = {Integer.toString(mSchedule.getCalID())};
 
         int updCount = mContext.getContentResolver().update(uri, contentValues,mSelectionClause,mSelectionArgs);
 

@@ -54,16 +54,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
     //private DrawerLayout dlMain;
     private LinearLayout llTitleDate;
     private TextView tvTitleMonth, tvTitleDay, tvTitle;
-    private View gotoMoneyButton,gotoGoalButton,ChooseMenuButtonBackground;
     private View ChooseModuleButtonTime;
     //private RecyclerView rvMenuCalendarClassList;   //rvMenuEventSetist       CALENDARS
     private SlideMenu slideMenu;
     //private CalendarClassAdapter mCalendarClassAdapter;                       CALENDARS
     //private List<CalendarClass> mCalendarClasses;  // mEventSets              CALENDARS
     private BaseFragment mScheduleFragment;
-    //private BaseFragment mEventSetFragment;
-    //private EventSet mCurrentEventSet;
-    //private AddEventSetBroadcastReceiver mAddEventSetBroadcastReceiver;
 
     private long[] mNotes = new long[2];
     private String[] mMonthText;
@@ -158,29 +154,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         tvTitleMonth = searchViewById(R.id.tvTitleMonth);
         tvTitleDay = searchViewById(R.id.tvTitleDay);
         tvTitle = searchViewById(R.id.tvTitle);
-        ChooseModuleButtonTime=searchViewById(R.id.ChooseModuleButtonTime);
-        ChooseMenuButtonBackground=searchViewById(R.id.BackGroundWhenChoice);
-        ChooseMenuButtonBackground.setVisibility(View.INVISIBLE);
-        gotoMoneyButton=searchViewById(R.id.gotoMoneyButton);
-        gotoGoalButton=searchViewById(R.id.gotoGoalButton);
-        //rvMenuCalendarClassList = searchViewById(R.id.rvMenuEventSetList);
         mUserNameTextView = searchViewById(R.id.tvMenuTitleAccount);
 
         searchViewById(R.id.ivMainMenu).setOnClickListener(this);
         searchViewById(R.id.llMenuSchedule).setOnClickListener(this);
-        //searchViewById(R.id.llMenuNoCategory).setOnClickListener(this);
         searchViewById(R.id.llMenuGoMoney).setOnClickListener(this);
 
         searchViewById(R.id.llMenuGoGoal).setOnClickListener(this);
-        //searchViewById(R.id.tvMenuAddEventSet).setOnClickListener(this);
         searchViewById(R.id.tvMenuSignOut).setOnClickListener(this);
         //searchViewById(R.id.tvMenuDeleteAccount).setOnClickListener(this);
         searchViewById(R.id.llMenuGoSettings).setOnClickListener(this);
         searchViewById(R.id.floatingActionButton).setOnClickListener(this);
-        searchViewById(R.id.chooseMenuButtonBackground2).setOnClickListener(this);
-        searchViewById(R.id.gotoGoalButton).setOnClickListener(this);
-        searchViewById(R.id.gotoMoneyButton).setOnClickListener(this);
-        searchViewById(R.id.ChooseModuleButtonTime).setOnClickListener(this);
         initUi();
         gotoScheduleFragment();
 
@@ -277,20 +261,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
             case R.id.llMenuGoSettings:
                 gotoSettings();
                 break;
-            case R.id.ChooseModuleButtonTime:
-                showFloatingChoiceMenu();
-                break;
-            case R.id.gotoMoneyButton:
-                gotoMoney();
-                break;
-            case R.id.gotoGoalButton:
-                /*gotoGoal();*/
-                gotoProgressBar();
-                //gotoChooseDateActivity();
-                break;
-            case R.id.chooseMenuButtonBackground2:
-                hideFloatingChoiceMenu();
-                break;
             default:
                 break;
         }
@@ -313,19 +283,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
         }
     }
 
-    private void showFloatingChoiceMenu() {
-        Log.wtf("showFloatingChoiceMenu", "show menu");
-        gotoMoneyButton.setVisibility(View.VISIBLE);
-        gotoGoalButton.setVisibility(View.VISIBLE);
-        ChooseMenuButtonBackground.setVisibility(View.VISIBLE);
-    }
-    private void hideFloatingChoiceMenu() {
-        Log.wtf("hideFloatingChoiceMenu", "hide menu");
-        gotoMoneyButton.setVisibility(View.INVISIBLE);
-        gotoGoalButton.setVisibility(View.INVISIBLE);
-        ChooseMenuButtonBackground.setVisibility(View.INVISIBLE);
 
-    }
 
     private void gotoGoalFromMenu(){
         Intent intent = new Intent(this, GoalActivity.class);
@@ -353,23 +311,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,O
     private void gotoMoney(){
         Intent intent = new Intent(this, MoneyActivity.class);
         startActivity(intent);
-        gotoMoneyButton.setVisibility(View.INVISIBLE);
-        gotoGoalButton.setVisibility(View.INVISIBLE);
-        ChooseMenuButtonBackground.setVisibility(View.INVISIBLE);
     }
 
-    private void gotoGoal() {
-        //DONE add gotogoal direction
-        gotoMoneyButton.setVisibility(View.INVISIBLE);
-        gotoGoalButton.setVisibility(View.INVISIBLE);
-        ChooseMenuButtonBackground.setVisibility(View.INVISIBLE);
-        gotoGoalFromMenu();
-    }
 
-    private void gotoProgressBar() {
-        Intent intent = new Intent(this, ProgressBarExample.class);
-        startActivity(intent);
-    }
 
     private void gotoScheduleFragment() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
