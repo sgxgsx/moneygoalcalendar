@@ -21,6 +21,7 @@ import com.jeek.calendar.R;
 import com.jeek.calendar.task.schedule.DeleteEventTask;
 import com.jimmy.common.CalendarSystemDatabase.Schedule;
 
+import java.io.Serializable;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -173,7 +174,7 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
     private void editEvent() {
         // TODO перенаправить на эдитИвентАктивити
         Intent intent = new Intent(this, EditEventActivity.class);
-
+        intent.putExtra("mSchedule",(Serializable) mSchedule);/*
         intent.putExtra("Title", mSchedule.getTitle());
         intent.putExtra("Description", mSchedule.getDesc());
         intent.putExtra("Account", mSchedule.getAccount());
@@ -196,7 +197,7 @@ public class DetailEventActivity extends AppCompatActivity implements View.OnCli
         intent.putExtra("Yearend", mSchedule.getYearend());
 
         intent.putExtra("Time", mSchedule.getTime());
-        intent.putExtra("Timeend", mSchedule.getTime_end());
+        intent.putExtra("Timeend", mSchedule.getTime_end());*/
 
         startActivity(intent);
     }

@@ -40,15 +40,17 @@ public class EditEventActivity extends BaseActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent i = getIntent();
+        mSchedule = (Schedule) i.getSerializableExtra("mSchedule");
         Bundle extras = getIntent().getExtras();
-        Log.wtf("Extras", extras.getString("Title"));
+        Log.wtf("Extras", mSchedule.getTitle());
         setContentView(R.layout.activity_add_event_3);
         initView(extras);
     }
 
 
     private void initView(Bundle extras) {
-        setScheduleObjData(extras);
+        //setScheduleObjData(extras);
         Calendar calStart = Calendar.getInstance();
         Calendar calEnd = Calendar.getInstance();
         Date dateStart = new Date(mSchedule.getTime());
@@ -67,10 +69,12 @@ public class EditEventActivity extends BaseActivity implements View.OnClickListe
         searchViewById(R.id.tvSaveGoal).setOnClickListener(this);
         tvAccName = searchViewById(R.id.tvCalendarOwnerTextView);
         searchViewById(R.id.tvSaveGoal).setOnClickListener(this);
+        searchViewById(R.id.llCancel).setOnClickListener(this);
 
-        etScheduleTitle.setText(extras.getString("Title"));
-        etScheduleDesc.setText(extras.getString("Description"));
-        tvDateStart.setText(mSchedule.getYear() + " " + calStart.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH) + " " + mSchedule.getDay());
+
+        etScheduleTitle.setText(mSchedule.getTitle());
+        etScheduleDesc.setText(mSchedule.getDesc());
+        //tvDateStart.setText(mSchedule.getYear() + " " + calStart.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH) + " " + mSchedule.getDay());
         //tvDateEnd.setText(mSchedule.getYearend() + " " + calEnd.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH) + " " + mSchedule.getDayend());
         /*tvTimeStart.setText(DateUtils.formatDateTime(this,
                 calStart.getTimeInMillis(),
@@ -91,6 +95,9 @@ public class EditEventActivity extends BaseActivity implements View.OnClickListe
                 break;
             case R.id.tvCalendarOwnerTextView:
 
+                break;
+            case R.id.llCancel:
+                finish();
                 break;
             default:
                 break;
@@ -116,30 +123,6 @@ public class EditEventActivity extends BaseActivity implements View.OnClickListe
         new EditEventTask(this, mSchedule).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-    }
-
-    private void setScheduleObjData(Bundle extras) {
-        mSchedule.setTitle(extras.getString("Title"));
-        mSchedule.setDesc(extras.getString("Description"));
-        mSchedule.setAccount(extras.getString("Account"));
-        mSchedule.setAccount_name(extras.getString("Account_name"));
-        mSchedule.setLocation(extras.getString("Location"));
-        mSchedule.setRepeat(extras.getString("Repeat"));
-        mSchedule.setState(extras.getInt("State"));
-        mSchedule.setCalID(extras.getInt("Id"));
-        mSchedule.setColor(extras.getInt("Color"));
-        mSchedule.setMonth(extras.getInt("Month"));
-        mSchedule.setMonthend(extras.getInt("Monthend"));
-        mSchedule.setMinute(extras.getInt("Minute"));
-        mSchedule.setHour(extras.getInt("Hour"));
-        mSchedule.setDay(extras.getInt("Day"));
-        mSchedule.setDayend(extras.getInt("Dayend"));
-        mSchedule.setHourend(extras.getInt("Hourend"));
-        mSchedule.setMinuteend(extras.getInt("Minuteend"));
-        mSchedule.setYear(extras.getInt("Year"));
-        mSchedule.setYearend(extras.getInt("Yearend"));
-        mSchedule.setTime(extras.getLong("Time"));
-        mSchedule.setTime_end(extras.getLong("Timeend"));
     }
 
     public void setDateStart(View v) {
@@ -178,37 +161,55 @@ public class EditEventActivity extends BaseActivity implements View.OnClickListe
 
     // установка начальных даты и времени
     private void setInitialDateTimeDateStart() {
-
         TextView tvv = findViewById(R.id.tvDateStart);
-        tvv.setText(DateUtils.formatDateTime(this,
-                dateAndTime.getTimeInMillis(),
-                DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR));
+        tvv.setText(mSchedule.getYear()+"-"+mSchedule.getMonth()+1+"-"+mSchedule.getDay());
+        if (    (mSchedule.getYear() > mSchedule.getYearend()) ||
+                (mSchedule.getMonth() > mSchedule.getMonthend() && mSchedule.getYear() >= mSchedule.getYearend()) ||
+                (mSchedule.getMonth() >= mSchedule.getMonthend() && mSchedule.getYear() >= mSchedule.getYearend() && mSchedule.getDay() > mSchedule.getDayend())) {
+            TextView tv = findViewById(R.id.tvDateEnd);
+            tv.setText(mSchedule.getYear() + "-" + mSchedule.getMonth()+1 + "-" + mSchedule.getDay());
+            mSchedule.setYearend(mSchedule.getYear());
+            mSchedule.setMonthend(mSchedule.getMonth());
+            mSchedule.setDayend(mSchedule.getDay());
+        }
     }
 
     private void setInitialDateTimeDateEnd() {
-
         TextView tvv = findViewById(R.id.tvDateEnd);
-
-        tvv.setText(DateUtils.formatDateTime(this,
-                dateAndTime.getTimeInMillis(),
-                DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR));
+        tvv.setText(mSchedule.getYearend() + "-" + mSchedule.getMonthend() + 1 + "-" + mSchedule.getDayend());
+        if (    (mSchedule.getYear() > mSchedule.getYearend()) ||
+                (mSchedule.getMonth() > mSchedule.getMonthend() && mSchedule.getYear() >= mSchedule.getYearend()) ||
+                (mSchedule.getMonth() >= mSchedule.getMonthend() && mSchedule.getYear() >= mSchedule.getYearend() && mSchedule.getDay() > mSchedule.getDayend())) {
+            TextView tv = findViewById(R.id.tvDateStart);
+            tv.setText(mSchedule.getYearend() + "-" + mSchedule.getMonthend() + 1 + "-" + mSchedule.getDayend());
+            mSchedule.setYear(mSchedule.getYearend());
+            mSchedule.setMonth(mSchedule.getMonthend());
+            mSchedule.setDay(mSchedule.getDayend());
+        }
     }
 
     private void setInitialDateTimeTimeStart() {
-
         TextView tvv = findViewById(R.id.tvTimeStart);
-        tvv.setText(DateUtils.formatDateTime(this,
-                dateAndTime.getTimeInMillis(),
-                DateUtils.FORMAT_SHOW_TIME));
+        tvv.setText(String.format("%02d", mSchedule.getHour()) + " : " + String.format("%02d", mSchedule.getMinute()));
+        if ((mSchedule.getHour() > mSchedule.getHourend() && (mSchedule.getDay() == mSchedule.getDayend() && mSchedule.getMonth() == mSchedule.getMonthend())) ||
+                (mSchedule.getMinute() > mSchedule.getMinuteend() && mSchedule.getHour() >= mSchedule.getHourend() && (mSchedule.getDay() == mSchedule.getDayend() && mSchedule.getMonth() == mSchedule.getMonthend()))) {
+            TextView tv = findViewById(R.id.tvTimeEnd);
+            tv.setText(String.format("%02d", mSchedule.getHour()) + " : " + String.format("%02d", mSchedule.getMinute()));
+            mSchedule.setHourend(mSchedule.getHour());
+            mSchedule.setMinuteend(mSchedule.getMinute());
+        }
     }
 
     private void setInitialDateTimeTimeEnd() {
-
         TextView tvv = findViewById(R.id.tvTimeEnd);
-        tvv.setText(DateUtils.formatDateTime(this,
-                dateAndTime.getTimeInMillis(),
-                DateUtils.FORMAT_SHOW_TIME));
-
+        tvv.setText(String.format("%02d", mSchedule.getHourend()) + " : " + String.format("%02d", mSchedule.getMinuteend()));
+        if ((mSchedule.getHour() > mSchedule.getHourend() && (mSchedule.getDay() == mSchedule.getDayend() && mSchedule.getMonth() == mSchedule.getMonthend())) ||
+                (mSchedule.getMinute() > mSchedule.getMinuteend() && mSchedule.getHour() >= mSchedule.getHourend() && (mSchedule.getDay() == mSchedule.getDayend() && mSchedule.getMonth() == mSchedule.getMonthend()))) {
+            TextView tv = findViewById(R.id.tvTimeStart);
+            tv.setText(String.format("%02d", mSchedule.getHourend()) + " : " + String.format("%02d", mSchedule.getMinuteend()));
+            mSchedule.setHour(mSchedule.getHourend());
+            mSchedule.setMinute(mSchedule.getMinuteend());
+        }
     }
 
 
