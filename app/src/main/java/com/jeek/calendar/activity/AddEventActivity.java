@@ -281,12 +281,8 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
     }
     // установка начальных даты и времени
     private void setInitialDateTimeDateStart() {
-
         TextView tvv = findViewById(R.id.tvDateStart);
         tvv.setText(mSchedule.getYear()+"-"+mSchedule.getMonth()+1+"-"+mSchedule.getDay());
-                /*tvv.setText(DateUtils.formatDateTime(this,
-                dateAndTime.getTimeInMillis(),
-                DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR));*/
         if (    (mSchedule.getYear() > mSchedule.getYearend()) ||
                 (mSchedule.getMonth() > mSchedule.getMonthend() && mSchedule.getYear() >= mSchedule.getYearend()) ||
                 (mSchedule.getMonth() >= mSchedule.getMonthend() && mSchedule.getYear() >= mSchedule.getYearend() && mSchedule.getDay() > mSchedule.getDayend())) {
@@ -301,10 +297,6 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
 
         TextView tvv = findViewById(R.id.tvDateEnd);
         tvv.setText(mSchedule.getYearend() + "-" + mSchedule.getMonthend() + 1 + "-" + mSchedule.getDayend());
-        /*tvv.setText(DateUtils.formatDateTime(this,
-                dateAndTime.getTimeInMillis(),
-                DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR));*/
-
         if (    (mSchedule.getYear() > mSchedule.getYearend()) ||
                 (mSchedule.getMonth() > mSchedule.getMonthend() && mSchedule.getYear() >= mSchedule.getYearend()) ||
                 (mSchedule.getMonth() >= mSchedule.getMonthend() && mSchedule.getYear() >= mSchedule.getYearend() && mSchedule.getDay() > mSchedule.getDayend())) {
@@ -314,18 +306,11 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
             mSchedule.setMonth(mSchedule.getMonthend());
             mSchedule.setDay(mSchedule.getDayend());
         }
-
-
-
-
     }
     private void setInitialDateTimeTimeStart() {
 
         TextView tvv = findViewById(R.id.tvTimeStart);
         tvv.setText(String.format("%02d", mSchedule.getHour()) + " : " + String.format("%02d", mSchedule.getMinute()));
-        /*tvv.setText(DateUtils.formatDateTime(this,
-                dateAndTime.getTimeInMillis(),
-                DateUtils.FORMAT_SHOW_TIME));*/
         if ((mSchedule.getHour() > mSchedule.getHourend() && (mSchedule.getDay() == mSchedule.getDayend() && mSchedule.getMonth() == mSchedule.getMonthend())) ||
                 (mSchedule.getMinute() > mSchedule.getMinuteend() && mSchedule.getHour() >= mSchedule.getHourend() && (mSchedule.getDay() == mSchedule.getDayend() && mSchedule.getMonth() == mSchedule.getMonthend()))) {
             TextView tv = findViewById(R.id.tvTimeEnd);
@@ -334,15 +319,12 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
             mSchedule.setMinuteend(mSchedule.getMinute());
         }
     }
-    private void setInitialDateTimeTimeEnd() {
 
+    private void setInitialDateTimeTimeEnd() {
         TextView tvv = findViewById(R.id.tvTimeEnd);
         tvv.setText(String.format("%02d", mSchedule.getHourend()) + " : " + String.format("%02d", mSchedule.getMinuteend()));
-        /*tvv.setText(DateUtils.formatDateTime(this,
-                dateAndTime.getTimeInMillis(),
-                DateUtils.FORMAT_SHOW_TIME));*/
-        if (    (mSchedule.getHour() > mSchedule.getHourend() && (mSchedule.getDay()==mSchedule.getDayend()&&mSchedule.getMonth()==mSchedule.getMonthend())) ||
-                (mSchedule.getMinute() > mSchedule.getMinuteend() && mSchedule.getHour() >= mSchedule.getHourend() && (mSchedule.getDay()==mSchedule.getDayend()&&mSchedule.getMonth()==mSchedule.getMonthend()))) {
+        if ((mSchedule.getHour() > mSchedule.getHourend() && (mSchedule.getDay() == mSchedule.getDayend() && mSchedule.getMonth() == mSchedule.getMonthend())) ||
+                (mSchedule.getMinute() > mSchedule.getMinuteend() && mSchedule.getHour() >= mSchedule.getHourend() && (mSchedule.getDay() == mSchedule.getDayend() && mSchedule.getMonth() == mSchedule.getMonthend()))) {
             TextView tv = findViewById(R.id.tvTimeStart);
             tv.setText(String.format("%02d", mSchedule.getHourend()) + " : " + String.format("%02d", mSchedule.getMinuteend()));
             mSchedule.setHour(mSchedule.getHourend());
