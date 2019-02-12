@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- main colors   -->
+    <!--
     <color name="colorPrimary">#2C2A32</color>
     <color name="colorPrimaryDark">#232127</color>
     <color name="colorPrimaryLight">#524E5D</color>
@@ -10,14 +11,33 @@
     <color name="colorMagenta">#BD00FB</color>
     <color name="colorBlue">#76DAFE</color>
     <color name="colorWeekBlue">#4588E3</color>
+    !-->
+    <color name="colorPrimaryDark">#06101f</color>
+    <color name="colorPrimary">#1d304b</color>
+    <color name="colorPrimary80">#801d304b</color>
+    <color name="colorPrimaryLight">#273C5A</color>
+    <color name="colorAccent">#f9425f</color>
+
+    <color name="colorLime">#00C382</color>
+    <color name="colorSoftYellow">#FAD951</color>
+    <color name="colorMagenta">#BD00FB</color>
+
+    <color name="colorBlue">#47a1f9</color>
+    <color name="colorWeekBlue">#1688f7</color>
 
 
     <!-- text -->
+    <!--
     <color name="colorGrey">#726F7A</color>
     <color name="colorTextWhite">#EBEAEB</color>
     <color name="colorICWhite">#DEDEDE</color>
     <color name="colorICGrey">#C7C7C7</color>
-    <color name="colorBackBlue">#76DAFE</color>
+    !-->
+
+    <color name="colorGrey">#556B8B</color>
+    <color name="colorTextWhite">#EBEAEB</color>
+    <color name="colorICWhite">#FFFFFF</color>
+    <color name="colorICGrey">#7487A3</color>
 
 
     <!-- other -->

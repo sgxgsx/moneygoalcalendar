@@ -9,7 +9,7 @@
     android:layout_marginEnd="@dimen/space_8dp"
     android:layout_marginBottom="4dp"
     android:background="@drawable/goal_block"
-    android:backgroundTint="@color/colorPrimaryDark">
+    android:backgroundTint="@color/colorPrimary">
 
     <!-- max 20chars text for tvGoalName !-->
 
@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/goal_photo"
-        android:backgroundTint="@color/colorPrimaryDark"
+        android:backgroundTint="@color/colorPrimary"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -26,7 +26,7 @@
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:background="@drawable/goal_photo"
-            android:backgroundTint="@color/colorPrimaryDark"
+            android:backgroundTint="@color/colorPrimary"
             android:scaleType="centerCrop" />
 
         <LinearLayout
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="11dp"
             android:background="@drawable/note_block"
-            android:backgroundTint="#802C2A32"
+            android:backgroundTint="@color/colorPrimary80"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -50,7 +50,7 @@
                 android:maxLines="1"
                 android:text="My real goal name we"
                 android:textAlignment="center"
-                android:textColor="#fff"
+                android:textColor="@color/colorICWhite"
                 android:textSize="@dimen/text_size_20sp" />
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>

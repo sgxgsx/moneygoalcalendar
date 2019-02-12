@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimaryDark"
     tools:context="com.jeek.calendar.activity.AddAimActivity">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/nbAddGoal"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="@color/colorPrimaryDark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -83,6 +82,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nbAddGoal">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary" />
+
         <android.support.constraint.ConstraintLayout
             android:id="@+id/DateLayout"
             android:layout_width="match_parent"
@@ -126,7 +130,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="5dp"
-            android:background="@color/colorPrimaryDark" />
+            android:background="@color/colorPrimary" />
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/TimeLayout"
@@ -174,7 +178,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="5dp"
-            android:background="@color/colorPrimaryDark" />
+            android:background="@color/colorPrimary" />
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/DescriptionLayout"
