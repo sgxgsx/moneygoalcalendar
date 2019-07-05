@@ -1,5 +1,5 @@
 # moneygoalcalendar
-# Feel free to clone, modify code, use it for fun and profit.
+## Feel free to clone, modify code, use it for fun and profit.
 Please understand this repo won't be maintained anymore.
 
 #What it should have been:
