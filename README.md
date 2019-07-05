@@ -24,4 +24,6 @@ Please understand this repo won't be maintained anymore.
 In order to scale this repo u have to change entire database, delete some code and **** with it a lot))
 
 
-![look 1](https://i.imgur.com/JPBHN0I.png)
+![goals/projects](https://i.imgur.com/JPBHN0I.png)
+![calendar](https://i.imgur.com/8MOWI9B.png)
+![tasks](https://i.imgur.com/F5m14dr.png)
