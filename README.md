@@ -1,6 +1,7 @@
 # moneygoalcalendar
 ## Feel free to clone, modify code, use it for fun and profit.
 Please understand this repo won't be maintained anymore.
+All lessons learned!
 
 #What it should have been:
   It should have been an app with a Calender, Task tracking and Expance/Income tracking capabilities.
