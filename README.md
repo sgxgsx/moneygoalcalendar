@@ -24,4 +24,4 @@ Please understand this repo won't be maintained anymore.
 In order to scale this repo u have to change entire database, delete some code and **** with it a lot))
 
 
-{https://imgur.com/a/jeOxMaZ}
+![look 1](https://imgur.com/a/jeOxMaZ)
