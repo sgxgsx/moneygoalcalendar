@@ -1,0 +1,85 @@
+<resources>
+
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:actionBarSize">@dimen/action_bar_height</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:textColorSecondary">@color/colorICWhite</item>
+        <item name="android:windowSoftInputMode">adjustNothing</item>
+    </style>
+
+    <style name="AppTheme" parent="BaseAppTheme">
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:textColorSecondary">@color/colorICWhite</item>
+        <item name="android:listDivider">@color/colorMagenta</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorControlHighlight">@color/colorPrimary</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorControlHighlight">@color/colorPrimary</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
+    </style>
+
+    <style name="DialogFullScreen" parent="DialogStyle" />
+
+    <style name="DialogStyle" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/colorICWhite</item>
+        <item name="android:actionBarSize">@dimen/action_bar_height</item>
+        <item name="android:windowSoftInputMode">adjustNothing</item>
+    </style>
+
+    <style name="MyDatePickerDialogStyle" parent="DialogStyle">
+        <item name="android:windowBackground">@drawable/dialog_background</item>
+        <item name="android:backgroundTint">@color/colorPrimaryDark</item>
+        <item name="android:textColorSecondary">@color/colorWeekBlue</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+        <item name="android:windowSoftInputMode">adjustNothing</item>
+
+    </style>
+
+    <style name="myTimePickerStyle" parent="DialogStyle">
+        <item name="android:windowBackground">@drawable/dialog_background</item>
+        <item name="android:backgroundTint">@color/colorPrimary</item>
+        <item name="android:timePickerMode">clock</item>
+        <item name="showTitle">false</item>
+        <item name="android:shadowColor">@color/colorTranslate</item>
+        <item name="android:outlineAmbientShadowColor">@color/colorTranslate</item>
+        <item name="android:outlineSpotShadowColor">@color/colorTranslate</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/colorPrimaryDark</item>
+        <item name="android:textColorSecondary">@color/colorPrimary</item>
+        <item name="colorControlNormal">@color/colorSoftYellow</item>
+        <item name="android:windowSoftInputMode">adjustNothing</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <style name="NavigationView">
+        <item name="android:listDivider">@color/colorPrimary</item>
+        <item name="android:backgroundTint">@color/colorPrimaryDark</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="itemTextColor">@color/colorICGrey</item>
+        <item name="android:textColorSecondary">@color/colorICWhite</item>
+        <item name="android:iconTint">@color/colorICWhite</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:windowSoftInputMode">adjustNothing</item>
+    </style>
+
+</resources>

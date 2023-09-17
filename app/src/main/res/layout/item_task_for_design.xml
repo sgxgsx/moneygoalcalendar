@@ -1,0 +1,90 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/clTask"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    android:theme="@style/AppTheme"
+    android:background="@drawable/dialog_background"
+    android:backgroundTint="@color/colorPrimaryDark">
+
+    <TextView
+        android:id="@+id/tvTaskTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="60dp"
+        android:maxLines="2"
+        android:maxLength="30"
+        android:text="rqafafsafsafsafsafasssssssssssssssssssssssssssssssssafwawrfsa"
+        android:textColor="@color/colorICWhite"
+        android:textSize="@dimen/text_size_16sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvTaskTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTaskTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="4dp"
+        android:text="Mar 16 15:00  ·  Apr 3  21:00"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_size_12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTaskTitle" />
+
+    <View
+        android:id="@+id/vMember"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:visibility="visible"
+        android:background="@drawable/circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar"/>
+
+    <LinearLayout
+        android:id="@+id/llViews"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tvTaskTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar">
+        <View
+            android:id="@+id/vNote"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:visibility="visible"
+            android:background="@drawable/ic_note"
+            android:backgroundTint="@color/colorICWhite"
+            android:layout_margin="0dp"/>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="5dp"
+        android:progress="40"
+        android:progressTint="@color/colorLime"
+        app:layout_constraintTop_toBottomOf="@+id/llViews"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

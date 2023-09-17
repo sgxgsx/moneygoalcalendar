@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- main colors   -->
+    <!--
+    <color name="colorPrimary">#2C2A32</color>
+    <color name="colorPrimaryDark">#232127</color>
+    <color name="colorPrimaryLight">#524E5D</color>
+    <color name="colorAccent">#FF5C5A</color>
+    <color name="colorLime">#00C382</color>
+    <color name="colorSoftYellow">#FAD951</color>
+    <color name="colorMagenta">#BD00FB</color>
+    <color name="colorBlue">#76DAFE</color>
+    <color name="colorWeekBlue">#4588E3</color>
+    !-->
+    <color name="colorPrimaryDark">#06101f</color>
+    <color name="colorPrimary">#1d304b</color>
+    <color name="colorPrimary80">#801d304b</color>
+    <color name="colorPrimaryLight">#273C5A</color>
+    <color name="colorAccent">#f9425f</color>
+
+    <color name="colorLime">#00C382</color>
+    <color name="colorSoftYellow">#FAD951</color>
+    <color name="colorMagenta">#BD00FB</color>
+
+    <color name="colorBlue">#47a1f9</color>
+    <color name="colorWeekBlue">#1688f7</color>
+
+
+    <!-- text -->
+    <!--
+    <color name="colorGrey">#726F7A</color>
+    <color name="colorTextWhite">#EBEAEB</color>
+    <color name="colorICWhite">#DEDEDE</color>
+    <color name="colorICGrey">#C7C7C7</color>
+    !-->
+
+    <color name="colorGrey">#556B8B</color>
+    <color name="colorTextWhite">#EBEAEB</color>
+    <color name="colorICWhite">#FFFFFF</color>
+    <color name="colorICGrey">#7487A3</color>
+
+
+    <!-- other -->
+
+
+    <color name="colorWrite">#FFFFFF</color>
+    <color name="colorTranslate">#00FFFFFF</color>
+    <color name="colorRed">#FF0000</color>
+
+    <color name="color_schedule_purple">#9082BD</color>
+
+    <color name="color_text_grey">#ADADB9</color>
+
+    <color name="color_menu_title_background">#353655</color>
+    <color name="color_menu_text_color_normal">#A5A1C2</color>
+    <color name="color_menu_text_color_pre">#73728B</color>
+    <color name="color_menu_line">#303054</color>
+
+    <color name="color_cancel_normal">#B6B6B6</color>
+    <color name="color_cancel_pre">#9FB6B6B6</color>
+    <color name="color_confirm_normal">#8F81BC</color>
+    <color name="color_confirm_pre">#9F8F81BC</color>
+
+    <color name="color_select_date_dialog_line">#B8B5D4</color>
+    <color name="color_select_date_dialog_edit_text_bg_focus">#A68BFF</color>
+    <color name="color_small_calendar_text">#7452E4</color>
+
+    <color name="color_input_location_bg">#F4F4F4</color>
+    <color name="color_input_location_text_hint">#AAA8B3</color>
+    <color name="color_input_location_text">#272E3E</color>
+
+
+    <color name="color_light_green">#00e640</color>
+
+
+    <color name="color_tangerine">#f28500</color>
+    <color name="color_banana">#ffe135</color>
+    <color name="color_tomato">#ff6347</color>
+    <color name="color_basil">#005600</color>
+    <color name="color_sage">#00a300</color>
+    <color name="color_peacock">#008e94</color>
+    <color name="color_blueberry">#2b3d71</color>
+    <color name="color_lavender">#9191ea</color>
+    <color name="color_grape">#b01376</color>
+    <color name="color_flamingo">#fb9475</color>
+    <color name="color_graphite">#3f4243</color>
+    <color name="color_default">#0073e6</color>
+
+</resources>

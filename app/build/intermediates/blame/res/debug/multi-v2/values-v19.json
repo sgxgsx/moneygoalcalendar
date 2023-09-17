@@ -1,0 +1,28 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Alex\\Documents\\Lastetskii\\kkk\\moneygoalcalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v19\\values-v19.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Alex\\Documents\\Lastetskii\\kkk\\moneygoalcalendar\\app\\src\\main\\res\\values-v19\\styles.xml",
+                    "from": {
+                        "startLines": "3,7",
+                        "startColumns": "4,4",
+                        "startOffsets": "59,192",
+                        "endLines": "5,12",
+                        "endColumns": "12,12",
+                        "endOffsets": "184,527"
+                    },
+                    "to": {
+                        "startLines": "2,5",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,183",
+                        "endLines": "4,10",
+                        "endColumns": "12,12",
+                        "endOffsets": "178,513"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+<resources>
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+    <string name="finish">完成</string>
+
+    <!--calendar-->
+    <string name="calendar_today">今天</string>
+    <string-array name="calendar_month">
+        <item>一月</item>
+        <item>二月</item>
+        <item>三月</item>
+        <item>四月</item>
+        <item>五月</item>
+        <item>六月</item>
+        <item>七月</item>
+        <item>八月</item>
+        <item>九月</item>
+        <item>十月</item>
+        <item>十一月</item>
+        <item>十二月</item>
+    </string-array>
+    <string name="calendar_day">%d日</string>
+    <string name="calendar_year">%d年</string>
+
+    <!--schedule-->
+    <string name="schedule_input_content_is_no_null">事件内容不能为空</string>
+
+    <!--menu-->
+    <string name="menu_schedule">日程</string>
+
+    <!--event.set-->
+
+    <string name="hour">小时</string>
+    <string name="date_format_no_time">%1$s年%2$s月%3$s日</string>
+    <string name="click_input_location">点击输入地点</string>
+    <string name="add_location">添加地点</string>
+
+</resources>

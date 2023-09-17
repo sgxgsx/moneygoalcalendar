@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:layout_marginEnd="@dimen/action_bar_height"
+    android:background="@color/colorPrimaryDark"
+    android:forceHasOverlappingRendering="true"
+    android:orientation="vertical"
+    android:tag="menu">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llMenuMembers"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/menu_item_height"
+                android:layout_marginTop="1dp"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_width"
+                    android:layout_height="@dimen/icon_width"
+                    android:layout_marginStart="@dimen/space_20dp"
+                    android:src="@drawable/ic_group"
+                    android:tint="@color/colorICWhite" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_10dp"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textColor="@color/colorICWhite"
+                    android:textSize="@dimen/text_size_18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llMenuGoalSettings"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/menu_item_height"
+                android:layout_marginTop="1dp"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_width"
+                    android:layout_height="@dimen/icon_width"
+                    android:layout_marginStart="@dimen/space_20dp"
+                    android:src="@drawable/ic_settings"
+                    android:tint="@color/colorICWhite" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_10dp"
+                    android:layout_weight="1"
+                    android:text="@string/menu_settings"
+                    android:textColor="@color/colorICWhite"
+                    android:textSize="@dimen/text_size_18sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

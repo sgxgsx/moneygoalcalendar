@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/clTask"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="4dp"
+    android:background="@drawable/note_block"
+    android:backgroundTint="@color/colorGrey">
+
+    <TextView
+        android:id="@+id/tvTaskTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="0dp"
+        android:maxLength="21"
+        android:maxLines="1"
+        android:text="Text:qrwr"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="@dimen/text_size_18sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/tvTaskText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTaskText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="2dp"
+        android:maxLength="80"
+        android:maxLines="2"
+        android:text="rqafafsafsafsafsaffasfasfasfsa"
+        android:textColor="@color/colorICWhite"
+        android:textSize="@dimen/text_size_16sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvTaskTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTaskTitle" />
+
+    <TextView
+        android:id="@+id/tvTaskTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="4dp"
+        android:text="Mar 8   14:66"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/text_size_12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTaskText" />
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/MenuDeleteEvent"
+        android:title="@string/menu_delete_event" />
+    <item
+        android:id="@+id/MenuDuplicateEvent"
+        android:title="@string/menu_duplicate_event" />
+    <item
+        android:id="@+id/MenuUpdateEvent"
+        android:title="@string/menu_update_goal" />
+</menu>
